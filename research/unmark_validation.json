@@ -1,28 +1,31 @@
 {
   "date": "2026-11-18",
-  "version": "unmark-v5",
-  "focus": "formal Grothendieck Abel reconstruction near smooth cubic AOU points and Picard formal action",
-  "claims": {
-    "universal_relation_algebra": "Proof in manuscript (v4): rank 45, gldim 2 all relation fibres",
-    "relation_formal_completeness": "Proof in manuscript (v4): labeled finite algebra Artin deformations",
-    "HH_support": "Proof in manuscript (v4): HH1=10-rho, HH2=18-rho",
-    "formal_abelian_reconstruction": "Proof in manuscript using DDL Thms 4.5, 5.13, 5.15; relies on Z-generating geometric helix and Ext vanishing for the standard cubic thread",
-    "formal_chart": "Proof in manuscript: formal completion of dense quotient torus represents framed Abel deformation isomorphism classes",
-    "formal_picard": "Proof in manuscript: formal action by changing special-fibre identification; tangent Picard shear; no global algebraic action claimed",
-    "formal_unmarked_groupoid": "Proof in manuscript at 1-truncation after natural-isomorphism rigidification",
-    "relative_serre_t_exact": "NOT established in all formal directions",
-    "full_GIT_heart": "NOT established",
-    "global_unmarked_stack": "NOT established",
-    "novelty_exhaustive": "NOT investigated exhaustively"
+  "version": "unmark-v6",
+  "source": {
+    "repository": "uedakazushi/nc-cubic-unmark",
+    "base_commit_before_update": "38cf21db99190101611201224bb3f897bed13ecb",
+    "target_branch": "main"
+  },
+  "research_scope": {
+    "dense_AS_locus": "Proposition in manuscript is a direct consequence of AOU Theorem 1.1, Proposition 7.3, Lemma 7.4 and OU AS-regular construction, NOT claimed as a novel theorem",
+    "universal_numerical_Serre_E6": "Proof in manuscript; projective Euler matrix constant over all relation points and geometric identification with E6 at a smooth cubic point",
+    "Weyl_vs_arrow_rescalings": "Proof in manuscript; G_Q fixes labeled projective classes and acts trivially on numerical E6",
+    "derived_inequivalent_boundary": "Proof in manuscript; HH1 changes 0 to 10 despite common numerical K0/Euler/Serre/E6",
+    "HH_minimal_boundary": "Proof in manuscript; rho=10 with only one monomial relation, independent exact rank check",
+    "formal_Abel_chart": "Previously proved in manuscript using De Deken-Lowen Theorem 5.15 and AOU finite algebra formal completeness; assumptions retained",
+    "global_unmarked_GIT_descent": "NOT proved",
+    "relative_AS_heart_family": "NOT proved over the entire generic locus as an algebraic fpqc family",
+    "weak_rank_one_AZ_Serre_all_points": "NOT proved",
+    "novelty_priority": "Not exhaustively checked against all literature",
+    "external_refereeing": false
   },
   "checks": {
-    "static_tex": "PASS: 6 TeX sources, 57 labels, 78 refs, 10 bibliography entries, 28 citations",
-    "lualatex": "PASS: latexmk -lualatex, 22 pages, final log no undefined references/overfull warnings, 2026-11-18",
-    "aou_tangent": "PASS: exact rank10, Smith diag(1^10,0^8), generic/boundary HH dimensions",
-    "marking_lattice": "PASS: E6 72 roots, 27 lines, discr.3, Weyl orbit rank6",
-    "visual": "Rendered page 16; inspected math and typography, no clipping observed",
-    "primary_sources": "De Deken--Lowen 2011 Thms 4.5, 5.13, 5.15 examined via EMS; Karpov--Nogin journal bibliographic record; AOU original quiver context checked",
-    "proof_verification": "Core deformation-functor composition and formal action reviewed; no formal proof assistant or external referee",
-    "bundle_rebuild": "PASS: 20 current files, ZIP CRC checked, clean extraction, all static checks and 2 computations PASS, LuaLaTeX 22 pages, PDF page-text equal to included PDF"
+    "static_tex": "PASS: 7 TeX sources, 67 labels, 93 references, 10 bib entries, 33 citations",
+    "lualatex": "PASS: latexmk -lualatex, 25 pages; no overfull or undefined reference warnings (apart from harmless package/font warnings)",
+    "aou_tangent_and_serre": "PASS: rank10 and Smith 1^10 0^8, generic/boundary HH, numerical Serre char (t-1)^9 and nilpotent ranks (2,1,0), monomial/binomial single-boundary examples",
+    "marking_lattice": "PASS: 72 E6 roots, 27 lines, determinant 3, Weyl orbit rank 6",
+    "visual": "Rendered and visually inspected pages 16 and 17; text and formulas show no clipping",
+    "source_check": "AOU arXiv:2404.00175v1 §§4,7,9 and OU arXiv:2508.04986v1 definition; DDL JNCG 2011 Theorem 5.15 were consulted",
+    "full_proof_independent_refereeing": "NOT done"
   }
 }

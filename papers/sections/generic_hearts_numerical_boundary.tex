@@ -1,0 +1,202 @@
+\section{稠密な AS 型 locus と境界で不変な数値的 $E_6$}
+\label{sec:generic-as-numerical}
+本節は AOU 関係式から無標識 Abel 圏を構成できる範囲を二つの方向から限定する。
+第一に、既知の楕円データによる構成は\emph{稠密開部分}で実際の AS 型 heart を与える。
+第二に、Euler 形式と数値的 Serre 作用は全関係式空間にわたって一定であり、
+これらだけから三次曲面型 heart を認識できないことを示す。
+
+\subsection{楕円 decuple による実際の heart が存在する開部分}
+\begin{proposition}[既知の双有理構成から得られる稠密 AS locus]
+\label{prop:generic-as-locus}
+$\mathbb C$ 上の AOU 関係式トーラス $M_Q^\circ$ には、空でない
+Zariski 開部分 $U_{\rm ell}$ が存在して、各 $r\in U_{\rm ell}(\mathbb C)$ に対し、
+滑らかな楕円曲線上の許容 decuple $\bigl(Y_r,(L_{v,r})_{v\in Q_0}\bigr)$ と
+それから構成される AS-regular $\{0,1,2\}\times\mathbb Z$-代数
+$A_r$ を選ぶことができる。このとき
+\[
+ \mathcal C_r^{\rm AS}:=\qgr A_r,\qquad
+ D^b(\mathcal C_r^{\rm AS})\simeq\operatorname{Perf}(B_r),
+\]
+であり、右辺の九対象の有限 End 代数は $B_r$ である。
+この主張は AOU の楕円 decuple との双有理対応と、その AS-regular 構成からの
+\emph{既知結果の帰結}である。
+特に $U_{\rm ell}$ の幾何学的点で三次曲面型 heart の候補が
+存在することは、単なる形式 Artin 近傍の議論によらずに分かる。
+ただし $\mathcal C_r^{\rm AS}$ の無標識同型類の一意性、
+全 GIT 境界への延長、さらに定義\ref{def:weak-cubic}の追加的な
+rank-one torsion-free 条件までは主張しない。
+\end{proposition}
+\begin{proof}
+AOU\cite[Proposition~7.3, Theorem~1.1]{AOU} により許容楕円 decuple の
+既約八次元モジュライ $M_{\rm ell}$ は、関係式の GIT 商 $M_Q^\chi$ と
+双有理である。従って双方の空でない開部分で双有理写像と逆写像は正則同型になる。
+この開部分を AOU の稠密トーラス $M_Q^\circ$ と交わらせ、
+必要ならさらに縮小して $U_{\rm ell}$ とする。
+AOU\cite[Lemma~7.4 and the paragraph following it]{AOU} が
+岡川--植田の AS-regular 構成を適用することにより、
+許容楕円 decuple は AS-regular $\{0,1,2\}\times\mathbb Z$-代数を与える。
+この代数の標準九対象の End 代数は decuple の End 代数と一致し、
+関係式点 $r$ に対応する $B_r$ となる。
+AOU\cite[\S\S4.6, 7]{AOU} が構成する標準九対象は完全強例外列であり、
+その有限 End 代数を用いる標準の tilting--Morita 同値から指定した導来同値を得る
+（\cite[Definition~1.1]{OU2025} および AOU\cite[Theorem~9.4]{AOU} の具体的比較も参照）。
+この論証は幾何学的点ごとの存在を示すものであり、
+相対圏の非自明な降下や、異なる decuple から得る heart の一致を含意しない。
+\end{proof}
+
+\subsection{全関係式点に共通する Serre 形式と $E_6$}
+$J$ をすべての成分が $1$ である $3\times3$ 行列、$I$ を単位行列とする。
+右射影 $P_v=e_vB_r$ のクラスを層 $U,W,Z$ の順に並べると、
+Euler 形式の行列（転置の規約に応じて入れ替わる）は
+\begin{equation}\label{eq:aou-constant-euler}
+ C=\begin{pmatrix}I&0&0\\J&I&0\\2J&J&I\end{pmatrix}
+ \quad\text{または}\quad C^{\mathsf T}
+\end{equation}
+となる。これは各始点・終点間の道の次元だけから定まる。
+数値的 Serre 作用を $S_r$ とすると Euler 双対性
+$\chi(x,y)=\chi(y,S_rx)$ により、規約を一つ固定すれば
+$S_r=C^{-1}C^{\mathsf T}$ である。
+
+\begin{theorem}[普遍的な数値的 Serre 作用と $E_6$]
+\label{thm:aou-numerical-E6}
+任意の $r\in R_Q(\mathbb C)$ について
+$K_0(\operatorname{Perf}B_r)$ の Euler 形式と Serre 作用は、
+九つの標準射影加群の基底を用いて同じ整数行列で記述される。
+特に $N_r:=S_r-1$ と置くと
+\begin{equation}\label{eq:aou-unipotent-serre}
+ \det(t-S_r)=(t-1)^9,\qquad
+ \operatorname{rank}N_r=2,\qquad
+ \operatorname{rank}N_r^2=1,\qquad N_r^3=0.
+\end{equation}
+さらに $\Lambda_r:=\ker N_r$ 上の Euler 形式は対称で、
+その根基 $\operatorname{rad}(\chi|_{\Lambda_r})$ は階数一の原始部分格子である。
+従って
+\begin{equation}\label{eq:aou-numerical-root}
+ \Lambda_r/\operatorname{rad}(\chi|_{\Lambda_r})
+ \simeq Q(E_6)
+\end{equation}
+が\emph{正定値}の Euler 形式付き整数格子として成立する。
+ここで右辺の形式は $E_6$ 根格子の負 Cartan 形式の符号を変えたもの、
+すなわち判別式 $3$ の正定値形式である。
+この数値的 $E_6$ は、AS 型 heart が未認識の境界点でも存在する。
+\end{theorem}
+\begin{proof}
+定理\ref{thm:universal-directed-family}の階数計算から、
+射影加群間の Hom は、同じ層なら恒等写像のみ、隣接層なら一組につき
+一次元、最初から最後の層へは二次元である。
+$B_r$ は有限大域次元なので射影間の高次 Ext は零であり、
+式\eqref{eq:aou-constant-euler}を得る。各ファイバーで基底を
+対応させると Euler 形式の整数行列は同一であり、
+Serre 双対性から $S_r$ も同一である。
+$J^2=3J$ を使い $C^{-1}C^{\mathsf T}$ を直接計算すれば
+式\eqref{eq:aou-unipotent-serre}が従う。
+再現可能な整数計算は
+\path{computations/verify_aou_relation_tangent.py} にも収録した。
+
+最後の格子の同定は、滑らかな可換三次曲面 $X$ の AOU 点 $r_0$ で
+証明すればよい。AOU の完全強例外列は
+$K_0(\operatorname{Perf}B_{r_0})\simeq K_0(X)$ を Euler 形式・Serre 作用とともに同一視する。
+$X$ 上では $S_{r_0}$ は $(-)\otimes\omega_X[2]$ だから、
+K 群上では $(-)\otimes\omega_X$ となる。
+$\operatorname{ch}(x)=(a,D,z)$ と記すと
+\[
+ \operatorname{ch}((S_{r_0}-1)x)
+   =(0,aK_X,D\cdot K_X+aK_X^2/2).
+\]
+$K_X$ は非零であり $K_0(X)$ は torsion-free なので、
+$(S_{r_0}-1)x=0$ であるための必要十分条件は
+$a=0$ かつ $D\cdot K_X=0$ である。
+$\operatorname{rk}=0$ の二つのクラス $x,y$ に対して
+Riemann--Roch から $\chi(x,y)=-c_1(x)\cdot c_1(y)$ となる。
+従ってこの制限形式の根基は $c_1=0$ のクラス、すなわち
+$\mathbb Z[\mathcal O_p]$ であり、これは原始である。
+その商は $K_X^\perp\subset\operatorname{Pic}(X)$ に
+負の交点形式の符号を変えて同型となる。
+三次曲面が $\mathbb P^2$ の六点 blow-up であることから
+$K_X^\perp$ は $E_6$ 根格子である
+（命題\ref{prop:picard-root-index}）。
+この同定を全 $r$ へ輸送すればよい。
+\end{proof}
+
+\begin{proposition}[矢の基底変換と Weyl 標識変更の相違]
+\label{prop:aou-numerical-trivial-torus}
+関係式 stack $[R_Q/G_Q]$ の矢の基底変換群 $G_Q$ は、
+各 $B_r$ の九つの原始冪等元およびそれに対応する射影加群のクラスを固定する。
+従って $G_Q$ は、全関係式空間にわたる数値的 $K_0$ と
+式\eqref{eq:aou-numerical-root}の $E_6$ 格子に\emph{自明}に作用する。
+特に可換 locus の古典的な非自明の $W(E_6)$ 標識変更は、
+この矢の基底変換作用と同一視できない。
+\end{proposition}
+\begin{proof}
+$G_Q$ は各矢の基底をスカラー倍するが、頂点冪等元 $e_v$ は固定する。
+この代数同型による射影加群の輸送は $e_vB_r$ を
+同じ添字 $v$ の射影加群へ送る。
+従って $K_0$ の全標準基底を固定し、
+そこから作った数値的 Serre 作用の固定部分格子と
+その根基による商にも自明に作用する。
+一方、古典的 $W(E_6)$ は根格子への忠実な反射作用を持つので、
+非自明な標識変更を矢のスカラー倍だけで表すことはできない。
+\end{proof}
+
+\begin{corollary}[数値的不変量が区別できない境界]
+\label{cor:aou-numerical-not-enough}
+すべての関係式の係数が非零の点 $r_{\rm tor}$ と、
+すべての九つの関係式が単項式である点 $r_{\rm mon}$ を取る。
+この二つの smooth proper dg 圏は、Euler 形式・数値的 Serre 作用・
+式\eqref{eq:aou-numerical-root}の $E_6$ 格子について同じ不変量を持つが、
+\[
+ \dim HH^1(B_{r_{\rm tor}})=0,\qquad
+ \dim HH^1(B_{r_{\rm mon}})=10
+\]
+である。従って $\operatorname{Perf}(B_{r_{\rm tor}})$ と
+$\operatorname{Perf}(B_{r_{\rm mon}})$ は導来 Morita 同値ではない。
+特に Euler 形式と数値的 $E_6$ 標識だけでは、
+関係式空間の異なる導来圏、ひいては三次曲面型 Abel heart の
+認識問題を解決できない。
+\end{corollary}
+\begin{proof}
+前定理の数値的不変量の一定性と
+定理\ref{thm:aou-hh-support}の Hochschild 次元公式を組み合わせる。
+Hochschild cohomology は導来 Morita 同値で保存されるので、
+$HH^1$ の次元が異なる二圏は Morita 同値にならない。
+これは単項式点に\emph{いかなる}三次曲面型 heart も存在しないと
+主張するものではない。
+\end{proof}
+
+\begin{proposition}[Hochschild 次元が跳ばない境界点]
+\label{prop:aou-boundary-hh-minimal}
+九関係式のうち、$(u_0,z_0)$ の関係式だけを $[1:0:0]$ へ特殊化し、
+他の八関係式はすべての係数が非零であるとする。
+この点は稠密トーラスの外にあるが
+\[
+ \rho(r)=10,\qquad
+ (\dim HH^1(B_r),\dim HH^2(B_r))=(0,8)
+\]
+が成り立つ。従って $HH^1,HH^2$ の次元が一般値に等しいことすら、
+全関係式係数の非零性を特徴付けない。
+\end{proposition}
+\begin{proof}
+定理\ref{thm:aou-hh-support}の支持行列を用いる。
+中間層の各 $m=1,2$ に対して
+$x_i=a_{im}-a_{i0}$、$y_j=b_{mj}-b_{0j}$ と書くと、
+残り八つの関係式は $x_i+y_j=0$ を $(i,j)\ne(0,0)$ の
+すべてで要求する。二部グラフ $K_{3,3}$ から辺 $(0,0)$ だけを
+除いたグラフは連結であるため、これらから $x_i=-y_j$ が
+\emph{すべて}の $(i,j)$ について従う。
+よって欠けた $(0,0)$ の二つの関係式は他の十六行の線形結合であり、
+支持行列の階数は全係数非零のときと同じ $10$ である。
+最後の式は Hochschild 次元公式より従う。
+\end{proof}
+
+\begin{remark}[今後の標識忘却への含意]
+\label{rem:numerical-unmark}
+数値的 Serre 作用と $E_6$ は全関係式族に共通して存在するが、
+幾何学的に許容される helix、三次曲面型 heart、
+線束に類する構造対象およびそれらの exact 自己同値作用は、
+この格子だけから復元できない。
+従って AOU の\emph{数値的標識}から\emph{幾何学的標識}への
+認識が、無標識 Abel 圏への大域降下に先立つ独立の課題である。
+稠密な AS 型 locus の存在（命題\ref{prop:generic-as-locus}）と
+全境界における数値的 $E_6$ の一定性（定理\ref{thm:aou-numerical-E6}）を
+混同してはならない。
+\end{remark}

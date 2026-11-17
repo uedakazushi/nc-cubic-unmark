@@ -62,3 +62,23 @@ assert support_matrix(mono).rank()==0
 assert (10-support_matrix(full).rank(),18-support_matrix(full).rank())==(0,8)
 assert (10-support_matrix(mono).rank(),18-support_matrix(mono).rank())==(10,18)
 print('PASS: Hochschild dimensions (HH1,HH2)=(0,8) on torus, (10,18) on monomial boundary')
+
+# Universal numerical Euler/Serre data, independent of all relation coefficients.
+I3, J3, Z3 = sp.eye(3), sp.ones(3, 3), sp.zeros(3, 3)
+Euler = sp.BlockMatrix([[I3, Z3, Z3], [J3, I3, Z3], [2*J3, J3, I3]]).as_explicit()
+assert Euler.det() == 1
+Serre = Euler.inv() * Euler.T
+Nil = Serre - sp.eye(9)
+assert sp.factor(Serre.charpoly().as_expr()) == (Serre.charpoly().gen - 1)**9
+assert (Nil.rank(), (Nil**2).rank()) == (2, 1)
+assert Nil**3 == sp.zeros(9)
+print('PASS: universal numerical Serre unipotent Jordan type (3,1^6); ranks N=2,N²=1,N³=0')
+
+# A support-boundary point may still have generic Hochschild dimensions.
+one_mono = {(i,j): {0,1,2} for i in range(3) for j in range(3)}
+one_mono[(0,0)] = {0}
+assert support_matrix(one_mono).rank() == 10
+one_two = {(i,j): {0,1,2} for i in range(3) for j in range(3)}
+one_two[(0,0)] = {0,1}
+assert support_matrix(one_two).rank() == 10
+print('PASS: one monomial or binomial relation at the boundary leaves HH1=0, HH2=8')

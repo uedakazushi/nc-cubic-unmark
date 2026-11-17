@@ -21,7 +21,7 @@
 \newcommand{\Cw}{\mathfrak C^{\rm w}}\newcommand{\Cu}{\mathfrak C^{\rm u}}
 \title{AOU 関係式モジュライと非可換三次曲面の無標識 Abel 圏\\\large 標識忘却・Picard 障害・相対慣性}
 \author{植田一石}
-\date{2026年11月18日 / unmark-v5}
+\date{2026年11月18日 / unmark-v6}
 \begin{document}\maketitle
 \begin{abstract}
 AOUの九頂点quiverの関係式モジュライから非可換三次曲面の無標識Abel圏を得る問題を研究する。
@@ -30,6 +30,13 @@ AOUの九頂点quiverの関係式モジュライから非可換三次曲面の�
 この代数のArtin局所変形は九つの関係式で尽くされ、
 境界上のHochschild次元は関係式の支持から組合せ的に計算できる。
 一方、三次曲面型のAbel heartには別の認識問題が残る。
+さらに AOU の楕円 decuple との既知の双有理比較から、関係式トーラスの
+稠密開部分には実際の AS-regular 三次曲面型 heart が存在することを整理する。
+これに対し Euler 形式と数値的 Serre 作用は全関係式点で一定で、
+数値的固定部分からは同じ $E_6$ 根格子が回復される。
+しかし境界で Hochschild cohomology は跳ぶので、数値的標識だけでは
+幾何学的 heart を認識できないことを証明する。
+
 相対AS正則helixとheartが存在する許容表示に限り
 標識付き圏から無標識圏への忘却を定式化する。
 可換な滑らかな三次曲面のlocusではGabrielの圏的復元により
@@ -82,6 +89,21 @@ Kodaira--Spencer写像が$HH^2(X)$へ同型となる
 \cite{Gabriel}により、無標識像の同型類を
 古典的な$W(E_6)$商として完全に記述する
 （定理\ref{thm:aou-commutative-quotient}）。
+
+AOU の楕円 decuple からの AS 構成と双有理対応は、
+関係式トーラスの稠密開部分で実際に $\qgr A$ という
+Abel heart が存在することを保証する（命題\ref{prop:generic-as-locus}）。
+これは AOU の既知結果の帰結である。
+一方、本稿では全関係式空間の Euler 形式・数値的 Serre 作用を計算し、
+それから一様に同じ正定値 $E_6$ 格子を回復する
+（定理\ref{thm:aou-numerical-E6}）。
+Hochschild cohomology の跳びから、これらの数値不変量が等しくても
+導来 Morita 同値とは限らないことを証明する
+（系\ref{cor:aou-numerical-not-enough}）。
+さらに、$HH^1$ が一般値のままの境界点も存在する
+（命題\ref{prop:aou-boundary-hh-minimal}）。
+従って数値的標識や Hochschild 次元だけに依存した heart の認識は
+不十分である。
 
 非可換方向では有限Weyl群だけで無標識化を尽くせるとは限らない。
 滑らかな可換三次曲面で許容構造対象は線束に一致する
@@ -160,6 +182,7 @@ $\wedge^3T_X=0$なので$\HH^3=0$。
 
 \input{papers/sections/marking_forgetful.tex}
 \input{papers/sections/aou_universal_algebras.tex}
+\input{papers/sections/generic_hearts_numerical_boundary.tex}
 \input{papers/sections/formal_abelian_recognition.tex}
 \input{papers/sections/aou_to_unmarked.tex}
 \input{papers/sections/picard_invariants.tex}
@@ -191,6 +214,7 @@ Picard群と自己同型群による形式作用groupoidとなり、
 (iii) GITのS-同値への下降条件、
 (iv) 非可換点での自己同値の高次持上げである。
 全GIT境界の圏的解釈、大域Weyl商、無標識stackの代数性は未証明である。
+数値的 Serre--$E_6$ は全関係式点で一定だが、これだけでは圏を決定しない。
 
 有限格子計算は\path{computations/verify_marking_lattice.py}、
 静的検査は\path{scripts/verify_unmark_bundle.py}、
