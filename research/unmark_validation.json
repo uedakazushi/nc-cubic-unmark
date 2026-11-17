@@ -2,7 +2,7 @@
   "date": "2026-11-17",
   "version": "unmark-v1",
   "source": {
-    "from_repo": "uedakazushi/nc-cubic-ambient-moduli",
+    "from_repo": "uedakazushi/nc-cubic-ambient",
     "from_commit": "9bc6bf57ad83d5c413ff26d4bfc82e3b751cfb94",
     "source_section": "papers/sections/marking_forgetful.tex",
     "hh_proof_moved_from_old_main": true

@@ -10,7 +10,7 @@
 
 ## II. 本研究の目標と対象
 
-最優先は、AOU型標準九対象helix → 弱標識付き `(A,O)` → 無標識のAbel圏 `A` の二段階の忘却のファイバー・慣性・相対降下の理解。weakな構造対象はGabriel–Krull rank-one torsion-freeかつexceptionalであり、反Serre作用 `H=S^{-1}[2]` はheartを保ち、Artin–Zhang豊富性と三次曲面の切断数を要求する。**ambientのquadratic AS-regularityは定義にも定理の前提にも入れず、その自動認識問題は保留する。** 別論文 `nc-cubic-ambient-moduli/papers/nc-cubic-ambient.tex` にambient比較を収録する。
+最優先は、AOU型標準九対象helix → 弱標識付き `(A,O)` → 無標識のAbel圏 `A` の二段階の忘却のファイバー・慣性・相対降下の理解。weakな構造対象はGabriel–Krull rank-one torsion-freeかつexceptionalであり、反Serre作用 `H=S^{-1}[2]` はheartを保ち、Artin–Zhang豊富性と三次曲面の切断数を要求する。**ambientのquadratic AS-regularityは定義にも定理の前提にも入れず、その自動認識問題は保留する。** 別論文 `nc-cubic-ambient/papers/nc-cubic-ambient.tex` にambient比較を収録する。
 
 ## III. 到達点と主張の状態
 

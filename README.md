@@ -6,7 +6,7 @@
 
 内在的定義ではGabriel–Krull rank-one torsion-free性とexceptionalityを要求し、quadratic AS-regular ambientは仮定しない。可換三次曲面での標識忘却とPicard作用、形式W(E6)商、一次変形における障害と非常に一般の整数Picard核を中心とする。大域的なWeyl商は未証明。
 
-ambient射、四頂点potential、R(1,3)成分の独立論文は [nc-cubic-ambient-moduli](https://github.com/uedakazushi/nc-cubic-ambient-moduli) の `papers/nc-cubic-ambient.tex` を参照。
+ambient射、四頂点potential、R(1,3)成分の独立論文は [nc-cubic-ambient](https://github.com/uedakazushi/nc-cubic-ambient) の `papers/nc-cubic-ambient.tex` を参照。
 
 ```sh
 python3 -m pip install -r requirements.txt
