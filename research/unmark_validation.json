@@ -1,25 +1,21 @@
 {
   "date": "2026-11-17",
-  "version": "unmark-v1",
-  "source": {
-    "from_repo": "uedakazushi/nc-cubic-ambient",
-    "from_commit": "9bc6bf57ad83d5c413ff26d4bfc82e3b751cfb94",
-    "source_section": "papers/sections/marking_forgetful.tex",
-    "hh_proof_moved_from_old_main": true
-  },
+  "version": "unmark-v2",
+  "focus": "AOU relation moduli to unmarked Abel categories",
   "checks": {
-    "static_tex_preflight": "Performed in connector on new manuscript and copied marking section",
-    "lualatex_current": false,
+    "new_section_standalone_lualatex": "passed (4 pages; unresolved cross-refs expected for standalone)",
+    "static_tex_preflight": "performed on assembled source and original marking section",
+    "full_repo_lualatex": false,
     "script_current_rerun": false,
-    "earlier_E6_exact_test": "Recorded from previous research; current new-repo script not independently rerun",
     "external_refereeing": false,
     "novelty_exhaustive": false
   },
   "scope": {
-    "global_Weyl_quotient": "NOT PROVED",
-    "full_alg_stack": "NOT PROVED",
-    "ambient_recognition": "SUSPENDED",
-    "relative_formal_comparison": "CONDITIONAL",
-    "picard_very_general_kernel": "PROOF IN MANUSCRIPT; INDEPENDENT REFEREEING PENDING"
+    "AOU_commutative_fibres": "proof in manuscript",
+    "AOU_categorical_map": "conditional on relative categorical data",
+    "infinite_categorical_fibre": "conditional relative theorem",
+    "GIT_descent": "necessary condition only, not established",
+    "full_alg_stack": "not proved",
+    "ambient_recognition": "suspended"
   }
 }

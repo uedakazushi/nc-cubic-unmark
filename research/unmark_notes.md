@@ -1,45 +1,45 @@
-# 標識忘却の現行研究ノート
+# 現行研究ノート：AOUから無標識Abel圏へ
 
-2026-11-17 / unmark-v1。研究再開時は `00_research_plan.md`、次に `papers/nc-cubic-unmark.tex` を読む。本ノートは公表用論文に重複する証明を省き、境界・未解決の問題・関連する計算だけを保持する。
+2026-11-17 / unmark-v2。再開時は`00_research_plan.md`を最初に読み、証明は`papers/sections/marking_forgetful.tex`と`papers/sections/aou_to_unmarked.tex`で参照する。
 
-## 標識忘却・構造対象の現在の結論
+## AOUで現在解決した部分と解決していない部分
 
-日本語の術語は標識（marking）・標識付き・弱標識付き・無標識・標識変更。標識忘却とambient射は別論文とする方向がよいが、現在の主原稿は両方の成果と証明を保持している。分割に際して標識忘却論文の定理にambientのAS正則性を無意識に加えないこと。
+関係式のパラメータは `(P²)^9`、矢スカラー変換は `(G_m)^18`。AOU §5.1のrelation stackは`[(P²)^9/(G_m)^18]`。これはAOU §5.4のtoric GIT schemeとは違う。AOU Theorem1.2の滑らかな可換marked cubicの埋込みはdense torus内の局所閉埋込みであり、全体の同一視ではない。Theorem1.1は楕円decupleとの双有理対応で、全点でのAS-regular性を意味しない。特にGIT境界のS-同値類が同じAbel圏を与えるかは未確認。
 
+幾何的標識helixを持つカテゴリー的開部分について、標識選択のgroupoidから弱標識 `(A,O)`、さらに `A` へ忘れる。`R_Q^cat`と書くものは現在**証拠付きfibered groupoid**であり、AOU GIT内の開substackであると証明したわけではない。`M_Q^chi`から無標識moduliに写す主張は、十分なカテゴリ化・fpqc降下・S-同値不変性を確認してからでなければならない。
 
-- 現行の弱標識付き公理は(A,O)をとり、H=S^{-1}[2]のt-exact性、AZ豊富性、三次曲面Hilbert値に加えてGabriel–Krullのrank-one torsion-free性（qO非零単純・A1からOへのHom消滅）とexceptionality（End(O)=k、Ext^{>0}(O,O)=0）を**独立に要求**する。ambientや一次生成性を仮定しない。圏論的な主定理と十分な証明は `papers/sections/marking_forgetful.tex` にある。
+可換 locus はGabriel再構成からexact圏の同値類で`W(E6)`標識変更の商と同一視できる。標識選択はXを固定すると`W(E6)` torsor、自己同型はその上で自由に作用する。一般Xの標識同型類は51840であり、特別Xは51840/|Aut X|。これはAOU toric variety全体でW(E6)が正則作用することを意味しない。
 
-- 忘却は `M_AOU^adm -> C^w -> C^u`。固定圏上では許容九対象threadの選択群oid、許容構造対象の選択群oidとなる。圏の同定を忘れるとexact自己同値2-groupでのhomotopy quotientとなる。従ってPicard商と呼ぶときはraw 2-groupとスカラーrigidification、同型類集合の商を区別する。
+形式方向ではピカール障害と慣性を分ける。`Pic(X)=Z^7` は可換圏のexact自己同値に実在するが、非可換固定一次fiberのexact自己同値として持ち上がるのは非常に一般には `Z[-K]` のみ。固定Abel圏の許容構造対象は各線束から持ち上がるので、軌道集合は`Z^6`。九対象標識を各線束捩れへ持ち上げる**相対仮定**を満たすなら、標識忘却の幾何的fiberもこの集合へ全射をもつ。従って「W(E6)だけでunmarkedへ行く」という単純な商ではfiberを取り違える。これをGIT商の無限fiberと読み替えてはいけない。
 
-- 可換滑らかな三次曲面Xでは許容構造対象EはL⊗I_Zとなるが、RRからχ(E,E)=1−2length(Z)、exceptionalityからZ=∅。従って線束Lだけが許容。自然同型で割ったexact自己同値はPic(X)⋊Aut(X)、pointedの選択商はBAut(X)。AOUのrelation algebra End(⊕E_i)は全対象の共通tensorで変わらず、relation GIT点をさらにPicで重複して割らない。
+無標識stackは可換点でPicard無限離散慣性を持つ。HH¹=0とauto-equivalenceの変形制御が忠実なら、locally finite typeな代数的1-stackの対角がqcであることはできない。この議論は*粗* moduliの非存在でも、全ての代数stackの非存在でもない。scalar 2-morphismのrigidificationを常に明記する。
 
-- 特殊ファイバーと同定したArtin flat Abel変形（相対Serre・perfect base change・heart保存を要求）では各線束と標準helixの持上げはExt¹=Ext²=0により一意。各標準標識の形式chartは同じweak deformationへ対応し、有限W(E6) torsorになる。全境界・非可換一般点における大域商は未証明。
+## 計算・変形の有用な具体例
 
-- **新しい障害の公式**：u=(ξ,π)∈H¹(T_X)⊕H⁰(∧²T_X)、線束LのMorita同値による標識変更の一次変化は規約を除き (ξ,π)↦(ξ+δ_π(L),π)、δ_π(L)=H¹(π^sharp)c₁(L)。構造対象Lが圏の変形へ持ち上がることと、(-)⊗Lが**同じ変形**の自己同値へ持ち上がることは異なる。後者にはδ=0が必要。
+滑らかな三次曲面 `X=V(x³+y³+z³+txy+t³)`, `C={t=0}`。平面変形`t=eps z`は平面楕円曲線の式に`eps xyz`を加え、Jacobian環`C[x,y,z]/(x²,y²,z²)`の次数3に非零元を与える。したがって接続写像rank1、`H¹(Ω¹)->H¹(T)`のrank4 witnessとなる。証明は主論文に置く。
 
-- πの零因子Cが滑らかな反標準楕円曲線なら0→Ω¹_X→T_X→T_X|_C→0で、長完全列の階数は7−h⁰(T_X|_C)=3+r（r=0または1）。非空開でr=1：X={x³+y³+z³+txy+t³=0}, C={t=0}ではCの平面移動t=εzがJacobian環のxyzに対応しKS非零。従って一般にrank4。**反標準線束の方向はδの核**：局所Cの方程式s_iに対してπ^sharp(dlog s_i)は正則で、そのČech差がδ_π(O(C))。従ってroot格子Q=K^⊥へのδの制限は全Picに対して同じ階数、一般には4。非常に一般の(X,π)の整数kernelは下記の新定理で計算済み。高次障害は未計算。
+Picard格子`Λ=Zh + sum Ze_i`はsignature(1,6)、`K=-3h+sum e_i`、`Q=K^⊥`はE6根格子。`Λ/(Q+ZK)=Z/3`、`Λ/ZK≅Q^∨`。root translationとweight-lattice型の全Picard shiftを混同してはいけない。`delta_pi(K)=0`（局所`π^sharp(dlog s)`のČech表示で分かる）。rank一般4から整数kernel rank3とは結論できない。
 
-- Pic(X) rank7、Q(E6) rank6、Pic/(Q+ZK)=Z/3、Pic/ZK≅Q^∨。AOU/OUのaffine Weyl translation QとPic全体を同一視しない。新しい計算スクリプト `computations/verify_marking_lattice.py` は72根、27線、E6判別式3とsmoothな例のJacobian確認をQQ上で行う。一次障害と相対降下の数学的証明はコードではなく本文にある。
+非常に一般の整数核の証明は、marked cubicとsmooth anticanonical sectionの既約パラメータ上で全kernel共通部分Nを考える。W(E6)に安定、CKを含み、Q複素反射表現既約かつrank4 witnessがあるのでN=CK。各非K整数Dの零点は真の閉集合であり、その可算個の外では整数kernel=ZK。詳しい証明は `thm:very-general-picard-kernel`。
 
-## 非可換一次変形の整数Picard核と構造対象軌道
+## 失敗しやすい推論と調査課題
 
-主論文の定理 `thm:very-general-picard-kernel` と系 `cor:first-order-pointings` に完全証明。
+- AOU relationのderivedカテゴリが等価であるだけでは、**元のAbel heartが等価**とは言えない。t-exact同値が必要。
+- 同じAbel変形へ線束Lが対象として持ち上がる（Ext¹=Ext²=0）ことと、tensor Lが固定変形の自己同値に持ち上がることは違う。後者の一次必要条件は`delta_pi(L)=0`。高次での十分性未証明。
+- relative Serre, perfect base-change, AZ ampleness, rank-one torsion-free, exceptionalityの開性は**証明対象**。一般のdg変形すべてに自動的だとしない。
+- AOU標準helixがすべてのAS-open点で幾何的に一意・完全であること、numerical markingからgeometric helixが復元できること、W作用がGIT境界へ延長することは未証明。
+- abstract Picard商・Weyl商・GIT軌道商は異なる同値関係。安定化群・慣性の段階も区別する。
 
-(1) 標識付き滑らかな三次曲面の既約moduli M^m は六本の順序付き斜交直線のblow-down（一般位置のP²六点）で記述される。W(E6)が標識を変える。一次資料：Dolgachev–van Geemen–Kondō, *A complex ball uniformization of the moduli space of cubic surfaces via periods of K3 surfaces*, J. reine angew. Math. 588 (2005), 99–148, §§2.5–2.6, DOI 10.1515/crll.2005.2005.588.99（著者公開PDF https://sites.lsa.umich.edu/idolga/wp-content/uploads/sites/1334/2024/08/cubic05.pdf、p.105を確認）。一次標識変更にはToda, *Deformations and Fourier–Mukai transforms*, JDG 81 (2009) 197–224, arXiv:math/0502571を参照。
+## 一次文献と正確な参照
 
-(2) smooth anticanonical Poisson sectionを持つ標識付き pair空間P^mも既約。標準Picard格子Λ=I_{1,6}を自明化してΛ_C=C K⊕Q_C、Q=K^⊥=E6。全パラメータのδ核の共通部分NはW(E6)安定でCKを含む。WのQ_C上の反射表現は既約：任意の非零W安定部分が根と非直交なvを含むなら反射差から根を含み、その軌道72根はQ_Cを張る。非空開でδのrank4なのでNはΛ_C全体でなく、N=CK。ゆえに各D∈Λ\ZKの零点条件δ(D)=0はP^m上の真の閉部分集合。可算個のDを除外すると、非常に一般の(X,π)についてker(δ:Pic(X)→H¹(T_X))=ZK。これは単一のZariski開上での一様な主張ではない。
+- AOU, *Compact moduli of marked noncommutative cubic surfaces*, arXiv:2404.00175 v1, Introduction, §§4.6,5.1–5.4, Thms 1.1,1.2, §9 Theorem 9.4. https://arxiv.org/pdf/2404.00175
+- Okawa–Ueda, *Marked Artin--Schelter surfaces of del Pezzo types*, arXiv:2508.04986 v1, Definition1.1, Theorem6.4. https://arxiv.org/pdf/2508.04986
+- Gabriel, *Des catégories abéliennes*, Bull. Soc. Math. France 90 (1962),323–448, DOI:10.24033/bsmf.1583. Exact coherent category reconstruction.
+- Toda, *Deformations and Fourier–Mukai transforms*, JDG81 (2009),197–224, arXiv:math/0502571. HKR/Fourier–Mukai作用。
+- De Deken–Lowen, *Abelian and derived deformations in the presence of Z-generating geometric helices*, JNCG5 (2011),477–505, DOI:10.4171/JNCG/83, Thms4.5,5.13,5.15.
+- Bondal–Orlov, *Reconstruction ... autoequivalences*, Compositio125 (2001),327–344, arXiv:alg-geom/9712029, derived and exact autoequivalences.
+- Dolgachev–van Geemen–Kondō, *A complex ball uniformization ...*, J. reine angew. Math. 588 (2005),99–148, §§2.5–2.6, DOI:10.1515/crll.2005.2005.588.99, marking moduli and W.
 
-(3) Aut(X)=1の非常に一般な滑らかな可換三次曲面Xと、Poisson成分πが上の条件に入る許容一次Abel変形A_εを考える。特別fiberのexact自己同値はBondal–Orlovによりtensor L（非零shiftなし）。これが固定A_εへ持ち上がればδ_π(L)=0、従ってL∈ZK。逆に相対反Serre H=S_ε^{-1}[2]はt-exactで、特殊fiber上でtensor(-K)なので全ZKを実現する。各LはExt¹=Ext²=0により唯一の許容構造対象L_εへ持ち上がるため、同じA_ε上のpointingをexact自己同値で割った同型類集合はPic/ZK≅Q(E6)^∨≅Z^6。**同型類の集合の結果であり、2-groupの慣性や大域stackの無限成分を主張しない**。当然、全非可換変形や高次形式変形へ無条件には拡張しない。
+## 未解決核と着手
 
-(4) 計算資産：`computations/verify_marking_lattice.py` はE6の72根・27直線・判別式3・rank4 witnessに加え、単純反射による一根のWeyl軌道72個とQ上のrank6張りをQQで検算する。既約性は本文の反射による通常証明から従い、コードだけが証明ではない。
-
-### 主要な未解決箇所
-1. NC fiberで許容構造対象のexact自己同値軌道・安定化群・相対慣性を具体化すること。
-2. AOUの標準helix（relation stack）と数値標識の大域的降下を証明すること。
-3. 非常に一般の一次変形の整数核は決定済み。特殊fiberの整数核、形式高次の障害、invertible bimoduleによる実際の作用を求めること。
-4. AOU GIT compactificationのどこでheart/構造対象の許容性が保たれるか判定すること。
-
-
-## 公表論文との境界
-
-ambient射、四頂点potential、Poisson延長、中心三次ペンシルとAS4の計算は `nc-cubic-ambient` に移し、この研究の自足した標識忘却論文の再開には必要としない。非可換fiberの許容構造対象について、高次形式変形、自己同値2-groupの慣性、数値標識の純粋helix認識が未解決である。新規性は網羅的に確認できていない。
+優先(1) AOU quiver relation上で認識可能なAS-openとその相対カテゴリー構成を具体化。(2) 特に`HH²=H¹(T)⊕H⁰(-K)`の全8方向のrelation変形が許容になっているか比較。(3) AOU relation tupleの座標をPicard shearで明示変換する。(4) GIT S-同値・降下・相対慣性の検証。(5) full LaTeXコンパイルと数学的一次資料チェックを完了。ambientの認識は別リポジトリ`nc-cubic-ambient`。

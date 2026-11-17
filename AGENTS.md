@@ -1,7 +1,9 @@
 # 研究指示 — nc-cubic-unmark
 
-最初に `00_research_plan.md` を読む。研究の最優先は標識忘却（AOU九対象→構造対象→無標識Abel圏）のモジュライと自己同値。weakly markedな構造対象にrank-one torsion-freeとexceptionalityを要求し、ambientのAS性を仮定しない。
+**再開時は `00_research_plan.md` を最初に読む。** 最重要はAOU関係式モジュライから無標識Abel圏への忘却（定義域・本質像・ファイバー・慣性）。GIT境界を無条件に圏と同一視しない。
 
-一般原則：重要性・新規性・正確性・実現可能性を考慮して方針を変える。証明済み、条件付き、未証明、計算観察を厳密に区別。論文は日本語LuaLaTeXで有効な証明を削らず編集し、ノートは現行知識のみ保持する。一次資料を確認し、未確認の優先権・書誌を推測しない。研究区切りごとの軽量bundleのLibrary保存を承諾なしに行ってよい。GitHub mainはソースの正本で、PR・Actions・force pushは使わず区切りでfast-forward pushする。GitのPDF・ZIP・キャッシュ・バックアップ追跡を避ける。GitHub更新、組版・計算、Library保存は別々に検証する。旧Library資産を明示指示なく削除しない。
+主論文 `papers/nc-cubic-unmark.tex` と `papers/sections/aou_to_unmarked.tex`, `papers/sections/marking_forgetful.tex`。相対helix持上げ、Picard一次障害、GIT降下、大域Weyl商の仮定や未証明性を明記。weakのrank-one torsion-free, exceptionality, Hのt-exact性, AZ豊富性を維持。ambient認識は別の課題。
 
-投稿向け成果の中心：`papers/nc-cubic-unmark.tex`。`latexmk -lualatex papers/nc-cubic-unmark.tex` および `python3 scripts/verify_unmark_bundle.py` を確認する。ambient射の研究は独立の `uedakazushi/nc-cubic-ambient` を正本とする。
+数学的価値を最大化し、研究方針は現行の結論として書き直し履歴を積まない。既知引用、証明、仮定付き、未証明、計算観察を分離。一次資料確認。日本語LuaLaTeX。GitHub main直push、PR・Actions・force pushを使用しない。PDF/ZIPや中間物はGit追跡しない。研究区切りごとに最新の軽量bundleをLibraryに承諾なく保存してよい。既存Libraryファイルを明示指示なく削除しない。
+
+検証: `python3 scripts/verify_unmark_bundle.py`、`python3 computations/verify_marking_lattice.py`、`latexmk -lualatex papers/nc-cubic-unmark.tex`。生成・実行・GitHub更新・Library保存は別々に報告。

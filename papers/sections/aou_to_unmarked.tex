@@ -1,0 +1,183 @@
+\section{AOU 関係式モジュライから無標識 Abel 圏へ}\label{sec:aou-unmarked}
+本節は関係式の GIT 商と圏の同値類のモジュライを区別し、
+両者の間に存在する写像の定義域とファイバーを述べる。
+\subsection{三つのモジュライ問題と射の定義域}
+AOU\cite[\S5.1, (5.1)--(5.3)]{AOU} の九頂点・十八矢印の有向グラフを $Q$ とする。
+関係式のパラメータ空間および矢の基底変換群は
+\[
+ R_Q:=\prod_{i,j=0}^2\PP^2\simeq(\PP^2)^9,
+ \qquad G_Q:=(\mathbb G_m)^{Q_1}\simeq(\mathbb G_m)^{18}.
+\]
+AOU の関係式 stack と、線形化 $\chi$ に関する射影 GIT 商はそれぞれ
+\begin{equation}\label{eq:aou-stack-vs-git}
+ \mathfrak R_Q=[R_Q/G_Q],\qquad
+ M_Q^{\chi}=R_Q^{\chi\text{-ss}}\mathbin{/\!/}G_Q.
+\end{equation}
+これらは異なる対象である。後者はトーリック射影スキームであり、
+その稠密トーラス $M_Q^\circ\simeq(\mathbb G_m)^8$ を持つ
+\cite[Introduction, \S5.4]{AOU}。
+特に GIT 商の点が必ず AS 正則 $\mathbb Z$-代数を与えるとは
+AOU の結果からは従わない。
+
+\begin{definition}[圏的に許容される AOU 表示]\label{def:aou-categorical-domain}
+$T$ 上の\emph{圏的に許容される AOU 表示}とは、AOU の関係式の
+$G_Q$-torsor と同変な関係式の族に加え、次を満たすデータである：
+(a) 付随する $\{0,1,2\}\times\mathbb Z$-代数から、
+$T$ 上で底変更と両立する noetherian Abel 圏 $\mathcal A_T$ が構成される；
+(b) 標準九対象 thread は $\mathcal A_T$ の相対完全強例外 helix を誘導し、
+その先頭は定義\ref{def:weak-cubic}の相対許容構造対象である；
+(c) 相対 Serre 関手、heart、perfect Hom の底変更は
+定理\ref{thm:formal-structure}の直前に指定した条件を満たす。
+これらの証拠と同型を含めた fibered groupoid を
+$\mathfrak R_Q^{\rm cat}$ と書く。
+\end{definition}
+この定義は $\mathfrak R_Q^{\rm cat}$ が $\mathfrak R_Q$ の代数的な
+開部分 stack であることを主張しない。各条件の開性、族としての
+構成可能性と降下を検証することが今後の主要課題である。
+
+\begin{proposition}[圏的 AOU 忘却の構成]\label{prop:aou-categorical-map}
+上記の相対データが指定されている範囲で、
+\begin{equation}\label{eq:aou-categorical-map}
+ \mathfrak R_Q^{\rm cat}\longrightarrow\Cw\longrightarrow\Cu,
+ \qquad (I,(E_i))\longmapsto(\mathcal A,E_0)
+ \longmapsto\mathcal A
+\end{equation}
+という fibered groupoid の射が定義される。
+固定した幾何学的対象 $\mathcal A$ の上で、標識の選択の同型類を
+無標識で同一視する関係は、AOU 表示の間に
+\emph{$t$-exact な Abel 同値}が存在すること、すなわち
+その誘導する圏が exact に同値であることである。
+導来同値だけではこの関係を判定できない。
+定理\ref{thm:forgetful-fibres}の homotopy quotient の記述は
+この射に適用される。
+\end{proposition}
+\begin{proof}
+$G_Q$ は矢の基底を変換するので、relation algebra の頂点を保つ
+同型を誘導し、指定された helix と Abel 圏を輸送する。
+従って関係式の torsor 上での構成は同型に関して擬自然であり、
+定義の相対降下を用いて式\eqref{eq:aou-categorical-map}を得る。
+基礎圏の同定を変えるときの同値関係は定理\ref{thm:forgetful-fibres}
+そのものである。導来同値が任意の heart を保存するわけではないので、
+導来圏のみの比較で Abel 同値を結論することはできない。
+\end{proof}
+
+\begin{proposition}[GIT 商への降下に必要な条件]\label{prop:aou-git-descent-test}
+関係式の半安定 locus $R_Q^{\chi\text{-ss}}$ の部分集合 $V$ 上で
+圏の同型類を割り当てる操作が $M_Q^\chi$ からの写像として
+因子化するなら、$V$ の二点が同じ GIT 商点に写るとき、
+それらの対応する無標識 Abel 圏は exact に同値でなければならない。
+特に S-同値な半安定点に異なる圏が現れれば、その領域には
+所望の GIT 商からの忘却写像は存在しない。
+\end{proposition}
+\begin{proof}
+同じ商点の像は一つなので、圏の同型類は一致しなければならない。
+これは必要条件のみであり、十分な相対降下を述べない。
+\end{proof}
+
+\subsection{可換 locus での完全な比較}
+\begin{theorem}[AOU 可換 locus の無標識像]\label{thm:aou-commutative-quotient}
+$\mathcal M_{\rm cubic}^{\rm m}$ を滑らかな三次曲面の古典的標識付き
+モジュライとする。AOU\cite[Theorem 1.2]{AOU} の局所閉埋込み
+\[
+ \iota:\mathcal M_{\rm cubic}^{\rm m}\hookrightarrow M_Q^\circ
+\]
+に沿って式\eqref{eq:aou-categorical-map}を考える。
+二つの幾何学的点が同じ無標識 Abel 圏を定めるための必要十分条件は、
+対応する滑らかな三次曲面が同型であることである。
+従ってこの locus 上の幾何学的同型類の商は、
+古典的な $W(E_6)$ による標識変更の商である。
+特に $\Aut(X)=1$ の $X$ の上には
+\[
+ |W(E_6)|=51840
+\]
+個の古典的標識がある。一般の $X$ では、標識の同型類の個数は
+$51840/|\Aut(X)|$ である。
+ここでの $W(E_6)$ の作用は\emph{可換 locus 上}の古典的作用であり、
+$M_Q^\chi$ 全体に正則作用が延長するとは主張しない。
+\end{theorem}
+\begin{proof}
+AOU の埋込みが与える関係式は、標準九線束の
+End 代数を復元し、その Abel 圏は $\operatorname{coh}X$ である。
+滑らかな射影多様体の coherent sheaf 圏の exact 同値から
+多様体そのものを復元できるので、無標識像が一致することと
+$X$ の同型性は同値である\cite{Gabriel}。
+古典的標識は六本の順序付き斜交直線の選択と同値であり、
+固定 $X$ への標識全体は $W(E_6)$-torsor である
+\cite[\S2.3]{AOU}。$\Aut(X)$ は標識全体に自由に作用する：
+標識を固定する自己同型は六本の例外線を個別に保つので、
+blow-down 後の一般位置の六点を固定する $\PGL_3$ の元であり、恒等である。
+したがって標識の同型類数は上記の通りである。
+\end{proof}
+\begin{remark}[stack と集合の相違]
+定理\ref{thm:aou-commutative-quotient}の数は幾何学的同型類集合の
+ファイバー数であり、慣性を忘れている。古典的な marked stack を使えば、
+可換 locus の無標識 stack は標識付き stack の $W(E_6)$ 商として記述される。
+これを非可換 locus に無条件に拡張することはできない。
+\end{remark}
+
+\subsection{非可換方向に現れる無限の忘却ファイバー}
+\begin{theorem}[一次 AOU helix 選択の無限性：相対仮定付き]\label{thm:aou-infinite-relative-fibre}
+$\Aut(X)=1$ の滑らかな三次曲面 $X$ と、
+定理\ref{thm:very-general-picard-kernel}の非常に一般の条件を満たす
+Poisson 成分を持った許容相対一次 Abel 変形 $\mathcal A_\varepsilon$
+を取る。各線束 $L\in\Pic(X)$ と各古典的標準 AOU helix
+$E_\bullet$ に対し、$E_\bullet\otimes L$ の許容相対 helix
+への持上げが存在するという定理\ref{thm:formal-weyl}の
+相対持上げ条件の下では、
+\[
+ \pi_0\operatorname{Fib}_{\mathcal A_\varepsilon}
+ (\mathfrak M_{\rm AOU}^{\rm adm}\longrightarrow\Cu)
+ \longrightarrow \Pic(X)/\mathbb ZK_X\simeq\mathbb Z^6
+\]
+は全射である。特にこの\emph{圏的に許容される helix}
+の忘却のファイバーは、同型類の段階でも無限である。
+この結論から AOU の射影 GIT 商の幾何学的ファイバーが無限であるとは
+直ちには従わない。
+\end{theorem}
+\begin{proof}
+古典的 $E_\bullet\otimes L$ は完全強例外 helix で、先頭は $L$ である。
+仮定した相対持上げを取ると、先頭は
+定理\ref{thm:formal-structure}の $L_\varepsilon$ に一致する。
+一方、系\ref{cor:first-order-pointings}により、
+固定 $\mathcal A_\varepsilon$ 上のこれら先頭対象の
+exact 自己同値軌道は $\Pic(X)/\mathbb ZK_X$ で分類される。
+従って異なるこの商の元に属する二つの helix が
+無標識化のファイバー内で同型となることはない。
+全ての元に helix の持上げを取れるので全射である。
+なお、関係式の GIT 半安定性およびその商への降下は仮定していない。
+\end{proof}
+
+\begin{proposition}[無標識慣性の非準コンパクト性に対する障害]\label{prop:nonqc-inertia}
+$\operatorname{coh}X$ の exact 自己同値を自然同型で割った
+群は $\Pic(X)\rtimes\Aut(X)$ であり、その離散的部分は
+$\Pic(X)\simeq\mathbb Z^7$ を含む。
+仮に $\Cu$ を正確に表す locally finite type の代数的
+$1$-stack があり、$\operatorname{coh}X$ における自己同値の
+変形関手が Hochschild の $HH^1(X)$ によって忠実に制御されるなら、
+その stack の対角射は準コンパクトではない。
+\end{proposition}
+\begin{proof}
+定理\ref{thm:commutative-structure}によって自己同値の同型類群は
+$\Pic(X)\rtimes\Aut(X)$ であり、$\Pic(X)\simeq\mathbb Z^7$。
+命題\ref{prop:hh}から $HH^1(X)=0$ である。
+忠実な変形制御の仮定により、スカラーの $2$-自己同型を除いた
+$1$-stack の幾何学的安定化群は零接空間を持つ。
+もし対角射が準コンパクトなら、局所有限型性から
+その安定化群は有限型で零次元、従って幾何学的点は有限個である。
+しかし $\mathbb Z^7$ の異なる線束捩れは無限個の異なる点を与えるので矛盾する。
+\end{proof}
+\begin{remark}
+この命題は無標識 stack の代数性そのものを否定しない。
+また有限型の粗モジュライ空間の存在を否定するものでもない。
+対象が持つ exact 自己同値を完全に記録する stack で、
+準コンパクトな対角射まで期待してはならないことを示す
+\emph{必要条件}である。
+\end{remark}
+
+\subsection{大域的認識問題の優先順位}
+以上から残る問題は、(i) AOU のどの relation/potential 族で
+AS 正則性と相対 heart が保たれるか、(ii) その族の圏への写像の
+本質像と exact 同値類、(iii) 自己同値による作用の相対的構成、
+(iv) GIT の S-同値との両立、である。
+$W(E_6)$ は可換 locus と通常の標識の形式持上げを支配するが、
+非可換方向における\emph{無標識化全体の商群}とは同一視できない。

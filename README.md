@@ -1,12 +1,12 @@
-# 非可換三次曲面の標識忘却とPicard作用
+# AOU関係式モジュライと非可換三次曲面の無標識Abel圏
 
-このリポジトリは、標準九対象の標識付き非可換三次曲面から弱標識付き曲面（許容構造対象）へ、さらに無標識のAbel圏へ至る二段階の忘却を研究する。
+2026-11-17 / unmark-v2。最初に `00_research_plan.md` を読む。
 
-公表用主論文：`papers/nc-cubic-unmark.tex`。再開時は`00_research_plan.md`を最初に読む。
+最重要課題は、AOU関係式stackおよびトーリックGIT商から無標識Abel圏への射の定義域・本質像・ファイバー・慣性を解明し、公表用日本語LuaLaTeX論文にすること。
 
-内在的定義ではGabriel–Krull rank-one torsion-free性とexceptionalityを要求し、quadratic AS-regular ambientは仮定しない。可換三次曲面での標識忘却とPicard作用、形式W(E6)商、一次変形における障害と非常に一般の整数Picard核を中心とする。大域的なWeyl商は未証明。
+主論文 `papers/nc-cubic-unmark.tex`。入力 `papers/sections/marking_forgetful.tex`（Picardと形式標識忘却）、`papers/sections/aou_to_unmarked.tex`（AOU比較・可換Weyl商・非可換一次fiber・GIT降下）。
 
-ambient射、四頂点potential、R(1,3)成分の独立論文は [nc-cubic-ambient](https://github.com/uedakazushi/nc-cubic-ambient) の `papers/nc-cubic-ambient.tex` を参照。
+AOUの関係式GIT商の全点がAbel圏を定めるとは主張しない。可換smooth locusではW(E6)商、非常に一般の許容相対一次非可換変形ではPicard整数kernel=ZK、構造対象軌道商=Z^6。後者をGIT粗商のfiberとは混同しない。
 
 ```sh
 python3 -m pip install -r requirements.txt
@@ -15,4 +15,4 @@ python3 scripts/verify_unmark_bundle.py
 latexmk -lualatex papers/nc-cubic-unmark.tex
 ```
 
-GitHub mainを研究ソースの正本とする。PDF・ZIP・LaTeX中間生成物は追跡しない。 
+GitHub mainが正本。PDF/ZIP/中間ファイルはGit追跡しない。ambientは [nc-cubic-ambient](https://github.com/uedakazushi/nc-cubic-ambient) に分離。

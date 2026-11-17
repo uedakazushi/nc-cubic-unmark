@@ -19,57 +19,80 @@
 \newcommand{\Pic}{\operatorname{Pic}}\newcommand{\Aut}{\operatorname{Aut}}
 \newcommand{\End}{\operatorname{End}}\newcommand{\RHom}{\operatorname{RHom}}
 \newcommand{\Cw}{\mathfrak C^{\rm w}}\newcommand{\Cu}{\mathfrak C^{\rm u}}
-\title{非可換三次曲面の標識忘却とPicard作用\\\large 弱標識・形式Weyl商・構造対象の軌道}
+\title{AOU 関係式モジュライと非可換三次曲面の無標識 Abel 圏\\\large 標識忘却・Picard 障害・相対慣性}
 \author{植田一石}
-\date{2026年11月17日 / unmark-v1}
+\date{2026年11月17日 / unmark-v2}
 \begin{document}\maketitle
 \begin{abstract}
-非可換三次曲面を、反Serre作用とArtin--Zhang豊富性、三次曲面のHilbert値を持つ
-noetherian Abel圏と、Gabriel--Krull rank-one torsion-free exceptionalな構造対象の組として定義する。
-九対象helixの標識から弱標識へ、さらに無標識の基礎Abel圏へ至る二段階の
-忘却を、固定圏上の選択群oidとexact自己同値2-groupの作用として記述する。
-滑らかな可換三次曲面では許容構造対象が線束に一致し、
-AOUの関係式表示は全項の共通線束捩れを検出しない。
-相対heartとSerre作用の条件を明示したArtin変形で
-構造対象の持上げと標準標識の有限$W(E_6)$商を比較する。
-一次非可換変形でのPicard標識変更の障害を$H^1(\pi^\sharp)c_1(L)$と記述し、
-非常に一般の組ではその整数Picard格子上の核が$\mathbb ZK_X$であることを証明する。
-自己同型群が自明な可換特殊ファイバーの許容一次変形では、
-構造対象のexact自己同値類が$\Pic(X)/\mathbb ZK_X\simeq\mathbb Z^6$となる。
-全大域Weyl商や無標識モジュライstackの代数性は未解決である。
+AOUの九頂点quiverの関係式モジュライから非可換三次曲面の無標識Abel圏を得る問題を研究する。
+トーリックGIT商と関係式stackを区別し、相対AS正則helixとheartが存在する許容表示に限り
+標識付き圏から無標識圏への忘却を定式化する。
+可換な滑らかな三次曲面のlocusではGabrielの圏的復元により
+忘却の同型類が古典的な$W(E_6)$標識変更の軌道に一致し、
+一般の曲面上には51840個の標識がある。
+一方、許容相対一次非可換変形では線束によるMorita標識変更が
+$\delta_\pi(L)=H^1(\pi^\sharp)c_1(L)$だけ変形パラメータを動かす。
+非常に一般のPoisson成分についてその整数核は$\mathbb ZK_X$、
+構造対象のexact自己同値軌道は$\Pic(X)/\mathbb ZK_X\simeq\mathbb Z^6$となる。
+標準AOU helixの相対持上げ条件下では圏的標識忘却ファイバーから
+この集合への全射がある。
+全GIT境界の圏的解釈、GIT商への降下、無標識stackの代数性および
+非可換領域での大域Weyl商は未証明である。
 \end{abstract}
 {\small\tableofcontents}
 \clearpage
 \section{はじめに}
-AOUの標識付き模型から弱標識付き曲面$(\mathcal A,\OO)$へ、
-さらに構造対象を忘れた$\mathcal A$へ移る二段階の忘却を独立に扱う。
-第一段階は通常の幾何学的標識の$W(E_6)$作用と関係する一方、
-第二段階は許容構造対象の選択とexact自己同値の群oidを扱う。
-これらを同じ群による商と仮定しない。
+Abdelgadir--Okawa--Ueda（AOU）\cite{AOU}は九頂点十八矢印のquiverの
+九つの関係式から、八次元トーラスを稠密開部分とする
+トーリックな関係式GITモジュライを構成した。
+滑らかな古典的標識付き三次曲面のモジュライは
+そのトーラスへ局所閉埋込みされる\cite[Theorem 1.2]{AOU}。
+AOUの楕円decupleとの比較は双有理である\cite[Theorem 1.1]{AOU}。
+これらの結果は、GIT全点が無標識Abel圏を定めることも、
+GIT同値がAbel圏のexact同値に一致することも意味しない。
 
-Abdelgadir--Okawa--Ueda\cite{AOU}の九頂点関係式GIT、
-Okawa--Ueda\cite{OU2025}の標識付きAS曲面、
-Bondal--Orlov\cite{BO}の可換圏の自己同値、
-Lowen\cite{Lowen}とDe Deken--Lowen\cite{DDL}の対象・helixの変形理論、
-Toda\cite{Toda}のMorita標識変更を既知の入力とする。
-大域的なaffine Weyl軌道については\cite{OWR}の予想を無条件の結果にしない。
+本稿の最重要課題は、AOU関係式表示から無標識Abel圏への忘却の
+\emph{定義域、本質像、ファイバー、自己同値慣性}の決定である。
+関係式stackとGIT粗商、さらに圏的に許容されるhelix表示を分け、
+後者からの忘却を構成する（命題\ref{prop:aou-categorical-map}）。
+可換な滑らかな三次曲面のlocusではGabrielのAbel圏再構成
+\cite{Gabriel}により、無標識像の同型類を
+古典的な$W(E_6)$商として完全に記述する
+（定理\ref{thm:aou-commutative-quotient}）。
 
-主結果は忘却の2-fiber（定理\ref{thm:forgetful-fibres}）、
-可換構造対象の分類（定理\ref{thm:commutative-structure}）、
-共通線束捩れの関係式への非依存性（命題\ref{prop:common-tensor}）、
-相対Artin形式近傍の比較（定理\ref{thm:formal-structure}、
-定理\ref{thm:formal-weyl}）、Picard障害
-（命題\ref{prop:picard-first-order}、定理\ref{thm:picard-obstruction-rank}）、
-非常に一般の整数核と構造対象軌道
+非可換方向では有限Weyl群だけで無標識化を尽くせるとは限らない。
+滑らかな可換三次曲面で許容構造対象は線束に一致する
+（定理\ref{thm:commutative-structure}）。
+固定圏上の標識忘却の2-fiberはexact自己同値による
+homotopy quotientとなる（定理\ref{thm:forgetful-fibres}）。
+相対Artin変形での対象とhelixの持上げにはLowen\cite{Lowen}と
+De Deken--Lowen\cite{DDL}の変形理論を使用する。
+線束のMorita標識変更の一次障害はToda\cite{Toda}の
+Fourier--Mukai変形理論と整合する。
+非常に一般のPoisson成分では障害の整数核は$\mathbb ZK_X$であり、
+相対持上げの条件下で圏的AOU標識忘却のファイバーは
+$\mathbb Z^6$に全射する
 （定理\ref{thm:very-general-picard-kernel}、
-系\ref{cor:first-order-pointings}）である。
+定理\ref{thm:aou-infinite-relative-fibre}）。
+この主張をGIT粗商の無限ファイバーに読み替えてはならない。
 
-本稿はquadratic AS-regular ambientの存在を定義に含めず、
-内在的条件からのambient認識問題も保留する。
-四頂点potential、Poisson構造、中心三次ペンシルとambient射の研究は、
-別論文\emph{非可換三次曲面のambient射と$R(1,3)$成分}
-（\texttt{nc-cubic-ambient.tex}）に整理する。
+無標識圏のexact自己同値は可換点で
+$\Pic(X)\rtimes\Aut(X)$を含むため、
+その慣性は有限Weyl群の場合と質的に異なる。
+$HH^1(X)=0$を用いる変形制御の下では、無標識代数的stackの
+対角射の準コンパクト性にも障害がある
+（命題\ref{prop:nonqc-inertia}）。
+GIT境界への降下にはS-同値点での圏の同値性が必要であるが未解決である。
+
+弱標識付き対象$(\mathcal A,\mathcal O)$には
+Gabriel--Krull rank-one torsion-free性、exceptionality、
+Artin--Zhang豊富性を要求する。
+quadratic AS-regular ambientの存在を公理とせず、その認識問題は保留する。
+ambient射・四頂点potential・$R(1,3)$成分は
+別稿\emph{非可換三次曲面のambient射と$R(1,3)$成分}
+（\texttt{nc-cubic-ambient.tex}）で扱う。
 \input{papers/sections/marking_forgetful.tex}
+\input{papers/sections/aou_to_unmarked.tex}
 
 \section{可換三次曲面のHochschild変形}\label{sec:hh}
 \begin{proposition}\label{prop:hh}
@@ -95,16 +118,24 @@ $\wedge^3T_X=0$なので$\HH^3=0$。
 \end{proof}
 
 
-\section{今後の大域比較と再現性}
-全非可換対象に標準九対象標識がエタール局所で存在すること、
-数値的標識が幾何学的helixを一意に決めること、
-相対降下が全境界で成立することは未証明である。
-構造対象の2-group慣性、一般の高次Artin変形での自己同値の全持上げも未解決である。
-一般認識問題や既存ambientの結果は本稿の定理に加えない。
-厳密な有限格子計算は\texttt{computations/verify\_marking\_lattice.py}、
-検証範囲は\texttt{research/unmark\_validation.json}に記す。
-形式化・外部査読および網羅的な優先権調査は未実施である。
+\section{大域的な課題と再現性}
+本稿は、AOU関係式stack上で相対的なAS正則helixが構成される領域から
+無標識Abel圏への忘却を定式化し、滑らかな可換locus上では$W(E_6)$商を得た。
+相対一次非可換変形ではPicard標識変更がPoisson変形パラメータを動かし、
+追加のhelix持上げ条件の下で圏的標識忘却のファイバーは無限となる。
 
+残る最優先課題は、(i) AOU関係式のどこで相対AS正則性・
+相対Serre作用・heartの条件が成立するか、
+(ii) 圏への写像の本質像と慣性、
+(iii) GITのS-同値への下降条件、
+(iv) 非可換点での自己同値の高次持上げである。
+全GIT境界の圏的解釈、大域Weyl商、無標識stackの代数性は未証明である。
+
+有限格子計算は\texttt{computations/verify\_marking\_lattice.py}、
+静的検査は\texttt{scripts/verify\_unmark\_bundle.py}、
+実行範囲は\texttt{research/unmark\_validation.json}に記す。
+証明を掲載したこと、計算で検算したこと、全原稿の組版、
+外部査読は互いに区別する。
 \begin{thebibliography}{99}
 \bibitem{AOU} T. Abdelgadir, S. Okawa, K. Ueda,
 \emph{Compact moduli of marked noncommutative cubic surfaces},
@@ -129,6 +160,9 @@ via periods of K3 surfaces},
 J. reine angew. Math. 588 (2005), 99--148,
 \href{https://doi.org/10.1515/crll.2005.2005.588.99}{doi:10.1515/crll.2005.2005.588.99};
 \S\S 2.5--2.6.
+\bibitem{Gabriel} P. Gabriel, \emph{Des catégories abéliennes},
+Bull. Soc. Math. France 90 (1962), 323--448,
+\href{https://doi.org/10.24033/bsmf.1583}{doi:10.24033/bsmf.1583}.
 \bibitem{BO} A. Bondal, D. Orlov,
 \emph{Reconstruction of a variety from the derived category and groups of autoequivalences},
 Compositio Math. 125 (2001), 327--344;
