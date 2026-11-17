@@ -1,0 +1,144 @@
+\documentclass[11pt,a4paper]{ltjsarticle}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,mathrsfs}
+\usepackage[haranoaji]{luatexja-preset}
+\usepackage[unicode,hidelinks]{hyperref}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{corollary}[theorem]{系}
+\theoremstyle{definition}\newtheorem{remark}[theorem]{注意}
+\newtheorem{definition}[theorem]{定義}
+\renewcommand{\proofname}{証明}
+\newcommand{\PP}{\mathbb P}\newcommand{\kk}{\mathbb C}
+\newcommand{\Sym}{\operatorname{Sym}}\newcommand{\qgr}{\operatorname{qgr}}
+\newcommand{\Ext}{\operatorname{Ext}}\newcommand{\Extop}{\operatorname{Ext}}
+\newcommand{\Hom}{\operatorname{Hom}}\newcommand{\HH}{\operatorname{HH}}
+\newcommand{\Spec}{\operatorname{Spec}}\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\OO}{\mathcal O}\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\Pic}{\operatorname{Pic}}\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\End}{\operatorname{End}}\newcommand{\RHom}{\operatorname{RHom}}
+\newcommand{\Cw}{\mathfrak C^{\rm w}}\newcommand{\Cu}{\mathfrak C^{\rm u}}
+\title{非可換三次曲面の標識忘却とPicard作用\\\large 弱標識・形式Weyl商・構造対象の軌道}
+\author{植田一石}
+\date{2026年11月17日 / unmark-v1}
+\begin{document}\maketitle
+\begin{abstract}
+非可換三次曲面を、反Serre作用とArtin--Zhang豊富性、三次曲面のHilbert値を持つ
+noetherian Abel圏と、Gabriel--Krull rank-one torsion-free exceptionalな構造対象の組として定義する。
+九対象helixの標識から弱標識へ、さらに無標識の基礎Abel圏へ至る二段階の
+忘却を、固定圏上の選択群oidとexact自己同値2-groupの作用として記述する。
+滑らかな可換三次曲面では許容構造対象が線束に一致し、
+AOUの関係式表示は全項の共通線束捩れを検出しない。
+相対heartとSerre作用の条件を明示したArtin変形で
+構造対象の持上げと標準標識の有限$W(E_6)$商を比較する。
+一次非可換変形でのPicard標識変更の障害を$H^1(\pi^\sharp)c_1(L)$と記述し、
+非常に一般の組ではその整数Picard格子上の核が$\mathbb ZK_X$であることを証明する。
+自己同型群が自明な可換特殊ファイバーの許容一次変形では、
+構造対象のexact自己同値類が$\Pic(X)/\mathbb ZK_X\simeq\mathbb Z^6$となる。
+全大域Weyl商や無標識モジュライstackの代数性は未解決である。
+\end{abstract}
+{\small\tableofcontents}
+\clearpage
+\section{はじめに}
+AOUの標識付き模型から弱標識付き曲面$(\mathcal A,\OO)$へ、
+さらに構造対象を忘れた$\mathcal A$へ移る二段階の忘却を独立に扱う。
+第一段階は通常の幾何学的標識の$W(E_6)$作用と関係する一方、
+第二段階は許容構造対象の選択とexact自己同値の群oidを扱う。
+これらを同じ群による商と仮定しない。
+
+Abdelgadir--Okawa--Ueda\cite{AOU}の九頂点関係式GIT、
+Okawa--Ueda\cite{OU2025}の標識付きAS曲面、
+Bondal--Orlov\cite{BO}の可換圏の自己同値、
+Lowen\cite{Lowen}とDe Deken--Lowen\cite{DDL}の対象・helixの変形理論、
+Toda\cite{Toda}のMorita標識変更を既知の入力とする。
+大域的なaffine Weyl軌道については\cite{OWR}の予想を無条件の結果にしない。
+
+主結果は忘却の2-fiber（定理\ref{thm:forgetful-fibres}）、
+可換構造対象の分類（定理\ref{thm:commutative-structure}）、
+共通線束捩れの関係式への非依存性（命題\ref{prop:common-tensor}）、
+相対Artin形式近傍の比較（定理\ref{thm:formal-structure}、
+定理\ref{thm:formal-weyl}）、Picard障害
+（命題\ref{prop:picard-first-order}、定理\ref{thm:picard-obstruction-rank}）、
+非常に一般の整数核と構造対象軌道
+（定理\ref{thm:very-general-picard-kernel}、
+系\ref{cor:first-order-pointings}）である。
+
+本稿はquadratic AS-regular ambientの存在を定義に含めず、
+内在的条件からのambient認識問題も保留する。
+四頂点potential、Poisson構造、中心三次ペンシルとambient射の研究は、
+別論文\emph{非可換三次曲面のambient射と$R(1,3)$成分}
+（\texttt{nc-cubic-ambient.tex}）に整理する。
+\input{papers/sections/marking_forgetful.tex}
+
+\section{可換三次曲面のHochschild変形}\label{sec:hh}
+\begin{proposition}\label{prop:hh}
+滑らかな可換三次曲面$X$について
+\[
+ \HH^1(X)=0,\qquad \dim\HH^2(X)=4+4=8,\qquad \HH^3(X)=0.
+\]
+従ってHochschild複体で制御される通常の標識付き形式変形は無障害で、
+そのminiversalな底は8次元形式円板である。
+\end{proposition}
+\begin{proof}
+HKRにより$\HH^2=H^1(T_X)\oplus H^0(-K_X)\oplus H^2(\OO_X)$。
+$H^2(\OO_X)=0$、$h^0(-K_X)=4$である。
+接束の正常完全列とEuler完全列から$H^0(T_X)=0$および
+$h^1(T_X)=h^0(\OO_X(3))-15=19-15=4$を得る。
+前者の消滅は、$F$の偏導関数が二次正則列であり、一次係数のsyzygyがないことにもよる。
+$H^2(T_X)=0$は正常完全列の高次コホモロジー、
+$H^1(-K_X)=0$は$X$の直線束の中間コホモロジー消滅から従う。
+$\wedge^3T_X=0$なので$\HH^3=0$。
+同様に$\HH^1=H^0(T_X)\oplus H^1(\OO_X)=0$。
+通常のHochschild変形理論では障害は$\HH^3$に入るため無障害性が従う。
+この計算は反標準環の全域AS性や量子化の代数化を証明するものではない。
+\end{proof}
+
+
+\section{今後の大域比較と再現性}
+全非可換対象に標準九対象標識がエタール局所で存在すること、
+数値的標識が幾何学的helixを一意に決めること、
+相対降下が全境界で成立することは未証明である。
+構造対象の2-group慣性、一般の高次Artin変形での自己同値の全持上げも未解決である。
+一般認識問題や既存ambientの結果は本稿の定理に加えない。
+厳密な有限格子計算は\texttt{computations/verify\_marking\_lattice.py}、
+検証範囲は\texttt{research/unmark\_validation.json}に記す。
+形式化・外部査読および網羅的な優先権調査は未実施である。
+
+\begin{thebibliography}{99}
+\bibitem{AOU} T. Abdelgadir, S. Okawa, K. Ueda,
+\emph{Compact moduli of marked noncommutative cubic surfaces},
+\href{https://arxiv.org/abs/2404.00175}{arXiv:2404.00175}, v1.
+参照: Introduction, \S5.4, Theorems 1.1, 9.4, Lemma 9.2.
+\bibitem{Lowen} W. Lowen,
+\emph{Obstruction theory for objects in abelian and derived categories},
+Comm. Algebra 33 (2005), 3195--3223,
+\href{https://arxiv.org/abs/math/0407019}{arXiv:math/0407019}, Theorem A.
+\bibitem{DDL} O. De Deken, W. Lowen,
+\emph{Abelian and derived deformations in the presence of $\mathbb Z$-generating geometric helices},
+J. Noncommut. Geom. 5 (2011), 477--505,
+\href{https://doi.org/10.4171/JNCG/83}{doi:10.4171/JNCG/83},
+Theorems 4.5, 5.13, 5.15 and Definition 5.12.
+\bibitem{OU2025} S. Okawa, K. Ueda,
+\emph{Marked Artin--Schelter surfaces of del Pezzo types},
+\href{https://arxiv.org/abs/2508.04986}{arXiv:2508.04986v1} (2025),
+Definition 1.1 and Theorem 6.4.
+\bibitem{DGK} I. Dolgachev, B. van Geemen, S. Kond\=o,
+\emph{A complex ball uniformization of the moduli space of cubic surfaces
+via periods of K3 surfaces},
+J. reine angew. Math. 588 (2005), 99--148,
+\href{https://doi.org/10.1515/crll.2005.2005.588.99}{doi:10.1515/crll.2005.2005.588.99};
+\S\S 2.5--2.6.
+\bibitem{BO} A. Bondal, D. Orlov,
+\emph{Reconstruction of a variety from the derived category and groups of autoequivalences},
+Compositio Math. 125 (2001), 327--344;
+\href{https://arxiv.org/abs/alg-geom/9712029}{arXiv:alg-geom/9712029}.
+\bibitem{Toda} Y. Toda, \emph{Deformations and Fourier--Mukai transforms},
+J. Differential Geom. 81 (2009), 197--224;
+\href{https://arxiv.org/abs/math/0502571}{arXiv:math/0502571}.
+\bibitem{OWR} K. Ueda (joint work with S. Okawa),
+\emph{Affine Weyl group actions on moduli spaces of marked noncommutative del Pezzo surfaces},
+Oberwolfach Reports 44/2024, pp. 2557--2558,
+\href{https://doi.org/10.4171/OWR/2024/44}{doi:10.4171/OWR/2024/44}, Conjectures 1--3.
+\end{thebibliography}
+\end{document}
