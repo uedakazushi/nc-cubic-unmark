@@ -1,31 +1,30 @@
 {
   "date": "2026-11-18",
-  "version": "unmark-v7",
+  "version": "unmark-v8",
   "source": {
     "repository": "uedakazushi/nc-cubic-unmark",
-    "base_commit_before_update": "bf7006010403f0ebb7ffdc88ecf43b5155e25074",
-    "target_branch": "main"
+    "base_commit": "71e4b673da0a41d21fc9f1f18d11826da8b84435",
+    "branch": "main"
   },
   "claims": {
-    "intrinsic_line_criterion": "Proof written and reviewed: rank-one tf implies End=C and Ext2=0 under existing weak cubic axioms; exceptional iff chi=1. Uses a known ample base object, not ampleness of E.",
-    "numerical_uniqueness": "Proof written and reviewed, conditional on cubic RR/H and effective-degree positivity (EP). At most one object per numerical line class; existence is separate.",
-    "Rains_model_classification": "KNOWN consequence of Rains 1907.11301v1 Cor 7.10 and Prop 10.13; not a new classification. Rank and torsion here mean Rains definitions.",
-    "Rains_weak_admissibility": "AZ and Hilbert conditions from Rains Prop 9.7 and Thm 9.10 for Q=-K in interior nef and Q^2=3; transfer to intrinsic weak definition also requires GK rank compatibility.",
-    "heart_recognition": "Elementary sufficient criterion proved using eventual Ext vanishing and generation on both hearts. Application to all AOU hearts NOT established.",
-    "prior_results": "Existing universal AOU algebra, Hochschild support, numerical Serre-E6, formal Abel chart, Picard obstruction and invariant proofs retained with their assumptions.",
-    "all_AOU_line_existence": "NOT proved",
-    "global_GIT_descent": "NOT proved",
-    "novelty_priority": "Rains overlap explicitly identified; exhaustive novelty check and external refereeing not performed"
+    "rank_filtration": "Proof written and checked for Rains rational surfaces with smooth connected anticanonical C, Q=-K interior nef, Q^2=3. GK A0=T0 and A1=rank-zero; no non-torsion hypothesis needed.",
+    "weak_markings": "Known Rains existence and vanishing + proved rank comparison give Line_adm=Line=NS in that scope. New global existence is not claimed.",
+    "restriction_detection": "Proof written and checked with additional infinite-order eta=det(Li*[pt]). i*M=0 implies M=0; Li*E in degree 0 implies E in degree 0. Li* t-exactness and morphism faithfulness are NOT claimed.",
+    "exceptional_lift": "In the same non-torsion scope, exceptional E whose restriction is a line bundle is a line bundle and weak marking.",
+    "helix_reconstruction": "Proof using Polishchuk ample-sequence theorem; cohproj is identified with qgr only when right noetherian.",
+    "AOU_application": "Sufficient condition: Rains realization of AOU blowup compatible with anticanonical restriction and Serre, ample Q, infinite-order eta, right noetherian AS algebra. Not asserted for every AOU point.",
+    "known_inputs": "Rains rank/Chern/Serre identities and line classification; AOU mutation/restriction and tilting equivalence; Polishchuk reconstruction.",
+    "unresolved": "Full model-comparison locus, torsion parameters, uniform algebraic families, autoequivalence orbits, global GIT descent.",
+    "novelty": "No exhaustive priority search or external refereeing; bridges are deductions supplied with proofs."
   },
   "checks": {
-    "base_source": "Key local v6 source blobs matched live GitHub tree; preserved marking section is unchanged.",
-    "static_tex": "PASS: 8 sources, 80 labels, 110 refs, 12 bibliography entries, 42 citations",
-    "line_numerics": "PASS: exact symbolic RR, 1-2n, anticanonical Hilbert, H-invariance, Serre identity, quotient degree -3, integral parity",
-    "AOU_and_E6_scripts": "PASS: both existing scripts rerun, including numerical Serre and boundary ranks",
-    "lualatex": "PASS: 29 pages; no overfull boxes or undefined references/citations; benign font and PDF bookmark warnings remain",
-    "visual": "Final new classification pages 13 and 14 inspected; previous layout of new section also inspected. Full-page visual audit not claimed.",
-    "primary_sources": "Rains 2019 cited statements and Rains 2022 Prop 5.14 checked in parsed primary PDFs; OU p8 also visually checked. Rains screenshot calls failed; no figures used.",
-    "clean_rebuild": "PASS: clean source copy, all three calculations and static checks rerun, LuaLaTeX rebuilt 29 pages, all page text identical to included PDF",
-    "full_independent_refereeing": false
+    "static_tex": "PASS: 9 sources, 94 labels, 127 refs, 13 bibliography entries, 51 citations",
+    "computations": "PASS: all three scripts rerun, including theta kernel degree=-3r, quotient degree=3r, chi(theta M)-chi(M)=-degree(M). Symbolic identities are not categorical proofs.",
+    "lualatex": "PASS: 33 pages, no overfull boxes or undefined references/citations. Nonfatal font/bookmark warnings remain.",
+    "visual": "New proof pages 16,17,18 inspected; no observed clipping. No full-page visual audit claimed.",
+    "clean_rebuild": "PASS: clean source tree; all 3 scripts, static checker and LuaLaTeX rerun; all 33 page texts identical.",
+    "primary_sources": "AOU HTML equations 9.19,9.44,9.53 and Theorem9.4; OU p8 screenshot; Rains relevant statements and Polishchuk Lem2.1/Thm2.4 read in primary text. Rains/Polishchuk screenshots failed (cache miss); no figures used.",
+    "proof_review": "Reviewed filtration argument, Cartier signs, cohomology exact sequence, torsion-free lift and ample reconstruction. Older proofs retained; not all independently re-refereed this turn.",
+    "external_refereeing": false
   }
 }

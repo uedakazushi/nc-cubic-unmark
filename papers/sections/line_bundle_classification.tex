@@ -188,8 +188,8 @@ Corollary 10.12 から、$\Ext^2(L,L')$ と逆向きの第二 Ext は消える�
 前定理の $X$ について $Q=-K$ が nef cone の内部にあり、$Q^2=3$ とする。
 任意の線束 $L$ に対し $(L,H)$ は Artin--Zhang 豊富であり、
 式\eqref{eq:weak-hilbert}を満たす。
-加えて Rains の rank-one torsion-free 性が
-式\eqref{eq:gk-rank}の Gabriel--Krull 条件と一致すれば、
+反標準曲線が滑らかで連結なら、定理\ref{thm:rains-gk-filtration}によって
+Rains の rank-one torsion-free 性と式\eqref{eq:gk-rank}は一致するので、
 許容構造対象の同型類は $\operatorname{NS}(X)\cong\mathbb Z^7$ によって分類される。
 \end{proposition}
 \begin{proof}
@@ -208,7 +208,8 @@ Theorem 9.10 を $D_a=Q$ に適用すると、任意の coherent 層は
 十分大きな $n$ に対してこれらの線束により acyclically globally generated となる。
 従って生成全射があり、任意の全射の核に対する第一 Ext 消滅から
 Artin--Zhang の Hom 全射条件も成立する。
-最後の主張には明記した rank 条件の一致を用い、前定理を適用する。
+最後の主張には定理\ref{thm:rains-gk-filtration}を用い、前定理を適用する。
+同定理の rank 比較はここでの最後の主張を使わずに証明される。
 \end{proof}
 
 \begin{remark}[Picard 集合と自己同値群]
@@ -243,16 +244,15 @@ $\Phi$ とその逆に同じ議論を適用すれば、二つの heart が一致
 \end{proof}
 
 OU\cite[Theorem 6.4 に先行する議論、p.~8]{OU2025}には、
-AS 表示と非可換 blowup の\emph{導来}同値が記載されている。
-線束分類を移送するには、この同値の $t$-exact 性と、
-Rains 模型の rank/torsion filtration と式\eqref{eq:gk-rank}の一致を確認しなければならない。
-補題\ref{lem:ample-heart-transfer}において反標準列を同定することが具体的な十分条件になる。
-単なる数値 $E_6$ の一致、または有限 thread の導来同値だけではこの条件は得られない。
+AS 表示と非可換 blowup の導来同値が記載されている。
+次節では豊富な滑らかな反標準曲線を持つ Rains 模型について rank filtration を比較し、
+さらに非 torsion パラメータの下で、制限が線束となる例外対象が層であることを証明する。
+その結果、AOU の mutation foundation に対する exact 比較の十分条件が得られる
+（系\ref{cor:aou-rains-exact-region}）。
+単なる数値 $E_6$ や有限 End 代数の一致は、この比較の代替にはならない。
 
-一方、可換曲面を特殊ファイバーとする\emph{許容相対 Artin 変形}では、
-各古典的線束の存在と一意な持上げは定理\ref{thm:formal-structure}で既に得られている。
-その結果を、全因子類について共通の Zariski 開集合上の代数化へ拡張することはしない。
-個々の因子類での持上げや開条件を可算個交わらせても、
-非空 Zariski 開集合が残るとは限らないからである。
-現時点の核心は、Rains の既知分類を使える AOU heart を exact に認識することと、
-その範囲外で $\Omega_{\mathcal A}$ を決定することである。
+可換曲面を特殊ファイバーとする許容相対 Artin 変形では、
+各古典的線束の一意な持上げは定理\ref{thm:formal-structure}で得られている。
+この結果も、次節の点ごとの比較も、全因子類の共通の Zariski 開集合上での
+一様な代数化を保証しない。個々の因子類の開条件の可算交叉が
+非空 Zariski 開集合になるとは限らないことに注意する。

@@ -32,6 +32,13 @@ def main() -> None:
     assert sp.expand(chi(ideal,ideal)-(1-2*n)) == 0
     assert sp.expand(chi(line,twist(line,m))-(1+3*m*(m+1)/2)) == 0
     assert sp.expand(product(-canonical,twist(line,-1)[1]-line[1])) == -3
+    # Numerical signs used in the Cartier/restriction and GK proofs.
+    structure = (1, sp.zeros(7, 1), 0)
+    theta_v = twist(v, -1)
+    degree = product(-canonical, divisor)
+    assert sp.expand(chi(structure,theta_v)-chi(structure,v)+degree) == 0
+    assert sp.expand(product(-canonical,theta_v[1]-divisor)+3*rank) == 0
+    assert sp.expand(product(-canonical,divisor-theta_v[1])-3*rank) == 0
     # D^2 - K.D is even for every integral D, checked on the diagonal parity formula.
     parity_difference = sp.expand(product(divisor,divisor)-product(canonical,divisor))
     expected = divisor[0]*(divisor[0]+3)-sum(divisor[i]*(divisor[i]-1) for i in range(1,7))
@@ -40,6 +47,7 @@ def main() -> None:
     assert chi(ideal,ideal).subs(n,1) == -1
     print('PASS: self Euler=1-2n, Ext1 numerical value=2n; anticanonical Hilbert polynomial')
     print('PASS: Serre duality, H-invariance, same-class negative quotient degree=-3; parity')
+    print('PASS: Cartier kernel degree=-3r, quotient degree=3r, theta chi difference=-degree')
     print('LIMIT: categorical existence, positivity (EP), and heart/rank comparison are not tested')
 
 

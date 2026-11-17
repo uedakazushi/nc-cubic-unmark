@@ -21,7 +21,7 @@
 \newcommand{\Cw}{\mathfrak C^{\rm w}}\newcommand{\Cu}{\mathfrak C^{\rm u}}
 \title{AOU 関係式モジュライと非可換三次曲面の無標識 Abel 圏\\\large 線束の数値的分類・標識忘却・Picard 障害}
 \author{植田一石}
-\date{2026年11月18日 / unmark-v7}
+\date{2026年11月18日 / unmark-v8}
 \begin{document}\maketitle
 \begin{abstract}
 AOU 関係式モジュライと無標識 Abel 圏の関係を、固定圏内の線束対象の
@@ -32,8 +32,13 @@ rank-one torsion-free 対象の自己第二 Ext は消え、例外性は
 追加すると、各数値的線束類を持つ対象は高々一つである。
 Rains の非可換有理曲面では各因子類の線束の存在と分類は既知であり、
 その反標準類が豊富な場合に豊富性・切断数の条件を導く。
-ただしこの分類を AOU の指定された heart へ移すには、exact な比較と
-rank 条件の一致が必要である。線束の選択集合と自己同値軌道を区別する。
+滑らかな反標準曲線が豊富な Rains 模型では、数値的な次元 filtration と
+Gabriel--Krull filtration が一致し、全弱標識は N\'eron--Severi 格子で分類される。
+さらに反標準制限の数値的パラメータが非 torsion なら、
+制限が線束である例外対象は曲面上でも線束である。
+これを ample helix の再構成に適用し、明記した Rains blowup 比較範囲で
+AOU の導来同値が exact となる十分条件を得る。
+線束の選択集合と自己同値軌道を区別する。
 
 AOU の全関係式空間には階数45・大域次元2の普遍有限代数があり、
 その Artin 変形は九つの関係式で記述される。
@@ -87,13 +92,36 @@ Corollary 7.10、rank-one torsion-free 層の線束判定は Proposition 10.13 �
 全線束の豊富性と三次曲面の切断数を得る
 （命題\ref{prop:rains-weak-admissibility}）。
 
-AOU/OU の AS 表示と非可換 blowup との比較には導来同値が現れる
-\cite[p.~8]{OU2025}。
-しかし線束分類を指定された Abel heart へ移すには $t$-exact 性が必要である。
-本稿では消滅と生成を持つ反標準列による heart 識別条件を示し
-（補題\ref{lem:ample-heart-transfer}）、
-rank/torsion filtration の一致とともに今後確認すべき条件を明記する。
-従って一般の AOU 点に対して、線束の実現集合が既に $\mathbb Z^7$ 全体だとは主張しない。
+\paragraph{反標準曲線による exact 比較.}
+$X$ を Rains の非可換有理曲面とし、滑らかな反標準曲線 $C$ の類
+$Q=-K$ が nef cone の内部、$Q^2=3$ とする。
+この範囲では rank と有効次数を長さ関数として使い、
+\[
+ \mathcal A_0=\{r=0,c_1=0\},\qquad \mathcal A_1=\{r=0\}
+\]
+を証明する（定理\ref{thm:rains-gk-filtration}）。
+従って rank-one torsion-free の二つの意味は一致し、全弱標識の同型類は
+$\operatorname{NS}(X)\cong\mathbb Z^7$ になる（系\ref{cor:rains-all-weak-markings}）。
+既知の存在定理を適用するために残っていた rank 比較を、この範囲で解消する。
+
+さらに $\eta=\det(Li^*[\mathrm{pt}])\in\Pic^0(C)$ が無限位数なら、
+$i^*M=0$ となる coherent 層は零である。
+反標準三角から、$Li^*E$ が次数 $0$ の層なら $E$ も層であることを得る
+（定理\ref{thm:restriction-detects-heart}）。
+特に制限が線束である例外対象は曲面上でも線束となる。
+この結果と Polishchuk の ample sequence 再構成\cite{PolishchukProj}から、
+制限が線束である helix の Hom 代数の $\operatorname{cohproj}$ は
+元の heart と exact に同値となる（定理\ref{thm:restricted-helix-exact}）。
+
+AOU の式 (9.53) は mutation foundation の制限を九つの線束で与えている。
+その blowup が上の Rains 模型と反標準データを保って実現され、
+関連 AS 代数が right noetherian である範囲では、
+AOU Theorem 9.4 の標準導来同値は $t$-exact である
+（系\ref{cor:aou-rains-exact-region}）。
+ここで coherent な代数の $\operatorname{cohproj}$ と noetherian な代数の $\qgr$ を区別する。
+この系は全 AOU 点での模型同定、非 torsion 条件の Zariski 開性、
+相対的な降下を主張しない。既知の分類および再構成を用いたこれらの橋渡しの
+新規性について、網羅的な優先権確認はまだ行っていない。
 
 \paragraph{関係式モジュライと数値的標識.}
 三層 quiver の普遍関係式代数は、全境界で階数45、大域次元2の
@@ -166,6 +194,7 @@ $\wedge^3T_X=0$なので$\HH^3=0$。
 
 \input{papers/sections/marking_forgetful.tex}
 \input{papers/sections/line_bundle_classification.tex}
+\input{papers/sections/anticanonical_heart_bridge.tex}
 \input{papers/sections/aou_universal_algebras.tex}
 \input{papers/sections/generic_hearts_numerical_boundary.tex}
 \input{papers/sections/formal_abelian_recognition.tex}
@@ -178,9 +207,13 @@ $\wedge^3T_X=0$なので$\HH^3=0$。
 例外性は自己 Euler 形式 $1$ と同値である。
 (EP) の下では各数値的線束類の対象は高々一つとなる。
 Rains の非可換有理曲面では存在も既知であるため、
-その分類を新たに予想するのではなく、AOU の指定された heart への exact な移送を優先する。
-(EP)、rank filtration の比較、消滅・生成を持つ反標準列の同定は、
-Euler 行列や導来同値だけでは代用できない。
+その分類を新たに予想するのではなく、指定された heart への移送を扱った。
+豊富な滑らかな反標準曲線を持つ Rains 模型では GK filtration と rank の比較を証明し、
+全弱標識の格子による分類を得た。さらに非 torsion 条件の下では
+反標準制限が層および線束を検出し、AOU 型 helix の exact 再構成へ接続する。
+一般の AOU heart をこの模型と反標準データを保って同定する問題、
+right noetherian 性の適用範囲、torsion パラメータでの比較はなお残る。
+これらの条件を Euler 行列や抽象的な導来同値だけで代用しない。
 
 全 AOU 関係式空間の普遍有限代数と Hochschild 計算、
 一定の数値 Serre--$E_6$、可換点の形式 Abel chart、
@@ -243,11 +276,17 @@ Oberwolfach Reports 44/2024, pp. 2557--2558,
 \bibitem{RainsBir} E. M. Rains,
 \emph{The birational geometry of noncommutative surfaces},
 \href{https://arxiv.org/abs/1907.11301v1}{arXiv:1907.11301v1} (2019).
-参照: Definition 5.1 と pp.~67--68、Corollaries 7.9--7.10, 7.13、
-Proposition 9.7、Theorem 9.10、Lemma 10.11、Corollary 10.12、Proposition 10.13。
+参照: Definition 5.1 と pp.~67--68、Lemma 7.2、Propositions 7.5--7.6, 7.19, 7.24、
+Corollaries 7.9--7.10, 7.13, 7.15、Proposition 9.7、Theorem 9.10、Corollary 9.11、
+Lemma 10.11、Corollary 10.12、Proposition 10.13。
 \bibitem{RainsFilt} E. M. Rains,
 \emph{Filtered deformations of elliptic algebras},
 \href{https://arxiv.org/abs/2107.13540v2}{arXiv:2107.13540v2} (2022).
 参照: Proposition 5.14 (p.~42)。本稿の原始資料照合はこの版を使用した。
+\bibitem{PolishchukProj} A. Polishchuk,
+\emph{Noncommutative Proj and coherent algebras},
+Math. Res. Lett. 12 (2005), 63--74,
+\href{https://arxiv.org/abs/math/0212182}{arXiv:math/0212182}.
+参照: \S1、Lemma 2.1、Theorem 2.4。coherent と noetherian の区別を用いる。
 \end{thebibliography}
 \end{document}

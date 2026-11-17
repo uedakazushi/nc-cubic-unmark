@@ -1,0 +1,256 @@
+% !TeX root = ../nc-cubic-unmark.tex
+\section{反標準曲線による rank と heart の比較}\label{sec:anticanonical-heart-bridge}
+本節では Rains の既知の線束分類を、内在的な弱標識と AOU の指定された
+heart に結び付ける。既知の入力と本節で行う推論を分けて記す。
+すべて複素数体上とし、$X$ は \cite{RainsBir} の非可換有理曲面、
+$\mathcal A=\operatorname{coh}X$、$i:C\hookrightarrow X$ はその
+\emph{滑らかで連結な}反標準曲線とする。
+$Q=[C]=-K$ が nef cone の内部にあり、$Q^2=3$ と仮定する。
+この節の結論を、数値的 $E_6$ だけを持つ任意の AOU 境界へ拡張しない。
+
+\subsection{既知の幾何学的入力}
+$\theta=\mathsf S[-2]=H^{-1}$ は heart の exact 自己同値であり、
+反標準自然変換による三角
+\begin{equation}\label{eq:anticanonical-cartier-triangle}
+ \theta E\xrightarrow{t_E}E\longrightarrow i_*Li^*E\longrightarrow\theta E[1]
+\end{equation}
+がある。$i_*$ は coherent 層上で exact かつ完全忠実で、
+その像は rank $0$ である。層 $M$ の $Li^*M$ の振幅は $[-1,0]$、
+$i_*i^*M=\operatorname{coker}t_M$ であり、$\ker t_M$ は $i_*$ の像に入る。
+これらは反標準因子の構成と \cite[\S7 冒頭]{RainsBir} の入力である。
+
+数値 rank $r$ は層上で非負整数値の加法関数である。
+rank $0$ の層の $c_1$ は有効であり、
+$r(M)=c_1(M)=0$ は数値類が $n[\mathrm{pt}]$ であることと同値である。
+その場合 $n=\chi_X(M)\ge0$、等号は $M=0$ と同値である。
+ここで $\chi_X(M)=\chi(\OO_X,M)$ は自己 Euler 形式とは区別する。
+また
+\begin{equation}\label{eq:theta-rank-degree-identities}
+ \begin{split}
+ r(\theta M)&=r(M),\\
+ c_1(\theta M)&=c_1(M)+r(M)K,\\
+ \chi_X(\theta M)-\chi_X(M)&=c_1(M)\cdot K=-d(M),
+ \qquad d(M)=Q\cdot c_1(M).
+ \end{split}
+\end{equation}
+これらは \cite[Definition 7.1, Propositions 7.5--7.6,
+Corollary 7.15, Proposition 7.19]{RainsBir} による。
+$Q$ が nef cone の内部なので、非零有効類 $D$ には $Q\cdot D>0$。
+従って rank $0$ の層では $d\ge0$、$d=0$ と $c_1=0$ は同値である。
+線束による十分負の反標準 twist の消滅・生成には
+\cite[Theorem 9.10]{RainsBir}を用いる。
+
+\subsection{Gabriel--Krull filtration と数値的次元}
+\begin{theorem}[rank と torsion の内在的認識]\label{thm:rains-gk-filtration}
+上の仮定の下で、$\mathcal A_0,\mathcal A_1$ を
+定義\ref{def:weak-cubic}の Gabriel--Krull filtration とすると
+\begin{equation}\label{eq:rains-gk-equalities}
+ \mathcal A_0=\{M:r(M)=0,
+                  \ c_1(M)=0\},\qquad
+ \mathcal A_1=\{M:r(M)=0\}.
+\end{equation}
+従って Rains の rank-one torsion-free 性と
+式\eqref{eq:gk-rank}の条件は一致する。
+特にこの範囲では (EP) は追加仮定ではなく、既知の有効性から従う。
+本定理には後述する非 torsion パラメータの条件は不要である。
+\end{theorem}
+\begin{proof}
+右辺の二つの部分圏を $\mathcal T_0,\mathcal T_1$ と書く。
+rank の非負性と加法性から $\mathcal T_1$ は Serre 部分圏。
+その上の次数 $d$ の非負性から $\mathcal T_0$ も Serre 部分圏である。
+$\mathcal T_0$ の非零対象では $\chi_X$ が正整数なので、
+任意の真の部分対象列は長さ $\chi_X(M)$ 以下となり、$M$ は有限長である。
+
+逆に単純対象 $M$ を取る。$\theta M$ も単純なので、$t_M$ は零または同型。
+零なら $M\cong i_*i^*M$ であり、$i^*M$ は $C$ の単純 coherent 層、
+従って点の skyscraper 層である。ゆえに $M\in\mathcal T_0$。
+同型なら式\eqref{eq:theta-rank-degree-identities}から
+$r(M)K=0$ および $d(M)=0$ を得る。$K^2=3$ により $r(M)=0$ で、
+有効性と $Q$ の正値性から $c_1(M)=0$ となる。
+全単純対象が $\mathcal T_0$ に属すので、$\mathcal A_0=\mathcal T_0$。
+
+$\mathcal T_1/\mathcal T_0$ 上では $d$ が非零対象で正整数値の加法関数となる。
+Serre 商の部分対象列を実際の層の部分商で表すと、真の包含ごとに
+この整数が少なくとも一つ変化する。従って rank $0$ の層の像は有限長であり、
+$\mathcal T_1\subseteq\mathcal A_1$ を得る。
+
+$r(M)>0$ とする。noetherian 性により最大の rank $0$ 部分対象 $T$ があり、
+$N=M/T$ は正 rank の torsion-free 層である。
+$\ker t_N$ は $i_*$ の像、従って rank $0$ なので $t_N$ は単射。
+$\theta$ は rank と torsion-free 性を保つので、同じ議論を反復して
+\[
+ N\supset\theta N\supset\theta^2N\supset\cdots
+\]
+を得る。各商の rank は $0$、第一 Chern 類は $r(N)Q$、
+次数は $3r(N)>0$ である。従って $\mathcal A/\mathcal A_0$ でも
+すべて真の包含であり、$M$ の像は有限長でない。
+これで $\mathcal A_1=\mathcal T_1$ を得た。
+
+Rains の rank $1$ torsion-free 層 $L$ の像は、
+$\mathcal A/\mathcal T_1$ で単純である。
+実際、部分対象と商の rank の和が $1$ なので一方の像が零になる。
+逆に式\eqref{eq:gk-rank}を満たす $E$ は数値的 torsion-free で正 rank。
+線束による生成全射の非零成分 $L\to E$ を取ると、
+その像は正 rank なので kernel は rank $0$、$L$ の torsion-free 性から零である。
+商圏では $qL\to qE$ が非零単純対象間の同型だから、余核は rank $0$。
+従って $r(E)=r(L)=1$ である。
+\end{proof}
+
+\begin{corollary}[全弱標識の数値的分類]\label{cor:rains-all-weak-markings}
+本節の仮定を満たす $X$ では
+\[
+ \operatorname{Line}_{\rm adm}(\mathcal A)
+ =\operatorname{Line}(\mathcal A)
+ \xrightarrow[\ c_1\ ]{\sim}\operatorname{NS}(X)\cong\mathbb Z^7.
+\]
+各数値的線束類はただ一つの許容構造対象で実現される。
+これは同型類の集合の主張であり、線束選択の群oidには
+各対象の $\mathbb G_m$ 自己同型が残る。
+\end{corollary}
+\begin{proof}
+定理\ref{thm:rains-line-classification}の既知の存在・一意性、
+命題\ref{prop:rains-weak-admissibility}の豊富性・切断数と、
+前定理の rank 条件の一致を組み合わせる。
+非可換有理曲面の標識格子で $K^2=3$ なら $\operatorname{NS}$ の rank は $7$。
+$\End(L)=\mathbb C$ により最後の主張を得る。
+\end{proof}
+
+\subsection{非 torsion パラメータと反標準制限による検出}
+有理曲面の場合には数値類の導来制限の行列式が $\Pic(C)$ の元として定まり、
+\begin{equation}\label{eq:restriction-period-eta}
+ \eta:=\det(Li^*[\mathrm{pt}])\in\Pic^0(C)
+\end{equation}
+と書ける。数値類 $n[\mathrm{pt}]$ の制限の行列式は $\eta^n$ である
+\cite[Proposition 7.24 の直前の議論]{RainsBir}。
+以下では $\eta$ が無限位数であると仮定する。
+これは $Q=-K$ という因子類とは別のパラメータである。
+
+\begin{theorem}[反標準制限による層の検出]\label{thm:restriction-detects-heart}
+本節の仮定と $\eta$ の無限位数性の下で、
+coherent 層 $M$ に対し $i^*M=0$ なら $M=0$ である。
+さらに $E\in D^b(\mathcal A)$ に対して $Li^*E$ が次数 $0$ の層なら、
+$E$ も次数 $0$ の層である。
+$Li^*$ 自体が $t$-exact であるとは主張しない。
+\end{theorem}
+\begin{proof}
+$i^*M=0$ なら $t_M:\theta M\to M$ は全射。
+その kernel $T$ は rank $0$ であり、
+$c_1(T)=r(M)K$、$d(T)=-3r(M)$ となる。
+$d(T)\ge0$ と $r(M)\ge0$ から $r(M)=0$、従って $c_1(T)=0$。
+さらに
+\[
+ 0\le\chi_X(T)=\chi_X(\theta M)-\chi_X(M)=-d(M)\le0.
+\]
+ゆえに $T=0$、$d(M)=0$、$M$ の数値類は $n[\mathrm{pt}]$ である。
+$M\ne0$ なら $n>0$ だが、$t_M$ が同型なので $Li^*M=0$。
+これは $\det(Li^*M)=\eta^n\ne\OO_C$ に矛盾する。
+
+任意の有界複体 $E$ について、式\eqref{eq:anticanonical-cartier-triangle}と
+$\theta,i_*$ の exact 性から
+\begin{equation}\label{eq:restriction-cohomology-detection}
+ 0\longrightarrow i_*i^*\mathcal H^j(E)
+ \longrightarrow i_*\mathcal H^j(Li^*E)
+ \longrightarrow\ker t_{\mathcal H^{j+1}(E)}\longrightarrow0
+\end{equation}
+を得る。$Li^*E$ が次数 $0$ にあれば、$j\ne0$ で
+$i^*\mathcal H^j(E)=0$。前半から $\mathcal H^j(E)=0$ である。
+\end{proof}
+
+\begin{corollary}[制限が線束である例外対象]\label{cor:restricted-exceptional-line}
+同じ仮定の下で、例外対象 $E\in D^b(\mathcal A)$ の
+$Li^*E$ が次数 $0$ の線束なら、$E$ は Rains の意味の線束であり、
+本稿の許容構造対象である。
+\end{corollary}
+\begin{proof}
+前定理により $E$ は層で、$\ker t_E=0$。
+\cite[Lemma 7.2]{RainsBir}から $r(E)=\rank_C(Li^*E)=1$。
+$T$ を $E$ の最大 rank $0$ 部分対象、$F=E/T$ とする。
+$F$ は torsion-free なので $t_F$ は単射。
+$0\to T\to E\to F\to0$ に対する $t$ の可換図式と snake lemma から
+$i^*T\hookrightarrow i^*E$ を得る。
+また $t_T$ は $t_E$ の制限なので単射、従って $Li^*T=i^*T$ は
+$C$ 上で rank $0$ の層である。
+滑らかな曲線上の線束に torsion 層は埋め込めないので $i^*T=0$。
+前定理から $T=0$。ゆえに $E$ は rank-one torsion-free exceptional であり、
+定理\ref{thm:rains-line-classification}と系\ref{cor:rains-all-weak-markings}を適用する。
+\end{proof}
+
+\begin{remark}[非 torsion 条件の必要性と適用範囲]\label{rem:restriction-scope}
+可換三次曲面で $p\notin C$ なら $Li^*\OO_p=0$ であり、
+$\OO_X\oplus\OO_p[1]$ は層でないにもかかわらず制限は $\OO_C$ である。
+この例の複体は例外的ではないが、前定理の層検出を
+$\eta=\OO_C$ へ無条件に延長できないことを示す。
+また「無限位数」は点ごとの条件であり、ここから同条件を満たす
+非空 Zariski 開部分の存在や相対的な heart の降下を結論しない。
+$i^*$ の零対象の検出と、射上の忠実性・完全忠実性も区別する。
+\end{remark}
+
+\subsection{線束 helix の exact 再構成と AOU への適用}
+\begin{theorem}[制限が線束である helix の heart]\label{thm:restricted-helix-exact}
+$X,C,Q,\eta$ は前定理の仮定を満たすとする。
+$D^b(\mathcal A)$ に周期 $9$ の full geometric helix $(E_j)_{j\in\mathbb Z}$ があり、
+$E_{a-9n}\cong\theta^nE_a$ とする。
+一つの foundation $E_0,\ldots,E_8$ の導来制限がすべて
+次数 $0$ の線束であると仮定する。
+このとき全 $E_j$ は $\mathcal A$ 内の線束である。
+この列の Hom $\mathbb Z$-代数 $A_{ij}=\Hom(E_i,E_j)$ ($i\le j$) は coherent で、
+自然な exact 同値
+\begin{equation}\label{eq:exact-helix-reconstruction}
+ \mathcal A\simeq\operatorname{cohproj}A
+\end{equation}
+があり、$E_j$ は対応する射影加群の像に対応する。
+$A$ が right noetherian であれば $\operatorname{cohproj}A=\qgr A$ と書ける。
+この場合、同じ foundation とその全 End 代数の同定から作る
+標準 tilting 同値は $t$-exact である。
+\end{theorem}
+\begin{proof}
+前系により foundation は線束からなり、$\theta$ も線束を保つので
+全 helix が線束となる。
+任意の $M\in\mathcal A$ と各 $a=0,\ldots,8$ に対し、
+命題\ref{prop:rains-weak-admissibility}の消滅・生成の証明を $E_a$ に適用すると、
+十分大きい $n$ で $\theta^nE_a$ は $M$ を acyclically globally generate する。
+剰余類は有限個なので、$j\ll0$ で一様に
+\[
+ \Ext^{p}(E_j,M)=0\ (p>0),\qquad
+ \Hom(E_j,M)\otimes E_j\twoheadrightarrow M
+\]
+となる。特に任意の全射の kernel について第一 Ext が消えるので、
+列は projective sequence であり、生成条件と合わせて ample sequence である。
+Polishchuk\cite[Lemma 2.1, Theorem 2.4]{PolishchukProj}の
+$\mathbb Z$-代数版再構成により式\eqref{eq:exact-helix-reconstruction}を得る。
+right noetherian の場合の $\qgr$ との同定は同論文\S1の定義による。
+foundation は full strong なので、同じ射影生成系と全 morphism algebra を
+同定する二つの標準 dg/Morita 関手は同型である。
+従ってこの exact 同値の導来化と、指定した tilting 同値は一致する。
+\end{proof}
+
+\begin{corollary}[AOU blowup 比較の十分条件]\label{cor:aou-rains-exact-region}
+AOU \cite[\S9, Theorem 9.4]{AOU} の blowup と AS 表示を取る。
+blowup が本節の $X$ として実現され、その反標準制限と Serre 作用が
+AOU のものと一致し、対応する AS $\mathbb Z$-代数が right noetherian とする。
+$Q$ の正値性と $\eta$ の無限位数性も本節の仮定どおりとする。
+この比較範囲では標準導来同値は exact 同値
+\[
+ \operatorname{coh}X\simeq\qgr A
+\]
+から来る。特に $\qgr A$ の許容構造対象の同型類は
+$\operatorname{NS}(X)\cong\mathbb Z^7$ により分類される。
+\end{corollary}
+\begin{proof}
+AOU の式 (9.43)--(9.45) は mutation で得る foundation $\tau_7$ を定め、
+式 (9.53) の $\sigma_7$ はその導来制限が九つの線束であることを示す。
+ここで古典的な $\mathcal O(D)$ 記号だけから、非可換側でも層だと推論しない。
+制限と Serre の一致という仮定により、前定理を
+$\tau_7$ の helix に適用できる。
+その Hom 代数と AS 表示の同定は AOU Theorem 9.4 および
+\cite[\S3]{OU2025}の helix 構成を用いる。
+exact 同値は Gabriel--Krull filtration、Serre 作用、豊富性を保つので、
+系\ref{cor:rains-all-weak-markings}の分類を移せる。
+\end{proof}
+
+この系で証明したのは、明記した模型・反標準データの比較の下での
+$t$-exact 性と全弱標識の分類である。
+全 AOU 点がこの比較範囲に入ること、無限位数条件の一様な代数的開性、
+相対族の降下、torsion パラメータや全 GIT 境界については主張しない。
+また線束の選択集合 $\mathbb Z^7$ を、exact 自己同値で割った
+軌道集合と同一視しない。

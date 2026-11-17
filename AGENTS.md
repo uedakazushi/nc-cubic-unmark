@@ -1,11 +1,9 @@
 # 研究指示 — nc-cubic-unmark
 
-最初に `00_research_plan.md` を読む。中心はAOU関係式と無標識Abel圏の比較。現在の最優先は数値的線束類ごとの存在・一意性、weak許容性、自己同値軌道の順に解明すること。
+再開時は `00_research_plan.md` を最初に読む。中心は線束の数値的分類を通したAOU関係式と無標識Abel圏の比較。存在・一意性・weak許容性・自己同値軌道を区別する。
 
-rank-one torsion-freeの自己Ext²消滅とχ=1による線束判定は内在的に証明済み。同一数値類の一意性にはRR表示と有効次数正値性 (EP) を使う。Rainsの非可換有理曲面の線束存在・分類は既知なので新規成果としない。AOU–Rainsの導来同値だけからexact同値やrank filtration一致を結論しない。交差Ext消滅と生成によるheart識別を使う際は全条件を確認する。
+Rainsの線束存在は既知。本稿のGK比較はC smooth connected、−K interior nef、K²=3のRains模型で証明した。制限による層検出にはさらにη=det(Li*[pt])非torsionが必要。これをZariski開条件としない。AOUのexact比較はRains模型との反標準データの一致を明記し、cohprojをqgrと書くにはright noetherianを要求する。数値E6や導来同値だけからこれらを推論しない。
 
-公表用原稿は日本語LuaLaTeX。有効な既存証明を削らず、現在の成果として統合。研究方針は現在の目標と課題へ書き直し、ノートは履歴でなく現行知識を保持。既知引用・証明・今回の検証・仮定付き・未解決を区別。新規性を推測しない。
+日本語LuaLaTeXで有効な証明を保持し、研究方針は現行状態として整理する。既知結果・本稿証明・今回点検・計算・未解決を分ける。外部査読と網羅的新規性確認は未実施。GitHub mainへfast-forward直pushしPR/Actions/force pushを使わない。PDF/ZIP/cacheはGit追跡しない。ユーザーは研究区切りごとの自己完結した軽量bundleのLibrary保存を承諾なく行う一般許可を与えている。既存Libraryを明示指示なく削除しない。
 
-GitHub mainへfast-forwardで直接pushし、PR・Actions・force pushを使わない。ユーザーは区切りごとの自己完結した軽量bundleのLibrary保存を承諾なく行う一般許可を与えている。既存Libraryファイルを明示指示なく削除しない。PDF/ZIP/キャッシュはGit追跡しない。生成・組版・計算・GitHub更新・Library保存は別々に確認する。
-
-検証は研究方針の3計算、静的参照検査、LuaLaTeX全体組版。bundleは旧版を含めず必要なソース・PDF・書誌・再現手順を揃える。
+全3計算、静的検査、LuaLaTeX全体組版を行い、生成・実行・GitHub反映・Library保存を別々に確認する。

@@ -1,10 +1,10 @@
 # AOU 関係式モジュライと非可換三次曲面の無標識 Abel 圏
 
-2026-11-18 / unmark-v7。研究再開時は **`00_research_plan.md`**、次に `papers/nc-cubic-unmark.tex` と `research/unmark_notes.md` を読む。
+2026-11-18 / unmark-v8。研究再開は **`00_research_plan.md`**、次に主論文 `papers/nc-cubic-unmark.tex` と `research/unmark_notes.md`。
 
-最優先は、固定圏内の数値的線束類ごとの存在・一意性、その弱標識としての許容性、exact自己同値軌道。内在的な線束判定は rank-one torsion-free + χ(E,E)=1 ⇔ exceptional。数値RRと有効次数正値性 (EP) の下で同一数値類の一意性を証明する。
+数値的線束類の存在・一意性、weak許容性、exact自己同値軌道を研究する。Rainsの既知の線束存在・分類と、本稿の内在的χself=1判定を区別する。
 
-Rainsの非可換有理曲面では各因子類の線束の存在・分類は既知。これをAOUの指定heartへ移すためのexact比較とrank条件の一致はなお課題である。Rains分類を本研究の新規成果としない。既存のAOU普遍有限代数、数値Serre–E6、形式Abel chart、Picard障害の証明を保持する。
+滑らかな反標準曲線C、Q=−Kがnef内部、Q²=3のRains模型でGK filtrationと数値rank/torsionの一致を証明し、全弱標識の同型類がNS≅Z⁷となる。さらにη=det(Li*[pt])が無限位数なら、制限が線束である例外対象は線束。ample helixのcohproj再構成を用い、明記したRains模型との比較とright noetherian条件下でAOU tilting同値のt-exact性を得る。一般のAOU点、torsionパラメータ、相対降下まで証明したものではない。
 
 ```sh
 python3 -m pip install -r requirements.txt
@@ -15,4 +15,4 @@ python3 scripts/verify_unmark_bundle.py
 latexmk -lualatex papers/nc-cubic-unmark.tex
 ```
 
-GitHub mainがソース正本。PDF・ZIP・組版中間物をGit追跡しない。ambient認識は `uedakazushi/nc-cubic-ambient` で扱う。全GIT境界のheartと無標識降下は未証明。
+GitHub mainがソース正本。PDF・ZIP・中間生成物は追跡しない。全境界のheartと無標識GIT降下は未解決。ambient認識は `uedakazushi/nc-cubic-ambient` に分離する。
