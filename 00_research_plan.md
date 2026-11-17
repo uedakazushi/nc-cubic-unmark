@@ -1,48 +1,58 @@
 # 研究方針：AOU関係式モジュライと無標識 Abel 圏
 
-2026-11-17 / unmark-v2。再開時には本ファイル、`papers/nc-cubic-unmark.tex`、`research/unmark_notes.md`、`papers/sections/aou_to_unmarked.tex` の順に読む。GitHub mainを原稿正本とする。
+2026-11-17 / unmark-v3。**研究再開時は本ファイルを最初に読む。** 次に `papers/nc-cubic-unmark.tex`、`research/unmark_notes.md`、`papers/sections/aou_to_unmarked.tex` と `papers/sections/picard_invariants.tex` を読む。GitHub `uedakazushi/nc-cubic-unmark` の main が原稿正本。
 
-## I. 恒常的な原則・保存許可
+## I. 恒常的な研究原則と保存許可
 
-数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合し研究の価値を最大化する。重要な方針変更は現在有効な方針として理由と未解決点を整理し、更新履歴を堆積しない。既知の結果、本稿で証明を書いたもの、追加仮定付きのもの、未証明・予想・計算観察を区別し、典拠と未検証事項を明記する。必要に応じて先行研究を一次資料で確認し、未確認の新規性を断定しない。公表用論文は日本語LuaLaTeXで書き、正しい有効な証明を省略・削除しない。ノートは再取得の難しい障害・未解決点を整理し、作業履歴を残さない。
+数学的重要性・新規性・理解の深化・応用可能性・正確性・実現可能性を総合して研究全体の価値を最大化する。研究方針は現時点で有効な内容に書き直し、履歴を蓄積しない。既存文献、完全な証明、追加仮定付きの定理、未証明の予想、計算観察を区別し、証明所在・依存する既知結果・検証状況を明記する。公表用原稿は日本語LuaLaTeXとし、既に得られた有効な数学的内容は消さず、読者に理解しやすく統合する。文献は一次資料で照合し、未確認の新規性・書誌は推測で補わない。
 
-ユーザーから、研究の区切りごとに承諾なしで現在の軽量研究継続bundleをLibraryに保存する一般許可を受けている。bundleは現行の方針・ノート・論文・最低限のソース/検証物だけを含み、過去のZIP・履歴・ログ・中間物を含めない。既存のLibraryファイルは明示的な削除指示なく削除しない。GitHub更新、原稿生成、PDF組版・計算、Library保存は個別に実施状態を確認する。
+**ユーザーは研究の区切りごとに承諾なく現行研究継続bundleをLibraryへ保存することを一般的に許可している。** 保存するのは研究方針・研究ノート・公表用論文と再現に不可欠な現行のソース・計算資産・証明であり、旧ZIP、ログ、キャッシュ、試行履歴、重複は含めない。旧Libraryファイルを明示的な削除指示なしに削除しない。生成、計算、LuaLaTeX組版、GitHub push、Library保存は別々に確認して報告する。
 
-## II. 中心課題・達成基準
+## II. 中心問題と論文の達成基準
 
-**最重要課題は、AOU の関係式モジュライから無標識 Abel 圏への射の定義域・本質像・相対慣性・ファイバーを決定し、投稿できる論文にすること。** まずAS-regular/相対heartが意味を持つ幾何的領域を対象にする。GIT境界を無条件にカテゴリ化しない。
+最優先課題は、AOUの関係式モジュライから **無標識 Abel 圏への圏的忘却の定義域・本質像・ファイバー・慣性・粗商の限界** を解明し、公表価値のある定理と完全な証明を備えた論文にすること。
 
-AOU の `R_Q=(P^2)^9` と `G_Q=(G_m)^18` に対し、(i) quotient stack `[R_Q/G_Q]`、(ii) GIT coarse scheme `M_Q^chi`、(iii) 幾何的標識 helix の moduli、(iv) 弱標識 `(A,O)`、(v) 無標識 Abel 圏 `A` を分離する。`M_Q^chi` 全域から無標識の代数的 stack への射は未証明。ambient認識は引き続き保留、`nc-cubic-ambient` の独立課題。
+次の五段階を区別する：
 
-公表への第一到達基準は: (a) AOU 原著の既知定理との厳密な対応、(b) smooth commutative locus の完全記述、(c) 相対仮定付きでも非可換一次変形でのPicard障害による具体的差異、(d) 有効な定義域・降下補題、(e) LuaLaTeX組版、(f) 新規性と限界の明瞭な Introduction。第二到達基準は非可換AS-openの存在・相対比較の無条件化。
+1. AOUの関係式stack `[R_Q/G_Q]`, `R_Q=(P^2)^9`, `G_Q=(G_m)^18`；
+2. 線形化に依存するトーリックGIT粗商 `M_Q^χ`；
+3. 相対heart、Serre、生成helix等の証拠を持つ許容圏的AOU表示；
+4. 弱標識付き `(A,O)`；
+5. 無標識の基礎Abel圏 `A`。
 
-## III. 確認済みの骨格（証明の所在）
+`M_Q^χ` の全境界がAbel圏を定めることも、GIT S-同値がexact Abel同値を意味することも未証明。ambientのquadric AS-regular認識は別論文 `uedakazushi/nc-cubic-ambient` に分ける。
 
-- 【AOU既知・一次資料確認】`M_Q^chi` はトーリックGIT商、dense torus `(G_m)^8`、滑らかな標識付き三次曲面の moduli は局所閉埋込み。AOU arXiv:2404.00175 v1, §5.1, §5.4, Theorem 1.2; Theorem 1.1 は楕円decupleとの**双有理性**。全GIT境界のカテゴリ化を主張していない。
-- 【本稿に証明】可換 locus の無標識同型類は `W(E6)` 標識変更の軌道、一般X上の標識数51840、特異でない特殊Xでは `51840/|Aut X|`（`thm:aou-commutative-quotient`）。GabrielのAbel圏再構成を使用。
-- 【定義的な構成/条件付き】圏的に許容されるAOU表示から `(A,O)` と無標識 `A` を得る擬関手（`prop:aou-categorical-map`）。相対表現可能性・AS-openの代数性未証明。GITへの降下にはS-同値点で圏が同値である必要がある（`prop:aou-git-descent-test`）。
-- 【証明を記載】固定圏上の選択groupoid/2-fiber、可換構造対象は線束、relation End代数の共通tensor不変性（`thm:forgetful-fibres`, `thm:commutative-structure`, `prop:common-tensor`）。
-- 【相対仮定付き】Artin変形での構造対象とAOU標準helixの持上げ、形式`W(E6)`比較（`thm:formal-structure`, `thm:formal-weyl`）。
-- 【証明を記載】一次Picardのshear `delta_pi(L)=H^1(pi^sharp)c1(L)`、一般rank4、非常に一般の整数核`Z K_X`、許容一次fiberでの構造対象商`Pic/Z K = Q(E6)^vee = Z^6`。追加のhelix持上げ仮定下ではAOU標識忘却のファイバーからこのZ^6への全射（`thm:aou-infinite-relative-fibre`）。**AOU射影GIT商の無限ファイバーは主張しない。**
-- 【条件付きの必要条件】exact自己同値を完全に記録するunmarked 1-stackがHH¹制御を満たせば、可換点の無限Picard慣性ゆえに準コンパクト対角は期待できない（`prop:nonqc-inertia`）。
-- 【有限計算】`computations/verify_marking_lattice.py` はE6の72根・27直線・判別式3等のみを検査する。幾何・降下・Moritaの証明ではない。
+第一到達基準は：(a) smooth可換locusのW(E6)標識忘却の厳密な記述、(b) DDL/Todaと一致する相対一次非可換変形でのPicard shear、(c) Picard shearの粗商の障害を証明する、(d) AOU関係式とAS-regular heartの比較範囲を明示、(e) 全TeX組版と優先権調査。最上位目標は、AOU側の非可換幾何的開集合で実際の相対忘却を構成し、必要十分な同値条件と慣性を記述すること。
 
-## IV. 優先課題・着手方法
+## III. 現在の到達点（主張の状態と所在）
 
-1. **相対AS-openの認識**: AOUの関係式をbase-change可能なZ代数として取り出す操作、AS-regularityとt-exact H・AZ豊富性が成立する領域を整理し、AOU §4.6とOU2025の定義を比較する。1次のPoisson変形で具体的AOU relationが許容になるかを判定。
-2. **無標識忘却の相対群oid**: relation stackの慣性とexact自己同値2-groupの比較。中心Gm, rigidification、pointed/absoluteでの自然同型を区別。S-同値点のカテゴリ不変性を調べる。
-3. **Poisson shearの実験と証明**: generic cubic, πの上でE6各基本線束のdeltaを計算し、AOU relationの座標変換と照合。整数rankとcomplex rankの混同を避ける。
-4. **投稿仕上げ**: IntroductionでAOU Theorem1.1/1.2、OU2025、Toda、DDL、Gabrielの適用範囲を明示。形式W商と高次/境界の未知を断定しない。定理依存性を再点検しLuaLaTeXで完全組版。
+- 【既知・一次資料照合】AOU, arXiv:2404.00175 v1, Theorems 1.1, 1.2, §§4.6,5.1–5.4。GITの稠密トーラスは8次元、可換marked cubicのmoduliがその中に局所閉埋込み、楕円decupleとの対応は双有理。全境界のカテゴリー化は証明されていない。
+- 【主論文に証明】可換smooth locusの無標識同型類はW(E6)軌道、一般のX上に51840標識（`thm:aou-commutative-quotient`）。GabrielのAbel圏再構成を使用。
+- 【定義的/条件付き】相対圏的許容AOU表示から弱標識・無標識への擬関手（`prop:aou-categorical-map`）。AOU関係式stack内の開性・全域の降下・境界は未証明。GIT粗商降下の必要条件だけ（`prop:aou-git-descent-test`）。
+- 【証明記載】固定圏上の選択2-fiberとexact自己同値作用、可換構造対象の線束分類、共通tensorの有限End代数への非依存（`thm:forgetful-fibres`, `thm:commutative-structure`, `prop:common-tensor`）。
+- 【相対仮定付き】Artin変形上の構造対象持上げと形式W(E6)比較（`thm:formal-structure`, `thm:formal-weyl`）。全dg変形にheart条件を無条件には与えない。
+- 【証明記載】一次Picard shear `δ_π(L)=H¹(π^sharp)c₁(L)`、一般階数4、反標準方向の核、非常に一般の整数核 `Z K_X`、許容一次変形上の構造対象同型類の軌道 `Pic/ZK=Z^6`（`prop:picard-first-order`, `thm:picard-obstruction-rank`, `thm:very-general-picard-kernel`, `cor:first-order-pointings`）。
+- 【追加仮定付き】標準AOU helixの相対持上げをすべてのline bundle twistに対して要求すれば、**拡張された圏的helix選択**の無標識ファイバーが`Z^6`へ全射（`thm:aou-infinite-relative-fibre`）。これをAOUのGIT粗商のファイバーと混同しない。
+- 【新定理・証明記載】固定smooth cubic Xで`δ_π`があるπについてrank4なら、一次Hochschild変形線形空間`E=H¹T_X⊕H⁰(-K_X)`上のPicard shearについて `C[E]^Pic=C[P]`, `C(E)^Pic=C(P)`（`thm:picard-linear-invariants`）。一般rank4のπでは各H¹T_X-fiberのPicard軌道はZariski稠密。有限型分離代数空間へのPicard不変な射は`P=H⁰(-K_X)`を経由し、可換方向を区別しない（`cor:separated-linear-quotient`）。**線形一次模型の定理であって、AOU GITに無条件のPicard作用を構成したものでも、一般のunmarked粗moduli非存在定理でもない。**
+- 【条件付き】exact自己同値を記録する無標識stackの非準コンパクト対角の障害（`prop:nonqc-inertia`）。変形制御の仮定を削除しない。
+- 【有限計算】`computations/verify_marking_lattice.py`: 72根、27直線、判別式3、W軌道のrank6、rank4具体例。圏の降下やPicard shear不変式の数学的証明は本文にある。
 
-## V. 再現・正本
+## IV. 優先順位の高い次の課題と具体的着手
 
-GitHub: https://github.com/uedakazushi/nc-cubic-unmark （main）。ambient正本: https://github.com/uedakazushi/nc-cubic-ambient 。
+1. **AOU関係式の相対AS-openの認識**：AOU §4.6 の解消列(4.12)–(4.13)、§5.3の関係式/potential stackの開埋込み、OUの楕円decupleの存在開集合を照合。相対AS-regularity・heart・Serre・AZ豊富性を全8方向で示せる最小の開部分を特定。
+2. **一次Picard shearをrelation座標で実現**：AOUのquiver $Q$ の九関係式の一次変形と、line bundle twistによる有限threadの持上げの比較。`Pic(X)/ZK`の作用がAOU関係式の形式近傍でどこまで定義できるかを精密化。形式的な座標と相対heartの証拠を明記。
+3. **GITと無標識の相違を実例で判定**：S-同値な半安定点で非同値Abel圏が起こるかを調べる。粗商降下が不可能なら、適切な2-stack・非分離商・良いモジュライ空間の対象を探す。線形一次不変式環 `C[P]` を診断に使うが、非線形全域へ推論しない。
+4. **投稿品質**：IntroductionでAOU, DDL, Toda, Gabriel, Bondal–Orlov, OU2025を正確に比較。条件付き主張の読み替えを排除。全体のLuaLaTeX組版と原稿/脚注/用語を再点検。
 
-```
+## V. 再現・保存
+
+正本: https://github.com/uedakazushi/nc-cubic-unmark
+
+```sh
 python3 -m pip install -r requirements.txt
 python3 computations/verify_marking_lattice.py
 python3 scripts/verify_unmark_bundle.py
 latexmk -lualatex papers/nc-cubic-unmark.tex
 ```
 
-TeX全体の組版と数値検証はその都度再実行して記録する。文献一次資料: AOU https://arxiv.org/pdf/2404.00175, OU2025 https://arxiv.org/pdf/2508.04986, Gabriel DOI:10.24033/bsmf.1583, Toda arXiv:math/0502571, DDL DOI:10.4171/JNCG/83。
+Bundleは現行版の原稿・コード・必要な書誌情報を同梱し、PDFは必要な範囲でLuaLaTeXで再生成。GitHubへはPDFを追跡しない。各検査で未実行項目があれば検証JSONに記す。

@@ -21,7 +21,7 @@
 \newcommand{\Cw}{\mathfrak C^{\rm w}}\newcommand{\Cu}{\mathfrak C^{\rm u}}
 \title{AOU 関係式モジュライと非可換三次曲面の無標識 Abel 圏\\\large 標識忘却・Picard 障害・相対慣性}
 \author{植田一石}
-\date{2026年11月17日 / unmark-v2}
+\date{2026年11月17日 / unmark-v3}
 \begin{document}\maketitle
 \begin{abstract}
 AOUの九頂点quiverの関係式モジュライから非可換三次曲面の無標識Abel圏を得る問題を研究する。
@@ -36,6 +36,9 @@ $\delta_\pi(L)=H^1(\pi^\sharp)c_1(L)$だけ変形パラメータを動かす。
 構造対象のexact自己同値軌道は$\Pic(X)/\mathbb ZK_X\simeq\mathbb Z^6$となる。
 標準AOU helixの相対持上げ条件下では圏的標識忘却ファイバーから
 この集合への全射がある。
+さらに一次Hochschild変形線形空間上のPicard shearの不変式環が
+Poisson成分の多項式環に一致することを示し、単純な分離粗商では
+可換変形方向を区別できないことを証明する。
 全GIT境界の圏的解釈、GIT商への降下、無標識stackの代数性および
 非可換領域での大域Weyl商は未証明である。
 \end{abstract}
@@ -76,6 +79,15 @@ $\mathbb Z^6$に全射する
 定理\ref{thm:aou-infinite-relative-fibre}）。
 この主張をGIT粗商の無限ファイバーに読み替えてはならない。
 
+一次Picard shearの不変式環と不変有理関数体を計算すると
+$\mathbb C[\HH^2(X)]^{\Pic(X)}=\mathbb C[H^0(X,-K_X)]$、
+$\mathbb C(\HH^2(X))^{\Pic(X)}=\mathbb C(H^0(X,-K_X))$
+となる（定理\ref{thm:picard-linear-invariants}）。
+有限型分離代数空間へのPicard不変な一次線形模型上の射は
+Poisson成分を通して因子化する（系\ref{cor:separated-linear-quotient}）。
+これはAOU GITの大域作用や無標識粗moduliの一般的な非存在を
+証明する主張ではない。
+
 無標識圏のexact自己同値は可換点で
 $\Pic(X)\rtimes\Aut(X)$を含むため、
 その慣性は有限Weyl群の場合と質的に異なる。
@@ -93,6 +105,7 @@ ambient射・四頂点potential・$R(1,3)$成分は
 （\texttt{nc-cubic-ambient.tex}）で扱う。
 \input{papers/sections/marking_forgetful.tex}
 \input{papers/sections/aou_to_unmarked.tex}
+\input{papers/sections/picard_invariants.tex}
 
 \section{可換三次曲面のHochschild変形}\label{sec:hh}
 \begin{proposition}\label{prop:hh}
@@ -123,6 +136,8 @@ $\wedge^3T_X=0$なので$\HH^3=0$。
 無標識Abel圏への忘却を定式化し、滑らかな可換locus上では$W(E_6)$商を得た。
 相対一次非可換変形ではPicard標識変更がPoisson変形パラメータを動かし、
 追加のhelix持上げ条件の下で圏的標識忘却のファイバーは無限となる。
+一次Picard shearの多項式・有理不変式はPoisson成分だけに依存するため、
+分離的な一次線形粗商では可換変形方向が失われる。
 
 残る最優先課題は、(i) AOU関係式のどこで相対AS正則性・
 相対Serre作用・heartの条件が成立するか、

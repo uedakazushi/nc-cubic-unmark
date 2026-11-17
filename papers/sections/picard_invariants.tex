@@ -1,0 +1,115 @@
+\section{一次 Picard shear の代数的不変式と粗商の障害}
+\label{sec:picard-invariant-quotient}
+
+この節では線形一次変形空間の商を厳密に計算する。これは AOU の
+GIT 商そのものを計算するものではない。滑らかな三次曲面 $X$ に対し
+\[
+ V:=H^1(X,T_X),\qquad P:=H^0(X,-K_X),\qquad
+ E:=V\oplus P=\HH^2(X)
+\]
+と書く。どちらも四次元である（命題\ref{prop:hh}）。
+$\Lambda=\Pic(X)$ とおき、$L\in\Lambda$ に対して
+\begin{equation}\label{eq:picard-linear-shear}
+ r_L(\xi,\pi):=(\xi+\delta_\pi(L),\pi),\qquad
+ \delta_\pi(L):=H^1(\pi^\sharp)c_1(L)
+\end{equation}
+と定める。$\delta_\pi(L)$ は $\pi$ と $L$ の第一 Chern 類に
+それぞれ線形なので、$r_L$ は $E$ の線形自己同型であり
+$r_Lr_M=r_{L\otimes M}$ となる。この表示は
+命題\ref{prop:picard-first-order}で確認した Morita 標識変更の一次作用である。
+
+\begin{lemma}[加法群における格子平行移動の Zariski 閉包]
+\label{lem:translation-closure}
+特性零の体 $k$ 上の有限次元線形空間 $W$ と有限個の元
+$v_1,\ldots,v_s\in W$ に対し、$\sum_i\mathbb Z v_i$ の
+$W$ の加法群における Zariski 閉包は
+$\operatorname{span}_k\{v_1,\ldots,v_s\}$ に等しい。
+\end{lemma}
+\begin{proof}
+$\Gamma=\sum_i\mathbb Z v_i$ とする。$\Gamma$ 上で消える
+多項式 $f$ を取り、一つの $\gamma\in\Gamma$ を固定する。
+$\gamma+n v_i\in\Gamma$ より $f(\gamma+t v_i)$ は
+整数 $t=n$ のすべてで零となるので恒等的に零である。
+この操作を各 $i$ について繰り返すと
+$\gamma+\sum_i t_i v_i$ 上で $f$ は恒等的に零である。
+特に $\gamma=0$ と置けば $f$ は張る部分空間上で零になる。
+逆向きの包含は自明である。
+\end{proof}
+
+\begin{theorem}[Picard shear の多項式・有理不変式]
+\label{thm:picard-linear-invariants}
+$X$ は滑らかな複素三次曲面であり、$\pi\in P$ が滑らかな零因子を持ち、
+$H^1(\pi^\sharp)$ の階数が $4$ になるものが存在すると仮定する。
+$\Lambda=\Pic(X)$ は式\eqref{eq:picard-linear-shear}によって
+$E\simeq\mathbb A^8$ に作用し、この作用の不変式は
+\begin{equation}\label{eq:picard-invariants}
+ \boxed{\ \mathbb C[E]^\Lambda=\mathbb C[P],\qquad
+ \mathbb C(E)^\Lambda=\mathbb C(P)\ }.
+\end{equation}
+実際、階数が $4$ となる任意の $\pi$ に対し、$\Lambda$ の軌道は
+各 $V\times\{\pi\}$ の中で Zariski 稠密である。
+特に、$\pi=0$ 上では全 $r_L$ が恒等であるにもかかわらず、
+\emph{一次作用の affine な不変式商} $E\to\Spec\mathbb C[E]^\Lambda\cong P$
+は $V\times\{0\}$ 全体を一点に写す。
+\end{theorem}
+\begin{proof}
+$H^1(\pi^\sharp)$ の階数 $4$ となる $\pi$ の集合 $P^{\rm surj}$ は
+非空 Zariski 開である。$c_1(\Pic X)$ は
+$H^1(X,\Omega_X^1)$ を複素線形に張るので、
+各 $\pi\in P^{\rm surj}$ について
+$\delta_\pi(\Lambda)$ の複素線形包は $V$ 全体になる。
+補題\ref{lem:translation-closure}により、この加法部分群は $V$ で
+Zariski 稠密である。$f\in\mathbb C[E]^\Lambda$ を取ると、
+$\pi\in P^{\rm surj}$ を固定した $f(\cdot,\pi)$ は
+すべての $\delta_\pi(\Lambda)$ による平行移動で不変だから
+$V$ 上の定数である。$P^{\rm surj}$ が稠密であるので
+$f$ は $\xi$ に依存せず、$f\in\mathbb C[P]$ である。
+逆向きの包含は $r_L$ が $\pi$ を固定することから従う。
+
+有理不変式 $f\in\mathbb C(E)^\Lambda$ についても、各
+$\pi\in P^{\rm surj}$ の一般点で $f(\cdot,\pi)$ を評価すれば
+同じ結論を得る。厳密には $\mathbb C(P)$ 上で $f$ を
+$V$ の有理関数とみなし、各 $L$ による整数平行移動の不変性から
+方向 $\delta_\pi(L)$ に沿うすべての有理微分が零であることを得る。
+$\delta_\pi(\Lambda)$ は一般の $\pi$ で $V$ を張るため
+$V$ に関するすべての偏微分が零となり、
+特性零により $f\in\mathbb C(P)$ が従う。
+\end{proof}
+
+\begin{corollary}[分離的な一次粗商の限界]
+\label{cor:separated-linear-quotient}
+上の定理の条件の下で、$Y$ を複素数体上の有限型分離代数空間とする。
+Picard shear に不変な射 $F:E\to Y$ は
+\[
+ E\xrightarrow{\operatorname{pr}_P}P\xrightarrow{g}Y
+\]
+と一意に因子化する。従って $F$ は可換方向 $V\times\{0\}$ の
+異なる点を区別できない。
+\end{corollary}
+\begin{proof}
+$\pi\in P^{\rm surj}(\mathbb C)$ と $\xi\in V$ を取る。
+$\Lambda$ 軌道上で $F$ は定数であり、その軌道は
+$V\times\{\pi\}$ に Zariski 稠密である。
+$Y$ は有限型なので複素点は閉点であり、射の連続性から
+$F$ は $V\times\{\pi\}$ 全体で定数となる。
+零切断 $s:P\to E$ に対し $F$ と
+$F\circ s\circ\operatorname{pr}_P$ は
+稠密開 $V\times P^{\rm surj}$ で一致する。
+$Y$ は分離なので両者の等化子は閉集合であり、
+$E$ 全体で一致する。$g=F\circ s$ とすればよい。
+\end{proof}
+
+\begin{remark}[適用範囲と AOU への意味]
+\label{rem:picard-linear-scope}
+定理\ref{thm:picard-linear-invariants}と系
+\ref{cor:separated-linear-quotient}は、$X$ の\emph{一次 Hochschild
+変形空間}上の線形化した Picard 作用についての厳密な結論であり、
+AOU の GIT スキーム上で同じ作用が全域に定義されることや、
+非可換 Abel 圏の大域粗モジュライが存在しないことを意味しない。
+特に一般の $\pi$ に対する整数核 $\mathbb ZK_X$
+（定理\ref{thm:very-general-picard-kernel}）は軌道の\emph{集合論的}
+分類を与える一方、ここでの Zariski 稠密性は
+有限型分離な粗商の\emph{情報喪失}を与える。
+この相違が、AOU 関係式の通常の GIT 商だけから
+無標識 Abel 圏のモジュライを取り出す際の主要な障害となる。
+\end{remark}
