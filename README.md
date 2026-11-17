@@ -1,19 +1,18 @@
-# AOU関係式モジュライと非可換三次曲面の無標識 Abel 圏
+# AOU 関係式モジュライと非可換三次曲面の無標識 Abel 圏
 
-**2026-11-18 / unmark-v6**。研究の再開は必ず `00_research_plan.md` から。
+2026-11-18 / unmark-v7。研究再開時は **`00_research_plan.md`**、次に `papers/nc-cubic-unmark.tex` と `research/unmark_notes.md` を読む。
 
-最重要課題は、AOU九関係式モジュライから無標識 Abel 圏への忘却の定義域・本質像・ファイバー・慣性・GIT降下を解決すること。論文は日本語 LuaLaTeX の `papers/nc-cubic-unmark.tex`。入力節は `papers/sections/` の現行全TeX。
+最優先は、固定圏内の数値的線束類ごとの存在・一意性、その弱標識としての許容性、exact自己同値軌道。内在的な線束判定は rank-one torsion-free + χ(E,E)=1 ⇔ exceptional。数値RRと有効次数正値性 (EP) の下で同一数値類の一意性を証明する。
 
-主要な到達点：全関係式点で45次元・gldim2の普遍有限代数、境界Hochschild次元の支持行列公式、稠密開上にAS-regular heartが存在する既知AOU/OUの帰結、全関係式点で一定の数値的Serre-E6格子、数値標識では区別できない導来非同値な境界、滑らかな可換点でのAbel形式変形と8次元AOUチャート、Picard一次障害、可換W(E6)標識忘却。
-
-形式的 Grothendieck Abel 変形、稠密AS locusの点ごとの存在、全GIT境界でのAS heartの認識は別問題。全域の無標識 stack、相対 t-exact Serre、GIT S-同値降下は未証明。
+Rainsの非可換有理曲面では各因子類の線束の存在・分類は既知。これをAOUの指定heartへ移すためのexact比較とrank条件の一致はなお課題である。Rains分類を本研究の新規成果としない。既存のAOU普遍有限代数、数値Serre–E6、形式Abel chart、Picard障害の証明を保持する。
 
 ```sh
 python3 -m pip install -r requirements.txt
 python3 computations/verify_marking_lattice.py
 python3 computations/verify_aou_relation_tangent.py
+python3 computations/verify_line_bundle_numerics.py
 python3 scripts/verify_unmark_bundle.py
 latexmk -lualatex papers/nc-cubic-unmark.tex
 ```
 
-GitHub `main` がソース正本。PDF/ZIP/組版キャッシュはGit追跡しない。ambientのAS認識問題は [nc-cubic-ambient](https://github.com/uedakazushi/nc-cubic-ambient) で扱う。
+GitHub mainがソース正本。PDF・ZIP・組版中間物をGit追跡しない。ambient認識は `uedakazushi/nc-cubic-ambient` で扱う。全GIT境界のheartと無標識降下は未証明。

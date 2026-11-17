@@ -1,0 +1,258 @@
+% !TeX root = ../nc-cubic-unmark.tex
+\section{数値的線束類の実現と弱標識}\label{sec:line-classification}
+固定した Abel 圏の弱標識忘却を理解するためには、まずその圏の中の
+線束を分類し、次に exact 自己同値による軌道を求める必要がある。
+本節では rank-one torsion-free exceptional 対象を\emph{線束対象}と呼ぶ。
+その同型類集合を $\operatorname{Line}(\mathcal A)$、
+豊富性と式\eqref{eq:weak-hilbert}も満たす部分を
+$\operatorname{Line}_{\rm adm}(\mathcal A)$ と書く。
+対象同士のテンソル積も、この集合上の群法則も仮定しない。
+
+先行研究との関係を先に明記する。Rains の非可換有理曲面では、各因子類を
+持つ線束の存在、数値類と Euler 形式、および rank-one torsion-free
+対象の線束判定が既に得られている
+\cite[Corollaries 7.9--7.10, Proposition 10.13]{RainsBir}。
+例外的 torsion-free 層の同一 $K_0$ 類での一意性についても
+\cite[Proposition 5.14]{RainsFilt}がある。
+従ってこれらを本稿固有の新規な分類定理とは扱わない。
+以下の内在的証明の役割は、どの公理がこれらの結論に必要かを分離し、
+AOU の heart との比較で未確認の入力を明らかにすることにある。
+
+\subsection{例外性は自己 Euler 形式で判定できる}
+以下、定義\ref{def:weak-cubic}を満たす $(\mathcal A,\OO_0)$ を固定する。
+$H$ は exact なので $\mathcal A_1$ と rank-one torsion-free 性を保つ。
+
+\begin{lemma}[階数一の射]\label{lem:rank-one-monomorphism}
+rank-one torsion-free 対象 $E,F$ の間の非零射は単射である。
+また $\End(E)=\mathbb C$ である。
+\end{lemma}
+\begin{proof}
+非零射 $f:E\to F$ に対して $qf=0$ なら、$\operatorname{im}f$ は
+$\mathcal A_1$ に属して $F$ に埋め込まれ、torsion-free 性に矛盾する。
+従って $qf$ は非零単純対象間の同型である。
+$\ker f\in\mathcal A_1$ が $E$ に埋め込まれるので $\ker f=0$ となる。
+同じ理由で $\End(E)\to\End(qE)$ は単射である。
+右辺は斜体、左辺は Hom 有限性により有限次元の複素代数であるから、
+左辺は零因子を持たない有限次元代数である。
+任意の元の最小多項式は $\mathbb C$ 上で一次式に分解し、
+零因子がないことからその元はスカラーとなる。
+\end{proof}
+
+\begin{theorem}[内在的な線束判定]\label{thm:intrinsic-line-criterion}
+任意の rank-one torsion-free 対象 $E$ と整数 $b>0$ に対して
+\[
+ \Hom(E,H^{-b}E)=0,\qquad \Ext^2(E,E)=0,
+ \qquad \dim\Ext^1(E,E)=1-\chi(E,E).
+\]
+特に
+\begin{equation}\label{eq:intrinsic-line-criterion}
+ E\text{ が線束対象}\quad\Longleftrightarrow\quad\chi(E,E)=1.
+\end{equation}
+この主張には $E$ 自身の Artin--Zhang 豊富性を仮定しない。
+\end{theorem}
+\begin{proof}
+$\OO_0$ の豊富性から有限直和による全射
+$\bigoplus_i H^{-a_i}\OO_0\twoheadrightarrow E$ がある。
+非零な成分を選ぶと、前補題により $H^{-a}\OO_0\hookrightarrow E$ を得る。
+$h_E(n)=\dim\Hom(\OO_0,H^nE)$ と置けば、$n\ge a$ に対し
+\[
+ h_E(n)\ge 1+\tfrac32(n-a)(n-a+1).
+\]
+もし $E\to H^{-b}E$ が非零なら、それも単射であり、$H$ の exact 性から
+$h_E(n)\le h_E(n-b)$ がすべての $n$ で成り立つ。
+各剰余類 $n\bmod b$ で $h_E(n)$ は上に有界となり、上の二次増大と矛盾する。
+Serre 双対性から
+$\Ext^2(E,E)=\Hom(E,H^{-1}E)^*=0$ である。
+補題\ref{lem:dimension-centre}によって高次 Ext は消え、
+前補題の $\dim\End(E)=1$ と Euler 形式の定義から結論を得る。
+\end{proof}
+
+\begin{remark}[rank-one だけでは足りない]
+可換な滑らかな三次曲面では $E=L\otimes I_Z$ に対し
+$\chi(E,E)=1-2\operatorname{length}Z$、
+$\dim\Ext^1(E,E)=2\operatorname{length}Z$ となる。
+特に点のイデアル層 $I_p$ は rank-one torsion-free だが例外的でない。
+一方、定義\ref{def:weak-cubic}の他の条件を保持するなら、
+例外性の条件は $\chi(\OO,\OO)=1$ に置き換えてよい。
+上の証明が使う $\OO_0$ の条件は rank-one、豊富性と切断数の増大であり、
+この置換の確認に例外性を先取りする必要はない。
+\end{remark}
+
+\subsection{数値的欠損と同一数値類での一意性}
+次の数値的構造と正値性は\emph{追加仮定}である。
+$K_0^{\rm num}(\mathcal A)$ に三次曲面型の表示
+$\operatorname{ch}(E)=(r,D,s)$、$D\in\Lambda=I_{1,6}$、
+$K^2=3$ を指定し、$s-D^2/2\in\mathbb Z$、
+\begin{align}
+ \chi((r,D,s),(r',D',s'))
+ &=rr'+rs'+r's-D\cdot D'
+   -\tfrac12 K\cdot(rD'-r'D),\label{eq:line-rr}\\
+ \operatorname{ch}(HE)
+ &=(r,D-rK,s-D\cdot K+\tfrac12rK^2)\label{eq:line-H}
+\end{align}
+を仮定する。rank-one torsion-free 対象の $r$ は $1$、
+$T\in\mathcal A_1$ の $r$ は $0$ とする。
+数値的線束類とは $v_D=(1,D,D^2/2)$ のことである。
+
+\begin{corollary}[零次元欠損の数値的類似]\label{cor:line-numerical-defect}
+rank-one torsion-free 対象 $E$ の表示を $(1,D,s)$ とし、
+$n(E)=D^2/2-s$ と置く。このとき
+\[
+ n(E)\in\mathbb Z_{\ge0},\qquad
+ \chi(E,E)=1-2n(E),\qquad
+ \dim\Ext^1(E,E)=2n(E).
+\]
+従って数値的線束類を持つ rank-one torsion-free 対象は自動的に例外的である。
+\end{corollary}
+\begin{proof}
+式\eqref{eq:line-rr}に $E$ を二度代入し、
+定理\ref{thm:intrinsic-line-criterion}を適用する。
+\end{proof}
+
+一意性には自己 Ext だけではなく二対象間の Ext が必要である。
+そのため次の有効次数正値性を明示して使う：
+\begin{equation}\label{eq:effective-degree-positivity}
+ d(T):=(-K)\cdot c_1(T)\ge0\quad(T\in\mathcal A_1).
+ \tag{EP}
+\end{equation}
+この条件を、Euler 行列や数値的 $E_6$ が一致するという理由だけで
+仮定なしに用いてはならない。
+
+\begin{theorem}[数値的線束類における一意性]\label{thm:numerical-line-uniqueness}
+式\eqref{eq:line-rr}--\eqref{eq:line-H}と (EP) を仮定する。
+rank-one torsion-free 対象 $E,F$ が $d(E)<d(F)+3$ を満たせば
+$\Ext^2(E,F)=0$ である。特に $[E]=[F]=v_D$ なら $E\cong F$ である。
+従って $\operatorname{Line}(\mathcal A)$ から $\Lambda$ への第一 Chern 類写像は単射である。
+\end{theorem}
+\begin{proof}
+Serre 双対性により $\Ext^2(E,F)=\Hom(F,H^{-1}E)^*$ である。
+右辺に非零射があれば、補題\ref{lem:rank-one-monomorphism}により単射であり、
+余核 $T$ は $\mathcal A_1$ に属す。
+その次数は式\eqref{eq:line-H}から
+\[
+ d(T)=d(H^{-1}E)-d(F)=d(E)-3-d(F)<0
+\]
+となり (EP) に矛盾する。
+$E,F$ が同じ数値的線束類なら両向きの第二 Ext は零であり、
+$\chi(E,F)=\chi(F,E)=1$ なので両向きに非零射が存在する。
+いずれも単射であり、合成は非零である。
+$\End(E)=\mathbb C$ だから合成は可逆なスカラーとなる。
+一方の単射は左逆を持ち、他方も単射であることから互いに同型である。
+最後に任意の線束対象の数値類は前系により $v_D$ なので、単射性が従う。
+\end{proof}
+
+\begin{remark}[存在・許容性・軌道を分ける]\label{rem:line-realization-set}
+実現される因子類の集合を $\Omega_{\mathcal A}\subseteq\Lambda$ とすると、
+上の仮定の下で $\operatorname{Line}(\mathcal A)\cong\Omega_{\mathcal A}$ である。
+$H$ は線束対象を保つので $\Omega_{\mathcal A}-K=\Omega_{\mathcal A}$。
+しかし $\Omega_{\mathcal A}=\Lambda$ は存在定理であり、一意性からは従わない。
+また $\operatorname{Line}_{\rm adm}(\mathcal A)=\operatorname{Line}(\mathcal A)$ も
+一般にはまだ示していない。
+実際、線束対象 $E$ に対して $m\ge0$ なら
+\[
+ \dim\Hom(E,H^mE)
+ =1+\tfrac32m(m+1)+\dim\Ext^1(E,H^mE),
+\]
+ここで第二 Ext の消滅は定理\ref{thm:intrinsic-line-criterion}から従う。
+所定の切断数のためには交差 Ext の消滅、豊富性のためには生成条件が別に必要である。
+さらに $H$ の軌道商と全 exact 自己同値の軌道商を同一視しない。
+\end{remark}
+
+\subsection{Rains 模型では存在も既知である}
+\begin{theorem}[Rains の既知結果による分類]\label{thm:rains-line-classification}
+$X$ を \cite{RainsBir} の意味の複素非可換\emph{有理}曲面とし、
+この定理では rank、torsion-free、線束を同論文の意味で用いる。
+第一 Chern 類は
+\[
+ \{\text{線束の同型類 on }X\}\xrightarrow{\sim}\operatorname{NS}(X)
+\]
+という全単射を与える。線束はちょうど rank-one torsion-free exceptional 層である。
+これは本稿の新規な存在定理ではない。
+\end{theorem}
+\begin{proof}
+\cite[Definition 5.1, Corollary 7.10]{RainsBir}が各因子類を持つ線束の存在と、
+同じ第一 Chern 類を持つ線束の数値 $K_0$ 類の一致を与える。
+同論文 Proposition 10.13 の証明は任意の rank-one torsion-free 層 $I$ について
+$\End(I)=\mathbb C$、$\Ext^2(I,I)=0$ を示し、
+$\chi(I,I)=1$ と線束性の同値を与える。従って線束は例外的である。
+二つの線束 $L,L'$ が同じ Chern 類を持つとき、
+$\theta=\mathsf S[-2]$ として $c_1(\theta L)-c_1(L')=K$ である。
+同論文 Proposition 10.13 の証明で用いられる $K$ の非有効性と
+Corollary 10.12 から、$\Ext^2(L,L')$ と逆向きの第二 Ext は消える。
+両向きの Euler 形式は $1$ なので、前定理と同じ二つの単射の議論で $L\cong L'$。
+これは同論文 Corollary 7.10 後の Picard torsor の記述で
+基底曲線の genus が零の場合にも一致する。
+\end{proof}
+
+\begin{proposition}[豊富な反標準類を持つ Rains 模型]\label{prop:rains-weak-admissibility}
+前定理の $X$ について $Q=-K$ が nef cone の内部にあり、$Q^2=3$ とする。
+任意の線束 $L$ に対し $(L,H)$ は Artin--Zhang 豊富であり、
+式\eqref{eq:weak-hilbert}を満たす。
+加えて Rains の rank-one torsion-free 性が
+式\eqref{eq:gk-rank}の Gabriel--Krull 条件と一致すれば、
+許容構造対象の同型類は $\operatorname{NS}(X)\cong\mathbb Z^7$ によって分類される。
+\end{proposition}
+\begin{proof}
+$m>0$ では $c_1(H^mL)-c_1(L)=mQ$ は nef で $(mQ)\cdot Q=3m\ge1$ なので、
+\cite[Proposition 9.7]{RainsBir}により $\Ext^p(L,H^mL)=0$ ($p>0$)。
+$m=0$ では例外性、$m<0$ では Corollary 10.12 と $Q$ の正値性による Hom 消滅を使う。
+Riemann--Roch \cite[Corollary 7.13]{RainsBir}で所定の切断数を得る。
+
+豊富性については、\cite[Definition 5.1 に続く議論、pp.~67--68]{RainsBir}の
+線束による twist を用いる。これは $L$ を構造層へ送る
+\emph{別の標識付き曲面} $X'$ への exact 同値であり、
+Serre 関手に両立して $H^{-n}L$ を Chern 類 $-nQ$ の線束へ送る。
+nef cone はこの twist で不変である
+\cite[Proposition 9.7 の証明]{RainsBir}。
+Theorem 9.10 を $D_a=Q$ に適用すると、任意の coherent 層は
+十分大きな $n$ に対してこれらの線束により acyclically globally generated となる。
+従って生成全射があり、任意の全射の核に対する第一 Ext 消滅から
+Artin--Zhang の Hom 全射条件も成立する。
+最後の主張には明記した rank 条件の一致を用い、前定理を適用する。
+\end{proof}
+
+\begin{remark}[Picard 集合と自己同値群]
+Rains の分類で得られるのは線束の\emph{集合}の $\operatorname{NS}(X)$ による添字付けである。
+上の twist は標識付き模型 $X$ から $X'$ への同値であり、
+固定した $X$ の上の全因子類に対するテンソル自己同値を構成したものではない。
+従ってこの既知分類は、固定圏での自己同値持上げの Picard 障害や
+系\ref{cor:first-order-pointings}の軌道商と矛盾しない。
+また点ごとの分類から、相対的な線束族の存在やスカラー慣性の自明化は従わない。
+\end{remark}
+
+\subsection{AOU heart への移送と残る問題}
+\begin{lemma}[消滅と生成による heart の識別]\label{lem:ample-heart-transfer}
+$\mathcal A,\mathcal B$ の有界導来圏の同値 $\Phi$ と、
+各 heart 内の列 $P_n,Q_n$ ($n\ge0$) があるとする。
+各対象 $M$ に対し十分大きな $n$ で
+$\Ext^{p}(P_n,M)=0$ ($p>0$) かつ有限直和 $P_n^{\oplus a}\twoheadrightarrow M$ が存在し、
+$Q_n$ についても同じ性質を仮定する。
+十分大きなすべての $n$ で $\Phi(P_n)\cong Q_n$ なら $\Phi$ は $t$-exact である。
+\end{lemma}
+\begin{proof}
+$C\in D^b(\mathcal A)$ の有限個の非零 cohomology 対象に対して
+一様に大きい $n$ を取る。標準 truncation と Ext 消滅から
+\[
+ \Hom(P_n,C[i])\cong\Hom(P_n,H^i(C))
+\]
+となる。生成全射の存在によって右辺がすべての十分大きい $n$ で零であることと
+$H^i(C)=0$ は同値である。
+従って $C$ が $\mathcal A$ の heart に属すことは、
+$i\ne0$ に対する上の Hom 消滅で特徴付けられる。
+$\Phi$ とその逆に同じ議論を適用すれば、二つの heart が一致する。
+\end{proof}
+
+OU\cite[Theorem 6.4 に先行する議論、p.~8]{OU2025}には、
+AS 表示と非可換 blowup の\emph{導来}同値が記載されている。
+線束分類を移送するには、この同値の $t$-exact 性と、
+Rains 模型の rank/torsion filtration と式\eqref{eq:gk-rank}の一致を確認しなければならない。
+補題\ref{lem:ample-heart-transfer}において反標準列を同定することが具体的な十分条件になる。
+単なる数値 $E_6$ の一致、または有限 thread の導来同値だけではこの条件は得られない。
+
+一方、可換曲面を特殊ファイバーとする\emph{許容相対 Artin 変形}では、
+各古典的線束の存在と一意な持上げは定理\ref{thm:formal-structure}で既に得られている。
+その結果を、全因子類について共通の Zariski 開集合上の代数化へ拡張することはしない。
+個々の因子類での持上げや開条件を可算個交わらせても、
+非空 Zariski 開集合が残るとは限らないからである。
+現時点の核心は、Rains の既知分類を使える AOU heart を exact に認識することと、
+その範囲外で $\Omega_{\mathcal A}$ を決定することである。

@@ -1,6 +1,6 @@
 # 研究ノート：AOU 関係式から無標識 Abel 圏へ
 
-2026-11-18 / unmark-v6。まず `00_research_plan.md` を参照する。公表可能な証明はすべて `papers/nc-cubic-unmark.tex`（`papers/sections/` を入力）にあり、ノートには再研究に必要な障害、区別、具体例だけを保持する。
+2026-11-18 / unmark-v7。まず `00_research_plan.md` を参照する。公表可能な証明はすべて `papers/nc-cubic-unmark.tex`（`papers/sections/` を入力）にあり、ノートには再研究に必要な障害、区別、具体例だけを保持する。
 
 ## 相対 AS locus と形式 chart の区別
 
@@ -21,12 +21,20 @@
 - 固定圏で線束 L が平坦に持ち上がることと、それを表す tensor 自己同値が同じ非可換 fiber に持ち上がることは異なる。一次障害は `δ_π(L)=H¹(π^sharp)c₁(L)`。X の Poisson 零因子が smooth のとき複素 rank 3または4、一般4。非常に一般の整数核は ZK_X（本稿に証明・条件を参照）、pointing 同型類集合は Pic/ZK≅Q(E6)^∨≅Z^6。
 - Picard shear は標識付き形式チャート上の作用の微分だが、高次座標式は未計算。一次線形空間 `H¹T_X⊕H⁰(-K_X)` の Picard 不変式は Poisson4方向だけ。GIT粗商全域への作用は確立していない。形式作用の粗商と relation torus の G_Q 商を同一視しない。
 
+## 線束分類の現在有効な入力と障害
+
+- 内在的証明は `line_bundle_classification.tex`。非零射の単射性、End=C、負のH自己Hom消滅、Ext²自己消滅、χ=1判定を別々に示す。負の自己Homは、O0の負twistからの単射と二次成長を使う。E自身のAZ豊富性を仮定していない。
+- 数値的欠損 n=D²/2−ch₂(E) はRR表示の下で非負整数、Ext¹(E,E)=2n。可換の `L⊗I_Z` では n=length Z。I_pはrank1,c1=0でもExt¹次元2なので、rankとc1だけでは線束を判定できない。
+- 同一数値的線束類の一意性には交差Ext²を消す必要がある。(EP)を仮定すると、非零 `F→H^{-1}E` の余核の次数は同次数なら−3となり矛盾。χ(E,F)=χ(F,E)=1から両向きの単射、End=Cから同型を得る。**(EP)は数値Euler行列だけでは証明していない。**
+- Rains2019 Cor.7.10は全因子類の線束存在。Prop.10.13はrank1tf+χself1と線束の同値。rationalの場合同じc1の線束は一意。非有理quasi-ruledではPic0 torsorが残るので、分類をそのまま一般化しない。
+- Rains模型でQ=−Kがnef cone内部なら、Prop.9.7とThm.9.10から各線束の切断数とAZ豊富性が従う。本稿のGK rank条件との一致を全域で検証したわけではない。線束twistは異なる標識付き模型へのexact Morita同値であり、同じ模型のtensor自己同値ではない。
+- AOU/OU p.8の明示的比較は `D^b qgr A ≃ D^b qgr S`。導来同値をt-exactと読み替えない。`lem:ample-heart-transfer` はacyclic生成列が両heartで同定されるときの十分条件。標準九対象の像、反標準列、rank filtrationを個別に確認する。
+- 形式Artin変形では古典的線束の各持上げは一意だが、全整数Dについての開条件の可算交叉が非空Zariski開とは限らない。各クラスの局所存在から全クラス同時の代数化を推測しない。
+- 調べる集合は Ω_A={D : 数値類v_Dを持つrank1tf対象が存在}。一意性の仮定下でLine(A)≅Ω_A、HでD→D−K。Line_adm=Lineの証明とAut_ex軌道の計算は別問題。
+
 ## 次に行う証明の具体的な入口
 
-1. AOU §7 の普遍 decuple から AS-regular Z 代数の相対構成がどの程度底変更に両立するか、OU 定理を正確に照合。相対 `qgr` と Serre/heart/t-exact を同時に確認する条件を抽出。
-2. 開 `U_ell` で異なる decuple が exact 同値な unmarked Abel 圏を与える具体的同値の構成または障害。標準 helix の変更群と Picard/Aut の区別を追跡。
-3. `HH1=0` の境界で AS heart が残る例と残らない例を探す。有限Bの数値 K0 と HHだけでは判定不能なので、Z-generating helix、AZ豊富性、point modules の開条件を扱う。
-4. 相対Picardの二次以上の形式変形をTodaのMorita作用と比較。規約と自己同値の慣性を明示。
+まずOUの導来同値が標準構造対象をどのRains線束に送るかを計算する。両側で反標準負twist列がacyclic生成を持つことを確立すればheart識別補題が適用できる。次にRainsの数値rank/torsionとGK filtrationを照合する。ここまで得られた範囲では既知存在定理を移送し、Ω_A=Λとweak許容性を結論する。一般のAOU境界に関する相対族とGIT降下は、その後の独立課題とする。
 
 ## 一次資料
 
@@ -38,3 +46,11 @@
 - Bondal–Orlov, *Reconstruction of a variety from the derived category and groups of autoequivalences*, Compositio Math. 125 (2001), 327–344, arXiv:alg-geom/9712029.
 
 新しい数値 E6 の主張の外部文献における優先権は未確認。今回の手計算とスクリプトは数値結果を検算するものであり、幾何的 heart の認識の証明ではない。
+
+### 線束分類の一次資料と参照箇所
+
+- E. M. Rains, *The birational geometry of noncommutative surfaces*, arXiv:1907.11301v1 (2019), https://arxiv.org/abs/1907.11301v1 。Definition 5.1とpp.67–68（線束とtwist）、Corollaries 7.9–7.10（存在・数値類・Pic0）、Corollary 7.13（RR）、Proposition 9.7（線束間Ext消滅）、Theorem 9.10（acyclic生成）、Lemma 10.11 / Corollary 10.12 / Proposition 10.13（rank1と線束判定）。ここでの「線束」は同論文の定義であり、GK条件との比較は別途必要。
+- E. M. Rains, *Filtered deformations of elliptic algebras*, arXiv:2107.13540v2 (2022), https://arxiv.org/abs/2107.13540v2 。Proposition 5.14、p.42（例外的torsion-free層の同一K0類での一意性）。Proposition 5.16のDVR延長を一般AOU模型へ無条件には適用しない。
+- Okawa–Ueda arXiv:2508.04986v1 p.8、Theorem 6.4直前の導来同値を本文とページ画像で確認。Introduction p.2の「blowupである」との記述と、heart間のexact比較を本稿で独立に確認したことを区別する。
+
+Rainsの上記各命題は一次資料の本文で確認した。大型PDFのWeb画像取得は失敗したため、図表を使った確認はしていない。既知結果の全証明の再証明、外部査読、新規性の網羅的照合は未完。内在的補題と一意性の本稿証明は仮定ごとに点検し、数値恒等式は `verify_line_bundle_numerics.py` で独立に検算する。

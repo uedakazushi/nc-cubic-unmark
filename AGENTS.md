@@ -1,9 +1,11 @@
 # 研究指示 — nc-cubic-unmark
 
-まず `00_research_plan.md` を読む。最優先は AOU 関係式から無標識 Abel 圏への忘却の実際の定義域・同型条件・慣性・GIT降下。主論文は `papers/nc-cubic-unmark.tex`。稠密 AS locus (AOU/OU 既知結果の帰結)、形式 DDL Abel chart、全境界にある数値的Serre-E6、数値では区別不能な導来非同値を厳密に区別する。数値 E6 だけで三次曲面型 heart やAS-regularityを推論しない。
+最初に `00_research_plan.md` を読む。中心はAOU関係式と無標識Abel圏の比較。現在の最優先は数値的線束類ごとの存在・一意性、weak許容性、自己同値軌道の順に解明すること。
 
-研究価値を最大化するよう目標を柔軟に改め、現行研究方針を時系列履歴なしで書き直す。証明済み・仮定付き・未証明・計算検算・先行研究を区別する。既知の結果の新規性を主張しない。一次資料を確認し、独自の新規性が未確認なら明示。主論文は日本語LuaLaTeX、全証明を現行原稿に維持する。GitHub mainへ直接 fast-forward push（PR/Actions/force pushなし）。PDF・ZIP・キャッシュはGit非追跡。
+rank-one torsion-freeの自己Ext²消滅とχ=1による線束判定は内在的に証明済み。同一数値類の一意性にはRR表示と有効次数正値性 (EP) を使う。Rainsの非可換有理曲面の線束存在・分類は既知なので新規成果としない。AOU–Rainsの導来同値だけからexact同値やrank filtration一致を結論しない。交差Ext消滅と生成によるheart識別を使う際は全条件を確認する。
 
-ユーザーの一般許可により、研究の区切りで自己完結した現行軽量bundleを承諾なくLibraryへ保存する。旧版・ログ・キャッシュを同梱しない。Library上の旧ファイルを指示なく削除しない。生成、計算、組版、GitHub更新、Library保存は別状態として検証する。
+公表用原稿は日本語LuaLaTeX。有効な既存証明を削らず、現在の成果として統合。研究方針は現在の目標と課題へ書き直し、ノートは履歴でなく現行知識を保持。既知引用・証明・今回の検証・仮定付き・未解決を区別。新規性を推測しない。
 
-検証: `python3 computations/verify_marking_lattice.py`、`python3 computations/verify_aou_relation_tangent.py`、`python3 scripts/verify_unmark_bundle.py`、`latexmk -lualatex papers/nc-cubic-unmark.tex`。
+GitHub mainへfast-forwardで直接pushし、PR・Actions・force pushを使わない。ユーザーは区切りごとの自己完結した軽量bundleのLibrary保存を承諾なく行う一般許可を与えている。既存Libraryファイルを明示指示なく削除しない。PDF/ZIP/キャッシュはGit追跡しない。生成・組版・計算・GitHub更新・Library保存は別々に確認する。
+
+検証は研究方針の3計算、静的参照検査、LuaLaTeX全体組版。bundleは旧版を含めず必要なソース・PDF・書誌・再現手順を揃える。

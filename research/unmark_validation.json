@@ -1,31 +1,31 @@
 {
   "date": "2026-11-18",
-  "version": "unmark-v6",
+  "version": "unmark-v7",
   "source": {
     "repository": "uedakazushi/nc-cubic-unmark",
-    "base_commit_before_update": "38cf21db99190101611201224bb3f897bed13ecb",
+    "base_commit_before_update": "bf7006010403f0ebb7ffdc88ecf43b5155e25074",
     "target_branch": "main"
   },
-  "research_scope": {
-    "dense_AS_locus": "Proposition in manuscript is a direct consequence of AOU Theorem 1.1, Proposition 7.3, Lemma 7.4 and OU AS-regular construction, NOT claimed as a novel theorem",
-    "universal_numerical_Serre_E6": "Proof in manuscript; projective Euler matrix constant over all relation points and geometric identification with E6 at a smooth cubic point",
-    "Weyl_vs_arrow_rescalings": "Proof in manuscript; G_Q fixes labeled projective classes and acts trivially on numerical E6",
-    "derived_inequivalent_boundary": "Proof in manuscript; HH1 changes 0 to 10 despite common numerical K0/Euler/Serre/E6",
-    "HH_minimal_boundary": "Proof in manuscript; rho=10 with only one monomial relation, independent exact rank check",
-    "formal_Abel_chart": "Previously proved in manuscript using De Deken-Lowen Theorem 5.15 and AOU finite algebra formal completeness; assumptions retained",
-    "global_unmarked_GIT_descent": "NOT proved",
-    "relative_AS_heart_family": "NOT proved over the entire generic locus as an algebraic fpqc family",
-    "weak_rank_one_AZ_Serre_all_points": "NOT proved",
-    "novelty_priority": "Not exhaustively checked against all literature",
-    "external_refereeing": false
+  "claims": {
+    "intrinsic_line_criterion": "Proof written and reviewed: rank-one tf implies End=C and Ext2=0 under existing weak cubic axioms; exceptional iff chi=1. Uses a known ample base object, not ampleness of E.",
+    "numerical_uniqueness": "Proof written and reviewed, conditional on cubic RR/H and effective-degree positivity (EP). At most one object per numerical line class; existence is separate.",
+    "Rains_model_classification": "KNOWN consequence of Rains 1907.11301v1 Cor 7.10 and Prop 10.13; not a new classification. Rank and torsion here mean Rains definitions.",
+    "Rains_weak_admissibility": "AZ and Hilbert conditions from Rains Prop 9.7 and Thm 9.10 for Q=-K in interior nef and Q^2=3; transfer to intrinsic weak definition also requires GK rank compatibility.",
+    "heart_recognition": "Elementary sufficient criterion proved using eventual Ext vanishing and generation on both hearts. Application to all AOU hearts NOT established.",
+    "prior_results": "Existing universal AOU algebra, Hochschild support, numerical Serre-E6, formal Abel chart, Picard obstruction and invariant proofs retained with their assumptions.",
+    "all_AOU_line_existence": "NOT proved",
+    "global_GIT_descent": "NOT proved",
+    "novelty_priority": "Rains overlap explicitly identified; exhaustive novelty check and external refereeing not performed"
   },
   "checks": {
-    "static_tex": "PASS: 7 TeX sources, 67 labels, 93 references, 10 bib entries, 33 citations",
-    "lualatex": "PASS: latexmk -lualatex, 25 pages; no overfull or undefined reference warnings (apart from harmless package/font warnings)",
-    "aou_tangent_and_serre": "PASS: rank10 and Smith 1^10 0^8, generic/boundary HH, numerical Serre char (t-1)^9 and nilpotent ranks (2,1,0), monomial/binomial single-boundary examples",
-    "marking_lattice": "PASS: 72 E6 roots, 27 lines, determinant 3, Weyl orbit rank 6",
-    "visual": "Rendered and visually inspected pages 16 and 17; text and formulas show no clipping",
-    "source_check": "AOU arXiv:2404.00175v1 §§4,7,9 and OU arXiv:2508.04986v1 definition; DDL JNCG 2011 Theorem 5.15 were consulted",
-    "full_proof_independent_refereeing": "NOT done"
+    "base_source": "Key local v6 source blobs matched live GitHub tree; preserved marking section is unchanged.",
+    "static_tex": "PASS: 8 sources, 80 labels, 110 refs, 12 bibliography entries, 42 citations",
+    "line_numerics": "PASS: exact symbolic RR, 1-2n, anticanonical Hilbert, H-invariance, Serre identity, quotient degree -3, integral parity",
+    "AOU_and_E6_scripts": "PASS: both existing scripts rerun, including numerical Serre and boundary ranks",
+    "lualatex": "PASS: 29 pages; no overfull boxes or undefined references/citations; benign font and PDF bookmark warnings remain",
+    "visual": "Final new classification pages 13 and 14 inspected; previous layout of new section also inspected. Full-page visual audit not claimed.",
+    "primary_sources": "Rains 2019 cited statements and Rains 2022 Prop 5.14 checked in parsed primary PDFs; OU p8 also visually checked. Rains screenshot calls failed; no figures used.",
+    "clean_rebuild": "PASS: clean source copy, all three calculations and static checks rerun, LuaLaTeX rebuilt 29 pages, all page text identical to included PDF",
+    "full_independent_refereeing": false
   }
 }

@@ -19,142 +19,126 @@
 \newcommand{\Pic}{\operatorname{Pic}}\newcommand{\Aut}{\operatorname{Aut}}
 \newcommand{\End}{\operatorname{End}}\newcommand{\RHom}{\operatorname{RHom}}
 \newcommand{\Cw}{\mathfrak C^{\rm w}}\newcommand{\Cu}{\mathfrak C^{\rm u}}
-\title{AOU 関係式モジュライと非可換三次曲面の無標識 Abel 圏\\\large 標識忘却・Picard 障害・相対慣性}
+\title{AOU 関係式モジュライと非可換三次曲面の無標識 Abel 圏\\\large 線束の数値的分類・標識忘却・Picard 障害}
 \author{植田一石}
-\date{2026年11月18日 / unmark-v6}
+\date{2026年11月18日 / unmark-v7}
 \begin{document}\maketitle
 \begin{abstract}
-AOUの九頂点quiverの関係式モジュライから非可換三次曲面の無標識Abel圏を得る問題を研究する。
-トーリックGIT商と関係式stackを区別する。全関係式空間上には
-階数45の普遍有限代数が存在し、すべてのファイバーの大域次元は2である。
-この代数のArtin局所変形は九つの関係式で尽くされ、
-境界上のHochschild次元は関係式の支持から組合せ的に計算できる。
-一方、三次曲面型のAbel heartには別の認識問題が残る。
-さらに AOU の楕円 decuple との既知の双有理比較から、関係式トーラスの
-稠密開部分には実際の AS-regular 三次曲面型 heart が存在することを整理する。
-これに対し Euler 形式と数値的 Serre 作用は全関係式点で一定で、
-数値的固定部分からは同じ $E_6$ 根格子が回復される。
-しかし境界で Hochschild cohomology は跳ぶので、数値的標識だけでは
-幾何学的 heart を認識できないことを証明する。
+AOU 関係式モジュライと無標識 Abel 圏の関係を、固定圏内の線束対象の
+分類から研究する。弱標識付き非可換三次曲面の公理の下で、任意の
+rank-one torsion-free 対象の自己第二 Ext は消え、例外性は
+自己 Euler 形式が $1$ であることと同値になる。
+三次曲面型 Riemann--Roch 表示と torsion 対象の有効次数正値性を
+追加すると、各数値的線束類を持つ対象は高々一つである。
+Rains の非可換有理曲面では各因子類の線束の存在と分類は既知であり、
+その反標準類が豊富な場合に豊富性・切断数の条件を導く。
+ただしこの分類を AOU の指定された heart へ移すには、exact な比較と
+rank 条件の一致が必要である。線束の選択集合と自己同値軌道を区別する。
 
-相対AS正則helixとheartが存在する許容表示に限り
-標識付き圏から無標識圏への忘却を定式化する。
-可換な滑らかな三次曲面のlocusではGabrielの圏的復元により
-忘却の同型類が古典的な$W(E_6)$標識変更の軌道に一致し、
-一般の曲面上には51840個の標識がある。
-一方、許容相対一次非可換変形では線束によるMorita標識変更が
-$\delta_\pi(L)=H^1(\pi^\sharp)c_1(L)$だけ変形パラメータを動かす。
-非常に一般のPoisson成分についてその整数核は$\mathbb ZK_X$、
-構造対象のexact自己同値軌道は$\Pic(X)/\mathbb ZK_X\simeq\mathbb Z^6$となる。
-標準AOU helixの相対持上げ条件下では圏的標識忘却ファイバーから
-この集合への全射がある。
-さらに一次Hochschild変形線形空間上のPicard shearの不変式環が
-Poisson成分の多項式環に一致することを示し、単純な分離粗商では
-可換変形方向を区別できないことを証明する。
-可換AOU点の形式近傍ではDe Deken--Lowenの定理により任意の関係式変形から
-Grothendieck Abel変形を復元でき、その形式チャートの標識変更作用の
-一次項はPicard shearである。
-全GIT境界の圏的解釈、GIT商への降下、無標識stackの代数性および
-非可換領域での大域Weyl商は未証明である。
+AOU の全関係式空間には階数45・大域次元2の普遍有限代数があり、
+その Artin 変形は九つの関係式で記述される。
+Euler 形式と数値的 Serre--$E_6$ は全点で一定だが、境界では
+Hochschild cohomology が跳ぶので数値標識だけでは heart を認識できない。
+可換点の形式近傍における Abel 変形は De Deken--Lowen の定理と比較される。
+一次 Picard 標識変更は $H^1(\pi^\sharp)c_1(L)$ で与えられ、
+非常に一般の Poisson 成分の整数核は $\mathbb ZK_X$ となる。
+相対条件の下で構造対象の自己同値軌道は $\Pic(X)/\mathbb ZK_X\simeq\mathbb Z^6$ である。
+大域的な無標識 GIT 商、全境界の heart、および一般の AOU heart での
+全数値的線束類の実現は未解決である。
 \end{abstract}
 {\small\tableofcontents}
 \clearpage
 \section{はじめに}
-Abdelgadir--Okawa--Ueda（AOU）\cite{AOU}は九頂点十八矢印のquiverの
-九つの関係式から、八次元トーラスを稠密開部分とする
-トーリックな関係式GITモジュライを構成した。
-滑らかな古典的標識付き三次曲面のモジュライは
-そのトーラスへ局所閉埋込みされる\cite[Theorem 1.2]{AOU}。
-AOUの楕円decupleとの比較は双有理である\cite[Theorem 1.1]{AOU}。
-これらの結果は、GIT全点が無標識Abel圏を定めることも、
-GIT同値がAbel圏のexact同値に一致することも意味しない。
+Abdelgadir--Okawa--Ueda（AOU）\cite{AOU}の九頂点関係式モジュライは
+八次元トーラスを稠密開部分とし、滑らかな標識付き三次曲面の
+四次元モジュライを局所閉部分として含む。
+本稿の中心問題は、その関係式表示がいつ同じ無標識 Abel 圏を与えるかである。
+この問題は、標準九対象 helix の標識、構造対象を一つ選んだ弱標識、
+基礎 Abel 圏のみの無標識という二段階の忘却を含む。
 
-本稿の最重要課題は、AOU関係式表示から無標識Abel圏への忘却の
-\emph{定義域、本質像、ファイバー、自己同値慣性}の決定である。
-まず、三層quiverの普遍関係式代数が全境界で階数45、
-大域次元2のsmooth proper導来圏を与えることを証明する
-（定理\ref{thm:universal-directed-family}）。
-局所Artin底上のすべての平坦な代数変形は九つの関係式の変形となり
+弱標識の忘却を固定圏で調べるには、まず rank-one torsion-free exceptional
+対象（本稿の線束対象）を分類しなければならない。
+その上で Artin--Zhang 豊富性と所定の切断数を確認し、
+exact 自己同値の作用による軌道を取る。
+線束の集合を Picard 群と呼ぶだけでは、各数値類での存在・一意性も
+群法則も与えられない。
+本稿は既存の構造対象 $\OO_0$ の豊富性を用い、rank-one torsion-free な $E$ に対し
+\[
+ \End(E)=\mathbb C,\qquad \Ext^2(E,E)=0,\qquad
+ E\text{ が例外的}\ \Longleftrightarrow\ \chi(E,E)=1
+\]
+を内在的に証明する（定理\ref{thm:intrinsic-line-criterion}）。
+さらに三次曲面型の数値表示と torsion 対象の有効次数正値性 (EP) の下で、
+同一数値的線束類での一意性を得る
+（定理\ref{thm:numerical-line-uniqueness}）。
+(EP) を数値的 Euler 形式の同定から自動的に導くことはしない。
+
+\paragraph{既知の線束分類との関係.}
+Rains\cite{RainsBir}の非可換有理曲面では、各因子類の線束の存在は
+Corollary 7.10、rank-one torsion-free 層の線束判定は Proposition 10.13 に既にある。
+同一数値類での一意性と合わせて、線束は N\'eron--Severi 格子により分類される
+（本稿の定理\ref{thm:rains-line-classification}はこれらの帰結）。
+例外的 torsion-free 層全般の同一 $K_0$ 類での一意性については
+\cite[Proposition 5.14]{RainsFilt}も参照されたい。
+本稿の内在的線束判定と一意性の証明は、この既知の現象を
+明示した公理から導き直すものであり、既知分類そのものの新規性を主張しない。
+また反標準類が nef cone の内部にある Rains 模型では
+\cite[Proposition 9.7, Theorem 9.10]{RainsBir}から
+全線束の豊富性と三次曲面の切断数を得る
+（命題\ref{prop:rains-weak-admissibility}）。
+
+AOU/OU の AS 表示と非可換 blowup との比較には導来同値が現れる
+\cite[p.~8]{OU2025}。
+しかし線束分類を指定された Abel heart へ移すには $t$-exact 性が必要である。
+本稿では消滅と生成を持つ反標準列による heart 識別条件を示し
+（補題\ref{lem:ample-heart-transfer}）、
+rank/torsion filtration の一致とともに今後確認すべき条件を明記する。
+従って一般の AOU 点に対して、線束の実現集合が既に $\mathbb Z^7$ 全体だとは主張しない。
+
+\paragraph{関係式モジュライと数値的標識.}
+三層 quiver の普遍関係式代数は、全境界で階数45、大域次元2の
+smooth proper 導来圏を与える（定理\ref{thm:universal-directed-family}）。
+冪等元を保持する平坦な Artin 代数変形は九つの関係式で尽くされ
 （定理\ref{thm:aou-relation-formal-completeness}）、
-境界の$HH^1,HH^2$は関係式の非零成分で決まる
+$HH^1,HH^2$ は関係式の支持から計算される
 （定理\ref{thm:aou-hh-support}）。
-滑らかな可換三次曲面のAOU点では、関係式トーラスの
-Kodaira--Spencer写像が$HH^2(X)$へ同型となる
+可換 AOU 点での Kodaira--Spencer 写像は $HH^2(X)$ への同型である
 （命題\ref{prop:aou-kodaira-spencer-iso}）。
-これにより一次変形の八方向の不足は解消するが、
-有限代数の標準heartは三次曲面のcoherent sheaf heartではない。
-関係式stackとGIT粗商、さらに圏的に許容されるhelix表示を分け、
-後者からの忘却を構成する（命題\ref{prop:aou-categorical-map}）。
-可換な滑らかな三次曲面のlocusではGabrielのAbel圏再構成
-\cite{Gabriel}により、無標識像の同型類を
-古典的な$W(E_6)$商として完全に記述する
+AOU の楕円 decuple との既知の双有理比較から、稠密開部分で AS heart の存在が得られる
+（命題\ref{prop:generic-as-locus}）。
+一方、全点で一定の数値 Serre--$E_6$ と境界の Hochschild cohomology の跳びは、
+数値標識だけでは heart を認識できないことを示す
+（定理\ref{thm:aou-numerical-E6}、系\ref{cor:aou-numerical-not-enough}）。
+これらの証明と計算は本稿に保持する。
+
+\paragraph{選択集合と自己同値軌道.}
+固定圏との同定を保った忘却ファイバーは許容構造対象の選択群oidであり、
+同定を忘れると exact 自己同値による homotopy quotient となる
+（定理\ref{thm:forgetful-fibres}）。
+可換三次曲面では許容対象は線束であり、共通 tensor は関係式代数に見えない。
+可換 locus の標識忘却は古典的な $W(E_6)$ 商で記述できる
 （定理\ref{thm:aou-commutative-quotient}）。
+相対変形では Lowen\cite{Lowen}、De Deken--Lowen\cite{DDL}の理論により
+構造対象と標準 helix を持ち上げる。
+可換点の形式 Abel chart とその標識変更作用の記述は
+定理\ref{thm:aou-formal-abelian-reconstruction}、
+定理\ref{thm:aou-formal-chart}、系\ref{cor:aou-formal-unmarked-quotient}にある。
 
-AOU の楕円 decuple からの AS 構成と双有理対応は、
-関係式トーラスの稠密開部分で実際に $\qgr A$ という
-Abel heart が存在することを保証する（命題\ref{prop:generic-as-locus}）。
-これは AOU の既知結果の帰結である。
-一方、本稿では全関係式空間の Euler 形式・数値的 Serre 作用を計算し、
-それから一様に同じ正定値 $E_6$ 格子を回復する
-（定理\ref{thm:aou-numerical-E6}）。
-Hochschild cohomology の跳びから、これらの数値不変量が等しくても
-導来 Morita 同値とは限らないことを証明する
-（系\ref{cor:aou-numerical-not-enough}）。
-さらに、$HH^1$ が一般値のままの境界点も存在する
-（命題\ref{prop:aou-boundary-hh-minimal}）。
-従って数値的標識や Hochschild 次元だけに依存した heart の認識は
-不十分である。
+Toda\cite{Toda}の Fourier--Mukai 変形理論と整合する一次 Picard shear は
+$\delta_\pi(L)=H^1(\pi^\sharp)c_1(L)$ で与えられる。
+非常に一般の整数核 $\mathbb ZK_X$ と、許容相対一次変形の構造対象軌道
+$\Pic(X)/\mathbb ZK_X\simeq\mathbb Z^6$ を計算する
+（定理\ref{thm:very-general-picard-kernel}、系\ref{cor:first-order-pointings}）。
+一次線形模型の Picard 不変式は Poisson 成分の関数だけである
+（定理\ref{thm:picard-linear-invariants}）。
+これらは、全線束の存在から固定圏の全 Picard 自己同値が従うわけではないことを示す。
+一次線形商や増補 helix のファイバーを大域 GIT 粗商のファイバーと混同しない。
+GIT 降下、相対慣性、全境界の圏的解釈にはなお問題が残る。
 
-非可換方向では有限Weyl群だけで無標識化を尽くせるとは限らない。
-滑らかな可換三次曲面で許容構造対象は線束に一致する
-（定理\ref{thm:commutative-structure}）。
-固定圏上の標識忘却の2-fiberはexact自己同値による
-homotopy quotientとなる（定理\ref{thm:forgetful-fibres}）。
-相対Artin変形での対象とhelixの持上げにはLowen\cite{Lowen}と
-De Deken--Lowen\cite{DDL}の変形理論を使用する。
-線束のMorita標識変更の一次障害はToda\cite{Toda}の
-Fourier--Mukai変形理論と整合する。
-非常に一般のPoisson成分では障害の整数核は$\mathbb ZK_X$であり、
-相対持上げの条件下で圏的AOU標識忘却のファイバーは
-$\mathbb Z^6$に全射する
-（定理\ref{thm:very-general-picard-kernel}、
-定理\ref{thm:aou-infinite-relative-fibre}）。
-この主張をGIT粗商の無限ファイバーに読み替えてはならない。
-
-一次Picard shearの不変式環と不変有理関数体を計算すると
-$\mathbb C[\HH^2(X)]^{\Pic(X)}=\mathbb C[H^0(X,-K_X)]$、
-$\mathbb C(\HH^2(X))^{\Pic(X)}=\mathbb C(H^0(X,-K_X))$
-となる（定理\ref{thm:picard-linear-invariants}）。
-有限型分離代数空間へのPicard不変な一次線形模型上の射は
-Poisson成分を通して因子化する（系\ref{cor:separated-linear-quotient}）。
-これはAOU GITの大域作用や無標識粗moduliの一般的な非存在を
-証明する主張ではない。
-
-AOU形式関係式をGrothendieck Abel圏の変形と比較するため、
-De Deken--Lowen\cite[Theorem 5.15]{DDL}と関係式の完備性を結合する。
-滑らかな可換AOU点では任意のArtin関係式変形から平坦なAbel変形を
-回復でき、標準helixを固定した形式チャートは八次元形式円板となる
-（定理\ref{thm:aou-formal-abelian-reconstruction}、
-定理\ref{thm:aou-formal-chart}）。
-さらに同定を忘れるとPicard群と自己同型群の形式作用商が現れる
-（系\ref{cor:aou-formal-unmarked-quotient}）。
-この形式作用の一次項が上のPicard shearとなる。
-
-無標識圏のexact自己同値は可換点で
-$\Pic(X)\rtimes\Aut(X)$を含むため、
-その慣性は有限Weyl群の場合と質的に異なる。
-$HH^1(X)=0$を用いる変形制御の下では、無標識代数的stackの
-対角射の準コンパクト性にも障害がある
-（命題\ref{prop:nonqc-inertia}）。
-GIT境界への降下にはS-同値点での圏の同値性が必要であるが未解決である。
-
-弱標識付き対象$(\mathcal A,\mathcal O)$には
-Gabriel--Krull rank-one torsion-free性、exceptionality、
-Artin--Zhang豊富性を要求する。
-quadratic AS-regular ambientの存在を公理とせず、その認識問題は保留する。
-ambient射・四頂点potential・$R(1,3)$成分は
-別稿\emph{非可換三次曲面のambient射と$R(1,3)$成分}
-（\texttt{nc-cubic-ambient.tex}）で扱う。
+quadratic AS-regular ambient の存在は公理とせず、その認識問題は保留する。
+ambient 射と $R(1,3)$ 成分は別稿
+\emph{非可換三次曲面のambient射と$R(1,3)$成分}
+（\texttt{nc-cubic-ambient.tex}）に分ける。
 \section{可換三次曲面のHochschild変形}\label{sec:hh}
 \begin{proposition}\label{prop:hh}
 滑らかな可換三次曲面$X$について
@@ -181,6 +165,7 @@ $\wedge^3T_X=0$なので$\HH^3=0$。
 
 
 \input{papers/sections/marking_forgetful.tex}
+\input{papers/sections/line_bundle_classification.tex}
 \input{papers/sections/aou_universal_algebras.tex}
 \input{papers/sections/generic_hearts_numerical_boundary.tex}
 \input{papers/sections/formal_abelian_recognition.tex}
@@ -188,39 +173,31 @@ $\wedge^3T_X=0$なので$\HH^3=0$。
 \input{papers/sections/picard_invariants.tex}
 
 \section{大域的な課題と再現性}
-本稿は、全AOU関係式空間に普遍的な階数45の有限代数と
-smooth proper導来圏の族があり、境界も含めて$HH^1,HH^2$が
-関係式の支持によって計算できることを示した。
-九関係式の局所変形は有限代数のArtin変形を完全に記述し、
-smooth可換点でのKodaira--Spencer写像は八次元同型である。
-ただし標準有限長heartと三次曲面のAbel heartは一致しない。
-さらに、AOU関係式stack上で相対的なAS正則helixが構成される領域から
-無標識Abel圏への忘却を定式化し、滑らかな可換locus上では$W(E_6)$商を得た。
-相対一次非可換変形ではPicard標識変更がPoisson変形パラメータを動かし、
-追加のhelix持上げ条件の下で圏的標識忘却のファイバーは無限となる。
-一次Picard shearの多項式・有理不変式はPoisson成分だけに依存するため、
-分離的な一次線形粗商では可換変形方向が失われる。
+弱標識忘却の中心を、数値的線束類 $v_D$ の実現、許容性、自己同値軌道の
+三問題に分けた。rank-one torsion-free 性から自己第二 Ext の消滅が従い、
+例外性は自己 Euler 形式 $1$ と同値である。
+(EP) の下では各数値的線束類の対象は高々一つとなる。
+Rains の非可換有理曲面では存在も既知であるため、
+その分類を新たに予想するのではなく、AOU の指定された heart への exact な移送を優先する。
+(EP)、rank filtration の比較、消滅・生成を持つ反標準列の同定は、
+Euler 行列や導来同値だけでは代用できない。
 
-可換三次曲面の形式近傍については、関係式変形と平坦なAbel圏変形の
-同値をDe Deken--Lowenの定理から得た。
-特殊ファイバーの同定を忘れた形式変形は
-Picard群と自己同型群による形式作用groupoidとなり、
-その一次線形化はPicard shearである。
-ただし弱標識付き非可換三次曲面の公理を形式族の全域で検証したわけではない。
+全 AOU 関係式空間の普遍有限代数と Hochschild 計算、
+一定の数値 Serre--$E_6$、可換点の形式 Abel chart、
+Picard 障害と一次不変式の結果は、この比較の入力および障害として位置付ける。
+既知の許容相対 Artin 変形での線束持上げは、
+すべての数値類の共通の Zariski 開集合上での代数化を保証しない。
+全境界の heart、大域 Weyl 商、GIT の S-同値での exact 同値判定、
+無標識 stack の代数性は未証明である。
 
-残る最優先課題は、(i) AOU関係式のどこで相対AS正則性・
-相対Serre作用・heartの条件が成立するか、
-(ii) 圏への写像の本質像と慣性、
-(iii) GITのS-同値への下降条件、
-(iv) 非可換点での自己同値の高次持上げである。
-全GIT境界の圏的解釈、大域Weyl商、無標識stackの代数性は未証明である。
-数値的 Serre--$E_6$ は全関係式点で一定だが、これだけでは圏を決定しない。
-
-有限格子計算は\path{computations/verify_marking_lattice.py}、
-静的検査は\path{scripts/verify_unmark_bundle.py}、
-実行範囲は\path{research/unmark_validation.json}に記す。
-証明を掲載したこと、計算で検算したこと、全原稿の組版、
-外部査読は互いに区別する。
+計算は \path{computations/verify_marking_lattice.py}、
+\path{computations/verify_aou_relation_tangent.py}、
+\path{computations/verify_line_bundle_numerics.py} にまとめる。
+最後のコードは Euler 形式・欠損・反標準作用の恒等式を検算するものであり、
+線束の存在や heart 識別の証明ではない。
+静的検査は \path{scripts/verify_unmark_bundle.py}、
+実行状況は \path{research/unmark_validation.json} に記す。
+原稿に証明を記したこと、今回確認した証明の範囲、計算・組版、外部査読を区別する。
 \begin{thebibliography}{99}
 \bibitem{AOU} T. Abdelgadir, S. Okawa, K. Ueda,
 \emph{Compact moduli of marked noncommutative cubic surfaces},
@@ -263,5 +240,14 @@ J. Differential Geom. 81 (2009), 197--224;
 \emph{Affine Weyl group actions on moduli spaces of marked noncommutative del Pezzo surfaces},
 Oberwolfach Reports 44/2024, pp. 2557--2558,
 \href{https://doi.org/10.4171/OWR/2024/44}{doi:10.4171/OWR/2024/44}, Conjectures 1--3.
+\bibitem{RainsBir} E. M. Rains,
+\emph{The birational geometry of noncommutative surfaces},
+\href{https://arxiv.org/abs/1907.11301v1}{arXiv:1907.11301v1} (2019).
+参照: Definition 5.1 と pp.~67--68、Corollaries 7.9--7.10, 7.13、
+Proposition 9.7、Theorem 9.10、Lemma 10.11、Corollary 10.12、Proposition 10.13。
+\bibitem{RainsFilt} E. M. Rains,
+\emph{Filtered deformations of elliptic algebras},
+\href{https://arxiv.org/abs/2107.13540v2}{arXiv:2107.13540v2} (2022).
+参照: Proposition 5.14 (p.~42)。本稿の原始資料照合はこの版を使用した。
 \end{thebibliography}
 \end{document}
