@@ -4,12 +4,13 @@
   "focus": "AOU relation moduli to unmarked Abel categories",
   "checks": {
     "picard_section_standalone_lualatex": "PASS (2 pages; standalone unresolved citations)",
-    "assembled_tex_static_preflight": "PASS (43 labels, 54 refs, 21 citations)",
-    "full_manuscript_lualatex": false,
-    "finite_E6_script": "PASS, rerun from bundled source 2026-11-17",
-    "visual": "standalone first page inspected",
+    "assembled_tex_static_preflight": "PASS: 4 TeX sources, 43 labels, 54 refs, 9 bib entries, 21 citations",
+    "full_manuscript_lualatex": "PASS: latexmk -lualatex papers/nc-cubic-unmark.tex, 15 pages, exit=0",
+    "finite_E6_script": "PASS: GitHub source run 2026-11-17 (72 roots, 27 lines, discriminant 3, Weyl orbit rank 6)",
+    "visual": "PDF title page and page 14 inspected; no observed clipping",
     "external_refereeing": false,
-    "novelty_exhaustive": false
+    "novelty_exhaustive": false,
+    "typeset_overfull": "NONE after breaking long file paths"
   },
   "scope": {
     "picard_linear_invariants": "proof in manuscript; first-order linear HH2 action only",
