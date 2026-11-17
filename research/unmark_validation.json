@@ -23,6 +23,6 @@
     "visual": "Rendered page 16; inspected math and typography, no clipping observed",
     "primary_sources": "De Deken--Lowen 2011 Thms 4.5, 5.13, 5.15 examined via EMS; Karpov--Nogin journal bibliographic record; AOU original quiver context checked",
     "proof_verification": "Core deformation-functor composition and formal action reviewed; no formal proof assistant or external referee",
-    "bundle_rebuild": "Pending: package verified source and PDF, then reconstruct in clean directory"
+    "bundle_rebuild": "PASS: 20 current files, ZIP CRC checked, clean extraction, all static checks and 2 computations PASS, LuaLaTeX 22 pages, PDF page-text equal to included PDF"
   }
 }
