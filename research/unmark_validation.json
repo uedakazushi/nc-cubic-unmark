@@ -1,25 +1,28 @@
 {
   "date": "2026-11-18",
-  "version": "unmark-v4",
-  "focus": "AOU relation algebras, full HH support strata, unmarked Abel heart recognition",
+  "version": "unmark-v5",
+  "focus": "formal Grothendieck Abel reconstruction near smooth cubic AOU points and Picard formal action",
   "claims": {
-    "universal_algebra": "proof in paper; rank45, gldim2 all R_Q",
-    "hochshild_support": "proof in paper; HH^1=10-rho, HH^2=18-rho, HH^n>=3=0",
-    "relative_formal_completeness": "proof in paper for finite flat algebra deformations",
-    "kodaira_spencer": "proof in paper for algebra deformation tangent; NOT all Abel heart families",
-    "cubic_abel_heart_on_entire_GIT": "NOT proved",
-    "unmarked_abel_stack": "NOT proved",
-    "higher_picard_action": "NOT proved"
+    "universal_relation_algebra": "Proof in manuscript (v4): rank 45, gldim 2 all relation fibres",
+    "relation_formal_completeness": "Proof in manuscript (v4): labeled finite algebra Artin deformations",
+    "HH_support": "Proof in manuscript (v4): HH1=10-rho, HH2=18-rho",
+    "formal_abelian_reconstruction": "Proof in manuscript using DDL Thms 4.5, 5.13, 5.15; relies on Z-generating geometric helix and Ext vanishing for the standard cubic thread",
+    "formal_chart": "Proof in manuscript: formal completion of dense quotient torus represents framed Abel deformation isomorphism classes",
+    "formal_picard": "Proof in manuscript: formal action by changing special-fibre identification; tangent Picard shear; no global algebraic action claimed",
+    "formal_unmarked_groupoid": "Proof in manuscript at 1-truncation after natural-isomorphism rigidification",
+    "relative_serre_t_exact": "NOT established in all formal directions",
+    "full_GIT_heart": "NOT established",
+    "global_unmarked_stack": "NOT established",
+    "novelty_exhaustive": "NOT investigated exhaustively"
   },
   "checks": {
-    "static_tex": "PASS: 5 sources, 50 labels, 61 refs, 9 bibliography entries, 22 citations",
-    "lualatex": "PASS: 20 pages, direct lualatex (exit=0), and latexmk -lualatex (exit=0) on 2026-11-18",
-    "lattice_script": "PASS: 72 roots, 27 lines, discriminant 3, Weyl rank 6 (2026-11-18)",
-    "aou_tangent_script": "PASS: rank10, Smith 1^10 0^8, vertex kernel rank8, generic/boundary HH dimensions (2026-11-18)",
-    "visual_pdf": "Rendered pages 1,12,13 of 20 and inspected; no observed clipping",
-    "novelty_exhaustive": false,
-    "external_refereeing": false,
-    "overfull": "No overfull warnings in final LuaLaTeX run",
-    "bundle_self_containment": "PASS: re-extracted, two computations and static TeX preflight PASS, latexmk recompiled 20 pages and exact page-text match"
+    "static_tex": "PASS: 6 TeX sources, 57 labels, 78 refs, 10 bibliography entries, 28 citations",
+    "lualatex": "PASS: latexmk -lualatex, 22 pages, final log no undefined references/overfull warnings, 2026-11-18",
+    "aou_tangent": "PASS: exact rank10, Smith diag(1^10,0^8), generic/boundary HH dimensions",
+    "marking_lattice": "PASS: E6 72 roots, 27 lines, discr.3, Weyl orbit rank6",
+    "visual": "Rendered page 16; inspected math and typography, no clipping observed",
+    "primary_sources": "De Deken--Lowen 2011 Thms 4.5, 5.13, 5.15 examined via EMS; Karpov--Nogin journal bibliographic record; AOU original quiver context checked",
+    "proof_verification": "Core deformation-functor composition and formal action reviewed; no formal proof assistant or external referee",
+    "bundle_rebuild": "Pending: package verified source and PDF, then reconstruct in clean directory"
   }
 }

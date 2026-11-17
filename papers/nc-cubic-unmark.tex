@@ -21,7 +21,7 @@
 \newcommand{\Cw}{\mathfrak C^{\rm w}}\newcommand{\Cu}{\mathfrak C^{\rm u}}
 \title{AOU 関係式モジュライと非可換三次曲面の無標識 Abel 圏\\\large 標識忘却・Picard 障害・相対慣性}
 \author{植田一石}
-\date{2026年11月18日 / unmark-v4}
+\date{2026年11月18日 / unmark-v5}
 \begin{document}\maketitle
 \begin{abstract}
 AOUの九頂点quiverの関係式モジュライから非可換三次曲面の無標識Abel圏を得る問題を研究する。
@@ -44,6 +44,9 @@ $\delta_\pi(L)=H^1(\pi^\sharp)c_1(L)$だけ変形パラメータを動かす。
 さらに一次Hochschild変形線形空間上のPicard shearの不変式環が
 Poisson成分の多項式環に一致することを示し、単純な分離粗商では
 可換変形方向を区別できないことを証明する。
+可換AOU点の形式近傍ではDe Deken--Lowenの定理により任意の関係式変形から
+Grothendieck Abel変形を復元でき、その形式チャートの標識変更作用の
+一次項はPicard shearである。
 全GIT境界の圏的解釈、GIT商への降下、無標識stackの代数性および
 非可換領域での大域Weyl商は未証明である。
 \end{abstract}
@@ -105,6 +108,16 @@ Poisson成分を通して因子化する（系\ref{cor:separated-linear-quotient
 これはAOU GITの大域作用や無標識粗moduliの一般的な非存在を
 証明する主張ではない。
 
+AOU形式関係式をGrothendieck Abel圏の変形と比較するため、
+De Deken--Lowen\cite[Theorem 5.15]{DDL}と関係式の完備性を結合する。
+滑らかな可換AOU点では任意のArtin関係式変形から平坦なAbel変形を
+回復でき、標準helixを固定した形式チャートは八次元形式円板となる
+（定理\ref{thm:aou-formal-abelian-reconstruction}、
+定理\ref{thm:aou-formal-chart}）。
+さらに同定を忘れるとPicard群と自己同型群の形式作用商が現れる
+（系\ref{cor:aou-formal-unmarked-quotient}）。
+この形式作用の一次項が上のPicard shearとなる。
+
 無標識圏のexact自己同値は可換点で
 $\Pic(X)\rtimes\Aut(X)$を含むため、
 その慣性は有限Weyl群の場合と質的に異なる。
@@ -147,6 +160,7 @@ $\wedge^3T_X=0$なので$\HH^3=0$。
 
 \input{papers/sections/marking_forgetful.tex}
 \input{papers/sections/aou_universal_algebras.tex}
+\input{papers/sections/formal_abelian_recognition.tex}
 \input{papers/sections/aou_to_unmarked.tex}
 \input{papers/sections/picard_invariants.tex}
 
@@ -163,6 +177,13 @@ smooth可換点でのKodaira--Spencer写像は八次元同型である。
 追加のhelix持上げ条件の下で圏的標識忘却のファイバーは無限となる。
 一次Picard shearの多項式・有理不変式はPoisson成分だけに依存するため、
 分離的な一次線形粗商では可換変形方向が失われる。
+
+可換三次曲面の形式近傍については、関係式変形と平坦なAbel圏変形の
+同値をDe Deken--Lowenの定理から得た。
+特殊ファイバーの同定を忘れた形式変形は
+Picard群と自己同型群による形式作用groupoidとなり、
+その一次線形化はPicard shearである。
+ただし弱標識付き非可換三次曲面の公理を形式族の全域で検証したわけではない。
 
 残る最優先課題は、(i) AOU関係式のどこで相対AS正則性・
 相対Serre作用・heartの条件が成立するか、
@@ -185,6 +206,10 @@ smooth可換点でのKodaira--Spencer写像は八次元同型である。
 \emph{Obstruction theory for objects in abelian and derived categories},
 Comm. Algebra 33 (2005), 3195--3223,
 \href{https://arxiv.org/abs/math/0407019}{arXiv:math/0407019}, Theorem A.
+\bibitem{KN} B. V. Karpov, D. Yu. Nogin,
+\emph{Three-block exceptional collections over Del Pezzo surfaces},
+Izv. Math. 62 (1998), 429--463,
+\href{https://doi.org/10.1070/IM1998v062n03ABEH000205}{doi:10.1070/IM1998v062n03ABEH000205}.
 \bibitem{DDL} O. De Deken, W. Lowen,
 \emph{Abelian and derived deformations in the presence of $\mathbb Z$-generating geometric helices},
 J. Noncommut. Geom. 5 (2011), 477--505,

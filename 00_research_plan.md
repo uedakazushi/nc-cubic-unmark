@@ -1,46 +1,43 @@
-# 研究方針：AOU relation moduli と無標識 Abel 圏
+# 研究方針：AOU 関係式と無標識 Abel 圏
 
-2026-11-18 / unmark-v4。研究再開時は **本ファイルを最初に読む**。次に `papers/nc-cubic-unmark.tex`（全証明）、`research/unmark_notes.md`（残る障害）、`computations/verify_aou_relation_tangent.py`（有限計算）を参照する。現行正本は GitHub `uedakazushi/nc-cubic-unmark` の `main`。
+2026-11-18 / unmark-v5。**再開時は本ファイルを最初に読む。** 正本は `uedakazushi/nc-cubic-unmark` の main。続いて `papers/nc-cubic-unmark.tex`、`research/unmark_notes.md` を読む。
 
 ## I. 恒常的な研究原則・保存許可
 
-数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合して研究の価値を最大化する。方針は現時点の結果と課題を理解できるよう書き直し、変更履歴を堆積しない。既知の定理、原稿に証明を記載した結果、独立検証済みの結果、条件付き結果、未証明の推測、有限計算を区別し、依存関係と未解決箇所を明記する。先行研究の一次資料を調べ、未確認の新規性・書誌を推測しない。論文は日本語 LuaLaTeX で書き、既存の有効な結果と証明を保持する。
+数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を考慮して研究価値を最大化する。現時点の有効な方針として書き直し、時系列の履歴は持たない。既知の結果・本稿の証明・独立に確認した計算・相対仮定付きの結果・未証明を区別し、各定理の証明と依存する文献を明記する。新規性が未確認ならその旨を明記する。主論文は日本語LuaLaTeX、現行の有効な成果と証明を保持する。
 
-**ユーザーは研究の区切りごとに承諾なしで軽量・自己完結の現行研究継続 bundle を Library に保存することを一般的に許可している。** 旧 ZIP・旧原稿・ログ・キャッシュ・重複を同梱しない。Library 上の既存ファイルを明示指示なく削除しない。ファイル生成・検証・GitHub push・Library 保存は別々に記録し、成功を確認した操作だけ報告する。
+**ユーザーは研究の区切りごとに承諾なしで、最新の軽量・自己完結な研究継続 bundle を Library に保存することを一般的に許可している。** 現行の研究方針・研究ノート・論文・必要なソース・PDF・計算コードだけを入れ、旧ZIP、ログ、キャッシュ、重複は入れない。Library上の既存ファイルを明示指示なしに削除しない。生成・実行・GitHub push・Library保存を別々に検証する。
 
-## II. 目標と達成基準
+## II. 最重要課題・達成基準
 
-AOU 九関係式モジュライから**無標識 Abel 圏**への忘却を、定義域・本質像・ファイバー・相対慣性・GIT 粗商への降下の観点から理解し、独立して投稿可能な論文にする。次の階層を区別する：
+AOU の九関係式モジュライから無標識 Abel 圏への忘却の**定義域・本質像・ファイバー・慣性・GIT降下**を数学的に理解し、投稿可能な論文にする。区別すべき対象は `(P²)^9` と関係式stack、GIT粗商、有限代数BとPerf(B)、形式Artin上で復元するQcoh/ coh型heart、AS正則・反Serre t-exact性・AZ豊富性を満たす弱標識付き圏、無標識圏である。
 
-1. 九関係式の全空間 `R_Q=(P²)^9` と quotient stack `[R_Q/G_Q]`；
-2. GIT 線形化に依存する粗商 `M_Q^χ`；
-3. すべての relation 点で定義される45次元有限代数 `B_r` と smooth proper `Perf(B_r)`；
-4. 相対 AS-regular helix と適切な t-structure の証拠を備えた圏的許容表示；
-5. 弱標識付き `(A,O)`、および無標識 Abel 圏 `A`。
+本研究では、**滑らかな可換AOU点の形式近傍**に対しては、有限代数の関係式完備性とDe Deken–Lowen Theorem 5.15を結合し、すべてのArtin関係式変形から平坦Grothendieck Abel変形を回復する。標準helixを選ぶと8次元形式チャートを得る。標識を忘れるとPic(X)⋊Aut(X)の形式作用が現れ、一次作用はPicard shearとなる。**これはGIT全境界でのAbel圏の存在や、全8方向でのweakly marked公理の検証とは異なる。**
 
-重要な変更の理由：AOU relation は全境界で有限代数と導来圏を与えるが、標準 heart `mod B_r` は可換点でも `coh X` と同値でない。従って必要なのは導来圏の存在自体ではなく、三次曲面型 Abel heart と Serre/helix 条件を認識すること。以前の目標である AOU→無標識 Abel 圏の全域降下は依然未解決。ambient quadratic AS 正則性の認識問題は別リポジトリ `nc-cubic-ambient` に分離する。
+大域AOU moduli上に適切なAS-regular heartを認識し、その同型条件と慣性を決めることが上位目標。ambientのquadratic AS正則認識は別リポジトリ `uedakazushi/nc-cubic-ambient` に属する。
 
-## III. 主要結果・証明の所在
+## III. 到達点と主張の状態
 
-- 【本稿証明】全関係式空間上に階数45の普遍有限代数があり、各 fiber の大域次元は2、smooth proper dg category を与える（`thm:universal-directed-family`, `papers/sections/aou_universal_algebras.tex`）。これは三次曲面型 Abel heart を与えるとは主張しない。
-- 【本稿証明】Artin 局所上のすべての平坦な有限代数変形は九つの関係式の変形と矢の基底変換で記述される（`thm:aou-relation-formal-completeness`）。既存の AOU の三層 quiver の特殊な性質を利用。
-- 【本稿証明】任意の relation 点で支持行列 `D_r` の階数をρとすると `HH^0=C`, `dim HH¹=10−ρ`, `dim HH²=18−ρ`, `HH^{≥3}=0`。dense torus では `(0,8)`、単項式関係式では `(10,18)`（`thm:aou-hh-support`）。`computations/verify_aou_relation_tangent.py` は整数行列の rank10・Smith 標準形と境界例を検算。数学的証明は論文。
-- 【本稿証明、既知 Morita 理論使用】smooth 可換 cubic の AOU relation トーラスにおける Kodaira–Spencer `T M_Q° ≅ HH²(B) ≅ HH²(X)`（`prop:aou-kodaira-spencer-iso`）。**有限代数の一次変形**の比較として確立。相対 Abel heart の全変形とはまだ同一視していない。
-- 【既知 AOU と本稿証明】AOU, arXiv:2404.00175v1 は全 relation stack と toric GIT（§5）、可換 marked locus の局所閉埋込み（Thm 1.2）。本稿は可換無標識同型類が `W(E6)` 軌道に等しいことを示す（`thm:aou-commutative-quotient`）。OU, arXiv:2508.04986v1 の Def. 1.1(4) は AS-regular potentials の開 substack を定義。
-- 【本稿証明、相対仮定付き】弱標識付き構造対象の分類と持上げ、形式 `W(E6)` 比較、一次 Picard shear、一般 rank4、非常に一般の整数核 `ZK_X`、構造対象軌道 `Pic/ZK=Z⁶`（`marking_forgetful.tex`）。境界/全非可換点への一般化は未証明。
-- 【本稿証明、線形一次模型限定】`C[HH²(X)]^Pic=C[H⁰(-K)]` と有理不変式、分離粗商の情報消失（`picard_invariants.tex`）。**AOU の非線形 GIT 全域の不変式ではない**。
-- 【定義的・条件付き】圏的許容 AOU 表示から unmarked Abel 圏への擬関手、追加持上げ条件下の無限 helix fiber、GIT S-同値の必要条件（`aou_to_unmarked.tex`）。全 GIT への降下や無標識 stack の有限型性は未証明。
+- 【本稿証明、既知のDDL定理を使用】smooth cubicの標準AOU helixのZ-generating/geometric条件の下、`Def_ab(Qcoh X) ≃ Def_lin(B)`。v4の関係式形式完備性から全局所Artin関係式変形がAbel heartへ持ち上がり、局所noetherian性も確保（`thm:aou-formal-abelian-reconstruction`）。必要な文献：DDL Thms 4.5,5.13,5.15、AOU §4、Karpov–Nogin。
+- 【本稿証明】全係数非零トーラスのsmooth可換点で、標識付き形式Abel変形関手は8次元トーラス商の形式完成に同型（`thm:aou-formal-chart`）。同型類関手であり、普遍的な大域正則座標ではない。
+- 【本稿証明、相対同定について】Pic(X)⋊Aut(X)が形式変形関手に作用し、一次作用は`(ξ,π)↦(ξ+H¹(π^sharp)c₁(L),π)`。自然同型によりrigidifyした無標識形式変形はこの群の形式作用groupoid（`prop:formal-picard-action`, `cor:aou-formal-unmarked-quotient`）。明示的な高次座標式は未計算。
+- 【本稿証明】普遍45次元有限代数B_r、全点gldim2/smooth proper dg圏、Artin代数変形の九関係式による形式完備性（`aou_universal_algebras.tex`）。これは全点での三次曲面型Abel heartを意味しない。
+- 【本稿証明】支持行列D_rの階数ρにより`dim HH¹(B_r)=10−ρ`, `dim HH²(B_r)=18−ρ`, `HH^n=0(n≥3)`。全係数非零で(0,8)、単項式関係式境界で(10,18)。計算コード `verify_aou_relation_tangent.py` はrankとSmith標準形のみを検算。
+- 【可換部分・本稿証明】smooth可換AOU locusの無標識同型類は古典W(E6)商、一般に51840標識（`aou_to_unmarked.tex`）。GIT粗商全体のWeyl作用ではない。
+- 【相対仮定付き】weak構造対象と形式W(E6)商、非常に一般のPoisson一次変形の整数核ZK、許容構造対象の自己同値軌道集合Pic/ZK≅Z⁶（`marking_forgetful.tex`）。AS性と相対Serre t-exact性は別途要確認。
+- 【一次線形模型についての本稿証明】Picard shearの不変式環は`C[H⁰(-K_X)]`、分離的粗商では可換変形方向が失われる（`picard_invariants.tex`）。非線形AOU GITの不変式とは主張しない。
+- 【未解決】全AOU境界でのAS/heart、幾何学的ファイバーでの代数化、形式Picard作用の高次表示、GIT S-同値とAbel同値との適合、unmarked代数的stackの構成。
 
-## IV. 次の重要課題（具体的着手）
+## IV. 優先課題・具体的着手
 
-1. **最優先：相対 Abel heart 認識**。`Perf(B)` の smooth 可換点近傍で既知の `coh X` の heart を復元し、DDL の変形同値・Serre の t-exact性・AZ 豊富性を統合して、関係式 torus のどこで相対 `qgr` が定義できるかを証明する。
-2. **Picard action の relation 座標**。今回の tangent の完全性を使い、`r_L(ξ,π)` が八次元 relation トーラスの形式座標でどう現れるかを構成し、二次以降の障害を調べる。固定 Abel 圏の自己同値と Morita 標識変更を区別する。
-3. **境界と GIT 降下**。支持行列による `HH¹/HH²` 跳びと AS-regular locus の交わりを調べる。GIT の S-同値点間で Abel heart の同値性を確認する。有限代数の smoothness と cubic heart の存在を混同しない。
-4. **投稿準備**。AOU/OU/DDL/Toda の一次資料との比較、形式定理の仮定と stack 慣性、可換 Picard の既知性を Introduction で明確化。数学的な原稿査読と全体の LuaLaTeX 組版を行う。
+1. **形式から代数的なheartへの拡張**：標準helixのArtin変形を、AOU関係式トーラスの実際の非可換開集合へ代数化する。反Serre `S^{-1}[2]` のt-exact性、rank-one構造対象、AZ豊富性が相対的に保たれるための開条件または明示的な反例を求める。
+2. **高次Picard作用の算出**：DDLの逆構成とTodaのMorita変換を比較し、形式作用の二次項・不変式・非分離性を計算する。標準helixを共通Lで捩っても関係式は変わらないが、形式チャートの同定が変わることに留意。
+3. **GITとAbel圏の同値類**：半安定境界のS-同値点で三次曲面型heartを持つか、同値なheartになるかを判定。普遍Perf(B)の存在とt-exact Abel圏の存在を混同しない。
+4. **投稿品質**：AOU/DDL/KN/OU/Todaの一次資料と適用範囲、新規性を照合。局所的な既知定理と本稿の新しい組合せの寄与をIntroductionで具体的に分ける。全TeX組版・有限計算・論理検証を反復する。
 
 ## V. 再現
 
-```sh
+```
 python3 -m pip install -r requirements.txt
 python3 computations/verify_marking_lattice.py
 python3 computations/verify_aou_relation_tangent.py
@@ -48,4 +45,4 @@ python3 scripts/verify_unmark_bundle.py
 latexmk -lualatex papers/nc-cubic-unmark.tex
 ```
 
-PDFは Git に追跡しない。現行 bundle には PDF と全 TeX・計算コード・簡潔な検証手順を収録する。
+PDFや中間生成物はGit追跡せず、bundleには現行PDFと全TeX、検証コードを収録する。形式変形の証明と外部査読の状態は分ける。

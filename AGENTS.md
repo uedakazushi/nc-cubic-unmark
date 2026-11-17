@@ -1,9 +1,9 @@
 # 研究指示 — nc-cubic-unmark
 
-最初に `00_research_plan.md` を読む。最優先は AOU relation moduli と無標識 Abel 圏の関係。関係式 stack、トーリック GIT、全境界の普遍 finite algebra/Perf、相対 cubic-type Abel heart、weak `(A,O)`、unmarked `A` を厳密に区別する。
+最初に `00_research_plan.md` を読む。最重要課題はAOU relation moduliから無標識Abel圏への圏的忘却、形式Artin近傍から代数的なAS heartへの拡張、Picard作用、慣性とGIT降下。主論文は `papers/nc-cubic-unmark.tex`、新しい形式heart比較は `papers/sections/formal_abelian_recognition.tex`。
 
-主論文 `papers/nc-cubic-unmark.tex`。主結果は `papers/sections/aou_universal_algebras.tex`、`papers/sections/aou_to_unmarked.tex`、`papers/sections/marking_forgetful.tex`、`papers/sections/picard_invariants.tex`。既存の証明を削らない。全境界には rank45・gldim2 の有限代数と smooth proper dg 圏があるが、非可換三次曲面の Abel heart を無条件に与えない。Artin 代数変形の relation 表示を相対 Abel 変形の完全同一視に読み替えない。
+恒常的研究原則：数学的価値最大化、現在有効な方針、証明・既知結果・追加仮定・計算観察の区別、一次資料確認、現在の数学的成果と証明を完全保持。日本語LuaLaTeX、主原稿と研究ノートを整理して保持。ユーザーは研究区切りごとの自己完結した軽量bundleのLibrary保存を承諾なく許可している。旧Library資産の明示指示のない削除は不可。
 
-数学的価値と正確性を総合して目標を柔軟に変更し、方針には現在の結果・未解決の核心・実行可能な優先課題を書き、履歴を蓄積しない。既知文献・証明記載・独立検証・相対仮定・未証明・計算観察を分離。論文は日本語 LuaLaTeX、一次資料照合。GitHub main に区切りで直接 push（PR/Actions/force push を使用しない）、PDF/ZIP/キャッシュを Git 追跡しない。
+GitHub main直push、PR・Actions・force pushは使用しない。PDF・ZIP・コンパイルキャッシュをGit追跡しない。形式Abel変形の存在から、反Serreのt-exact性やGIT境界のAS正則性を勝手に結論しない。Picard形式作用の存在と具体的な高次作用式、大域代数的作用を区別する。生成・検証・push・Library保存は別々に実際の状態を記録。
 
-研究区切りごとに最新の現行 bundle を承諾なく Library 保存する一般許可あり。既存 Library ファイルの削除は明示指示なく行わない。生成・組版・計算・GitHub push・Library 保存は別々に確認する。検証コマンドは README と研究方針を参照。
+検証：`python3 scripts/verify_unmark_bundle.py`、`python3 computations/verify_aou_relation_tangent.py`、`python3 computations/verify_marking_lattice.py`、`latexmk -lualatex papers/nc-cubic-unmark.tex`。

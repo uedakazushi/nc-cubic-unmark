@@ -1,0 +1,191 @@
+\section{可換 AOU 点の形式 Abel heart と無標識化}
+\label{sec:formal-abelian-recognition}
+本節ではAOU関係式の形式近傍から実際にAbel圏を再構成する。
+鍵になるのはDe Deken--Lowen\cite[Theorems 4.5, 5.13, 5.15]{DDL}であり、
+本稿の有限代数変形の完備性（定理\ref{thm:aou-relation-formal-completeness}）
+と組み合わせる。導来圏の任意のheartを自動的に認識するのではなく、
+特定の可換三次曲面から始まる\emph{Artin形式変形}を扱う。
+
+\subsection{標準helixとAbel変形の比較}
+$X$を滑らかな複素三次曲面とし、
+$E_0,\ldots,E_8$をAOUの標準九対象line-bundle threadとする。
+$\mathscr H=(E_i)_{i\in\mathbb Z}$は、このthreadが生成する
+幾何学的helixである。以下、文献でいう
+\emph{$\mathbb Z$-generating geometric helix}の条件、すなわち
+$(E_i)$が$\operatorname{Qcoh}X$を$\mathbb Z$-生成し、
+$i\le j$について$\operatorname{Ext}^{1,2}(E_i,E_j)=0$を満たすことを用いる。
+標準三ブロックhelixの幾何学的性質は
+Karpov--Nogin\cite{KN}およびAOU\cite[\S4]{AOU}の既知の入力である。
+$-K_X$の豊富性と$E_{i+9}\cong E_i\otimes\mathcal O_X(-K_X)$により、
+このhelixの適切な反標準方向の部分列が生成列となる。
+
+\begin{theorem}[AOU形式関係式からのAbel変形の再構成]
+\label{thm:aou-formal-abelian-reconstruction}
+$X,\mathscr H$を上のとおりとし、$r\in R_Q$をそのAOU関係式点、
+$B=\operatorname{End}_X(\bigoplus_{i=0}^{8}E_i)$とする。
+$R$を剰余体$\mathbb C$の局所Artin $\mathbb C$-代数とする。
+$r$に特殊化する任意のAOU関係式の$R$-点$r_R$について、
+付随する平坦な有限代数$B_R$から、
+$\mathcal C_R\otimes_R\mathbb C\simeq\operatorname{Qcoh}X$という
+特殊ファイバー同定を伴う平坦なGrothendieck Abel変形
+$\mathcal C_R$が構成できる。
+標準threadの変形を保持したAbel変形の群oidと、
+九つの原始冪等元を標識した$B$の平坦な有限代数変形の群oidは
+同値である。これらの同値は$R$の小拡大と底変更に両立する。
+さらに$\mathcal C_R$は局所noetherianであり、
+そのnoetherian対象の部分圏は$\operatorname{coh}X$からの
+Abel変形を与える。
+\end{theorem}
+\begin{proof}
+標準helixから作る$\mathbb Z$-代数を$\mathfrak a$、
+九対象threadへの制限を$\mathfrak a_{[0,8]}$と書く。
+後者は$B$の原始冪等元を標識した線形カテゴリーである。
+De Deken--Lowen\cite[Theorem 5.15]{DDL}は、上で述べた生成性、
+幾何学的helixおよびExt消滅のもとで
+\[
+ \operatorname{Def}_{\rm ab}(\operatorname{Qcoh}X)
+ \simeq\operatorname{Def}_{\rm lin}(\mathfrak a)
+ \simeq\operatorname{Def}_{\rm lin}(\mathfrak a_{[0,8]})
+\]
+を与える。第二の変形問題は、原始冪等元を標識した
+有限代数$B$の平坦な変形問題と等しい。
+定理\ref{thm:aou-relation-formal-completeness}により
+この変形は九つの関係式の平坦な変形により尽くされる。
+上記の同値の逆を適用すれば$\mathcal C_R$を得る。
+この議論はAbel変形の同値を使うため、
+単なる$D^b(\operatorname{mod}B_R)$の標準heartを
+$\operatorname{coh}X$と取り違えてはいない。
+
+局所noetherian性も確認する。De Deken--Lowenの再構成では
+$\mathbb Z$-生成列$(E_i)$が$R$-flatな生成対象$(E_{i,R})$へ持ち上がる。
+$R$の極大イデアルを$\mathfrak m$とすると
+$E_{i,R}$の有限$\mathfrak m$-adic filtrationの各商は
+$E_i$の有限直和である。$E_i$はnoetherianであるから
+$E_{i,R}$もnoetherianである。
+従って$\mathcal C_R$はnoetherian生成対象を持つ
+局所noetherian Grothendieck圏であり、noetherian対象の部分圏は
+核・余核・有限拡大で閉じる。特殊ファイバーのnoetherian対象は
+$\operatorname{coh}X$となる。
+\end{proof}
+
+\begin{remark}[復元の適用範囲]
+\label{rem:aou-formal-heart-scope}
+この定理は\emph{滑らかな可換点を固定した任意の局所Artin底}での
+Abel変形の存在を与える。$R_Q$の全閉点で三次曲面型のheartが
+代数的族として存在するという主張ではない。
+またGrothendieck Abel変形の存在だけから
+$\mathsf S_R^{-1}[2]$の$t$-exact性、rank-one構造対象の公理、
+Artin--Zhang豊富性が形式変形の全域で自動的に成立すると
+断言しない。これらを要する本稿の弱標識付きモジュライへの
+因子化には、さらに検証を要する。
+\end{remark}
+
+\subsection{形式八次元チャートと標識変更}
+$\mathcal D_X$を$\operatorname{Qcoh}X$の平坦なAbel変形関手で、
+特殊ファイバーとの同定を保持し、
+関手の自然同型を同一視したものとする。
+
+\begin{theorem}[AOUの形式八次元チャート]
+\label{thm:aou-formal-chart}
+上の$X,r$について、$r$はAOUの全係数非零のトーラス
+$M_Q^\circ$の点であるとする。
+標準helixの選択に依存する形式変形関手の同型
+\[
+ \widehat{M_Q^\circ}_{[r]}\simeq \mathcal D_X
+\]
+が存在する。従って特殊ファイバーを同定したAbel変形の
+同型類は、$\mathbb C$上の八次元形式円板で局所的に記述される。
+その接空間は
+\[
+ T_{[r]}M_Q^\circ\simeq HH^2(B)\simeq HH^2(X)
+ =H^1(X,T_X)\oplus H^0(X,-K_X)
+\]
+である。形式チャートの同型は標準helixと特殊化の同定に依存し、
+無標識圏の大域的な正則パラメータ表示ではない。
+\end{theorem}
+\begin{proof}
+定理\ref{thm:aou-formal-abelian-reconstruction}により
+Abel変形は有限代数変形と同値であり、
+定理\ref{thm:aou-relation-formal-completeness}により
+九関係式の変形を矢の基底変更で割ったものと同値である。
+全係数非零のトーラスでは、矢の基底変更群の
+関係式への作用の核は頂点スカラーによる八次元トーラスである。
+有効商トーラスの作用は自由である。
+実際、作用行列のSmith標準形が
+$\operatorname{diag}(1^{\times10},0^{\times8})$となることは、
+命題\ref{prop:aou-kodaira-spencer-iso}の格子計算からも分かる。
+従って関係式変形の同型類関手は
+滑らかなトーラス商$M_Q^\circ$の点$[r]$における形式完成となる。
+接空間については命題\ref{prop:aou-kodaira-spencer-iso}を適用する。
+\end{proof}
+
+\begin{proposition}[形式Picard作用と一次shear]
+\label{prop:formal-picard-action}
+$X$のexact自己同値群
+$G_X=\operatorname{Pic}(X)\rtimes\operatorname{Aut}(X)$は、
+特殊ファイバーの同定を変更することにより
+$\mathcal D_X$に作用する。前定理の形式チャートへ輸送すると、
+$\widehat{M_Q^\circ}_{[r]}$上に
+一般には非線形な\emph{形式的}作用が定まる。
+その$L\in\operatorname{Pic}(X)$による接空間作用は、
+方向の規約による符号を除いて
+\[
+ (\xi,\pi)\longmapsto
+ (\xi+H^1(\pi^\sharp)c_1(L),\pi)
+\]
+である。これは命題\ref{prop:picard-first-order}のshearに等しい。
+この形式作用からAOUの大域GITスキームへのPicard群の
+正則作用は導かれない。
+\end{proposition}
+\begin{proof}
+特殊ファイバーとの同定を$\phi$から$F\circ\phi$へ変更する操作は
+各$F\in\operatorname{Aut}_{\rm ex}(\operatorname{Qcoh}X)$について
+Abel変形関手の自己同型を与え、合成に関して群作用となる。
+可換滑らかな射影多様体のAbel圏の自己同値は
+自己同型の引戻しと線束捩れで記述され、
+$G_X=\operatorname{Pic}(X)\rtimes\operatorname{Aut}(X)$である。
+定理\ref{thm:aou-formal-chart}によって作用を形式完成上に輸送する。
+一次項は線束Morita変換のČech計算
+（命題\ref{prop:picard-first-order}）により与えられる。
+これはToda\cite{Toda}のHochschild変形に対する
+Fourier--Mukai変換とも整合する。
+\end{proof}
+
+\begin{corollary}[無標識形式変形の群oid表示]
+\label{cor:aou-formal-unmarked-quotient}
+幾何学的特殊ファイバー$\operatorname{Qcoh}X$との同定を
+忘れたAbel変形の同型類群oidは、自然同型による2射を
+1-truncateした段階で、
+\[
+ \left[\widehat{M_Q^\circ}_{[r]}/
+ (\operatorname{Pic}(X)\rtimes\operatorname{Aut}(X))\right]
+\]
+という形式作用群oidで表される。
+これは形式変形関手における記述であり、
+有限型の代数的商stackの存在を主張しない。
+$\operatorname{Pic}(X)$の作用は接空間では
+命題\ref{prop:formal-picard-action}のshearであるが、
+高次の形式座標表示はこの結論だけからは定まらない。
+\end{corollary}
+\begin{proof}
+同定を持つ変形の二つの同定を比較すれば、
+特殊ファイバーのexact自己同値が得られる。
+その同定を忘れることは、これら自己同値による作用群oidを
+取る操作に等しい。命題\ref{prop:hh}により$HH^1(X)=0$である。
+従って自然同型で割った後の特殊化が恒等な自己同値は、
+局所Artin底の長さに関する帰納法で自明となる。
+残る同型は特殊ファイバーの自己同値による変更であり、
+前命題と定理\ref{thm:aou-formal-chart}を適用する。
+\end{proof}
+
+\begin{remark}[共通線束捩れと形式チャートの非標準性]
+\label{rem:formal-common-twist}
+同じ$X$でthreadを$(E_i\otimes L)$へ取り替えても
+$\operatorname{End}(\bigoplus_iE_i\otimes L)$は$B$と同一視され、
+AOU関係式点は変わらない（命題\ref{prop:common-tensor}）。
+しかしDe Deken--Lowenの逆構成を特殊ファイバー同定付きで比較すると、
+二つの形式チャートは線束捩れによる再標識で移り合う。
+その一次遷移は命題\ref{prop:formal-picard-action}のshearである。
+従って関係式点から$\mathcal O$の絶対的な選択が自動的に
+得られるわけではない。まさにこの差が無標識Abel圏を考える動機となる。
+\end{remark}
