@@ -1,26 +1,25 @@
 {
-  "date": "2026-11-17",
-  "version": "unmark-v3",
-  "focus": "AOU relation moduli to unmarked Abel categories",
-  "checks": {
-    "picard_section_standalone_lualatex": "PASS (2 pages; standalone unresolved citations)",
-    "assembled_tex_static_preflight": "PASS: 4 TeX sources, 43 labels, 54 refs, 9 bib entries, 21 citations",
-    "full_manuscript_lualatex": "PASS: latexmk -lualatex papers/nc-cubic-unmark.tex, 15 pages, exit=0",
-    "finite_E6_script": "PASS: GitHub source run 2026-11-17 (72 roots, 27 lines, discriminant 3, Weyl orbit rank 6)",
-    "visual": "PDF title page and page 14 inspected; no observed clipping",
-    "external_refereeing": false,
-    "novelty_exhaustive": false,
-    "typeset_overfull": "NONE after breaking long file paths"
+  "date": "2026-11-18",
+  "version": "unmark-v4",
+  "focus": "AOU relation algebras, full HH support strata, unmarked Abel heart recognition",
+  "claims": {
+    "universal_algebra": "proof in paper; rank45, gldim2 all R_Q",
+    "hochshild_support": "proof in paper; HH^1=10-rho, HH^2=18-rho, HH^n>=3=0",
+    "relative_formal_completeness": "proof in paper for finite flat algebra deformations",
+    "kodaira_spencer": "proof in paper for algebra deformation tangent; NOT all Abel heart families",
+    "cubic_abel_heart_on_entire_GIT": "NOT proved",
+    "unmarked_abel_stack": "NOT proved",
+    "higher_picard_action": "NOT proved"
   },
-  "scope": {
-    "picard_linear_invariants": "proof in manuscript; first-order linear HH2 action only",
-    "separated_coarse_linear_obstruction": "proof in manuscript; first-order linear model only",
-    "global_AOU_GIT_Picard_action": "NOT established",
-    "global_moduli_nonexistence": "NOT CLAIMED",
-    "AOU_commutative_fibres": "proof in manuscript",
-    "AOU_categorical_map": "conditional on relative categorical data",
-    "infinite_categorical_fibre": "conditional relative theorem",
-    "GIT_descent": "necessary condition only",
-    "full_alg_stack": "NOT proved"
+  "checks": {
+    "static_tex": "PASS: 5 sources, 50 labels, 61 refs, 9 bibliography entries, 22 citations",
+    "lualatex": "PASS: 20 pages, direct lualatex (exit=0), and latexmk -lualatex (exit=0) on 2026-11-18",
+    "lattice_script": "PASS: 72 roots, 27 lines, discriminant 3, Weyl rank 6 (2026-11-18)",
+    "aou_tangent_script": "PASS: rank10, Smith 1^10 0^8, vertex kernel rank8, generic/boundary HH dimensions (2026-11-18)",
+    "visual_pdf": "Rendered pages 1,12,13 of 20 and inspected; no observed clipping",
+    "novelty_exhaustive": false,
+    "external_refereeing": false,
+    "overfull": "No overfull warnings in final LuaLaTeX run",
+    "bundle_self_containment": "PASS: re-extracted, two computations and static TeX preflight PASS, latexmk recompiled 20 pages and exact page-text match"
   }
 }

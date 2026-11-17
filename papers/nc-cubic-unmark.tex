@@ -21,11 +21,16 @@
 \newcommand{\Cw}{\mathfrak C^{\rm w}}\newcommand{\Cu}{\mathfrak C^{\rm u}}
 \title{AOU 関係式モジュライと非可換三次曲面の無標識 Abel 圏\\\large 標識忘却・Picard 障害・相対慣性}
 \author{植田一石}
-\date{2026年11月17日 / unmark-v3}
+\date{2026年11月18日 / unmark-v4}
 \begin{document}\maketitle
 \begin{abstract}
 AOUの九頂点quiverの関係式モジュライから非可換三次曲面の無標識Abel圏を得る問題を研究する。
-トーリックGIT商と関係式stackを区別し、相対AS正則helixとheartが存在する許容表示に限り
+トーリックGIT商と関係式stackを区別する。全関係式空間上には
+階数45の普遍有限代数が存在し、すべてのファイバーの大域次元は2である。
+この代数のArtin局所変形は九つの関係式で尽くされ、
+境界上のHochschild次元は関係式の支持から組合せ的に計算できる。
+一方、三次曲面型のAbel heartには別の認識問題が残る。
+相対AS正則helixとheartが存在する許容表示に限り
 標識付き圏から無標識圏への忘却を定式化する。
 可換な滑らかな三次曲面のlocusではGabrielの圏的復元により
 忘却の同型類が古典的な$W(E_6)$標識変更の軌道に一致し、
@@ -56,6 +61,18 @@ GIT同値がAbel圏のexact同値に一致することも意味しない。
 
 本稿の最重要課題は、AOU関係式表示から無標識Abel圏への忘却の
 \emph{定義域、本質像、ファイバー、自己同値慣性}の決定である。
+まず、三層quiverの普遍関係式代数が全境界で階数45、
+大域次元2のsmooth proper導来圏を与えることを証明する
+（定理\ref{thm:universal-directed-family}）。
+局所Artin底上のすべての平坦な代数変形は九つの関係式の変形となり
+（定理\ref{thm:aou-relation-formal-completeness}）、
+境界の$HH^1,HH^2$は関係式の非零成分で決まる
+（定理\ref{thm:aou-hh-support}）。
+滑らかな可換三次曲面のAOU点では、関係式トーラスの
+Kodaira--Spencer写像が$HH^2(X)$へ同型となる
+（命題\ref{prop:aou-kodaira-spencer-iso}）。
+これにより一次変形の八方向の不足は解消するが、
+有限代数の標準heartは三次曲面のcoherent sheaf heartではない。
 関係式stackとGIT粗商、さらに圏的に許容されるhelix表示を分け、
 後者からの忘却を構成する（命題\ref{prop:aou-categorical-map}）。
 可換な滑らかな三次曲面のlocusではGabrielのAbel圏再構成
@@ -103,10 +120,6 @@ quadratic AS-regular ambientの存在を公理とせず、その認識問題は�
 ambient射・四頂点potential・$R(1,3)$成分は
 別稿\emph{非可換三次曲面のambient射と$R(1,3)$成分}
 （\texttt{nc-cubic-ambient.tex}）で扱う。
-\input{papers/sections/marking_forgetful.tex}
-\input{papers/sections/aou_to_unmarked.tex}
-\input{papers/sections/picard_invariants.tex}
-
 \section{可換三次曲面のHochschild変形}\label{sec:hh}
 \begin{proposition}\label{prop:hh}
 滑らかな可換三次曲面$X$について
@@ -131,8 +144,20 @@ $\wedge^3T_X=0$なので$\HH^3=0$。
 \end{proof}
 
 
+
+\input{papers/sections/marking_forgetful.tex}
+\input{papers/sections/aou_universal_algebras.tex}
+\input{papers/sections/aou_to_unmarked.tex}
+\input{papers/sections/picard_invariants.tex}
+
 \section{大域的な課題と再現性}
-本稿は、AOU関係式stack上で相対的なAS正則helixが構成される領域から
+本稿は、全AOU関係式空間に普遍的な階数45の有限代数と
+smooth proper導来圏の族があり、境界も含めて$HH^1,HH^2$が
+関係式の支持によって計算できることを示した。
+九関係式の局所変形は有限代数のArtin変形を完全に記述し、
+smooth可換点でのKodaira--Spencer写像は八次元同型である。
+ただし標準有限長heartと三次曲面のAbel heartは一致しない。
+さらに、AOU関係式stack上で相対的なAS正則helixが構成される領域から
 無標識Abel圏への忘却を定式化し、滑らかな可換locus上では$W(E_6)$商を得た。
 相対一次非可換変形ではPicard標識変更がPoisson変形パラメータを動かし、
 追加のhelix持上げ条件の下で圏的標識忘却のファイバーは無限となる。

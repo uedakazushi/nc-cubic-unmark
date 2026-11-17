@@ -1,0 +1,269 @@
+\section{全関係式空間上の普遍代数と形式変形の比較}
+\label{sec:aou-universal}
+本節では、AOU の有限 quiver の特殊な三層構造を用い、
+関係式の変形が有限次元代数の変形をどこまで尽くすかを決定する。
+これは\emph{有限次元代数・導来圏}についての結果であり、
+非可換三次曲面の Abel heart の全 GIT 境界への延長を意味しない。
+
+\subsection{三層 quiver の普遍代数}
+頂点集合を $Q_0=U\sqcup W\sqcup Z$ とし、各層に三頂点を置く。
+$U$ から $W$、$W$ から $Z$ へは各組にちょうど一本の矢があり、
+それ以外の矢はない。ここでは道の積を左から右へ読み、
+右射影加群 $e_vB$ が頂点 $v$ から出る道で張られる規約を採用する。
+これは AOU の $Q$ を矢の始点・終点で
+並べ直した表示である\cite[\S4.2, Figure~4.1]{AOU}。
+各 $(u,z)\in U\times Z$ について、長さ二の道の空間
+$P_{uz}:=e_u(kQ)e_z$ は三次元である。
+\[
+ R_Q=\prod_{(u,z)\in U\times Z}\mathbb P(P_{uz})
+       \simeq(\mathbb P^2)^9
+\]
+上の九つの tautological line を $\mathscr I_{uz}\subset
+P_{uz}\otimes\mathcal O_{R_Q}$ とする。
+それらが生成する両側イデアル $\mathscr I$ により
+\[
+ \mathscr B=(\mathcal O_{R_Q}Q)/\mathscr I
+\]
+を定める。AOU の積の規約と異なる場合は反対代数を取ればよく、
+以下の変形・大域次元・Hochschild cohomology の結論は変わらない。
+
+\begin{theorem}[全関係式空間上の有限代数と導来圏]
+\label{thm:universal-directed-family}
+$\mathscr B$ は $R_Q$ 上階数 $45$ の局所自由な代数である。
+すべての幾何学的点 $r\in R_Q$ について $B_r=\mathscr B\otimes k(r)$ は
+大域次元がちょうど $2$ の有限次元代数であり、
+$\operatorname{Perf}(B_r)$ は smooth proper な dg 圏となる。
+この族は矢の基底変換群 $G_Q=(\mathbb G_m)^{18}$ に同変である。
+従って関係式 stack $[R_Q/G_Q]$ 上では
+\emph{smooth proper dg 圏の Morita 族}が定義される。
+特にこの結論は AOU の GIT 半安定条件にも AS 正則性にも依存しない。
+\end{theorem}
+\begin{proof}
+$Q$ に長さ三以上の道はなく、すべての関係式は長さ二である。
+従って $\mathscr B$ の頂点・矢の成分はそれぞれ階数 $9,18$ の自由加群であり、
+各 $(u,z)$ の長さ二の成分は $P_{uz}/\mathscr I_{uz}$ という
+階数二の局所自由加群である。よって階数は $9+18+9\cdot2=45$ である。
+
+固定した幾何学的ファイバーで、$P_v=e_vB_r$ を右射影加群、
+$S_v$ をその単純商とする。$z\in Z$ に対し $S_z=P_z$ は射影的である。
+$w\in W$ についてはその radical が三つの $P_z$ の直和なので
+$S_w$ は長さ一の射影解消を持つ。
+$u\in U$ に対し、$\operatorname{rad}P_u$ は三つの $P_w$ の像で生成され、
+その間の核は各 $z\in Z$ に一つずつ与えられた非零関係式で生成される。
+各関係式の終点は異なり、$P_z=S_z$ なので、この核は
+$\bigoplus_{z\in Z}P_z$ に同型である。
+従って
+\[
+ 0\longrightarrow\bigoplus_{z\in Z}P_z
+ \longrightarrow\bigoplus_{w\in W}P_w
+ \longrightarrow P_u\longrightarrow S_u\longrightarrow0
+\]
+は射影解消となる。すべての単純加群の射影次元は高々二だから
+$\operatorname{gldim}B_r\le2$ である。非零の二次関係式はこの射影解消に非零の第二syzygyを与え、
+写像は radical 内に入るので解消は極小である。従って
+$\operatorname{gldim}B_r=2$ である。
+有限次元・有限大域次元の代数は homologically smooth で proper なので
+その perfect dg 圏も smooth proper となる。
+相対的にも、頂点の分離代数 $S=\mathcal O_{R_Q}^{Q_0}$、
+矢の $S$-双加群 $V$、九つの普遍関係式の $S$-双加群 $J$ を使う標準の
+$\mathscr B$-双加群複体
+\[
+ 0\longrightarrow \mathscr B\otimes_S J\otimes_S\mathscr B
+ \longrightarrow \mathscr B\otimes_S V\otimes_S\mathscr B
+ \longrightarrow \mathscr B\otimes_S\mathscr B
+ \longrightarrow \mathscr B\longrightarrow0
+\]
+がある。長さ三以上の道がないため関係式の重なりによる高次項はなく、
+各幾何学的ファイバーでこの複体は完全となる。
+完全性は長さ二までの道だけで直接確認できる。各ファイバーで右端の積写像は全射で、
+その核は矢から生成されるため二番目の写像の像に等しい。
+$\dim(B\otimes_S B)=108$、$\dim(B\otimes_S V\otimes_S B)=72$、
+$\dim(B\otimes_S J\otimes_S B)=9$ だから、
+二番目の写像の核は九次元である。
+関係式を一つの道の二箇所で切って得る双加群写像
+$J\to B\otimes_S V\otimes_S B$ は、各関係式が非零で、
+九つの始点終点が異なることから単射である。
+従って上の複体は各ファイバーで完全である。
+各項は基底上で局所自由なので fiberwise exactness と Nakayama により
+相対的にも完全である。ゆえに普遍対角双加群は perfect であり、
+族は相対的にも smooth proper である。
+矢の基底変換は普遍イデアルを輸送して $\mathscr B$ の同型を誘導するから、
+族は $G_Q$-同変である。
+\end{proof}
+
+\begin{remark}[何がまだ Abel 圏ではないのか]
+\label{rem:tilting-heart-difference}
+可換三次曲面 $X$ の AOU 点では
+$\operatorname{Perf}(B_r)\simeq D^b(\operatorname{coh}X)$ となるが、
+$\operatorname{mod}B_r$ と $\operatorname{coh}X$ が Abel 圏として同値なのではない。
+実際、前者は有限長の Abel 圏である一方、後者は有限長圏ではない。
+従って全関係式空間に普遍的に存在する標準 heart
+$\operatorname{mod}B_r$ を、そのまま求める非可換三次曲面の
+無標識 Abel 圏と呼ぶことはできない。
+必要なのは、導来圏上に\emph{三次曲面型の別の heart} を認識・構成し、
+Serre 作用と helix に両立させることである。
+\end{remark}
+
+\subsection{境界上の Hochschild cohomology の跳び}
+各関係式点 $r$ において、その $(u_i,z_j)$ 成分を
+三つの長さ二の道の基底に関する斉次座標
+$[c_{ij0}:c_{ij1}:c_{ij2}]$ と書き、
+$S_{ij}(r)=\{m\mid c_{ijm}\ne0\}$ とする。
+18 本の矢にそれぞれ変数 $a_{im}$（$u_i\to w_m$）と
+$b_{mj}$（$w_m\to z_j$）を割り当てる。
+整数係数行列 $D_r$ は、各 $(i,j)$ ごとに $m_0\in S_{ij}(r)$ を一つ固定し、
+$m\in S_{ij}(r)\setminus\{m_0\}$ について
+\[
+ (a_{im}+b_{mj})-(a_{im_0}+b_{m_0j})
+\]
+を行とする行列である。この階数は $m_0$ の選択に依存しない。
+
+\begin{theorem}[境界点での Hochschild 次元の組合せ公式]
+\label{thm:aou-hh-support}
+任意の $r\in R_Q(\mathbb C)$ に対し、$\rho(r)=\operatorname{rank}_{\mathbb C}D_r$ とすると
+\[
+\begin{aligned}
+ HH^0(B_r)&\simeq\mathbb C,&\quad \dim HH^1(B_r)&=10-\rho(r),\\
+ \dim HH^2(B_r)&=18-\rho(r),&\quad HH^n(B_r)&=0\quad(n\ge3).
+\end{aligned}
+\]
+特に $\dim HH^2(B_r)-\dim HH^1(B_r)=8$ は全関係式空間で一定である。
+九つの関係式の全係数が非零なら $\rho(r)=10$ であり
+$(\dim HH^1,\dim HH^2)=(0,8)$ となる。
+すべての関係式が一つの道のみからなる単項式関係式点では
+$\rho(r)=0$ であり $(\dim HH^1,\dim HH^2)=(10,18)$ となる。
+\end{theorem}
+\begin{proof}
+定理\ref{thm:universal-directed-family} の証明の相対双加群解消を
+$r$ で特殊化し、$\operatorname{Hom}_{B_r^e}(-,B_r)$ を適用する。
+得られる Hochschild 複体は
+\[
+ C^0=\bigoplus_{v\in Q_0}e_vB_re_v\simeq\mathbb C^9,
+ \quad C^1=\bigoplus_{a\in Q_1}e_{s(a)}B_re_{t(a)}\simeq\mathbb C^{18},
+ \quad C^2=\bigoplus_{(i,j)}e_{u_i}B_re_{z_j}\simeq\mathbb C^{18}.
+\]
+$C^n=0$ ($n\ge3$) である。
+最初の微分 $C^0\to C^1$ は連結な quiver の頂点スカラーの差なので
+階数は $9-1=8$ である。
+次の微分は、矢をその係数倍だけ無限小に変化させた際の
+九つの関係式の変化を、各 $P_{ij}/\langle r_{ij}\rangle$ に射影するものとなる。
+$[c_{ij0}:c_{ij1}:c_{ij2}]$ の零でない成分については
+$(a_{im}+b_{mj})$ が同じ値なら関係式は不変であり、
+零の成分には条件がない。従ってこの微分の階数は
+$\rho(r)$ に一致する。
+以上から
+$\dim HH^1=(18-\rho)-8$、$\dim HH^2=18-\rho$ を得る。
+
+全係数非零の場合は、前節の三層構造による方程式
+$a_{im}+b_{mj}=c_{ij}$ の核が頂点スカラーの八次元空間に
+一致するので、$\rho=18-8=10$ である。
+単項式関係式の場合は $S_{ij}$ がすべて一元集合なので
+$D_r$ の行がなく、$\rho=0$ である。
+\end{proof}
+
+\begin{remark}[境界で跳ぶのは何か]
+この公式は、関係式 stack の Lie 慣性と有限代数の変形空間が
+境界で同時に大きくなることを明示する。
+しかし $HH^1(B_r)$ は $B_r$ の\emph{導来自己同値の無限小変形}を測るものであり、
+ここから非可換三次曲面の Abel heart の自己同値群を無条件には復元できない。
+\end{remark}
+
+\subsection{Artin 変形を九つの関係式で尽くすこと}
+\begin{theorem}[関係式の形式的完備性]
+\label{thm:aou-relation-formal-completeness}
+$k$ を代数閉体、$r\in R_Q(k)$、$B_0=B_r$ とする。
+局所 Artin $k$-代数 $(R,\mathfrak m)$ 上の $R$-平坦な
+結合代数 $B_R$ で、$B_R\otimes_Rk\cong B_0$ と同定したものを考える。
+原始冪等元をラベル付きで持ち上げておけば、$B_R$ は
+$R_Q$ の $r$ を通る $R$-点に付随する $R$-代数と同型である。
+さらに、冪等元を固定し、特殊ファイバーで恒等となる同型による
+$B_R$ の同値関係は、18本の矢の $R^\times$ による
+基底変換（特殊ファイバーで恒等）で関係式を同一視する関係に一致する。
+冪等元の持上げを取り替えた場合も、$1+\mathfrak mB_R$ による
+内部共役で調整できる。従って Artin 局所上の
+\emph{有限次元代数の変形}は九関係式の変形によって尽くされる。
+\end{theorem}
+\begin{proof}
+冪等元の持上げは冪零イデアルに沿って存在する。
+$e_vB_Re_w$ は $B_R$ の直和因子であり、有限自由 $R$-加群で、
+その階数は特殊ファイバーの対応する成分の次元に等しい。
+特に隣接層の $18$ 成分は階数一、$U$ から $Z$ への九成分は階数二、
+その他は零または頂点の階数一である。
+
+各隣接層に対応する階数一成分の基底を、特殊ファイバーの矢の基底から
+持ち上げて選ぶ。これらは $B_R$ を生成する：特殊ファイバーで生成し、
+$B_R$ は有限 $R$-加群なので Nakayama の補題が適用できる。
+各 $(u,z)$ について長さ二の三つの道の積は
+$R^3\twoheadrightarrow e_zB_Re_u\simeq R^2$ を与える。
+特殊ファイバーで全射なので Artin 局所上でも全射であり、
+その核は階数一の直和因子 $\mathscr I_{uz,R}$ である。
+長さ三以上の道は存在しないので、
+これら九つの核で生成されるイデアルによる剰余は $B_R$ に同型となる。
+これは $R_Q(R)$ の点である。
+
+冪等元を固定する代数同型は、それぞれの階数一の矢の成分上で
+単元倍として作用する。それ以外の成分は矢の積で生成されるため、
+同型は18本の矢の基底変更に一意に帰着する。
+また冪零イデアルに沿う二組の完全直交冪等元の持上げは
+$1+\mathfrak mB_R$ の元で共役である。
+従って主張が従う。
+\end{proof}
+
+\begin{proposition}[可換点での八次元 Kodaira--Spencer 比較]
+\label{prop:aou-kodaira-spencer-iso}
+$X$ を滑らかな三次曲面、$r$ をその標準 AOU 九対象 thread の関係式点とし、
+$B_0=\operatorname{End}(\bigoplus E_v)$ と置く。
+関係式の全係数が非零である稠密トーラス上では、
+矢の基底変更の Lie 代数が $T_rR_Q$ に作用する接写像は
+階数 $10$ で、核は頂点基底変更の $8$ 次元空間である。
+従って商の接空間は $18-10=8$ 次元であり、
+その有限次元代数変形への Kodaira--Spencer 写像は
+\[
+ T_{[r]}M_Q^\circ\xrightarrow{\ \sim\ }HH^2(B_0)
+ \xrightarrow{\ \sim\ }HH^2(X)
+ =H^1(X,T_X)\oplus H^0(X,-K_X)
+\]
+という同型である。
+ここで第一の同型は標識付き\emph{有限代数}の変形問題についてのものであり、
+全 AOU 関係式点に相対的な三次曲面 Abel heart が存在するという主張ではない。
+\end{proposition}
+\begin{proof}
+$U,W,Z$ の頂点をそれぞれ $u_i,w_m,z_j$ と記す。
+最初の矢の無限小スカラーを $a_{im}$、次の矢のものを $b_{mj}$ とすると、
+九つの各関係式の三つの係数への作用は
+$\bigl(a_{im}+b_{mj}\bigr)_{m=0,1,2}$ の共通スカラーを除いたものになる。
+核はすべての $i,j,m$ に対して
+\[
+ a_{im}+b_{mj}=c_{ij}\quad(m=0,1,2)
+\]
+を満たすものからなる。$m=0$ と比較すれば
+$a_{im}-a_{i0}=b_{0j}-b_{mj}$ は $i,j$ に依らない。
+この値を $d_m$ と書けば
+$a_{im}=a_{i0}+d_m$、$b_{mj}=b_{0j}-d_m$ となる。
+これは各頂点のスカラーによる基底変更に他ならず、
+核の次元は $3+3+3-1=8$、作用の階数は $18-8=10$ である。
+同じ整数係数行列について Smith 標準形が
+$\operatorname{diag}(1^{\times10},0^{\times8})$ となることは
+\path{computations/verify_aou_relation_tangent.py} で検算できる。
+
+定理\ref{thm:aou-relation-formal-completeness}により、
+関係式の一次変形を矢の基底変換で割った空間は
+$B_0$ の結合代数一次変形を同型で割った空間、すなわち $HH^2(B_0)$ である。
+九対象は完全強例外 collection であるから
+$D^b(\operatorname{mod}B_0)\simeq D^b(\operatorname{coh}X)$。
+Hochschild cohomology の導来 Morita 不変性と命題\ref{prop:hh}から
+$HH^2(B_0)\simeq HH^2(X)$、その次元は八である。
+これにより同型が従う。
+\end{proof}
+
+\begin{remark}[到達した比較と残る心の問題]
+\label{rem:relation-vs-heart}
+この命題は AOU 関係式の八つの一次方向が\emph{すべて}
+$HH^2(X)$ を与えることを証明している。
+他方、(i) その一般点での AS-regular $\{0,1,2\}\times\mathbb Z$-代数の存在、
+(ii) $D^b(\operatorname{mod}B_R)$ 内で適切な相対 Abel heart を同定すること、
+(iii) その heart を忘れた際の $\Pic$ 作用を関係式の非線形座標で表すこと、
+は別の問題として残る。
+特に本節の完備性を、GIT 粗商から無標識 Abel 圏への大域射の存在と
+混同してはならない。
+\end{remark}

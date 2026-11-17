@@ -1,18 +1,19 @@
-# AOU関係式モジュライと非可換三次曲面の無標識Abel圏
+# AOU relation moduli と非可換三次曲面の無標識 Abel 圏
 
-2026-11-17 / unmark-v3。最初に `00_research_plan.md` を読む。
+2026-11-18 / unmark-v4。**再開時は `00_research_plan.md` を読む。** 主論文は `papers/nc-cubic-unmark.tex` （日本語 LuaLaTeX）。GitHub main が正本。
 
-最重要課題は、AOU関係式stackおよびトーリックGIT商から無標識Abel圏への射の定義域・本質像・ファイバー・慣性を解明し、公表用日本語LuaLaTeX論文にすること。
+中心課題は AOU 九関係式 stack / GIT 粗商と、非可換三次曲面の**無標識 Abel 圏**の関係。関係式のすべての点には rank45 の普遍有限代数 `B_r` が存在し、`gldim B_r=2`、`Perf(B_r)` は smooth proper。しかし `mod B_r` は可換点でも `coh X` とは Abel 同値ではなく、三次曲面型 heart の認識が未解決。
 
-主論文 `papers/nc-cubic-unmark.tex`。入力 `papers/sections/marking_forgetful.tex`（Picardと形式標識忘却）、`papers/sections/aou_to_unmarked.tex`（AOU比較・可換Weyl商・非可換一次fiber・GIT降下）、`papers/sections/picard_invariants.tex`（一次Picard不変式と分離粗商の障害）。
+現在の主結果：Artin 局所上の有限代数変形を九関係式で完全記述。境界で `dim HH¹=10−ρ`, `dim HH²=18−ρ`, `HH³=0`（支持行列の階数ρ）。dense torus では HH¹=0,HH²=8。滑らかな cubic 点では AOU torus の KS 写像 `T M_Q° ≅ HH²(X)`。加えて、可換 locus の W(E6) 商、Picard 一次 shear と非常に一般の核 ZK、一次 shear の不変式の計算を保持。
 
-AOUの関係式GIT商の全点がAbel圏を定めるとは主張しない。可換smooth locusではW(E6)商、非常に一般の許容相対一次非可換変形ではPicard整数kernel=ZK、構造対象軌道商=Z^6。後者をGIT粗商のfiberとは混同しない。新たに、一次Hochschild変形空間のPicard不変式環はPoisson成分の関数環に等しく、分離的な一次線形粗商は可換変形方向を区別できないと証明した。大域AOU GITでの不変式計算ではない。
+AOU 関係式の全点が非可換三次曲面の Abel heart を持つ、GIT S-同値が exact Abel 同値を与える、あるいは無標識大域 stack が有限型であるとは主張しない。
 
 ```sh
 python3 -m pip install -r requirements.txt
 python3 computations/verify_marking_lattice.py
+python3 computations/verify_aou_relation_tangent.py
 python3 scripts/verify_unmark_bundle.py
 latexmk -lualatex papers/nc-cubic-unmark.tex
 ```
 
-GitHub mainが正本。PDF/ZIP/中間ファイルはGit追跡しない。ambientは [nc-cubic-ambient](https://github.com/uedakazushi/nc-cubic-ambient) に分離。
+Git に PDF、ZIP、コンパイル中間物を追跡しない。ambient は別の [nc-cubic-ambient](https://github.com/uedakazushi/nc-cubic-ambient) を参照。
