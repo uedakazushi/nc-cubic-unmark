@@ -8,15 +8,9 @@
 $\operatorname{Line}_{\rm adm}(\mathcal A)$ と書く。
 対象同士のテンソル積も、この集合上の群法則も仮定しない。
 
-先行研究との関係を先に明記する。Rains の非可換有理曲面では、各因子類を
-持つ線束の存在、数値類と Euler 形式、および rank-one torsion-free
-対象の線束判定が既に得られている
-\cite[Corollaries 7.9--7.10, Proposition 10.13]{RainsBir}。
-例外的 torsion-free 層の同一 $K_0$ 類での一意性についても
-\cite[Proposition 5.14]{RainsFilt}がある。
-従ってこれらを本稿固有の新規な分類定理とは扱わない。
-以下の内在的証明の役割は、どの公理がこれらの結論に必要かを分離し、
-AOU の heart との比較で未確認の入力を明らかにすることにある。
+以下の主張は固定した反標準 heart の公理から述べる。
+数値的線束類の存在は、一意性とは別に証明する必要がある。
+内在的線束判定の新規性については網羅的な優先権確認を行っていない。
 
 \subsection{例外性は自己 Euler 形式で判定できる}
 以下、定義\ref{def:weak-cubic}を満たす $(\mathcal A,\OO_0)$ を固定する。
@@ -158,70 +152,9 @@ $H$ は線束対象を保つので $\Omega_{\mathcal A}-K=\Omega_{\mathcal A}$�
 さらに $H$ の軌道商と全 exact 自己同値の軌道商を同一視しない。
 \end{remark}
 
-\subsection{Rains 模型では存在も既知である}
-\begin{theorem}[Rains の既知結果による分類]\label{thm:rains-line-classification}
-$X$ を \cite{RainsBir} の意味の複素非可換\emph{有理}曲面とし、
-この定理では rank、torsion-free、線束を同論文の意味で用いる。
-第一 Chern 類は
-\[
- \{\text{線束の同型類 on }X\}\xrightarrow{\sim}\operatorname{NS}(X)
-\]
-という全単射を与える。線束はちょうど rank-one torsion-free exceptional 層である。
-これは本稿の新規な存在定理ではない。
-\end{theorem}
-\begin{proof}
-\cite[Definition 5.1, Corollary 7.10]{RainsBir}が各因子類を持つ線束の存在と、
-同じ第一 Chern 類を持つ線束の数値 $K_0$ 類の一致を与える。
-同論文 Proposition 10.13 の証明は任意の rank-one torsion-free 層 $I$ について
-$\End(I)=\mathbb C$、$\Ext^2(I,I)=0$ を示し、
-$\chi(I,I)=1$ と線束性の同値を与える。従って線束は例外的である。
-二つの線束 $L,L'$ が同じ Chern 類を持つとき、
-$\theta=\mathsf S[-2]$ として $c_1(\theta L)-c_1(L')=K$ である。
-同論文 Proposition 10.13 の証明で用いられる $K$ の非有効性と
-Corollary 10.12 から、$\Ext^2(L,L')$ と逆向きの第二 Ext は消える。
-両向きの Euler 形式は $1$ なので、前定理と同じ二つの単射の議論で $L\cong L'$。
-これは同論文 Corollary 7.10 後の Picard torsor の記述で
-基底曲線の genus が零の場合にも一致する。
-\end{proof}
-
-\begin{proposition}[豊富な反標準類を持つ Rains 模型]\label{prop:rains-weak-admissibility}
-前定理の $X$ について $Q=-K$ が nef cone の内部にあり、$Q^2=3$ とする。
-任意の線束 $L$ に対し $(L,H)$ は Artin--Zhang 豊富であり、
-式\eqref{eq:weak-hilbert}を満たす。
-反標準曲線が滑らかで連結なら、定理\ref{thm:rains-gk-filtration}によって
-Rains の rank-one torsion-free 性と式\eqref{eq:gk-rank}は一致するので、
-許容構造対象の同型類は $\operatorname{NS}(X)\cong\mathbb Z^7$ によって分類される。
-\end{proposition}
-\begin{proof}
-$m>0$ では $c_1(H^mL)-c_1(L)=mQ$ は nef で $(mQ)\cdot Q=3m\ge1$ なので、
-\cite[Proposition 9.7]{RainsBir}により $\Ext^p(L,H^mL)=0$ ($p>0$)。
-$m=0$ では例外性、$m<0$ では Corollary 10.12 と $Q$ の正値性による Hom 消滅を使う。
-Riemann--Roch \cite[Corollary 7.13]{RainsBir}で所定の切断数を得る。
-
-豊富性については、\cite[Definition 5.1 に続く議論、pp.~67--68]{RainsBir}の
-線束による twist を用いる。これは $L$ を構造層へ送る
-\emph{別の標識付き曲面} $X'$ への exact 同値であり、
-Serre 関手に両立して $H^{-n}L$ を Chern 類 $-nQ$ の線束へ送る。
-nef cone はこの twist で不変である
-\cite[Proposition 9.7 の証明]{RainsBir}。
-Theorem 9.10 を $D_a=Q$ に適用すると、任意の coherent 層は
-十分大きな $n$ に対してこれらの線束により acyclically globally generated となる。
-従って生成全射があり、任意の全射の核に対する第一 Ext 消滅から
-Artin--Zhang の Hom 全射条件も成立する。
-最後の主張には定理\ref{thm:rains-gk-filtration}を用い、前定理を適用する。
-同定理の rank 比較はここでの最後の主張を使わずに証明される。
-\end{proof}
-
-\begin{remark}[Picard 集合と自己同値群]
-Rains の分類で得られるのは線束の\emph{集合}の $\operatorname{NS}(X)$ による添字付けである。
-上の twist は標識付き模型 $X$ から $X'$ への同値であり、
-固定した $X$ の上の全因子類に対するテンソル自己同値を構成したものではない。
-従ってこの既知分類は、固定圏での自己同値持上げの Picard 障害や
-系\ref{cor:first-order-pointings}の軌道商と矛盾しない。
-また点ごとの分類から、相対的な線束族の存在やスカラー慣性の自明化は従わない。
-\end{remark}
-
-\subsection{AOU heart への移送と残る問題}
+\subsection{AS heart と反標準 heart の比較}
+本稿で比較するのは $\mathcal A_{\rm AS}$ と $\mathcal A_{\rm ac}$ だけである。
+次の十分条件は、指定した導来同値を exact 同値へ強める際に用いる。
 \begin{lemma}[消滅と生成による heart の識別]\label{lem:ample-heart-transfer}
 $\mathcal A,\mathcal B$ の有界導来圏の同値 $\Phi$ と、
 各 heart 内の列 $P_n,Q_n$ ($n\ge0$) があるとする。
@@ -243,16 +176,15 @@ $i\ne0$ に対する上の Hom 消滅で特徴付けられる。
 $\Phi$ とその逆に同じ議論を適用すれば、二つの heart が一致する。
 \end{proof}
 
-OU\cite[Theorem 6.4 に先行する議論、p.~8]{OU2025}には、
-AS 表示と非可換 blowup の導来同値が記載されている。
-次節では豊富な滑らかな反標準曲線を持つ Rains 模型について rank filtration を比較し、
-さらに非 torsion パラメータの下で、制限が線束となる例外対象が層であることを証明する。
-その結果、AOU の mutation foundation に対する exact 比較の十分条件が得られる
-（系\ref{cor:aou-rains-exact-region}）。
-単なる数値 $E_6$ や有限 End 代数の一致は、この比較の代替にはならない。
 
-可換曲面を特殊ファイバーとする許容相対 Artin 変形では、
-各古典的線束の一意な持上げは定理\ref{thm:formal-structure}で得られている。
-この結果も、次節の点ごとの比較も、全因子類の共通の Zariski 開集合上での
-一様な代数化を保証しない。個々の因子類の開条件の可算交叉が
-非空 Zariski 開集合になるとは限らないことに注意する。
+この補題では、両側の列をそれぞれ指定された構造対象の
+十分負の反標準列として取る。両側での消滅・生成と列の同定は、
+数値的な $K_0$ の一致や導来同値の存在だけでは代用できない。
+AS heart で得た線束を反標準 heart の線束と認識する際も、
+このような比較の仮定を明記する。
+
+可換点を特殊ファイバーとする許容相対 Artin 変形では、
+各古典的線束の一意な持上げは定理\ref{thm:formal-structure}で与えられる。
+一方、全数値類が同時に実現されるという一般の大域的な存在定理は未証明である。
+個々の数値類についての開条件を可算個交わらせても、
+非空 Zariski 開集合になるとは限らない。

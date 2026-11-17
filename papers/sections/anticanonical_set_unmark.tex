@@ -1,0 +1,105 @@
+\section{反標準 heart を基準とする二段階の忘却}\label{sec:ac-set-framework}
+本稿の基準は \emph{anticanonical heart}（反標準 heart）である。
+AOU/OU の標準表示を使う場合だけ \emph{AS heart} を併用する。
+この二つの指定された heart の比較と、標識の忘却とを混同しない。
+本稿の分類対象は、まず対象の同型類および圏の exact 同値類の\emph{集合}である。
+
+\subsection{反標準環と固定する heart}
+Serre 関手 $\mathsf S$ を持つ導来圏と対象 $e$ に対し $H=\mathsf S^{-1}[2]$ と置く。
+反標準切断環と反標準 heart を
+\begin{equation}\label{eq:ac-ring-heart}
+ R_e=\bigoplus_{n\ge0}\Hom(e,H^ne),\qquad
+ \mathcal A_{\rm ac}=\qgr R_e
+\end{equation}
+と書く。積は $f:e\to H^me$, $g:e\to H^ne$ に対する
+$H^m(g)\circ f$ から定める（左右加群の規約を一貫して固定する）。
+以下はこの $\qgr$ 構成が noetherian な Abel 圏を与え、
+必要な導来比較を使うときにはその指定された実現関手がある範囲で行う。
+Hilbert 級数だけからその範囲を拡張しない。
+AS heart は AOU/OU の AS-regular $\mathbb Z$-代数 $A^{\rm AS}$ に対する
+$\mathcal A_{\rm AS}=\qgr A^{\rm AS}$ を意味する。
+$R_e$ と $A^{\rm AS}$、および二つの heart は、名前だけで同一視しない。
+
+先に Abel 圏 $\mathcal A$ と許容構造対象 $e$ が与えられ、
+$(e,H)$ が Artin--Zhang 豊富である場合には、
+その再構成定理により $\mathcal A\simeq\qgr R_e$ となる
+\cite[Theorem 4.5]{AZ}。
+従って本稿の内在的公理（定義\ref{def:weak-cubic}）は、
+このように反標準 heart として認識された $\mathcal A$ 上で用いる。
+単に $H$ が $t$-exact というだけで、任意に選んだ heart を
+反標準 heart と呼び替えることはしない。
+
+\subsection{固定した心の中の二つの選択集合}
+$\mathcal A=\mathcal A_{\rm ac}$ を固定する。線束対象を
+rank-one torsion-free exceptional 対象と呼び、
+\[
+ \operatorname{Line}(\mathcal A)=
+ \{L\in\mathcal A:L\text{ は線束対象}\}/\cong
+\]
+とする。さらに $(L,H)$ が豊富で所定の切断数を持つものを
+$\operatorname{Line}_{\rm adm}(\mathcal A)$ とする。
+weak marking とはその一つを選ぶこと、すなわち $(\mathcal A,L)$ である。
+全線束の許容性が証明された範囲では二集合は一致する。
+一致をまだ証明していない範囲では、その未解決点を明記する。
+
+許容線束 $L$ に対して、$L$ に正規化した AOU/OU 型標識の選択集合を
+$\operatorname{Mark}_{\rm AOU/OU}(\mathcal A,L)$ と書く。
+ここで、指定した構造対象が $L$ に対応する標準 helix/thread の実現を選び、
+固定圏内の対象の同型で同一視する。矢の基底は標識に含めない。
+AS 表示から得る場合は、その対象を反標準 heart に移せることを先に確認する。
+全域で標準 helix が存在するとは仮定しない。
+
+このとき二段階の分類問題は
+\begin{equation}\label{eq:set-two-forgettings}
+ (\mathcal A,L,\mu)\longmapsto(\mathcal A,L)\longmapsto\mathcal A,
+ \qquad \mu\in\operatorname{Mark}_{\rm AOU/OU}(\mathcal A,L)
+\end{equation}
+である。固定した対象上では
+\begin{equation}\label{eq:set-union-markings}
+ \operatorname{Mark}_{\rm AOU/OU}(\mathcal A)
+ =\coprod_{[L]\in\operatorname{Line}_{\rm adm}(\mathcal A)}
+   \operatorname{Mark}_{\rm AOU/OU}(\mathcal A,L).
+\end{equation}
+これは選択集合の記述であり、右辺の各項の非空性を主張するものではない。
+
+第一段階の基本問題は、固定した $(\mathcal A,L)$ 上の標識を
+\emph{有限 Weyl 群 $W(E_6)$} の作用で記述することである。
+第二段階の基本問題は、固定した $\mathcal A_{\rm ac}$ の
+\emph{線束の選択}を分類することである。
+有限 Weyl 群を線束の全選択を表す群として用いない。
+また全線束の同型類が格子で添字付けられることと、
+その格子が固定圏の自己同値として作用することは別である。
+
+\begin{proposition}[許容線束による反標準表示の変更]\label{prop:ac-line-reconstruction}
+固定した反標準 heart $\mathcal A$ の許容線束 $L$ に対して
+\[
+ R_L=\bigoplus_{n\ge0}\Hom_{\mathcal A}(L,H^nL)
+\]
+と置く。Artin--Zhang 再構成の仮定の下で
+\[
+ \mathcal A\xrightarrow{\sim}\qgr R_L
+\]
+という exact 同値があり、$L$ は構造対象 $\pi R_L$ に対応する。
+従って weak marking の変更は、固定した heart の中で
+構造対象を変える操作として扱える。
+これは $R_L$ と $R_{L'}$ の次数付き環同型も、
+$L$ と $L'$ を交換する $\mathcal A$ の自己同値も主張しない。
+\end{proposition}
+\begin{proof}
+$L$ は noetherian で、Hom は有限次元、$(L,H)$ は豊富である。
+Artin--Zhang 再構成\cite[Theorem 4.5]{AZ}をこの組に適用する。
+各 $L$ で同じ $\mathcal A$ を再構成しているので、結論を得る。
+二つの構造対象を交換する自己同値は、この再構成とは別の条件である。
+\end{proof}
+
+\subsection{自己同値で割る操作は後に分けて行う}
+上では固定圏内の線束を、対象の同型だけで同一視した。
+圏の同定まで忘れて weakly marked 対象の exact 同値類を取るときには、
+さらに
+\begin{equation}\label{eq:set-exact-orbits}
+ \operatorname{Line}_{\rm adm}(\mathcal A)/\operatorname{Aut}_{\rm ex}(\mathcal A)
+\end{equation}
+という\emph{集合としての軌道商}を考える。
+ここでも最初から線束の選択集合を軌道商で置き換えない。
+まず各数値類での存在・一意性と許容性を解き、次にこの作用を計算する。
+群oid・stack・相対降下は、この集合論的分類の後の課題とする。

@@ -1,10 +1,13 @@
-# AOU 関係式モジュライと非可換三次曲面の無標識 Abel 圏
+# 非可換三次曲面の二段階の標識忘却
 
-2026-11-18 / unmark-v8。研究再開は **`00_research_plan.md`**、次に主論文 `papers/nc-cubic-unmark.tex` と `research/unmark_notes.md`。
+2026-11-18 / unmark-v9。再開は **`00_research_plan.md`**、次に主論文 `papers/nc-cubic-unmark.tex` と `research/unmark_notes.md`。
 
-数値的線束類の存在・一意性、weak許容性、exact自己同値軌道を研究する。Rainsの既知の線束存在・分類と、本稿の内在的χself=1判定を区別する。
+anticanonical heartを基準として集合論的に扱う。比較対象はAS heartのみ。
 
-滑らかな反標準曲線C、Q=−Kがnef内部、Q²=3のRains模型でGK filtrationと数値rank/torsionの一致を証明し、全弱標識の同型類がNS≅Z⁷となる。さらにη=det(Li*[pt])が無限位数なら、制限が線束である例外対象は線束。ample helixのcohproj再構成を用い、明記したRains模型との比較とright noetherian条件下でAOU tilting同値のt-exact性を得る。一般のAOU点、torsionパラメータ、相対降下まで証明したものではない。
+- AOU/OU marking → weak marking：固定weak marking上の有限W(E6)自由度。
+- weakly marked → unmarked：固定anticanonical heart内のline bundleのchoice。
+
+線束の存在・一意性・weak許容性を先に分類し、exact自己同値による軌道は後に分ける。groupoid/stackはさらに後段の課題。有限Weyl商の全域的実現と、全数値的線束類の存在は未解決の範囲を明示する。
 
 ```sh
 python3 -m pip install -r requirements.txt
@@ -15,4 +18,4 @@ python3 scripts/verify_unmark_bundle.py
 latexmk -lualatex papers/nc-cubic-unmark.tex
 ```
 
-GitHub mainがソース正本。PDF・ZIP・中間生成物は追跡しない。全境界のheartと無標識GIT降下は未解決。ambient認識は `uedakazushi/nc-cubic-ambient` に分離する。
+GitHub mainがソース正本。PDF/ZIP/中間物は追跡しない。数学的仮定と現在の検証状況は研究方針と `research/unmark_validation.json` を参照。

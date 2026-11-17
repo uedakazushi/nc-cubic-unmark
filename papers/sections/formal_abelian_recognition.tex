@@ -1,6 +1,8 @@
-\section{可換 AOU 点の形式 Abel heart と無標識化}
+\section{可換 AOU 点の形式変形と集合論的な標識変更}
 \label{sec:formal-abelian-recognition}
-本節ではAOU関係式の形式近傍から実際にAbel圏を再構成する。
+本節は固定された可換反標準 heart の変形理論の補助結果を記す。
+得られる形式 Abel 変形が反標準 heart の許容条件を満たす範囲を、
+抽象的な Abel 変形の全体と区別する。
 鍵になるのはDe Deken--Lowen\cite[Theorems 4.5, 5.13, 5.15]{DDL}であり、
 本稿の有限代数変形の完備性（定理\ref{thm:aou-relation-formal-completeness}）
 と組み合わせる。導来圏の任意のheartを自動的に認識するのではなく、
@@ -29,9 +31,9 @@ $r$に特殊化する任意のAOU関係式の$R$-点$r_R$について、
 $\mathcal C_R\otimes_R\mathbb C\simeq\operatorname{Qcoh}X$という
 特殊ファイバー同定を伴う平坦なGrothendieck Abel変形
 $\mathcal C_R$が構成できる。
-標準threadの変形を保持したAbel変形の群oidと、
-九つの原始冪等元を標識した$B$の平坦な有限代数変形の群oidは
-同値である。これらの同値は$R$の小拡大と底変更に両立する。
+標準threadの変形を保持したAbel変形の同型類集合と、
+九つの原始冪等元を標識した$B$の平坦な有限代数変形の同型類集合は
+自然に全単射である。これらの同値は$R$の小拡大と底変更に両立する。
 さらに$\mathcal C_R$は局所noetherianであり、
 そのnoetherian対象の部分圏は$\operatorname{coh}X$からの
 Abel変形を与える。
@@ -151,31 +153,18 @@ $G_X=\operatorname{Pic}(X)\rtimes\operatorname{Aut}(X)$である。
 Fourier--Mukai変換とも整合する。
 \end{proof}
 
-\begin{corollary}[無標識形式変形の群oid表示]
+\begin{corollary}[無標識形式変形の同値類集合]
 \label{cor:aou-formal-unmarked-quotient}
-幾何学的特殊ファイバー$\operatorname{Qcoh}X$との同定を
-忘れたAbel変形の同型類群oidは、自然同型による2射を
-1-truncateした段階で、
-\[
- \left[\widehat{M_Q^\circ}_{[r]}/
- (\operatorname{Pic}(X)\rtimes\operatorname{Aut}(X))\right]
-\]
-という形式作用群oidで表される。
-これは形式変形関手における記述であり、
-有限型の代数的商stackの存在を主張しない。
-$\operatorname{Pic}(X)$の作用は接空間では
-命題\ref{prop:formal-picard-action}のshearであるが、
-高次の形式座標表示はこの結論だけからは定まらない。
+特殊ファイバーとの同定を忘れた Abel 変形の exact 同値類集合は、
+同定付き変形の同型類集合 $\mathcal D_X$ の
+$G_X=\operatorname{Pic}(X)\rtimes\operatorname{Aut}(X)$ による軌道集合である。
+この主張は集合値の形式変形問題についてのものである。
+反標準 heart と弱標識の条件を必要とする場合は、その条件を満たす部分に制限する。
 \end{corollary}
 \begin{proof}
-同定を持つ変形の二つの同定を比較すれば、
-特殊ファイバーのexact自己同値が得られる。
-その同定を忘れることは、これら自己同値による作用群oidを
-取る操作に等しい。命題\ref{prop:hh}により$HH^1(X)=0$である。
-従って自然同型で割った後の特殊化が恒等な自己同値は、
-局所Artin底の長さに関する帰納法で自明となる。
-残る同型は特殊ファイバーの自己同値による変更であり、
-前命題と定理\ref{thm:aou-formal-chart}を適用する。
+基礎圏の二つの同定の差は、その特殊ファイバーの exact 自己同値である。
+逆に同定の変更は、同定を忘れた圏の同値類を変えない。
+従って同値関係はちょうどこの軌道関係である。
 \end{proof}
 
 \begin{remark}[共通線束捩れと形式チャートの非標準性]

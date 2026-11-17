@@ -19,154 +19,94 @@
 \newcommand{\Pic}{\operatorname{Pic}}\newcommand{\Aut}{\operatorname{Aut}}
 \newcommand{\End}{\operatorname{End}}\newcommand{\RHom}{\operatorname{RHom}}
 \newcommand{\Cw}{\mathfrak C^{\rm w}}\newcommand{\Cu}{\mathfrak C^{\rm u}}
-\title{AOU 関係式モジュライと非可換三次曲面の無標識 Abel 圏\\\large 線束の数値的分類・標識忘却・Picard 障害}
+\title{非可換三次曲面の二段階の標識忘却\\\large 反標準 heart・有限 Weyl 群・線束の選択}
 \author{植田一石}
-\date{2026年11月18日 / unmark-v8}
+\date{2026年11月18日 / unmark-v9}
 \begin{document}\maketitle
 \begin{abstract}
-AOU 関係式モジュライと無標識 Abel 圏の関係を、固定圏内の線束対象の
-分類から研究する。弱標識付き非可換三次曲面の公理の下で、任意の
-rank-one torsion-free 対象の自己第二 Ext は消え、例外性は
-自己 Euler 形式が $1$ であることと同値になる。
-三次曲面型 Riemann--Roch 表示と torsion 対象の有効次数正値性を
-追加すると、各数値的線束類を持つ対象は高々一つである。
-Rains の非可換有理曲面では各因子類の線束の存在と分類は既知であり、
-その反標準類が豊富な場合に豊富性・切断数の条件を導く。
-滑らかな反標準曲線が豊富な Rains 模型では、数値的な次元 filtration と
-Gabriel--Krull filtration が一致し、全弱標識は N\'eron--Severi 格子で分類される。
-さらに反標準制限の数値的パラメータが非 torsion なら、
-制限が線束である例外対象は曲面上でも線束である。
-これを ample helix の再構成に適用し、明記した Rains blowup 比較範囲で
-AOU の導来同値が exact となる十分条件を得る。
-線束の選択集合と自己同値軌道を区別する。
+AOU/OU 型標識から弱標識へ、弱標識から無標識へ至る二段階の忘却を、
+反標準 heart を基準として集合論的に研究する。
+第一段階は固定した弱標識上の標準標識の有限 Weyl 群 $W(E_6)$ による自由度、
+第二段階は固定した反標準 heart 内の線束の選択である。
+AS heart は標準表示との比較にのみ用いる。
+固定圏内の線束選択と、exact 自己同値による軌道商を区別する。
 
-AOU の全関係式空間には階数45・大域次元2の普遍有限代数があり、
-その Artin 変形は九つの関係式で記述される。
-Euler 形式と数値的 Serre--$E_6$ は全点で一定だが、境界では
-Hochschild cohomology が跳ぶので数値標識だけでは heart を認識できない。
-可換点の形式近傍における Abel 変形は De Deken--Lowen の定理と比較される。
-一次 Picard 標識変更は $H^1(\pi^\sharp)c_1(L)$ で与えられ、
-非常に一般の Poisson 成分の整数核は $\mathbb ZK_X$ となる。
-相対条件の下で構造対象の自己同値軌道は $\Pic(X)/\mathbb ZK_X\simeq\mathbb Z^6$ である。
-大域的な無標識 GIT 商、全境界の heart、および一般の AOU heart での
-全数値的線束類の実現は未解決である。
+内在的な公理の下で rank-one torsion-free 対象の自己第二 Ext は消え、
+例外性は自己 Euler 形式 $1$ と同値である。
+三次曲面型の数値表示と有効次数正値性を加えると、
+各数値的線束類の対象は高々一つである。
+存在、豊富性、切断数は別に確認すべき条件として残す。
+可換 locus と許容形式近傍では通常の有限 Weyl 標識を記述し、
+一次 Picard 障害によって線束の持上げと自己同値の持上げを区別する。
+一般の AOU/OU 部分での有限 Weyl 軌道の実現・網羅性と、
+全数値的線束類の実現は、証明された範囲と未解決の範囲を分けて扱う。
 \end{abstract}
 {\small\tableofcontents}
 \clearpage
 \section{はじめに}
-Abdelgadir--Okawa--Ueda（AOU）\cite{AOU}の九頂点関係式モジュライは
-八次元トーラスを稠密開部分とし、滑らかな標識付き三次曲面の
-四次元モジュライを局所閉部分として含む。
-本稿の中心問題は、その関係式表示がいつ同じ無標識 Abel 圏を与えるかである。
-この問題は、標準九対象 helix の標識、構造対象を一つ選んだ弱標識、
-基礎 Abel 圏のみの無標識という二段階の忘却を含む。
-
-弱標識の忘却を固定圏で調べるには、まず rank-one torsion-free exceptional
-対象（本稿の線束対象）を分類しなければならない。
-その上で Artin--Zhang 豊富性と所定の切断数を確認し、
-exact 自己同値の作用による軌道を取る。
-線束の集合を Picard 群と呼ぶだけでは、各数値類での存在・一意性も
-群法則も与えられない。
-本稿は既存の構造対象 $\OO_0$ の豊富性を用い、rank-one torsion-free な $E$ に対し
+本稿の基本問題は
 \[
- \End(E)=\mathbb C,\qquad \Ext^2(E,E)=0,\qquad
- E\text{ が例外的}\ \Longleftrightarrow\ \chi(E,E)=1
+ \text{AOU/OU marked}\longrightarrow
+ \text{weakly marked}\longrightarrow\text{unmarked}
 \]
-を内在的に証明する（定理\ref{thm:intrinsic-line-criterion}）。
-さらに三次曲面型の数値表示と torsion 対象の有効次数正値性 (EP) の下で、
-同一数値的線束類での一意性を得る
-（定理\ref{thm:numerical-line-uniqueness}）。
-(EP) を数値的 Euler 形式の同定から自動的に導くことはしない。
+という二段階の忘却である。
+基準とする Abel 圏は反標準環の $\qgr$ として得る
+\emph{anticanonical heart} であり、比較する別の心は \emph{AS heart} のみとする。
+対象の同型類と圏の exact 同値類の集合を先に分類し、
+群oid・stack および相対的な降下の定式化はその後の課題とする。
 
-\paragraph{既知の線束分類との関係.}
-Rains\cite{RainsBir}の非可換有理曲面では、各因子類の線束の存在は
-Corollary 7.10、rank-one torsion-free 層の線束判定は Proposition 10.13 に既にある。
-同一数値類での一意性と合わせて、線束は N\'eron--Severi 格子により分類される
-（本稿の定理\ref{thm:rains-line-classification}はこれらの帰結）。
-例外的 torsion-free 層全般の同一 $K_0$ 類での一意性については
-\cite[Proposition 5.14]{RainsFilt}も参照されたい。
-本稿の内在的線束判定と一意性の証明は、この既知の現象を
-明示した公理から導き直すものであり、既知分類そのものの新規性を主張しない。
-また反標準類が nef cone の内部にある Rains 模型では
-\cite[Proposition 9.7, Theorem 9.10]{RainsBir}から
-全線束の豊富性と三次曲面の切断数を得る
-（命題\ref{prop:rains-weak-admissibility}）。
+\paragraph{第一段階：有限 Weyl 群による標識の選択.}
+AOU\cite{AOU}とOU\cite{OU2025}の標準表示から
+反標準 heart と構造対象が得られる範囲を取り、その弱標識を固定する。
+残る標識の自由度を有限 Weyl 群 $W(E_6)$ で記述するのが第一の目標である。
+可換三次曲面の通常標識およびその許容形式持上げは既存の比較で扱える。
+非可換全域における幾何学的標識の実現・網羅性は、
+数値格子上の Weyl 作用があることだけからは従わない。
+AOU/OU 標識の像が任意の弱標識付き nc cubic を尽くすとも仮定しない。
 
-\paragraph{反標準曲線による exact 比較.}
-$X$ を Rains の非可換有理曲面とし、滑らかな反標準曲線 $C$ の類
-$Q=-K$ が nef cone の内部、$Q^2=3$ とする。
-この範囲では rank と有効次数を長さ関数として使い、
-\[
- \mathcal A_0=\{r=0,c_1=0\},\qquad \mathcal A_1=\{r=0\}
-\]
-を証明する（定理\ref{thm:rains-gk-filtration}）。
-従って rank-one torsion-free の二つの意味は一致し、全弱標識の同型類は
-$\operatorname{NS}(X)\cong\mathbb Z^7$ になる（系\ref{cor:rains-all-weak-markings}）。
-既知の存在定理を適用するために残っていた rank 比較を、この範囲で解消する。
+\paragraph{第二段階：固定反標準 heart 内の線束の選択.}
+弱標識とは $(\mathcal A_{\rm ac},L)$ という構造対象の選択である。
+従って最初に調べる集合は $\operatorname{Line}_{\rm adm}(\mathcal A_{\rm ac})$ である。
+対象同士のテンソル積や、Picard 格子による固定圏上の作用を先に仮定しない。
+各数値的線束類 $v_D=(1,D,D^2/2)$ についての存在・一意性を証明し、
+全線束が弱標識として許容されることを確認する。
+exact 自己同値による軌道は、線束の選択集合を決定した後に別に取る。
 
-さらに $\eta=\det(Li^*[\mathrm{pt}])\in\Pic^0(C)$ が無限位数なら、
-$i^*M=0$ となる coherent 層は零である。
-反標準三角から、$Li^*E$ が次数 $0$ の層なら $E$ も層であることを得る
-（定理\ref{thm:restriction-detects-heart}）。
-特に制限が線束である例外対象は曲面上でも線束となる。
-この結果と Polishchuk の ample sequence 再構成\cite{PolishchukProj}から、
-制限が線束である helix の Hom 代数の $\operatorname{cohproj}$ は
-元の heart と exact に同値となる（定理\ref{thm:restricted-helix-exact}）。
+線束対象の数値的判定（定理\ref{thm:intrinsic-line-criterion}）と、
+有効次数正値性の下での一意性（定理\ref{thm:numerical-line-uniqueness}）を
+この問題の基本補題とする。
+許容線束を変えて反標準環を作り直しても、Artin--Zhang 再構成により
+同じ反標準 heart を得る（命題\ref{prop:ac-line-reconstruction}）。
+これは既知の再構成定理の直接の帰結であり、新しい一般的再構成を主張しない。
+線束分類の一般的な先行研究との重複・新規性は引き続き照合を要する。
 
-AOU の式 (9.53) は mutation foundation の制限を九つの線束で与えている。
-その blowup が上の Rains 模型と反標準データを保って実現され、
-関連 AS 代数が right noetherian である範囲では、
-AOU Theorem 9.4 の標準導来同値は $t$-exact である
-（系\ref{cor:aou-rains-exact-region}）。
-ここで coherent な代数の $\operatorname{cohproj}$ と noetherian な代数の $\qgr$ を区別する。
-この系は全 AOU 点での模型同定、非 torsion 条件の Zariski 開性、
-相対的な降下を主張しない。既知の分類および再構成を用いたこれらの橋渡しの
-新規性について、網羅的な優先権確認はまだ行っていない。
+\paragraph{先行研究と保持する補助結果.}
+AOUの関係式表示、OUのAS標識、Bondal--Orlovの可換自己同値、
+LowenとDe Deken--Lowenの変形理論、TodaのFourier--Mukai変形作用を入力とする。
+Picard一次障害、非常に一般の整数核、および一次不変式の証明を保持するが、
+それらを線束の存在分類や全域的な有限Weyl商の代わりにはしない。
+普遍有限代数、支持によるHochschild計算、数値Serre--$E_6$、
+形式変形の比較の証明は付録に置く。
+数値的 $E_6$ の一致も、AS表示の導来同値も、それだけで
+反標準 heart の一致を与えるわけではない。
 
-\paragraph{関係式モジュライと数値的標識.}
-三層 quiver の普遍関係式代数は、全境界で階数45、大域次元2の
-smooth proper 導来圏を与える（定理\ref{thm:universal-directed-family}）。
-冪等元を保持する平坦な Artin 代数変形は九つの関係式で尽くされ
-（定理\ref{thm:aou-relation-formal-completeness}）、
-$HH^1,HH^2$ は関係式の支持から計算される
-（定理\ref{thm:aou-hh-support}）。
-可換 AOU 点での Kodaira--Spencer 写像は $HH^2(X)$ への同型である
-（命題\ref{prop:aou-kodaira-spencer-iso}）。
-AOU の楕円 decuple との既知の双有理比較から、稠密開部分で AS heart の存在が得られる
-（命題\ref{prop:generic-as-locus}）。
-一方、全点で一定の数値 Serre--$E_6$ と境界の Hochschild cohomology の跳びは、
-数値標識だけでは heart を認識できないことを示す
-（定理\ref{thm:aou-numerical-E6}、系\ref{cor:aou-numerical-not-enough}）。
-これらの証明と計算は本稿に保持する。
+\input{papers/sections/anticanonical_set_unmark.tex}
+\input{papers/sections/marking_forgetful.tex}
+\input{papers/sections/aou_to_unmarked.tex}
+\input{papers/sections/line_bundle_classification.tex}
+\input{papers/sections/commutative_formal_markings.tex}
+\input{papers/sections/picard_obstructions.tex}
+\input{papers/sections/picard_invariants.tex}
 
-\paragraph{選択集合と自己同値軌道.}
-固定圏との同定を保った忘却ファイバーは許容構造対象の選択群oidであり、
-同定を忘れると exact 自己同値による homotopy quotient となる
-（定理\ref{thm:forgetful-fibres}）。
-可換三次曲面では許容対象は線束であり、共通 tensor は関係式代数に見えない。
-可換 locus の標識忘却は古典的な $W(E_6)$ 商で記述できる
-（定理\ref{thm:aou-commutative-quotient}）。
-相対変形では Lowen\cite{Lowen}、De Deken--Lowen\cite{DDL}の理論により
-構造対象と標準 helix を持ち上げる。
-可換点の形式 Abel chart とその標識変更作用の記述は
-定理\ref{thm:aou-formal-abelian-reconstruction}、
-定理\ref{thm:aou-formal-chart}、系\ref{cor:aou-formal-unmarked-quotient}にある。
+\section{現在の課題}
+最優先は二点である。固定した $(\mathcal A_{\rm ac},L)$ に対する
+AOU/OU 型標識の有限 Weyl 自由度を、実現・網羅性を含めて決定すること。
+もう一つは固定した $\mathcal A_{\rm ac}$ に対する全数値的線束類の実現と
+weak 許容性を決定することである。
+AS heart との比較はこの二問題に必要な範囲だけで行う。
+自己同値軌道、相対族、群oid・stack はこの分類の後の段階とする。
 
-Toda\cite{Toda}の Fourier--Mukai 変形理論と整合する一次 Picard shear は
-$\delta_\pi(L)=H^1(\pi^\sharp)c_1(L)$ で与えられる。
-非常に一般の整数核 $\mathbb ZK_X$ と、許容相対一次変形の構造対象軌道
-$\Pic(X)/\mathbb ZK_X\simeq\mathbb Z^6$ を計算する
-（定理\ref{thm:very-general-picard-kernel}、系\ref{cor:first-order-pointings}）。
-一次線形模型の Picard 不変式は Poisson 成分の関数だけである
-（定理\ref{thm:picard-linear-invariants}）。
-これらは、全線束の存在から固定圏の全 Picard 自己同値が従うわけではないことを示す。
-一次線形商や増補 helix のファイバーを大域 GIT 粗商のファイバーと混同しない。
-GIT 降下、相対慣性、全境界の圏的解釈にはなお問題が残る。
-
-quadratic AS-regular ambient の存在は公理とせず、その認識問題は保留する。
-ambient 射と $R(1,3)$ 成分は別稿
-\emph{非可換三次曲面のambient射と$R(1,3)$成分}
-（\texttt{nc-cubic-ambient.tex}）に分ける。
+\appendix
 \section{可換三次曲面のHochschild変形}\label{sec:hh}
 \begin{proposition}\label{prop:hh}
 滑らかな可換三次曲面$X$について
@@ -192,46 +132,25 @@ $\wedge^3T_X=0$なので$\HH^3=0$。
 
 
 
-\input{papers/sections/marking_forgetful.tex}
-\input{papers/sections/line_bundle_classification.tex}
-\input{papers/sections/anticanonical_heart_bridge.tex}
 \input{papers/sections/aou_universal_algebras.tex}
 \input{papers/sections/generic_hearts_numerical_boundary.tex}
 \input{papers/sections/formal_abelian_recognition.tex}
-\input{papers/sections/aou_to_unmarked.tex}
-\input{papers/sections/picard_invariants.tex}
 
-\section{大域的な課題と再現性}
-弱標識忘却の中心を、数値的線束類 $v_D$ の実現、許容性、自己同値軌道の
-三問題に分けた。rank-one torsion-free 性から自己第二 Ext の消滅が従い、
-例外性は自己 Euler 形式 $1$ と同値である。
-(EP) の下では各数値的線束類の対象は高々一つとなる。
-Rains の非可換有理曲面では存在も既知であるため、
-その分類を新たに予想するのではなく、指定された heart への移送を扱った。
-豊富な滑らかな反標準曲線を持つ Rains 模型では GK filtration と rank の比較を証明し、
-全弱標識の格子による分類を得た。さらに非 torsion 条件の下では
-反標準制限が層および線束を検出し、AOU 型 helix の exact 再構成へ接続する。
-一般の AOU heart をこの模型と反標準データを保って同定する問題、
-right noetherian 性の適用範囲、torsion パラメータでの比較はなお残る。
-これらの条件を Euler 行列や抽象的な導来同値だけで代用しない。
-
-全 AOU 関係式空間の普遍有限代数と Hochschild 計算、
-一定の数値 Serre--$E_6$、可換点の形式 Abel chart、
-Picard 障害と一次不変式の結果は、この比較の入力および障害として位置付ける。
-既知の許容相対 Artin 変形での線束持上げは、
-すべての数値類の共通の Zariski 開集合上での代数化を保証しない。
-全境界の heart、大域 Weyl 商、GIT の S-同値での exact 同値判定、
-無標識 stack の代数性は未証明である。
-
-計算は \path{computations/verify_marking_lattice.py}、
+\section{再現性と検証の範囲}
+計算コードは \path{computations/verify_marking_lattice.py}、
 \path{computations/verify_aou_relation_tangent.py}、
-\path{computations/verify_line_bundle_numerics.py} にまとめる。
-最後のコードは Euler 形式・欠損・反標準作用の恒等式を検算するものであり、
-線束の存在や heart 識別の証明ではない。
-静的検査は \path{scripts/verify_unmark_bundle.py}、
-実行状況は \path{research/unmark_validation.json} に記す。
-原稿に証明を記したこと、今回確認した証明の範囲、計算・組版、外部査読を区別する。
+\path{computations/verify_line_bundle_numerics.py}、
+静的参照検査は \path{scripts/verify_unmark_bundle.py} である。
+計算は数値恒等式を検算するもので、線束の存在やheartの同定の証明ではない。
+今回の変更の中心は対象範囲と論理順の再整理であり、
+既存証明すべての独立再査読を実施したという意味ではない。
+検証状況は \path{research/unmark_validation.json} に記す。
 \begin{thebibliography}{99}
+\bibitem{AZ} M. Artin, J. J. Zhang,
+\emph{Noncommutative projective schemes},
+Adv. Math. 109 (1994), 228--287,
+\href{https://doi.org/10.1006/aima.1994.1087}{doi:10.1006/aima.1994.1087}.
+参照: Theorem 4.5（ample pairからの再構成）。
 \bibitem{AOU} T. Abdelgadir, S. Okawa, K. Ueda,
 \emph{Compact moduli of marked noncommutative cubic surfaces},
 \href{https://arxiv.org/abs/2404.00175}{arXiv:2404.00175}, v1.
@@ -273,16 +192,6 @@ J. Differential Geom. 81 (2009), 197--224;
 \emph{Affine Weyl group actions on moduli spaces of marked noncommutative del Pezzo surfaces},
 Oberwolfach Reports 44/2024, pp. 2557--2558,
 \href{https://doi.org/10.4171/OWR/2024/44}{doi:10.4171/OWR/2024/44}, Conjectures 1--3.
-\bibitem{RainsBir} E. M. Rains,
-\emph{The birational geometry of noncommutative surfaces},
-\href{https://arxiv.org/abs/1907.11301v1}{arXiv:1907.11301v1} (2019).
-参照: Definition 5.1 と pp.~67--68、Lemma 7.2、Propositions 7.5--7.6, 7.19, 7.24、
-Corollaries 7.9--7.10, 7.13, 7.15、Proposition 9.7、Theorem 9.10、Corollary 9.11、
-Lemma 10.11、Corollary 10.12、Proposition 10.13。
-\bibitem{RainsFilt} E. M. Rains,
-\emph{Filtered deformations of elliptic algebras},
-\href{https://arxiv.org/abs/2107.13540v2}{arXiv:2107.13540v2} (2022).
-参照: Proposition 5.14 (p.~42)。本稿の原始資料照合はこの版を使用した。
 \bibitem{PolishchukProj} A. Polishchuk,
 \emph{Noncommutative Proj and coherent algebras},
 Math. Res. Lett. 12 (2005), 63--74,

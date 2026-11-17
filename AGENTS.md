@@ -1,9 +1,9 @@
 # 研究指示 — nc-cubic-unmark
 
-再開時は `00_research_plan.md` を最初に読む。中心は線束の数値的分類を通したAOU関係式と無標識Abel圏の比較。存在・一意性・weak許容性・自己同値軌道を区別する。
+最初に `00_research_plan.md` を読む。anticanonical heartを基準とし、比較対象はAS heartのみ。Rains/VdB heartの議論を本稿へ戻さない。
 
-Rainsの線束存在は既知。本稿のGK比較はC smooth connected、−K interior nef、K²=3のRains模型で証明した。制限による層検出にはさらにη=det(Li*[pt])非torsionが必要。これをZariski開条件としない。AOUのexact比較はRains模型との反標準データの一致を明記し、cohprojをqgrと書くにはright noetherianを要求する。数値E6や導来同値だけからこれらを推論しない。
+最優先は二段階の集合論的分類：(1)固定weak marking上のAOU/OU markingの有限W(E6)自由度、(2)固定anticanonical heart内のline bundleのchoice。数値的線束類の存在・一意性、weak許容性を先に解き、自己同値軌道は後に扱う。groupoid/stack・慣性・相対降下を先行課題にしない。
 
-日本語LuaLaTeXで有効な証明を保持し、研究方針は現行状態として整理する。既知結果・本稿証明・今回点検・計算・未解決を分ける。外部査読と網羅的新規性確認は未実施。GitHub mainへfast-forward直pushしPR/Actions/force pushを使わない。PDF/ZIP/cacheはGit追跡しない。ユーザーは研究区切りごとの自己完結した軽量bundleのLibrary保存を承諾なく行う一般許可を与えている。既存Libraryを明示指示なく削除しない。
+A_ac=qgr R_e、AS heart=qgr A_ASを区別し、Hがt-exactな心を自動的にA_acと呼ばない。有限Weyl群による標識の実現・網羅性と、線束全体を固定圏のPicard自己同値とみなすことも区別する。対象範囲の違う分類からA_acの全線束存在を推測しない。
 
-全3計算、静的検査、LuaLaTeX全体組版を行い、生成・実行・GitHub反映・Library保存を別々に確認する。
+有効な内在的証明と計算を保持する。日本語LuaLaTeX。既知結果・証明記載・今回検証・仮定付き・未解決を分離。GitHub mainへfast-forward直pushしPR/Actions/force pushを使わない。PDF/ZIP/cacheはGit追跡しない。区切りごとに自己完結した現行bundleを承諾なくLibrary保存する一般許可あり。既存Libraryは明示指示なく削除しない。生成・組版・計算・GitHub・Libraryを別々に確認する。

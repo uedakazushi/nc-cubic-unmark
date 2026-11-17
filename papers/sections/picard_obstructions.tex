@@ -1,0 +1,268 @@
+% !TeX root = ../nc-cubic-unmark.tex
+\section{Picard作用は固定した非可換fiberを保つとは限らない}\label{sec:picard-first-order}
+対象の持上げと自己同値の持上げを区別するため、一次変形を直接計算する。
+一般のFourier--Mukai同値はHochschild変形パラメータも移す
+\cite[Theorem 1.1]{Toda}。以下はそのline-bundleの場合をČech表示で確認するものである。
+
+\begin{proposition}[一次の標識変更障害]\label{prop:picard-first-order}
+滑らかな三次曲面$X$の一次Abel変形を、HKRの規約
+\[
+ HH^2(X)=H^1(X,T_X)\oplus H^0(X,\wedge^2T_X),\qquad u=(\xi,\pi)
+\]
+で記述する。局所積は$a*b=ab+\frac\epsilon2\pi(da,db)$とする。
+$L$を持ち上げた右加群の局所自己準同型環を使う標識変更は、変形類を
+\begin{equation}\label{eq:picard-shear}
+ r_L(\xi,\pi)=(\xi+\delta_\pi(L),\pi),\qquad
+ \delta_\pi(L)=H^1(\pi^\sharp)(c_1(L))\in H^1(X,T_X)
+\end{equation}
+へ移す。ここで$\pi^\sharp(\alpha)(a)=\pi(\alpha,da)$、
+$c_1(L)$は$d\log$のČech類である。
+逆向きのMorita同値の規約では符号が反転する。
+特に$(-)\otimes L$が\emph{同じ}変形の自己同値に持ち上がるためには
+$\delta_\pi(L)=0$が必要である。
+\end{proposition}
+\begin{proof}
+アフィン被覆上で$L$の遷移を$g_{ij}$と書く。
+右加群の局所基底を$e_j=e_i*g_{ij}$とすれば、その自己準同型環の遷移は
+$b\mapsto g_{ij}*b*g_{ij}^{-1}$である。
+一次まで展開して
+\[
+ g*b*g^{-1}=b+\epsilon\,\pi(d\log g,db)
+\]
+を得る。元の環の遷移$1+\epsilon\xi_{ij}$と合成すれば
+$\xi_{ij}+\pi^\sharp(d\log g_{ij})$となり、式\eqref{eq:picard-shear}を得る。
+$L$の持上げに必要な一次の遷移補正は内的共役を一次では変えない。
+三重交叉上のスカラー障害とその変更は$H^2(\OO_X)$に入るが、三次曲面では零である。
+従ってこの計算はAbel変形の同型類に依存する。
+固定変形の自己同値が持ち上がれば、標識変更前後の変形類は同じでなければならず、
+$H^1(T_X)$成分の差は零となる。ここではこの必要条件から高次Artin底上の
+十分性を結論していない。
+\end{proof}
+
+\begin{theorem}[三次曲面上での非自明性と階数]\label{thm:picard-obstruction-rank}
+$\pi$の零因子$C\in|-K_X|$が滑らかなとき、複素線型写像
+\[
+ H^1(\Omega_X^1)\xrightarrow{H^1(\pi^\sharp)}H^1(T_X)
+\]
+の階数は3または4である。特に$\delta_\pi(L)\ne0$となる線束$L$が存在する。
+階数4となる非空開部分があり、一例は
+\begin{equation}\label{eq:picard-witness}
+ X=V(x^3+y^3+z^3+txy+t^3),\qquad C=X\cap\{t=0\}.
+\end{equation}
+従って、全ての線束が対象として一意に持ち上がる場合でも、
+それらのテンソル自己同値が同じ一次非可換変形に全て持ち上がるわけではない。
+\end{theorem}
+\begin{proof}
+$\wedge^2T_X\simeq\OO_X(-K_X)$と$T_X\otimes K_X\simeq\Omega_X^1$から
+\[
+ 0\longrightarrow\Omega_X^1\xrightarrow{\pi^\sharp}T_X
+ \longrightarrow T_X|_C\longrightarrow0
+\]
+が得られる。$H^0(T_X)=0$、$h^1(\Omega_X^1)=7$なので、求める階数は
+$7-h^0(T_X|_C)$である。楕円曲線$C$の正常完全列は
+\[
+ 0\longrightarrow\OO_C\longrightarrow T_X|_C
+ \longrightarrow\OO_C(C)\longrightarrow0.
+\]
+$\deg\OO_C(C)=3$より$h^0\OO_C(C)=3$、$h^1\OO_C(C)=0$である。
+その接続写像$\partial:H^0(\OO_C(C))\to H^1(\OO_C)$の階数を$r\in\{0,1\}$とすると
+$h^0(T_X|_C)=4-r$、従って求める階数は$3+r$となる。
+$X$はrationalなので$c_1:\Pic(X)\otimes\mathbb C\simeq H^1(\Omega_X^1)$であり、
+正の階数は少なくとも一つの線束で非零障害を与える。
+
+式\eqref{eq:picard-witness}の$X$は滑らかである。
+勾配が零なら$z=0$で、$t=0$では$x=y=0$となる。
+$t\ne0$で$t=1$とすると$3x^2+y=3y^2+x=xy+3=0$となるが、
+最初の二式の積は$9(xy)^2=xy$を与え、$xy=-3$と矛盾する。
+$C$はFermat平面三次曲線である。
+平面を$t=\epsilon z$へ変形すると、その平面内の曲線は
+$x^3+y^3+z^3+\epsilon xyz=0$となる。
+$xyz$はJacobian環$\mathbb C[x,y,z]/(x^2,y^2,z^2)$の次数3において非零なので、
+この平面三次の一次変形は射影座標変更で自明化できない。
+楕円曲線の次数3線束の変形は平行移動によって吸収されるため、
+これは抽象曲線の非零Kodaira--Spencer類でもある。
+従って$\partial$は全射、$r=1$であり階数は4である。
+行列の階数4条件は開であるから非空開部分を得る。
+この有限多項式の確認は\texttt{verify\_marking\_lattice.py}でも行う。
+\end{proof}
+
+\begin{remark}[ここから結論していないこと]
+階数は$\Pic(X)\otimes\mathbb C$上の階数であり、
+整数群$\ker(\delta_\pi:\Pic(X)\to H^1(T_X))$のrankをこの階数計算だけでは直ちに決定しない。非常に一般の組については定理\ref{thm:very-general-picard-kernel}で決定する。
+またこの障害は一次であり、全次数での自己同値の持上げや大域Picard商の存在は未解決である。
+一方、固定した一次変形上で全Picard群が自己同値として作用するという
+素朴な予想を否定するには十分である。
+特に$\Aut(X)=1$の許容相対変形では、$\delta_\pi(L)\ne0$なら
+$\OO_R$と$L_R$を移す自己同値は存在しない。
+なぜならその特殊化は定理\ref{thm:commutative-structure}により
+$(-)\otimes L$でなければならないからである。
+\end{remark}
+
+
+\begin{proposition}[反標準線束の障害は零]\label{prop:canonical-kernel}
+$C=(\pi=0)\in|-K_X|$が滑らかなとき
+\[
+ \delta_\pi(\OO_X(-K_X))=0.
+\]
+さらに$Q=K_X^\perp\subset\Pic(X)$とすると
+\[
+ \operatorname{rank}_{\mathbb C}
+ \bigl(\delta_\pi|_{Q\otimes\mathbb C}\bigr)
+ =\operatorname{rank}_{\mathbb C}\delta_\pi
+ \in\{3,4\}.
+\]
+従って一般の$\pi$では、$E_6$ root translationの中に
+固定一次変形の自己同値としては持ち上がらないものがある。
+\end{proposition}
+\begin{proof}
+$C$の局所方程式を$s_i$とし、$g_{ij}=s_i/s_j$を
+$\OO_X(C)$の遷移の一つの規約とする。
+$\pi$は局所的に$s_i$で割り切れるので
+$v_i=\pi^\sharp(d\log s_i)$は各開集合上で正則なベクトル場である。
+そのČech差は$\pi^\sharp(d\log g_{ij})$だから、
+式\eqref{eq:picard-shear}の$\delta_\pi(\OO_X(C))$は零となる。
+$\Pic(X)\otimes\mathbb C=(Q\otimes\mathbb C)\oplus\mathbb C K_X$
+は$(-K_X)^2=3$から従う。
+$K_X$方向で$\delta_\pi=0$なので、全Picardと$Q$への制限の階数は等しい。
+階数は定理\ref{thm:picard-obstruction-rank}から従い、
+非零の根格子方向は同じ一次変形における自己同値としては持ち上がらない。
+\end{proof}
+
+
+\begin{theorem}[非常に一般の一次Picard障害の整数核]\label{thm:very-general-picard-kernel}
+滑らかな複素三次曲面$X$と非零のPoisson構造
+$\pi\in H^0(X,-K_X)$の組$(X,\pi)$を動かす。
+非常に一般の組に対して、群準同型
+$\delta_\pi:\Pic(X)\to H^1(X,T_X)$の整数核は
+\begin{equation}\label{eq:very-general-picard-kernel}
+ \boxed{\ker\delta_\pi=\mathbb Z K_X}
+\end{equation}
+である。ここで「非常に一般」とは、適切な既約パラメータ空間内の
+可算個の真の閉部分集合の合併の外を意味する。
+複素線型写像$\delta_\pi\otimes\mathbb C$は一般には階数4であり、
+その3次元核がPicard整数格子の階数3の部分格子を含むとは限らない。
+\end{theorem}
+\begin{proof}
+六本の順序付きで互いに交わらない直線によって標識を付けた滑らかな三次曲面の
+モジュライ$\mathcal M^{\rm m}$は、一般位置の六点配置の
+$\PGL_3$商として既約であり、$W(E_6)$は標識変更によって作用する
+\cite[\S\S2.5--2.6]{DGK}。
+この上でPoisson構造$\pi$の零因子が滑らかな部分の非零全空間を
+$\mathcal P^{\rm m}$とする。これは既約である。
+標準Picard格子$\Lambda=I_{1,6}$は標識によって自明化され、
+\[
+ \Lambda_\mathbb C=\mathbb C K\oplus Q_\mathbb C,
+ \qquad Q=K^\perp\simeq E_6
+\]
+となる。
+
+$\mathcal P^{\rm m}$のすべての点$b=(X,\varphi,\pi)$についての
+$\delta_b$の核の共通部分を
+\[
+ N=\bigcap_{b\in\mathcal P^{\rm m}}
+       \ker(\delta_b:\Lambda_\mathbb C\to H^1(X,T_X))
+\]
+と置く。これは標識変更の自然性から$W(E_6)$不変である。
+命題\ref{prop:canonical-kernel}により$\mathbb CK\subset N$である。
+$W(E_6)$は$Q_\mathbb C$上で既約に作用する。
+実際、任意の非零な不変部分空間$U$のベクトルがある根$\alpha$と
+交叉積非零なら、反射$s_\alpha(v)-v=(v,\alpha)\alpha$から
+$\alpha\in U$となる。根のWeyl軌道は$Q_\mathbb C$を張るので
+$U=Q_\mathbb C$である。
+定理\ref{thm:picard-obstruction-rank}の階数4の非空開部分があるため、
+$N$は$\Lambda_\mathbb C$全体ではない。
+従って$N=\mathbb CK$である。
+
+各$D\in\Lambda\setminus\mathbb ZK$に対し、
+$\delta_b(D)$は$\mathcal P^{\rm m}$上で恒等的に零ではない
+（$K$は原始元である）。
+これは代数的ベクトル束の切断なので、零点集合$Z_D$は真の閉部分集合である。
+$\Lambda$は可算なので、
+$\mathcal P^{\rm m}\setminus\bigcup_{D\notin\mathbb ZK}Z_D$
+上では非反標準の全整数クラスの障害が非零となる。
+他方、$\mathbb ZK$は常に障害の核に入る。
+これで式\eqref{eq:very-general-picard-kernel}を得る。
+\end{proof}
+
+\begin{corollary}[非常に一般の非可換fiberでの構造対象の同型類]\label{cor:first-order-pointings}
+$X$は自己同型群が自明な滑らかな三次曲面とし、
+$\mathcal A_\varepsilon$は特殊ファイバー$\operatorname{coh}X$との同定を持つ
+許容相対一次Abel変形（$\varepsilon^2=0$）とする。
+HKRのPoisson成分$\pi$を含む組$(X,\pi)$が
+定理\ref{thm:very-general-picard-kernel}の非常に一般の条件を満たすとき、
+exactな$\mathbb C[\varepsilon]/(\varepsilon^2)$線型自己同値を
+特殊ファイバーへ制限する準同型
+\[
+ \pi_0\Aut_{\rm ex}(\mathcal A_\varepsilon)
+       \longrightarrow\Pic(X)
+\]
+の像は$\mathbb Z[-K_X]$に一致する。
+従って特殊ファイバーで線束となる許容構造対象の持上げを
+固定圏内のexact自己同値で同一視した同型類の集合は
+\begin{equation}\label{eq:very-general-pointings}
+ \Pic(X)/\mathbb ZK_X
+ \ \simeq\ Q(E_6)^\vee
+ \ \simeq\mathbb Z^6
+\end{equation}
+である。これは同型類の集合の主張であり、
+相対的なモジュライ構造についての主張ではない。
+\end{corollary}
+\begin{proof}
+定理\ref{thm:formal-structure}により、各線束$L$は
+構造対象$L_\varepsilon$へ一意に持ち上がる。
+Bondal--Orlovによるexact自己同値の可換特殊化の分類
+（定理\ref{thm:commutative-structure}）と$\Aut(X)=1$から、
+任意の相対exact自己同値の特殊化は$(-)\otimes L$となる。
+命題\ref{prop:picard-first-order}の必要条件は
+$\delta_\pi(L)=0$なので、前定理により$L$の類は$\mathbb ZK_X$に属す。
+逆に、相対Serre作用から定まる$t$-exact自己同値
+$H_\varepsilon=\mathsf S_\varepsilon^{-1}[2]$は
+特殊ファイバー上で$(-)\otimes\OO_X(-K_X)$となる。
+従って$H_\varepsilon$の全冪が実際の自己同値を与え、
+特殊化像は$\mathbb Z[-K_X]$と一致する。
+線束持上げの一意性とこの作用から同型類の商が
+$\Pic(X)/\mathbb ZK_X$となる。
+最後の格子同型は命題\ref{prop:picard-root-index}による。
+\end{proof}
+
+\begin{remark}
+この結果は「非常に一般」という条件と一次Artin底、
+許容相対heart・Serreの仮定を持つ。
+任意の有限型の非可換大域成分の一般点に直ちに適用するものではなく、
+高次変形での自己同値の全持上げやAOUの標識付きGIT商の有限性も結論しない。
+とくに$Q(E_6)^\vee$は整数格子の商であり、
+Poisson一次変形の底に新しい連続的な6次元成分を作ったわけではない。
+\end{remark}
+
+\section{有限Weyl群、root latticeとPicard格子の区別}
+\begin{proposition}[反標準方向を除いたPicard格子]\label{prop:picard-root-index}
+$\Lambda=\Pic(X)=\mathbb Zh\oplus\bigoplus_{i=1}^6\mathbb Ze_i$に
+$h^2=1$、$e_i^2=-1$、他の積0を入れ、$K=-3h+\sum_i e_i$とする。
+$Q=K^\perp$は$E_6$ root latticeであり、
+\[
+ 0\longrightarrow Q\longrightarrow\Lambda
+ \xrightarrow{D\mapsto(-K)D}\mathbb Z\longrightarrow0,
+ \qquad \Lambda/(Q+\mathbb ZK)\simeq\mathbb Z/3.
+\]
+交叉積による制限写像は$\Lambda/\mathbb ZK\simeq Q^\vee$を与える。
+従って反標準tensor方向を同一視した後でも、root translationと
+Picard translationの間には指数3の相違がある。
+\end{proposition}
+\begin{proof}
+次数写像は$e_i$を1へ送るので全射で、核は定義により$Q$である。
+$K$の次数は$-3$なので商は$\mathbb Z/3$となる。
+$Q$は原始部分格子、$\Lambda$はunimodularだから、
+任意の整数線型形式$Q\to\mathbb Z$は$\Lambda$へ延長でき、
+交叉積により$\Lambda$の元で表される。
+制限写像$\Lambda\to Q^\vee$の核は$\mathbb ZK$である。
+単純根$e_1-e_2,\ldots,e_5-e_6,h-e_1-e_2-e_3$のGram行列は
+負の$E_6$ Cartan行列で行列式3を持つことからも指数を確認できる。
+\end{proof}
+
+\cite{OWR}で考えるaffine Weyl群のtranslation部分は$Q$であり、
+全$\Pic(X)$と同じではない。
+$\Lambda/\mathbb ZK$をtranslationとする記述はweight lattice型の拡大となる。
+ただし命題\ref{prop:common-tensor}により共通tensorはrelation表示では既に見えない。
+従ってこの指数3だけからモジュライの三重被覆や三つの成分を主張してはならない。
+さらに定理\ref{thm:very-general-picard-kernel}が示すように、非常に一般の一次変形では整数Picard群の障害の核は反標準方向だけである。非可換変形上のPicard作用は
+一般には底の変形パラメータをも動かす。全線束の存在と、固定圏の自己同値による軌道は分けて調べる。

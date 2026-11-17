@@ -1,0 +1,135 @@
+% !TeX root = ../nc-cubic-unmark.tex
+\section{可換三次曲面の構造対象とPicard作用}
+\begin{theorem}[可換基準模型]\label{thm:commutative-structure}
+滑らかな三次曲面$X$について、$\operatorname{coh}X$の許容構造対象は
+ちょうど線束である。従って固定圏上の選択集合は$\Pic(X)\simeq\mathbb Z^7$である。
+自然同型で割ったexact自己同値群は
+\[
+ G_X=\Pic(X)\rtimes\Aut(X)
+\]
+であり、構造対象の同型類に推移的に作用する。
+従って $\Pic(X)/G_X$ は一点である。固定圏内の線束選択 $\Pic(X)$ と、
+この軌道商を区別する。
+\end{theorem}
+\begin{proof}
+可換滑らかな曲面で式\eqref{eq:gk-rank}を満たす層$E$は通常のrank-one
+ torsion-free層である。二重双対$L=E^{**}$は線束で、
+$E=L\otimes I_Z$、$n=\operatorname{length}Z\ge0$と書ける。
+Riemann--Rochと$\operatorname{ch}E=e^{c_1(L)}(1-n[\mathrm{pt}])$から
+\[
+ \chi(E,E)=\chi(\OO_X)-2n=1-2n.
+\]
+例外性は$\chi(E,E)=1$を与えるので$n=0$、従って$E=L$である。
+逆に線束$L$の自己Extは$H^*(X,\OO_X)$であり、$X$がrational del Pezzoなので例外的である。
+$H=(-)\otimes\OO_X(-K_X)$、$-K_X$は豊富で、
+Kodaira消滅とRiemann--Rochから式\eqref{eq:weak-hilbert}が成り立つ。
+線束捩れは通常の豊富列を保つからAZ豊富性も成立する。
+
+Bondal--Orlov\cite[Theorem 3.1]{BO}は反標準豊富な$X$の導来自己同値を
+幾何学的自己同型、線束捩れ、次数shiftで記述する。
+$t$-exact性は非零shiftを除き、上の$G_X$を得る。
+線束捩れの推移性から、線束の同型類集合の軌道商は一点となる。
+\end{proof}
+
+\begin{proposition}[共通線束捩れはrelation表示に見えない]\label{prop:common-tensor}
+exact同値$F$と有限thread$(E_i)$について、頂点冪等元と積を保つ同型
+\[
+ \End\Bigl(\bigoplus_iE_i\Bigr)
+ \xrightarrow{\sim}\End\Bigl(\bigoplus_iFE_i\Bigr)
+\]
+がある。特に可換曲面上で全$E_i$を同じ線束$L$で捩っても、
+矢の基底を輸送すればAOUの関係式点は変わらない。
+先頭同定$E_0\simeq\OO_X$を固定した正規化には、一般の共通線束捩れは作用しない。
+\end{proposition}
+\begin{proof}
+各Homへの$F$の作用は合成を保つ完全忠実な同型であり、直和すると主張を得る。
+$F=(-)\otimes L$なら$E_0=\OO_X$は$L$へ移るため、
+先頭同定を保つには$L\simeq\OO_X$が必要である。
+\end{proof}
+従ってAOUのrelation schemeをさらに一律に$\Pic(X)$で割る操作は、
+この共通捩れが既に忘れられている点を考慮せずには正当化できない。
+非可換圏では一般の対象同士をテンソルする操作そのものがなく、
+自己同値による同一視は定理\ref{thm:forgetful-fibres}の集合論的軌道として別に扱う。
+
+\section{Artin変形における対象の持上げと有限Weyl商}\label{sec:weyl}
+以下の形式比較は、特殊ファイバーとの同定を保持する局所Artin底上で行う。
+$\widehat{\Cw}$ は許容弱標識付き変形の同型類集合を取る関手を表す。
+対象持上げにはInd-completionでのflat Abel変形の枠組みを使い、
+相対perfect対象のRHom底変更、exactな$H_R$およびその底変更を仮定する。
+これらを満たす変形を本節の\emph{許容相対変形}と呼ぶ。
+全ての抽象dg変形にこれらのheart条件が自動的に備わるとはしない。
+
+\begin{theorem}[構造対象の形式的な選択]\label{thm:formal-structure}
+滑らかな三次曲面$X$の許容相対変形$\mathcal A_R$と$L\in\Pic(X)$に対し、
+$L$のflatな持上げ$L_R$が存在し、その同型類は一意である。
+$L_R$は相対許容構造対象であり、自己同型群は$R^\times$である。
+従って同型類を取った集合値の形式変形関手では、構造対象の固定を忘れる写像は全単射であり、
+固定圏上で全ての特殊ファイバーの選択を許せば枝は$\Pic(X)$で添字付けられる。
+この主張は、任意の二つの枝を$\mathcal A_R$の自己同値が結ぶことを意味しない。
+\end{theorem}
+\begin{proof}
+小拡大の核$I$に対する障害は$\Ext^2(L,L)\otimes I$、
+同型類の自由度は$\Ext^1(L,L)\otimes I$である\cite[Theorem A and flat dual]{Lowen}。
+両者が零なのでArtin長に関する帰納法で存在と一意性を得る。
+相対RHomはperfectで、その特殊ファイバーは$\kk$が次数0にあるだけだから
+$\RHom_R(L_R,L_R)\simeq R$となる。特殊ファイバーの同定を固定した自己同型は
+$1+\mathfrak m_R$、固定しないものは$R^\times$である。
+同様に$\RHom(L_R,H_R^mL_R)$の特殊ファイバーを計算すれば、
+$m\ge0$の次数0集中と所定rank、$m<0$の$H^0$消滅が持ち上がる。
+
+豊富性の確認も必要である。任意のnoetherian対象$M$は
+$\mathfrak m_R$による有限filtrationを持ち、その商は特殊ファイバーの対象である。
+flatな$H_R^{-n}L_R$に対する導来底変更と古典的Serre消滅から、
+十分大きな$n$でこの各商への高次Extが零になる。
+有限filtrationの長完全列により$M$についても同じ消滅が成立する。
+$M/\mathfrak m_RM$への古典的生成全射を持ち上げると、
+$\mathfrak m_RM$への$\Ext^1$消滅によって$M$への射が得られ、
+余核はNakayamaにより零になる。これはAZ生成条件を与える。
+任意の固定した全射の核に同じ$\Ext^1$消滅を使えばHom全射条件も得る。
+rank条件は特殊ファイバー上で確認済みである。
+\end{proof}
+
+\begin{theorem}[通常の標識に限った形式Weyl商]\label{thm:formal-weyl}
+$\Aut(X)=1$なる滑らかな三次曲面$X$を取り、通常の幾何学的標識の集合を
+$\operatorname{Mark}(X)$とする。各$m$の標準九対象line-bundle helixで先頭を
+$\OO_X$に正規化し、対象の同型類を取り、矢の基底と頂点スカラーの選択は数えない。
+ここで形式関手は同型類の集合を取る。許容相対変形にそのhelixの持上げを加える形式関手を$\widehat{\mathfrak M}_m$とすると
+\[
+ \widehat{\mathfrak M}_m\simeq\widehat{\Cw}_{(\operatorname{coh}X,\OO_X)},\qquad
+ \left(\coprod_{m\in\operatorname{Mark}(X)}\widehat{\mathfrak M}_m\right)/W(E_6)
+ \simeq\widehat{\Cw}_{(\operatorname{coh}X,\OO_X)}.
+\]
+AOUの関係式の形式変形がこれらの許容相対条件を満たす範囲では、
+その関係式表示が左辺を与える。Hochschild変形との比較が成立する形式関手の
+miniversal底は$\operatorname{Spf}\kk[[q_1,\ldots,q_8]]$である。
+\end{theorem}
+\begin{proof}
+標準九対象はline bundleの完全強例外列で、先頭は$\OO_X$である
+\cite[(4.1), (9.44)]{AOU}。各対象は定理\ref{thm:formal-structure}と同じ障害消滅で
+一意に持ち上がる。相対Homのperfect底変更から強例外性とHomのflat性を得る。
+標準helixは$\mathbb Z$-生成geometric helixである。
+De Deken--Lowen\cite[Theorems 4.5, 5.13, 5.15]{DDL}をInd-completionで適用すると、
+helixの生成性と持上げ、Abel圏・helix代数・有限threadの変形の比較を得る。
+ここでは同定した$H_R$がheartを保つことを許容相対条件に含めているので、
+単なる導来同値からheartの同一性を推論してはいない。
+反標準部分列の豊富性と切断数は前定理の証明で保持される。
+
+$\operatorname{Mark}(X)$は古典的$W(E_6)$-torsorである\cite[\S2.3]{AOU}。
+各chartを同じ忘却先と同定することで標識変更作用を定義でき、
+持上げの一意性により合成は整合的である。
+$\HH^1=\HH^3=0$、$\dim\HH^2=8$は命題\ref{prop:hh}による。
+通常のHochschild変形理論との比較を満たす範囲で無障害性と8次元の形式底を得る。
+\end{proof}
+
+\begin{proposition}[有限 Weyl 商の集合論的な十分条件]\label{prop:global-weyl-criterion}
+標識付き対象の集合 $M$ と弱標識付き対象の集合 $W$ の間の忘却 $p:M\to W$ を考える。
+有限群 $W(E_6)$ が $M$ に作用し、$p$ が全射であり、
+二点が同じ像を持つことと同じ $W(E_6)$ 軌道に属すことが同値なら、
+$M/W(E_6)\to W$ は全単射である。
+\end{proposition}
+\begin{proof}
+全射性は $p$ の全射性、単射性は仮定した軌道による同値関係そのものである。
+\end{proof}
+非可換の対象範囲でこの仮定を確認することが第一段階の課題である。
+可換標識の形式持上げだけから、全ての helix が同一の有限 Weyl 軌道にあるとは結論しない。
+

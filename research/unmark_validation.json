@@ -1,30 +1,30 @@
 {
   "date": "2026-11-18",
-  "version": "unmark-v8",
+  "version": "unmark-v9",
   "source": {
     "repository": "uedakazushi/nc-cubic-unmark",
-    "base_commit": "71e4b673da0a41d21fc9f1f18d11826da8b84435",
+    "base_commit": "08200c5f3880bb58e3ee65df5c4b9c8edc486d68",
     "branch": "main"
   },
-  "claims": {
-    "rank_filtration": "Proof written and checked for Rains rational surfaces with smooth connected anticanonical C, Q=-K interior nef, Q^2=3. GK A0=T0 and A1=rank-zero; no non-torsion hypothesis needed.",
-    "weak_markings": "Known Rains existence and vanishing + proved rank comparison give Line_adm=Line=NS in that scope. New global existence is not claimed.",
-    "restriction_detection": "Proof written and checked with additional infinite-order eta=det(Li*[pt]). i*M=0 implies M=0; Li*E in degree 0 implies E in degree 0. Li* t-exactness and morphism faithfulness are NOT claimed.",
-    "exceptional_lift": "In the same non-torsion scope, exceptional E whose restriction is a line bundle is a line bundle and weak marking.",
-    "helix_reconstruction": "Proof using Polishchuk ample-sequence theorem; cohproj is identified with qgr only when right noetherian.",
-    "AOU_application": "Sufficient condition: Rains realization of AOU blowup compatible with anticanonical restriction and Serre, ample Q, infinite-order eta, right noetherian AS algebra. Not asserted for every AOU point.",
-    "known_inputs": "Rains rank/Chern/Serre identities and line classification; AOU mutation/restriction and tilting equivalence; Polishchuk reconstruction.",
-    "unresolved": "Full model-comparison locus, torsion parameters, uniform algebraic families, autoequivalence orbits, global GIT descent.",
-    "novelty": "No exhaustive priority search or external refereeing; bridges are deductions supplied with proofs."
+  "scope": {
+    "primary_heart": "Anticanonical heart qgr R_e; only AS heart is a comparison subject.",
+    "first_forgetting": "Set-theoretic choices of AOU/OU markings above a fixed weak marking; finite W(E6) is the classification target. Global realization and exhaustion are not newly proved.",
+    "second_forgetting": "Isomorphism classes of admissible line objects inside a fixed anticanonical heart. Existence, uniqueness and admissibility precede autoequivalence orbit classification.",
+    "groupoids_and_stacks": "Deferred until after set-theoretic classification; no new stack claim.",
+    "line_reconstruction": "Direct application of the known Artin-Zhang reconstruction theorem under its hypotheses; not a new general reconstruction theorem.",
+    "preserved_results": "Intrinsic line criterion, RR+EP uniqueness, commutative/formal marking comparisons, Picard obstruction proofs and finite-algebra computations retained with their hypotheses.",
+    "global_line_existence": "Not proved in general; results about other specified hearts are not silently transferred.",
+    "new_theorems": "This revision principally changes scope, organization and definitions; no new global Weyl quotient or all-line existence theorem."
   },
   "checks": {
-    "static_tex": "PASS: 9 sources, 94 labels, 127 refs, 13 bibliography entries, 51 citations",
-    "computations": "PASS: all three scripts rerun, including theta kernel degree=-3r, quotient degree=3r, chi(theta M)-chi(M)=-degree(M). Symbolic identities are not categorical proofs.",
-    "lualatex": "PASS: 33 pages, no overfull boxes or undefined references/citations. Nonfatal font/bookmark warnings remain.",
-    "visual": "New proof pages 16,17,18 inspected; no observed clipping. No full-page visual audit claimed.",
-    "clean_rebuild": "PASS: clean source tree; all 3 scripts, static checker and LuaLaTeX rerun; all 33 page texts identical.",
-    "primary_sources": "AOU HTML equations 9.19,9.44,9.53 and Theorem9.4; OU p8 screenshot; Rains relevant statements and Polishchuk Lem2.1/Thm2.4 read in primary text. Rains/Polishchuk screenshots failed (cache miss); no figures used.",
-    "proof_review": "Reviewed filtration argument, Cartier signs, cohomology exact sequence, torsion-free lift and ample reconstruction. Older proofs retained; not all independently re-refereed this turn.",
-    "external_refereeing": false
+    "static_tex": "PASS: 11 sources, 79 labels, 72 references, 12 bibliography entries, 27 citations.",
+    "computations": "PASS: all three existing scripts rerun on the current source; symbolic and lattice calculations only, not categorical existence proofs.",
+    "lualatex": "PASS: latexmk -lualatex completed, 27 pages; no overfull boxes or undefined references/citations. Nonfatal font/bookmark warnings remain.",
+    "visual": "Pages 1, 4 and 7 inspected; no observed clipping. Full visual audit not claimed.",
+    "primary_source_check": "Existing anticanonical terminology reopened in connected repository. Artin-Zhang bibliographic data and reconstruction statement cross-checked through the primary Polishchuk paper introduction; full original Artin-Zhang proof not re-inspected.",
+    "proof_audit": "Scope and logical dependencies reviewed; retained proofs not all independently re-refereed. Corrected a path-component index to the declared multiplication convention.",
+    "clean_rebuild_this_revision": false,
+    "external_refereeing": false,
+    "exhaustive_novelty_check": false
   }
 }

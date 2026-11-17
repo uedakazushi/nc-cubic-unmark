@@ -1,46 +1,49 @@
-# 研究方針：線束の数値的分類からの標識忘却
+# 研究方針：反標準 heart における二段階の標識忘却
 
-**2026-11-18 / unmark-v8。最初に本ファイルを読む。** 次に `papers/nc-cubic-unmark.tex`、`research/unmark_notes.md` を読む。GitHub `uedakazushi/nc-cubic-unmark` の main が原稿正本。最新 bundle だけで研究内容と再現手順を理解できる構成を保つ。
+**2026-11-18 / unmark-v9。最初に本ファイルを読む。** 次に `papers/nc-cubic-unmark.tex`、`research/unmark_notes.md`。GitHub `uedakazushi/nc-cubic-unmark` の main をソース正本とする。
 
-## I. 恒常的な研究原則・保存許可
+## I. 恒常的な研究原則と保存許可
 
-数学的重要性、新規性、理解の深化、応用、正確性、実現可能性を総合し研究全体の価値を最大化する。方針は現行の目標・理由・到達点・未解決点として書き直し、時系列の履歴を積まない。既知結果、本稿に証明を記載した結果、今回の証明点検、仮定付き主張、予想、有限計算を区別する。仮定・依存文献・証明所在・未確認箇所を明示し、誤りがあれば依存先の本文・要約・方針も直す。原稿は日本語 LuaLaTeX。有効な数学的成果と証明は現行論文に保持し、経緯ではなく理解しやすい順序で構成する。
+数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合して研究全体の価値を最大化する。方針は現時点の目標・到達点・理由・未解決点として書き直し、時系列の履歴を積まない。既知の結果、証明記載、今回の証明点検、追加仮定付きの結果、未完成・予想・計算的観察を区別する。主要な主張の仮定、依存文献、証明所在、未確認点を明記する。誤りは依存する本文・要約・方針も訂正する。
 
-先行研究は一次資料を確認し、Introduction で既知結果と本稿の関係を具体的に説明する。未確認の書誌や新規性を推測しない。研究ノートは現在有用な例、反例、障害、再取得困難な情報を整理し、本文の証明を重複させない。
+論文は日本語LuaLaTeXで現在の成果を論理順に配置し、有効な証明を保持する。先行研究は一次資料で照合し、Introductionで既知入力と寄与を区別する。未確認の新規性・書誌を推測しない。ノートは作業日誌ではなく、現在有用な例・反例・障害・着手方法をまとめ、論文の証明を重複させない。
 
-**ユーザーは研究の区切りごとに、承諾なく現行の研究継続 bundle を Library に保存する一般許可を与えている。** bundle は現行の方針・ノート・論文・必要な全ソース・PDF・コード・書誌・再現手順のみを収録する。旧版ZIP、旧原稿、バックアップ、ログ、キャッシュ、編集履歴、重複、外部論文PDFの大量収録を避ける。軽量化で数学的内容や検証可能性を削らない。Library 既存ファイルの削除は別操作であり明示指示なく行わない。日付と版を揃え、生成・計算・組版・GitHub反映・Library保存を別々に検証する。未実行検証や保存失敗はそのまま報告する。
+**ユーザーは研究の区切りごとに、承諾なく現行の研究継続bundleをLibraryに保存する一般許可を与えている。** bundleは現行の方針・ノート・論文・必要な全ソース・PDF・書誌・計算コード・再現手順だけで自己完結させる。旧ZIP・旧原稿・バックアップ・ログ・キャッシュ・変更履歴・重複を含めず、軽量化で数学的内容や検証可能性を損なわない。Library既存ファイルの削除は別操作であり明示指示なく行わない。生成・検証・GitHub反映・Library保存を別々に確認し、未実行や失敗はそのまま報告する。日付・版・参照先を揃える。
 
-## II. 中心問題と現在の達成基準
+## II. 本研究の対象と最優先課題
 
-最上位目標は、AOU 関係式モジュライから無標識 Abel 圏への忘却を、公表可能な定理にすること。固定圏で **数値的線束類ごとの存在・一意性 → weak 許容性 → exact 自己同値軌道** の順に調べる。数値的 E6 や抽象的な商の記述だけで対象の分類を代用しない。
+**基準の心は anticanonical heart。別の心として扱うのは AS heart のみ。Rains/VdB heart は本研究の議論・比較対象から外す。**
 
-Rains 模型の線束存在は既知である。本稿の重点はその分類を内在的定義と AOU heart へ接続することにある。現在、滑らかな反標準曲線 C の類 Q=−K が nef cone 内部、Q²=3 の Rains 非可換有理曲面では rank/torsion の二定義が一致し、全弱標識が NS(X)≅Z⁷ で分類されると証明した。さらに η=det(Li*[pt]) が無限位数なら、反標準制限が線束である例外対象は曲面上でも線束となり、ample helix の exact 再構成ができる。
+反標準環 `R_e=⊕ Hom(e,H^n e)`、`H=S^{-1}[2]` から `A_ac=qgr R_e` を取る。既存Abel圏で `(e,H)` がAZ ampleなら再構成によってこのheartと同定する。単にHがt-exactな任意のheartを名前だけでanticanonical heartにしない。AS表示との比較は、指定されたexact/t-exact比較または反標準再構成が確認された範囲に限定する。
 
-**AOU に対する結論の範囲：** AOU §9 の blowup が上の Rains 模型として反標準制限と Serre を保って実現され、関連 AS Z-代数が right noetherian である場合、標準 tilting 同値は t-exact になる。模型の比較自体を全AOU点で済ませたわけではない。非torsion条件は点ごとの条件でありZariski開性を主張しない。相対族・全境界・自己同値軌道の課題は残る。
+中心の二段階は以下である。
 
-ambient 認識は別リポジトリ `uedakazushi/nc-cubic-ambient`。既存の普遍有限代数、数値Serre–E6、形式chart、Picard障害の有効な証明はすべて保持する。
+1. **AOU/OU marking → weak marking**：固定した `(A_ac,L)` 上の標準標識の選択集合を、有限Weyl群 `W(E6)` の作用で記述する。数値標識の作用、実際のhelixとしての実現、網羅性、安定化群を分けて確認する。
+2. **weakly marked → unmarked**：固定した `A_ac` 内のline bundleのchoiceを分類する。各数値的線束類 `v_D=(1,D,D²/2)` の存在・一意性と、全線束がweak標識として許容されることを優先する。
 
-## III. 現在の主張・仮定・証明所在
+**まず集合論的に考える。** 固定圏内の線束の同型類集合 `Line_adm(A_ac)` を最初から `Aut_ex(A_ac)` で割らない。組のexact同値類を求める段階では、その集合への自己同値作用を別に計算する。群oid/stack、相対慣性、降下はその次の課題であり、現在の主問題の代替にしない。
 
-中心は `line_bundle_classification.tex` と `anticanonical_heart_bridge.tex`（ともに `papers/sections/`）。
+この方針により、他のheartを経由する比較を中心課題から除き、二つの忘却の自由度に研究を集中させる。従来の内在的線束判定、一意性、可換・形式比較、Picard障害、有限代数と数値計算の有効な証明は現行原稿に保持する。対象範囲の異なる分類を、反標準heartの全線束存在定理として移し替えない。
 
-- **本稿で証明・点検：** intrinsic weak cubic 公理下で rank1tf の End=C、負H自己Hom=0、Ext²自己=0、exceptional ⇔ χself=1。RR表示と (EP) を仮定すれば同一数値的線束類で高々一つ（`thm:intrinsic-line-criterion`, `thm:numerical-line-uniqueness`）。一般内在的模型で (EP) を勝手に仮定しない。
-- **既知の分類：** Rains Cor.7.10, Prop.10.13 による非可換有理曲面の Line↔NS。これは本研究の新しい存在定理ではない。反標準 ample なら既知の消滅・生成から AZ とHilbert値を得る（`prop:rains-weak-admissibility`）。
-- **本稿で証明・今回点検：** Rains rational、C smooth connected、Q interior nef、Q²=3 の下で A0={r=0,c1=0}, A1={r=0}（`thm:rains-gk-filtration`）。単純対象の反標準射、χとdegreeの長さ関数、θの無限下降列を使う。rank1tfの定義が一致し、Line_adm=Line≅Z⁷（`cor:rains-all-weak-markings`）。この二結果はη非torsionを要しない。
-- **本稿で証明・今回点検：** 上記にη無限位数を追加すると i*M=0⇒M=0。Cartier三角から Li*E が層なら Eも層、制限が線束である例外対象は線束（`thm:restriction-detects-heart`, `cor:restricted-exceptional-line`）。Li*のt-exact性やi*の射上の忠実性は主張しない。可換模型のC外の点が無条件拡張の反例。
-- **既知再構成を使う本稿証明：** foundationの制限がすべて線束となる周期9のgeometric helixから coh X≃cohproj A を得る（`thm:restricted-helix-exact`）。Polishchuk Lem2.1/Thm2.4を使用。qgr表記にはright noetherianを要求する。AOU式(9.53)と接続する系 `cor:aou-rains-exact-region` は明記した模型比較範囲の十分条件であり、全AOU点での断定でない。
-- **既存成果を保持：** 普遍45次元/gldim2関係式代数とArtin形式完備性、HH支持階数公式、全点の数値Serre–E6、矢基底変更の数値的自明性。DDLによる形式Abel chart、相対条件下の線束持上げ、Picard障害δπ、非常に一般の整数核ZK、一次軌道Pic/ZK、一次線形不変式も維持。数学的仮定は対応節を参照。
+## III. 現在の到達点と確実性
 
-新しい橋渡しの推論の証明は本文にあるが、外部査読・形式化・網羅的な優先権照合は未実施。先行文献の分類そのもの、入力となる再構成定理、新たに書いた推論を区別する。
+- **定式化・既知再構成の帰結**：`anticanonical_set_unmark.tex`。二段階の選択集合を定義。許容線束Lで `R_L` を作り直してもAZ再構成で同じA_acを得る（`prop:ac-line-reconstruction`）。これは環同型やLを交換する固定圏の自己同値を主張しない。
+- **可換・許容形式範囲**：通常の標識は有限W(E6)で記述できる（`aou_to_unmarked.tex`, `commutative_formal_markings.tex`）。一般の非可換AOU/OU領域で全標識を尽くすことは未証明。AOU/OU部分が全weak cubicを尽くすとも主張しない。
+- **内在的証明を保持**：rank1tfのEnd=C、負H自己Hom=0、Ext²自己=0、exceptional iff χself=1。三次曲面型RR表示と有効次数正値性(EP)の下で各数値的線束類の対象は高々一つ（`line_bundle_classification.tex`）。この推論に他のheartを使わない。新規性は未確認。
+- **未解決の存在・許容性**：`Ω_A={D:v_Dを持つrank1tf対象が存在}`、`Line_adm=Line`。一意性からΩ_A=Λを結論しない。任意の線束の交差Ext消滅やAZ生成も未証明の範囲では条件として残す。
+- **自己同値との区別のための補助結果**：Picard一次障害 `δπ(L)=H¹(π^sharp)c1(L)`、一般rank4、非常に一般の整数核ZK、許容一次変形での軌道Pic/ZK、一次不変式。線束選択と自己同値の持上げを区別するために保持（`picard_obstructions.tex`, `picard_invariants.tex`）。
+- **付録に保持**：普遍45次元有限代数、Artin関係式変形、HH支持公式、一定の数値Serre–E6、AS locus、DDL形式比較。これらだけでA_acとAS heartの一致や標識の網羅性を結論しない。形式Abel変形が反標準heartの許容条件を満たす範囲は別に確認する。
 
-## IV. 優先課題と具体的着手
+今回の改稿は研究対象と順序の再整理が中心。有限Weyl商と全線束存在の新しい全域定理を証明したとはしない。既存の全証明を再査読したわけでもない。
 
-1. **模型比較の適用範囲を確定する。** AOU §9 の VdB blowup と Rains blowup の構成を追い、同じ反標準制限・Serreを持つことを証明する。AOUのtranslationパラメータとηの対応、およびright noetherian性の入力箇所を特定する。現在の十分条件を単に適用済みと読み替えない。
-2. **全弱標識分類から同値判定へ。** exact比較が得られる各点でLine_adm≅NSを使い、Aut_exがNSにどう作用するかを調べる。全線束の存在から全NSが固定圏のtensor自己同値になるとは結論しない。構造対象の相対族とスカラーGm慣性も別扱い。
-3. **torsionパラメータと相対化。** η torsionではC外の有限長対象が制限で見えなくなり得る。既知の可換線束分類と整合する別のheart判定を探す。非torsionの点ごとの証明を有限型の開族やGIT降下へ延長しない。
-4. **投稿準備。** 主要結果を線束分類・rank比較・反標準検出・AOU十分条件の論理順に整理し、既知入力をIntroductionに明示する。旧結果は必要な証明を削らず保持。全境界のheart、GIT S-同値のexact判定、無標識stack代数性は未解決とする。
+## IV. 次の課題と具体的な着手
 
-## V. 再現・保存
+1. 固定 `(A_ac,L)` のAOU/OU標識を正規化し、標準単純反射ごとに対象の変換を記述する。Lを保持すること、Weyl関係、標識集合の網羅性を順に検証する。G_Qの矢基底変更をW(E6)作用と同一視しない。
+2. A_ac内の数値的線束類の存在構成を進める。既存一意性にはRRと(EP)の適用を確認する。存在した線束の交差Ext消滅・AZ生成を調べ、Line_adm=Lineを示す。まず既知の可換点と許容形式近傍を基準にする。
+3. 必要な箇所だけAS heartとA_acを比較する。構造対象・反Serre作用・生成列の同定を明記し、導来同値のみからexact同値を主張しない。
+4. 以上の選択集合が決まってからAut_exによる軌道を分類する。groupoid/stackと相対族は後段とする。
+
+## V. 再現
 
 ```sh
 python3 -m pip install -r requirements.txt
@@ -51,4 +54,4 @@ python3 scripts/verify_unmark_bundle.py
 latexmk -lualatex papers/nc-cubic-unmark.tex
 ```
 
-組版出力は `build/nc-cubic-unmark.pdf`。bundleは `pdf/` にPDFを一つ収録し、GitはPDF/ZIPを追跡しない。書誌と参照箇所は本文と研究ノート、検証の実行範囲は `research/unmark_validation.json` にまとめる。
+PDFは `build/nc-cubic-unmark.pdf`。bundleには `pdf/nc-cubic-unmark.pdf` と必要な全ソースを入れ、GitにはPDF/ZIPを追跡しない。実行検証とその限界は `research/unmark_validation.json` に記す。
