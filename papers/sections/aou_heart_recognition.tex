@@ -1,0 +1,652 @@
+% !TeX root = ../nc-cubic-unmark.tex
+\section{AOU 族の反標準 heart と内在的階数の認識}
+\label{sec:aou-heart-recognition}
+
+標準 relation torus の稠密開部分で、有限 AOU 代数から通常の AS heart、
+反標準 corner、弱三次曲面の公理までを順に確認する。
+ここで得る非空開部分と可換基準点に、次節の very-general 定理を適用する。
+表面の heart として比較するものは AS heart と反標準 heart であり、
+楕円曲線上の coherent sheaf 圏は中心元による曲線商としてのみ用いる。
+
+\subsection{有限 AOU 代数から輸送される全対象の数値表示}
+
+\begin{proposition}[全対象の Riemann--Roch 表示の輸送]
+\label{prop:aou-full-rr-transport}
+普遍有限 AOU 代数 $R_b$（付録の $\mathscr B_b$）の九つの頂点 projective の順序を固定し、
+一つの滑らかな可換三次曲面の標準九線束と対応させる。
+この対応は、すべての $b$ について
+\[
+ K_0(\operatorname{Perf}R_b)\xrightarrow{\sim}
+ \bigl\{(r,D,s)\mid r\in\mathbb Z,\ D\in\Lambda,
+                    \ s-D^2/2\in\mathbb Z\bigr\}
+\]
+を定め、すべての対象に対して式\eqref{eq:line-rr}と
+式\eqref{eq:line-H}が成り立つ。各頂点 projective の数値階数は $1$ である。
+従って指定した導来同値
+$D^b(\mathcal A_b)\simeq\operatorname{Perf}R_b$ が得られれば、
+全対象の数値表示・Euler 形式・数値的反 Serre 作用について
+別の heart 仮定を加える必要はない。
+ただし、この数値階数と内在的 Gabriel--Krull filtration の関係は
+別に証明する必要がある。
+\end{proposition}
+\begin{proof}
+$R_b$ は有限大域次元で、その九つの projective の類は $K_0$ の整数基底である。
+それらの Euler 行列は式\eqref{eq:aou-constant-euler}であり、
+$b$ に依存せず、行列式は $1$ である。
+可換点の full exceptional collection との対応は
+$K_0(\operatorname{Perf}R_b)\simeq K_0(X)$ を Euler 形式とともに同定する。
+$X$ の Chern character を輸送すれば、表示と Riemann--Roch 式を得る。
+Euler 形式が非退化なので Serre 作用は Euler 双対性から一意に決まり、
+可換点の作用と同じである。従って $H=S^{-1}[2]$ の作用も
+式\eqref{eq:line-H}になる。九つの古典的対象は線束だから、その数値階数は $1$ である。
+\end{proof}
+
+\subsection{楕円 decuple からの noetherian 性と反標準 corner}
+\label{sec:aou-elliptic-corner}
+
+この節では AOU の relation torus の実際の稠密 locus 上で、
+AS heart と反標準 heart の比較を有限条件へ還元する。
+比較に用いる表面の heart はこの二つだけである。
+$R$ を標準九頂点の有限 relation algebra
+（付録の普遍有限代数 $\mathscr B_b$）、
+$\mathbb E=(E_i)_{i\in\mathbb Z}$ をその helix、
+$H=\mathsf S^{-1}[2]$、$E_{i+9}=HE_i$ と書く。
+rolled-up 代数には\emph{completion 次数}
+\[
+ B_n=\bigoplus_{i,j=1}^{9}\Hom(E_i,H^nE_j)\qquad(n\ge0)
+\]
+を用いる。元の有限 quiver の矢は次数零、関係式に双対な追加矢は次数一である。
+従って $B_0=R$ は有限次元で、$B$ は次数零と一で生成される。
+これはすべての矢を次数一とする path-length grading とは異なる。
+
+\begin{lemma}[楕円 helix の正規元]
+\label{lem:elliptic-helix-central-element}
+$R$ が AOU の admissible elliptic decuple $(Y,(L_v))$ から得られるとする。
+$S_i=\iota^*E_i$ を $\operatorname{coh}Y$ の line-bundle spherical helix とする。
+このとき $B$ には次数一の中心的な非零因子 $z$ があり、
+\[
+ C=B/zB,\qquad
+ C_n=\bigoplus_{i,j=1}^{9}\Hom_Y(S_i,S_{j+9n})\quad(n\ge0)
+\]
+である。右辺の積には helix の周期に伴う同定を用いる。
+$C$ の展開した $\mathbb Z$-代数は、楕円 helix の正次数 Hom 代数である。
+さらに $B$ と $C$ は左右 noetherian である。
+\end{lemma}
+\begin{proof}
+AOU\cite[Lemma 7.4]{AOU}より、三対象ずつの block の添字を $m$ とすると
+$\deg S_{\alpha,m}=m$ であり、同じ block 内の三線束は相異なる。
+従って $S_i$ は実際の線束で、その spherical helix は acyclic である。
+OU\cite[(30)--(32)]{OUHelix}は自然変換
+\[
+ \eta:H^{-1}\longrightarrow\operatorname{id}
+\]
+と、各 $E_j$ についての triangle
+\[
+ H^{-1}E_j\xrightarrow{\eta_{E_j}}E_j
+ \longrightarrow\iota_*\iota^*E_j
+\]
+を与える。特に $a<j$ では、spherical helix の acyclicity から
+\[
+ 0\longrightarrow\Hom(E_a,E_{j-9})
+ \xrightarrow{\eta_{E_j}\circ-}\Hom(E_a,E_j)
+ \longrightarrow\Hom_Y(S_a,S_j)\longrightarrow0.
+ \tag{*}
+\]
+ここで $a\le j-9$ なら exceptional helix の acyclicity を使い、
+$j-9<a<j$ なら $E_a,E_{j-9}$ は一つの foundation 内の逆向きの組なので
+その RHom 全体が零であることを使う。この二場合により、(*) はすべての $a<j$ に成立する。
+有限 foundation の次数零での対応は
+AOU\cite[(7.1)]{AOU}から直接得られる。
+
+自然変換 $\eta$ に $f=\eta_{E_j}$ を代入すると
+\[
+ \eta_{E_j}\circ H^{-1}(\eta_{E_j})
+ =\eta_{E_j}\circ\eta_{H^{-1}E_j}
+\]
+である。$a=j-18$ とした (*) の単射性により、左の $\eta_{E_j}$ を消去できる。
+従って
+\[
+ \eta_{H^{-1}E_j}=H^{-1}(\eta_{E_j}),
+ \qquad
+ \eta_{H^nE_j}=H^n(\eta_{E_j})\quad(n\in\mathbb Z).
+\]
+そこで
+\[
+ z=\sum_{j=1}^{9}\eta_{HE_j}\in B_1
+\]
+と置く。$f:E_i\to H^nE_j$ に対する $\eta$ の自然性と上の周期両立性から
+\[
+ H^n(\eta_{HE_j})\circ f=H(f)\circ\eta_{HE_i}
+\]
+であり、これは $zf=fz$ を意味する。
+(*) を $E_i$ と $H^{n+1}E_j$ に適用すると、$z:B_n\to B_{n+1}$ は単射で、
+余核は $\bigoplus_{i,j}\Hom_Y(S_i,S_{j+9(n+1)})$ である。
+次数零は AOU の有限 directed algebra の同定による。
+射の制限と自然性は合成に両立するので、これは代数の商の同定である。
+
+次に楕円 helix の ample 性を確認する。
+任意の coherent sheaf $M$ と $i\ll0$ に対し
+\[
+ \Ext^1_Y(S_i,M)=0,
+ \qquad
+ \Hom_Y(S_i,M)\otimes S_i\twoheadrightarrow M
+\]
+が成り立つ。$\deg S_i\to-\infty$ であることと、曲線上の Serre 消滅・生成による。
+ここで $\operatorname{Pic}^0Y$ 成分が変動しても、消滅・生成の次数下限は一様に取れる。
+例えば固定した線束の有限直和から $M$ の vector-bundle 部分への全射を使い、
+Serre 双対性で負次数線束への Hom 消滅に帰着できる。
+したがって $(S_i)$ は ample sequence であり、その Hom 代数の representable は
+noetherian である。後者は、右部分加群の全射の像を $S_j$ の部分対象として集め、
+noetherian 性で有限個の射を選び、ample sequence の eventual Hom 全射性から
+負の tail で同じ部分加群を生成することで直接証明できる。
+Polishchuk\cite[Theorem 2.4]{PolishchukProj}による再構成は
+\[
+ \qgr C\simeq\operatorname{coh}Y
+\]
+を与える。周期的な graded 代数と展開した $\mathbb Z$-代数の加群圏は同値なので、
+$C$ は graded 右 noetherian である。
+双対線束列と反対順序に同じ議論を適用すれば左 noetherian 性も従う。
+
+最後に、正次数の中心的非零因子による noetherian 性の持上げを用いる。
+その証明は、この場合は completion を必要としない。
+$z$-adic filtration に対して
+\[
+ \operatorname{gr}_z B\simeq C[t]
+\]
+であり、$t$ は中心的である。
+任意の homogeneous 右 ideal $I$ の initial ideal は有限個の homogeneous 元で生成される。
+それらを $I$ に持ち上げて任意の homogeneous $x\in I$ から順に引くと、
+$z$-adic 次数が増加する。同じ総次数内では $z$-adic 次数に上限があるため、
+この操作は有限回で終了する。従って $I$ は有限生成である。
+総次数の leading term を使えば非 homogeneous ideal にも有限生成性が従う。
+左側も同様である。
+\end{proof}
+
+\begin{lemma}[有限余次元 corner と tails の同値]
+\label{lem:cofinite-corner-tails}
+$B=\bigoplus_{n\ge0}B_n$ を局所有限で右 noetherian な次数付き代数とし、
+$B_0$ は有限次元、$B$ は次数零と一で生成されるとする。
+$e\in B_0$ は冪等元とし、$B/BeB$ が有限次元であると仮定する。
+$R_e=eBe$ と置けば $R_e$ は右 noetherian であり、
+\[
+ (-)e:\qgr B\xrightarrow{\sim}\qgr R_e
+\]
+は exact 同値である。$\pi(eB)$ は $\pi R_e$ に対応し、次数シフトに両立する。
+\end{lemma}
+\begin{proof}
+この corner による tails の同値は、例えば
+Amiot\cite[Corollary 3.3の証明]{AmiotCorners}でも使われる既知の機構である。
+ここでは有限生成性と tensor の降下を含めて確認する。
+$N$ を十分大きく取ると $B_N\subset BeB$ であり、
+$B_N=\sum_{a+b=N}B_aeB_b$ である。
+次数一生成から、任意の $n\ge N$ について
+\[
+ B_ne=\sum_{a=0}^{N}B_ae(eB_{n-a}e).
+\]
+従って $Be$ は有限生成右 $eBe$-加群である。
+$J\subset eBe$ を右 ideal とすると $JB\subset eB$ は有限生成であり、
+その生成に現れる有限個の $j_\nu\in J$ を選べる。
+$J=JBe=\sum_\nu j_\nu(eBe)$ なので $eBe$ は右 noetherian である。
+
+有限生成 graded 右 $B$-加群 $M$ に対して $Me$ は有限生成右 $eBe$-加群である。
+逆向きには $N\mapsto N\otimes_{eBe}eB$ を用いる。
+自然な評価射
+\[
+ Me\otimes_{eBe}eB\longrightarrow M
+\]
+の核と余核には $e$ が零作用する。
+核も有限生成であるのは $B$ の右 noetherian 性による。
+従って核と余核は有限次元代数 $B/BeB$ 上の有限生成加群であり、有限次元である。
+一方 $(N\otimes_{eBe}eB)e\simeq N$ である。
+両関手は有限次元加群を有限次元加群に送る。
+後者については、左 $eBe$-加群 $eB$ も同じ次数分解で有限生成であることを使う。
+また $N\otimes_{eBe}eB$ は加群圏では右 exact であるが、tails 上では exact になる。
+実際、$eBe$ の noetherian 性から $N$ の有限階数自由加群による resolution を取り、
+$eB$ と tensor する。$B$ の noetherian 性から、その各 Tor は有限生成右 $B$-加群である。
+$(-)e$ は exact なので、$i>0$ について
+\[
+ \operatorname{Tor}^{eBe}_i(N,eB)e
+ \simeq\operatorname{Tor}^{eBe}_i(N,eBe)=0.
+\]
+従ってこれらの Tor も $B/BeB$ 上の有限生成加群であり、有限次元である。
+これにより $\pi(N\otimes_{eBe}eB)$ は exact で、Serre 商へ降りる。
+従って tails 上で互いに逆な同値となる。
+$(-)e$ はもともと exact であり、残りの対応も定義から従う。
+\end{proof}
+
+\begin{proposition}[AOU 族の corner 条件は可換点近傍で開]
+\label{prop:aou-corner-open}
+$T_Q\simeq(\mathbb G_m)^8$ 上に、標準関係式からの普遍 rolled-up Jacobian 代数
+$\mathscr P$ を completion grading で置く。
+$e$ は標準先頭頂点とする。
+滑らかな三次曲面の標準九線束列に対応する点 $b_0$ を固定する。
+このとき $b_0$ を含む非空 Zariski 開集合 $U_{\rm corner}$ と整数 $N$ が存在し、
+すべての $b\in U_{\rm corner}$ について
+\[
+ (\mathscr P_b/\mathscr P_be\mathscr P_b)_n=0\qquad(n\ge N)
+\]
+である。
+\end{proposition}
+\begin{proof}
+まず可換 fiber で有限余次元性を示す。
+$B_{b_0,n}=\bigoplus_{i,j}\Hom_X(E_i,E_j(-nK_X))$ であり、$E_e=\OO_X$ である。
+各 $j$ について反標準豊富性から全射
+\[
+ \OO_X(-a_j(-K_X))^{\oplus r_j}\twoheadrightarrow E_j
+\]
+を選ぶ。核を $F_j$ とする。
+Serre 消滅より $n\gg0$ で
+\[
+ \Hom_X(E_i,H^{n-a_j}\OO_X)^{\oplus r_j}
+ \twoheadrightarrow\Hom_X(E_i,H^nE_j)
+\]
+となる。$n\ge a_j$ とすれば、この factorization は $B_{b_0}eB_{b_0}$ の元である。
+有限個の $i,j$ について同時に十分大きな $N$ を取れるので、
+$(B_{b_0}/B_{b_0}eB_{b_0})_N=0$ である。
+
+固定次数 $N$ の経路は有限個で、関係式の係数は底上正則である。
+従って $(\mathscr P/\mathscr Pe\mathscr P)_N$ は有限表示 coherent 加群であり、
+その fiber が零になる条件は開である。
+$b_0$ における零性から、ある開近傍 $U_{\rm corner}$ 上でこの加群は零になる。
+商代数も次数零と一で生成されるので、次数 $N$ が零ならすべての次数 $n\ge N$ が零である。
+\end{proof}
+
+\begin{corollary}[実際の AOU locus 上の反標準 heart 比較]
+\label{cor:actual-aou-corner-heart}
+$U_{\rm ell}\subset T_Q$ を AOU の楕円 decuple との birational 対応が同型となる
+非空開集合とし、$U=U_{\rm ell}\cap U_{\rm corner}$ と置く。
+このとき $U$ は非空開集合で、各 $b\in U$ について
+\[
+ \mathcal A_{{\rm AS},b}=\qgr B_b
+ \xrightarrow{\sim}\qgr(eB_be)=\mathcal A_{{\rm ac},b}
+\]
+という指定された exact 比較がある。
+ここで $\qgr B_b$ と展開した AOU $\mathbb Z$-代数の $\qgr$ は通常の加群圏の同値で同定し、
+反標準環の同定には AOU/OU--Minamoto--Mori の標準導来比較を用いる。
+$H$ は次数一シフト、先頭対象は $\pi(eB_b)$ に対応する。
+さらに $(\pi(eB_b),H)$ は Artin--Zhang 豊富である。
+\end{corollary}
+\begin{proof}
+AOU\cite[Theorem 1.1]{AOU}が $U_{\rm ell}$ を与える。
+補題\ref{lem:elliptic-helix-central-element}から $B_b$ は noetherian であり、
+命題\ref{prop:aou-corner-open}と補題\ref{lem:cofinite-corner-tails}から exact 同値を得る。
+
+通常の Abel 圏の有界導来圏との比較も確認する。
+有限代数 $R$ の global dimension は二である。
+OU の acyclicity により、$H^n(R)$ は標準 module $t$-structure で次数零に集中する
+($n\ge0$)。従って $R$ は Minamoto--Mori の意味で次元二の quasi-Fano 代数である。
+同論文\cite[Corollary 4.13]{MM}により
+$B_b=\Pi R$ は次元三、Gorenstein parameter 一の symmetric AS-regular 代数であり、
+その Beilinson 代数は $\nabla B_b=R$ である。
+上で示した noetherian 性から graded coherence が従うため、
+同論文\cite[Theorem 4.14]{MM}を適用して
+\[
+ D^b(\qgr B_b)\simeq D^b(\operatorname{mod}R)
+\]
+を得る。この同値の逆は $e_iR$ を $\pi(e_iB_b)$ に送る。
+ここで $\omega_R^{-1}$ は $H$ を実現する逆双対化双加群である。
+また $B_{b,\ge1}\simeq\omega_R^{-1}\otimes_R B_b(-1)$ と、tails での切捨ての同型から、
+$H$ は次数一シフトに対応する
+（同じ標準比較とシフトの対応は Amiot\cite[Theorem 2.3]{AmiotCorners}にも明記される）。
+この標準導来比較が $E_e$ を $\pi(eB_b)$、$H$ を次数一シフトに送るので、
+その反標準切断環は $eB_be$ と同定される。
+この段階の結論は、次数シフトが exact であるというだけの heart の呼び替えではなく、
+指定された反標準切断環への exact 再構成である。
+
+豊富性も直接確認できる。$\OO=\pi(eB_b)$ と書く。
+corner 側の任意の有限生成 graded 加群を任意に高い次数で切り捨てても
+tails の対象は変わらない。従って任意の $M\in\qgr B_b$ と任意の下限に対し
+その下限より大きい $a_\nu$ を用いた全射
+$P=\bigoplus_\nu H^{-a_\nu}\OO\twoheadrightarrow M$ が存在する。
+標準導来比較と helix の acyclicity は
+$\Hom(\OO,H^{-m}\OO)=0$ ($m>0$) と
+$\Ext^{>0}(\OO,H^m\OO)=0$ ($m\ge0$) を与える。
+また $\mathsf S=H^{-1}[2]$ と $H$ の exact 性から、heart の高次 Ext は二より上で零である。
+Serre 双対性により
+\[
+ \Ext^2(\OO,H^nM)^*
+ =\Hom(M,H^{-n-1}\OO)
+ \hookrightarrow\Hom(P,H^{-n-1}\OO)=0\qquad(n\gg0).
+\]
+$\ker(P\to M)$ にも同じ第二 Ext 消滅を適用し、$P$ の第一 Ext 消滅と長完全列を使えば
+$\Ext^1(\OO,H^nM)=0$ ($n\gg0$) も従う。
+任意の全射の核にこの消滅を適用することで、AZ の eventual Hom 全射条件を得る。
+従って $(\OO,H)$ は豊富であり、別途 $\chi_1$ を仮定していない。
+\end{proof}
+
+\begin{remark}[weak 公理への入力と族の範囲]
+上の結果は heart の同定と noetherian 性を実際の非空開 locus 上で与える。
+$g_e=eze$ と置くと、中心性から
+\[
+ (eB_be)/g_e(eB_be)\simeq eCe.
+\]
+また $C/CeC$ は $B_b/B_beB_b$ の商なので有限次元である。
+補題\ref{lem:cofinite-corner-tails}を $C$ にも適用すれば
+\[
+ \qgr(eCe)\simeq\qgr C\simeq\operatorname{coh}Y,
+ \qquad \pi(eCe)\longleftrightarrow S_e
+\]
+となる。従って corner の曲線商は実際に楕円曲線上の線束を構造対象として持つ。
+$eCe$ は楕円線束間の Hom からなるので斉次零因子を持たず、
+$eB_be$ も $g_e$-adic 次数を比較すれば domain となる。
+また $\dim(eCe)_n=3n$ ($n>0$)、$(eCe)_0=\mathbb C$ だから
+\[
+ \dim(eB_be)_n=1+\tfrac32n(n+1).
+\]
+これらは weak 公理の切断数と torsion-free 性の入力である。
+内在的 Gabriel 階数の対応、および全対象の数値表示は別途確認する。
+
+$U_{\rm ell}$ が可換点 $b_0$ を含むとは主張しない。
+代数族の very-general 線束存在証明では、相対 perfect な有限代数モデルは
+$b_0$ を含む底全体に置き、weak heart と数値比較は $b_0$ と非空開 $U$ 上にあれば足りる。
+各対象・射・RHom 開条件を $b_0$ から構成した後、最後に $B\setminus U$ も除外する。
+その証明は $B\setminus(U\cup\{b_0\})$ 上の heart を一度も使わない。
+\end{remark}
+
+\subsection{曲線商を使う内在的階数の認識}
+
+\begin{theorem}[階数公理を認識する二条件]
+\label{thm:rank-recognition-curve-witness}
+$(\mathcal A,\OO)$ は、定義\ref{def:weak-cubic}の条件から
+式\eqref{eq:gk-rank}だけを除いたものを満たすとする。
+全対象の数値表示\eqref{eq:line-rr}--\eqref{eq:line-H}を持ち、
+$r(\OO)=1$ とする。さらに次を仮定する。
+\begin{enumerate}
+\item $\OO$ は数値階数零の非零部分対象を持たない。
+\item ある $a>0$ について単射 $u:H^{-a}\OO\hookrightarrow\OO$ があり、
+      その余核 $C$ は $\mathcal A$ で有限長でない。
+\end{enumerate}
+このとき
+\[
+ \mathcal A_1=\{M\in\mathcal A\mid r(M)=0\},\qquad
+ q\OO\ne0\text{ は単純},\qquad
+ \Hom(T,\OO)=0\quad(T\in\mathcal A_1).
+\]
+さらに $\mathcal A/\mathcal A_1$ は一つの単純対象 $q\OO$ で生成される
+半単純圏であり、$\operatorname{length}(qM)=r(M)$ である。
+従って $(\mathcal A,\OO)$ は定義\ref{def:weak-cubic}の弱三次曲面である。
+この認識に $\mathcal A_0\subset\{d=0\}$ は不要である。
+\end{theorem}
+\begin{proof}
+まず定理\ref{thm:ac-serre-positivity}の証明のうち、
+反標準 Serre 消滅と Hilbert 多項式の部分は式\eqref{eq:gk-rank}を用いない。
+実際、$\OO$ の自己 Euler 数と所定の正負の Hom 数、Serre 双対性から
+$\Ext^{>0}(\OO,H^m\OO)=0$ ($m\ge0$) を得る。
+任意の対象と、その負の $H$-twist の有限直和による生成全射の核に対して
+Serre 双対性を適用すれば、全対象の十分大きい twist の高次 Ext が消える。
+従って全対象の Hilbert 多項式は式\eqref{eq:ac-hilbert-polynomial}であり、
+豊富性から非零対象の多項式は恒等的に零でない。
+最高次係数を順に比較すると、
+\[
+ r(M)\ge0,\qquad r(M)=0\Rightarrow d(M)\ge0
+\]
+を得る。$r(M)=d(M)=0$ なら、全部分商も同じ二条件を満たし、
+非零部分商の $\chi(\OO,-)$ は正整数である。
+従って任意の厳密部分対象列の長さは $\chi(\OO,M)$ 以下となり、
+$M\in\mathcal A_0$ である。
+
+この議論だけで $r(M)=0\Rightarrow M\in\mathcal A_1$ も得る。
+実際、$Q_0:\mathcal A\to\mathcal A/\mathcal A_0$ と置く。
+$Q_0M$ の任意の有限な厳密部分対象列を $M$ の部分対象列へ持ち上げると、
+各非零段階商 $N$ は $r(N)=0$、$N\notin\mathcal A_0$ を満たす。
+上の結果から $d(N)>0$ であるため、列の長さは $d(M)$ 以下である。
+よって $Q_0M$ は有限長となる。
+
+次に、仮定(2)が $\OO\notin\mathcal A_1$ を与える。
+そうでなければ $Q_0\OO$ は有限長である。
+$H$ は $\mathcal A_0$ を保つ exact 自己同値なので、
+$Q_0H^{-a}\OO$ と $Q_0\OO$ は等しい有限長を持つ。
+短完全列
+\[
+ 0\longrightarrow H^{-a}\OO\xrightarrow{u}\OO
+ \longrightarrow C\longrightarrow0
+\]
+に $Q_0$ を適用すると $Q_0C=0$ となり、
+$C\in\mathcal A_0$ という矛盾を得る。
+
+$T\in\mathcal A_1$ に対し、有限生成全射
+$\bigoplus_jH^{-a_j}\OO\twoheadrightarrow T$ を取る。
+各成分の像 $I_j$ は $\mathcal A_1$ に属し、
+階数の非負性と $r(\OO)=1$ より $r(I_j)\in\{0,1\}$ である。
+もし $r(I_j)=1$ なら、その成分の核は数値階数零であり、
+既に証明した向きにより $\mathcal A_1$ に属す。
+すると $H^{-a_j}\OO\in\mathcal A_1$ となって矛盾する。
+従って全 $I_j$ が階数零であり、$r(T)=0$ である。
+これで $\mathcal A_1=\{r=0\}$ が分かった。
+
+仮定(1)は直ちに $\Hom(\mathcal A_1,\OO)=0$ を与える。
+また $q\OO\ne0$ は上で証明した。
+その非零部分対象を $I\subset\OO$ へ持ち上げると、
+$I\notin\mathcal A_1$ だから $r(I)>0$ であり、
+階数の整数性から $r(I)=1$ である。
+従って $r(\OO/I)=0$、すなわち $\OO/I\in\mathcal A_1$ なので、
+この部分対象は $q\OO$ 全体である。これで単純性が従う。
+
+最後に所定の Hilbert 数から $\Hom(\OO,H\OO)\ne0$ である。
+非零射の像が $\mathcal A_1$ に属せば $H\OO$ の torsion-free 性に反するので、
+この射は商圏で非零単純対象間の同型を与える。
+従ってすべての $qH^n\OO$ は $q\OO$ と同型である。
+豊富性による有限生成全射を $q$ で移せば、任意の $qM$ は
+$q\OO$ の有限直和の商であり、従ってそれ自身が有限直和である。
+階数の加法性と $r(\OO)=1$ より、その直和の個数は $r(M)$ になる。
+特に Gabriel--Krull filtration の次段では $\mathcal A_2=\mathcal A$ である。
+\end{proof}
+
+\begin{lemma}[正次数正則元からの整域性]
+\label{lem:graded-domain-normal-extension}
+$R=\bigoplus_{n\ge0}R_n$ を正次数付き環、
+$g\in R_a$ ($a>0$) を両側正則な中心元とする。
+$R/gR$ が整域なら $R$ も整域である。
+\end{lemma}
+\begin{proof}
+非零斉次元 $x,y$ を取る。正次数性により
+$x=g^i x_0$、$y=g^j y_0$、$x_0,y_0\notin gR$ となる最大の $i,j$ がある。
+商が整域なので $x_0y_0\notin gR$、従って $x_0y_0\ne0$ である。
+$g$ の正則性から $xy=g^{i+j}x_0y_0\ne0$ となる。
+一般の非零元には最高次数の斉次項を用いればよい。
+\end{proof}
+
+\begin{corollary}[整域と曲線因子からの弱階数公理]
+\label{cor:elliptic-divisor-rank}
+定理\ref{thm:rank-recognition-curve-witness}の最初の数値・豊富性等の仮定の下で、
+$\mathcal A\simeq\qgr R$、$\OO\simeq\pi R$、$H\simeq(1)$ とする。
+$R$ は右 noetherian な正次数付き環であり、正次数 $a$ の正則中心元 $g$ を持つとする。
+$C=R/gR$ が整域であり、
+\[
+ \qgr C\simeq\operatorname{coh}Y
+\]
+の下で $\pi_C C$ が正次元の滑らかな曲線 $Y$ 上の線束に対応すると仮定する。
+このとき $(\mathcal A,\OO)$ は弱三次曲面の内在的階数公理を満たす。
+\end{corollary}
+\begin{proof}
+前補題により $R$ は整域である。
+非零部分対象 $M\subset\pi R$ は、Serre 商の部分対象の持上げにより
+ある斉次右イデアル $I\subset R$ の像として表せる。
+$0\ne f\in I_n$ を選ぶと、整域性は単射
+$R(-n)\xrightarrow{f\cdot}I$ を与える。
+$\pi$ は exact で $r(\pi R(-n))=1$ だから、階数の非負性より
+$r(M)\ge1$ である。従って $\OO$ は数値階数零の非零部分対象を持たない。
+
+一方、$g$ による短完全列から
+\[
+ 0\longrightarrow H^{-a}\OO\longrightarrow\OO
+ \longrightarrow j_*\pi_C C\longrightarrow0
+\]
+を得る。ここで $j_*:\qgr C\to\qgr R$ は商環に沿う制限から得る
+exact fully faithful 関手である。
+実際、加群段階での制限は exact fully faithful で、
+斉次 torsion 条件は同じであり、Serre 商の射を表す部分商も
+$C$-加群であることから商でも full faithfulness が保たれる。
+$\pi_C C$ に対応する線束を $L$ とし、閉点 $p\in Y$ を一つ取る。
+厳密な下降列
+\[
+ L\supsetneq L(-p)\supsetneq L(-2p)\supsetneq\cdots
+\]
+は $j_*$ により厳密な下降列へ移る。
+従って余核 $j_*\pi_C C$ は有限長でない。
+前定理の二条件が成立するので結論を得る。
+\end{proof}
+
+\begin{remark}[楕円線束の Hom 代数の整域性]
+上の系で必要な商環の整域性は、楕円曲線上の線束の Hom 代数について直接分かる。
+積が、自己同値による輸送と線束間の射の合成から定義されるとする。
+整な曲線上の線束間の非零射は generic point で非零なので、その合成も非零である。
+従って同一剰余類の正次数 corner は整域である。
+この事実に楕円曲線上の自己同値の完全分類を用いる必要はない。
+\end{remark}
+
+
+\begin{corollary}[稠密 AOU locus の弱反標準 heart]
+\label{cor:actual-aou-weak-heart}
+系\ref{cor:actual-aou-corner-heart}の非空開集合 $U\subset T_Q$ 上で、
+\[
+ (\mathcal A_{{\rm ac},b},\OO_b)
+ =\bigl(\qgr(eB_be),\pi(eB_be)\bigr)
+\]
+は定義\ref{def:weak-cubic}の弱三次曲面である。
+その通常の有界導来圏は有限 AOU 代数の perfect 圏に同値であり、
+全対象の Riemann--Roch 表示、反標準作用、数値階数と内在的階数の対応が成立する。
+特に
+\[
+ \mathcal A_{1,b}=\{r=0\},\qquad
+ \operatorname{length}(qM)=r(M),\qquad
+ \mathcal A_{2,b}=\mathcal A_b.
+\]
+\end{corollary}
+\begin{proof}
+Noetherian 性、指定された AS/反標準 heart 比較、$H$ の exact 性と
+$(\OO_b,H)$ の豊富性は系\ref{cor:actual-aou-corner-heart}による。
+有限 AOU 代数は smooth proper であり、頂点対象 $E_e$ は例外的なので、
+その導来比較は Hom-finiteness、Serre 双対性、$\OO_b$ の例外性を与える。
+命題\ref{prop:aou-full-rr-transport}は全対象の RR と $H$-作用、$r(\OO_b)=1$ を与える。
+反標準切断環は $eB_be$ であり、その切断数は
+$1+3n(n+1)/2$ ($n\ge0$)、負次数は零である。
+中心的正則元による曲線商は楕円曲線の線束を構造対象に持つ整域なので、
+系\ref{cor:elliptic-divisor-rank}を適用できる。
+これで残っていた内在的階数公理が得られ、弱公理の全条件が揃う。
+\end{proof}
+
+\begin{proposition}[中心的曲線因子がある場合の零次元層]
+\label{prop:elliptic-divisor-length-recognition}
+弱反標準 heart $\mathcal A$ に全対象の数値表示
+\eqref{eq:line-rr}--\eqref{eq:line-H}を置く。
+$\mathcal A\simeq\qgr R$、$\OO\simeq\pi_RR$、$H\simeq(1)$ とし、
+$R$ は局所有限な正次数付き右 noetherian 環であるとする。
+正次数 $a$ の正則中心元 $g$ があり、$C=R/gR$ に対して
+\[
+ \qgr C\simeq\operatorname{coh}Y
+\]
+という exact 同値が与えられているとする。
+ここで $Y$ は滑らかな射影曲線で、$\pi_CC$ は線束 $L$ に対応する。
+このとき
+\[
+ \mathcal A_0=\{M\mid r(M)=d(M)=0\}.
+\]
+特に、本稿で構成した中心楕円因子を持つ AOU の稠密開 locus では
+\[
+ \mathcal A_0=\{r=d=0\},\qquad
+ \mathcal A_1=\{r=0\},\qquad \mathcal A_2=\mathcal A
+\]
+と Gabriel--Krull filtration の全段階を数値的に記述できる。
+\end{proposition}
+\begin{proof}
+商環に沿う制限は、次数シフトに両立する exact fully faithful 関手
+$j_*:\qgr C\to\qgr R$ を与える。
+実際、$C$-加群の $R$-部分加群と $C$-部分加群は一致し、有限次元性も変わらない。
+従って Serre 商の射を、有限次元の核・余核を除いた部分商の間の射の
+filtered colimit で計算すれば、両圏の $\Hom$ は一致する。
+制限の exact 性は加群圏での exact 性から降下する。
+中心元 $g$ は自然変換 $g:H^{-a}\to\operatorname{id}_{\mathcal A}$ を定める。
+この自然変換は次数シフトに両立する。
+単純対象 $M\in\mathcal A$ を取る。
+$H^{-a}M$ も単純なので、$g_M$ は零写像または同型である。
+
+$g_M$ が同型なら、
+$h_M(n)=\dim\Hom(\OO,H^nM)$ は周期 $a$ を持つ。
+定理\ref{thm:ac-serre-positivity}によれば、十分大きな $n$ でこれは
+\[
+ P_M(n)=\tfrac32r(M)n(n+1)
+       +\bigl(d(M)-r(M)d(\OO)\bigr)n+\chi(\OO,M)
+\]
+に一致する。周期を持つ多項式は定数なので $r(M)=d(M)=0$ である。
+$M\ne0$ と豊富性から、この定数は正整数である。
+
+$g_M=0$ の場合、有限生成 graded 右 $R$-加群 $N$ で
+$\pi_RN\cong M$ を取る。
+$\pi_R$ の exact 性から $\pi_R(Ng)=0$ であり、$Ng$ は有限次元である。
+従って十分高い次数の tail $N_{\ge n_0}$ は $g$ で消される。
+この tail は noetherian 性により有限生成で、
+$N/N_{\ge n_0}$ は有限次元だから、$M\cong j_*T$ なる $T\in\qgr C$ を得る。
+$j_*$ の exact 性と忠実性、および $M$ の単純性から $T$ は単純である。
+従って $\operatorname{coh}Y$ の下で $T$ はある閉点の構造層に対応する。
+
+$H_C=(1)$ を $\qgr C$ の次数シフトとする。
+$H_C$ は exact 自己同値なので、$H_C^nT$ もすべて単純であり、
+対応する $\operatorname{coh}Y$ の対象は点層である。
+この主張には、次数シフトが $Y$ のどの自己同型を誘導するかを決定する必要はない。
+任意の射 $f:\OO\to H^nM$ について中心元の自然性は
+\[
+ f\circ g_{\OO}=g_{H^nM}\circ H^{-a}(f)=0
+\]
+を与える。従って $f$ は $\OO\twoheadrightarrow j_*\pi_CC$ を一意に経由する。
+full faithfulness と次数シフトとの両立性により、すべての $n$ について
+\[
+ \Hom_{\mathcal A}(\OO,H^nM)
+ \simeq\Hom_{\qgr C}(\pi_CC,H_C^nT)
+ \simeq\Hom_Y(L,k(p_n))\simeq\mathbb C.
+\]
+よってこの場合も $P_M(n)=1$ であり、$r(M)=d(M)=0$ となる。
+
+以上からすべての単純対象の $r,d$ は零である。
+有限長対象には有限組成列があるので、加法性により
+$\mathcal A_0\subseteq\{r=d=0\}$ を得る。
+逆の包含は定理\ref{thm:ac-serre-positivity}による。
+残り二段階の記述は、既に認識した内在的階数と商圏の長さの公式による。
+\end{proof}
+
+\begin{corollary}[root 単純対象への中心元の可逆性]
+\label{cor:root-simple-off-divisor}
+前命題の仮定の下で、$d(T)=0$、$c_1(T)\ne0$ なる単純対象 $T$ が存在すれば、
+中心元の作用 $g_T:H^{-a}T\to T$ は同型である。
+逆に、$g$ で消される任意の単純対象 $P$ の数値類は $(0,0,1)$ である。
+\end{corollary}
+\begin{proof}
+補題\ref{lem:zero-degree-simple-classification}により
+$\Ext^1_{\mathcal A}(T,T)=0$ である。
+もし $g_T=0$ なら、前命題の証明から $T\simeq j_*k(p)$ となる。
+滑らかな曲線上では $\Ext^1_Y(k(p),k(p))\simeq\mathbb C$ であり、
+非分裂な自己拡大が存在する。
+exact fully faithful な $j_*$ はこの拡大を非分裂のまま送る。
+実際、像に分裂射があれば fullness で元の圏へ持ち上がり、
+faithfulness によって分裂射の等式も戻るためである。
+これは $T$ の剛体性に矛盾する。
+単純対象間の $g_T$ は零または同型なので、後者でなければならない。
+$g$ で消される単純対象には上の自己拡大があるため root 型は除外され、
+同じ分類補題から $c_1(P)=0$ である。
+前命題の Hilbert 定数 $1$ と Riemann--Roch より $s(P)=1$ を得る。
+\end{proof}
+
+\begin{remark}[適用範囲]
+ここで $\mathcal A_0\Rightarrow d=0$ が得られたのは、中心的な正則元による
+曲線商と、その構造対象が線束であることを使ったためである。
+一般の weak 反標準 heart の公理だけから同じ結論が従うとは主張しない。
+また、中心元が可逆に作用する単純対象の Hilbert 定数は一般には $1$ と限らない。
+定数が必ず $1$ となるのは、この証明では $g$ で消される単純対象である。
+\end{remark}
+
+\subsection{非常に一般の定理に必要な heart の定義域}
+
+\begin{remark}[稠密開部分と可換基準点で足りる]
+\label{rem:generic-heart-dense-domain}
+定理\ref{thm:very-general-line-existence}の族の仮定で、
+有限代数・相対 perfect 比較・反 Serre 双加群は $B$ 全体に必要だが、
+指定された弱反標準 heart は、ある稠密開部分 $U\subset B$ と基準点 $b_0$ で
+与えられていれば十分である。
+実際、相対複体と射の代数化、および固定 $n$ ごとの RHom 消滅の開条件は
+$\operatorname{Perf}(\mathscr B)$ の中だけで構成される。
+heart 検出と torsion-free 性を用いる段階では、最終的な点を $U$ 内に制限すればよい。
+除外集合へ $B\setminus U$ を加えても、それは真閉集合一つを加えるだけである。
+可換基準点 $b_0$ が $U$ に属する必要はない。
+従って AOU の楕円 decuple による稠密開部分が可換点を含まないこと自体は、
+非常に一般の存在定理・自己同値像の定理を適用する障害ではない。
+\end{remark}

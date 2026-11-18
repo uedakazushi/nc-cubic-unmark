@@ -31,25 +31,31 @@ $B$ を滑らかな既約有限型複素多様体、$b_0\in B(\mathbb C)$ とし
       $\sum_i e_i=1$ とする。
       $\operatorname{Perf}(\mathscr B_{b_0})$ の各対象は
       $e_i\mathscr B_{b_0}$ の有限直和を項とする有界複体で表せる。
-\item 各 $b$ に対して
+\item ある非空 Zariski 開部分 $U\subset B$ があり、
+      各 $b\in U\cup\{b_0\}$ に対して
       $\operatorname{Perf}(\mathscr B_b)\simeq D^b(\mathcal A_b)$ が与えられ、
       $(\mathcal A_b,\OO_b)$ は指定された反標準 heart における弱三次曲面である。
       全対象の数値表示\eqref{eq:line-rr}--\eqref{eq:line-H}、格子 $\Lambda$、
       $r(\OO_b)=1$ は固定 projective の $K_0$ 類と両立して族上で同定される。
-\item $\OO_b$ は相対 perfect 対象 $\mathscr O$ の fiber であり、
+\item $B$ 全体に相対 perfect 対象 $\mathscr O$ があり、
+      比較を持つ点ではその fiber が $\OO_b$ に対応する。
       $H_b=\mathsf S_b^{-1}[2]$ は底変更と両立する可逆な相対 perfect 双加群で実現される。
       相対 perfect 対象間の RHom は底上 perfect で、底変更を満たす。
 \item $\mathcal A_{b_0}\simeq\operatorname{coh}X$、$\OO_{b_0}\simeq\OO_X$ であり、
       $X$ は滑らかな三次曲面、$\Pic(X)=\Lambda$ とする。
 \end{enumerate}
+有限代数と相対 perfect データは $B$ 全体に置くが、$b_0\in U$ は仮定しない。
 このとき $B$ の可算個の真の閉部分集合の合併の外では
 \begin{equation}\label{eq:generic-all-lines}
  \operatorname{Line}_{\rm adm}(\mathcal A_b)
  =\operatorname{Line}(\mathcal A_b)
  \xrightarrow[\sim]{\ c_1\ }\Lambda
 \end{equation}
-である。さらに任意の許容線束 $L$ に対して、標準三ブロック線束標識の集合
-$\operatorname{Mark}^{\rm line}_Q(\mathcal A_b,L)$ は非空な $W(E_6)$-torsor となる。
+である。さらに任意の許容線束 $L$ に対して、
+標準三ブロック very strong 標識の集合は
+$\operatorname{Mark}^{\rm vs}_Q(\mathcal A_b,L)
+ =\operatorname{Mark}^{\rm line}_Q(\mathcal A_b,L)$ であり、
+非空な $W(E_6)$-torsor となる。
 \end{theorem}
 \begin{proof}
 \emph{線束の代数化。}
@@ -100,7 +106,8 @@ $F,C_i,C_p$ の $v_0$ での fiber はいずれも $\operatorname{coh}X$ に属�
  \RHom(\mathscr O,H^nC_p)
 \]
 の fiber が次数零に集中する locus は、$v_0$ を含む Zariski 開集合である。
-これら可算個の開集合の共通部分上では、補題\ref{lem:ac-heart-detection}により
+これら可算個の開集合の共通部分のうち $U$ 上の点では、
+補題\ref{lem:ac-heart-detection}により
 $F,C_i,C_p$ は指定 heart に属す。従って $i$ は単射、$p$ は全射である。
 $F$ は $H^m\OO_b$ に埋め込まれるので torsion-free であり、
 $r(F)=1$ だから $qF$ は非零、かつ単純対象 $qH^m\OO_b$ の部分対象である。
@@ -117,7 +124,7 @@ $v_0$ では Kodaira 消滅と $H^{>0}(X,\OO_X)=0$ により成立するので�
 $V\to B$ は相対次元零の dominant な \textit{\'etale} 射である。
 各 bad closed subset $Z'\subsetneq V$ に対し
 $\dim Z'<\dim B$ なので、その像の閉包も $B$ の真の閉部分集合である。
-$B\setminus\operatorname{im}(V)$ とこれら可算個の閉包を除けば、
+$B\setminus U$、$B\setminus\operatorname{im}(V)$ とこれら可算個の閉包を除けば、
 残る $b$ は $V$ に持ち上がり、上の全条件を満たす線束を得る。
 ここでは像と可算共通部分を交換していない。
 $\Lambda$ は可算なので、全 $D$ についての除外集合の合併も可算である。
@@ -153,17 +160,18 @@ Bridgeland--Stern\cite[Theorem 5.3(ii)]{BSHelices}により very strong であ�
 零次数 root 型単純対象は存在しない。
 従って定理\ref{thm:rootfree-cross-reflection}を各先頭線束に適用すると、
 標識集合が $W(E_6)$-torsor であることが従う。
+さらに定理\ref{thm:aou-helix-line-recognition}により、
+同じ結論は $\operatorname{Mark}^{\rm vs}_Q$ 全体に成立する。
 \end{proof}
 
 \begin{remark}[AOU 族への適用範囲]\label{rem:generic-family-scope}
-この定理は、指定された反標準 heart とその代数的モデルの比較を仮定する。
-有限 relation algebra の族、固定頂点 projective、導来 Serre 作用だけから、
-仮定(2)の heart・階数・数値表示を自動的に得たとはしない。
-AOU の relation parameter 上ではこれらの比較を確認した既約 locus に適用する。
-全 GIT 境界、別の既約成分、任意の OU 型の helix への主張ではない。
+この定理は、指定された反標準 heart とその代数的モデルの比較を入力とする。
+有限 relation algebra の族だけから heart 公理を推論するものではない。
+標準 AOU relation torus では、系\ref{cor:actual-aou-weak-heart}が
+非空開部分でこの入力を与え、可換基準点も通常の三次曲面として持つ。
+従って後の定理\ref{thm:actual-aou-very-general}で実際に適用できる。
+全 GIT 境界、別の既約成分、標準 Euler 型と異なる一般 OU helix への主張ではない。
 結論の非常に一般の locus を単一の Zariski 開集合とも主張しない。
-自己同値の数値像は、さらに有限 AOU 族と接方向の仮定を加えた
-定理\ref{thm:very-general-numerical-aut}で決定する。
 \end{remark}
 
 \subsection{有限関係式の等化子による自己同値像の決定}
@@ -390,8 +398,8 @@ $F(E^0_{j,b})$ と $E^a_{j,v}$ は同じ第一 Chern 類を持つから、
 
 \begin{corollary}[条件付き非常に一般の二段階 fiber]
 \label{cor:very-general-actual-fibers}
-前定理の仮定の下で、標準三ブロック線束標識
-$\operatorname{Mark}^{\rm line}_Q$ を標識付き側とし、
+前定理の仮定の下で、標準三ブロック very strong 標識
+$\operatorname{Mark}^{\rm vs}_Q=\operatorname{Mark}^{\rm line}_Q$ を標識付き側とし、
 圏の exact 同値類を点とする集合論的 moduli の
 非常に一般の点での二段階の忘却 fiber は、順に
 \[
@@ -407,40 +415,97 @@ $\operatorname{Mark}^{\rm line}_Q$ を標識付き側とし、
 従って自己同値群そのものの核を分類する必要はない。
 \end{proof}
 
-\begin{remark}[普遍 AOU 族で確認済みの入力と残る仮定]
-\label{rem:generic-aut-aou-input}
-有限代数側の入力は本稿で確認できる。
-補題\ref{lem:aou-fullsupport-torus}の正規化切断により、八次元の $T_Q$ 自身の上に
-普遍有限代数を置ける。
-定理\ref{thm:universal-directed-family}は階数 $45$、大域次元 $2$、
-固定された九つの頂点 projective、相対 smooth proper 性を与える。
-従って相対 Serre 関手とその逆は可逆な perfect 双加群で実現でき、
-相対 perfect RHom と底変更の条件も満たす。
-命題\ref{prop:aou-kodaira-spencer-iso}と上の明示的商により、可換点で
-\[
- T_{m_0(b_0)}T_Q\xrightarrow{\ \sim\ }HH^2(X)
-\]
-である。したがって $T_Q$ の開近傍を底とすれば、
-定理\ref{thm:very-general-picard-kernel}の非常に一般の組 $(X,\pi)$ から
-必要な接方向を選べる。
-$\operatorname{Aut}(X)=1$ は同時に課す可換点の条件として明示しておく。
-十八次元 relation torus 上で始めた場合も、選んだ点を通る正規化切断に制限すればよい。
-この八次元切断上で定理を適用することにより、正次元の商射に沿って
-可算個の真閉集合を押し下げるという誤った議論を避けられる。
+\subsection{標準 AOU moduli への適用}
 
-なお、これは実際の AOU moduli 全体への無条件な適用ではない。
-残る入力は、選んだ既約開近傍での\emph{指定反標準 heart と有限代数族との比較}、
-弱三次曲面公理、および全対象の数値表示・階数の族との整合性である。
-これらは定理\ref{thm:very-general-line-existence}の仮定として残る。
-それらを確認した locus では、新たに generic 自己同値を特殊化する仮定を加えずに
-式\eqref{eq:generic-numerical-aut}と二つの fiber が得られる。
-本結果は自己同値の\emph{数値像}と線束・標識への作用を決定するものであり、
-数値的に自明な自己同値群自体の消滅を主張しない。
-またすべての頂点はラベル付きで扱った。
-頂点を置換する自己同値は、自己同値の数値ラベル $w$ として上の議論に既に含まれる。
-第一 fiber の記述は標準三ブロック線束標識に対するものである。
-元の AOU 定義の対象全体と同一視するには、その適用 locus の九つの構造対象が
-反標準 heart の rank-one torsion-free exceptional 対象であることを確認する。
-上の定理は普遍頂点対象についてこの線束性を非常に一般の点で導いているが、
-任意の AOU 型表示や一般 OU helix の全体を分類したとはしない。
+\begin{definition}[弱公理に適合する標準標識の定義域]
+\label{def:maximal-weak-compatible-aou}
+$\mathcal M_Q^{\rm ac}$ は、標準 Euler 型 $C_Q$ の full very strong helix を持つ
+AOU 型 AS 標識のうち、その先頭対象から得る反標準 heart と許容構造対象が
+弱三次曲面をなし、AS heart との指定された exact 比較を持つものの全体とする。
+標識は九対象の順序付き thread として扱い、矢の基底は含めない。
+heart の比較は標識からの再構成を確認するために用い、独立に選ぶ追加の標識として数えない。
+点は圏・先頭対象・順序付き thread の exact 同値類であり、
+忘却先は弱標識付き圏と無標識圏の exact 同値類の集合である。
+標準 AOU 関係式が与えるこの最大の適合範囲を定義域とし、
+証明のために選んだ小さい開部分へ忘却写像の定義域自体を制限しない。
+\end{definition}
+
+\begin{theorem}[実際の AOU 族の非常に一般の二段階 fiber]
+\label{thm:actual-aou-very-general}
+$T_Q\simeq(\mathbb G_m)^8$ を全係数非零の標準 AOU 関係式の幾何学的商とする。
+可算個の真の閉部分集合 $Z_i\subsetneq T_Q$ が存在し、
+$b\in T_Q(\mathbb C)\setminus\bigcup_iZ_i$ では次が成立する。
+\begin{enumerate}
+\item 標準 AS heart は指定された弱反標準 heart $\mathcal A_b$ に exact 同値である。
+      $\Lambda=I_{1,6}$、$K^2=3$ とすると
+      \[
+       \operatorname{Line}_{\rm adm}(\mathcal A_b)
+       =\operatorname{Line}(\mathcal A_b)
+       \xrightarrow[\sim]{c_1}\Lambda.
+      \]
+\item 任意の許容先頭線束 $L$ 上の標準 full very strong 標識はすべて線束標識であり、
+      その集合は非空な $W(E_6)$-torsor である。
+\item exact 自己同値の数値像は
+      $\Gamma_{\mathcal A_b}=\mathbb ZK$ である。
+      定義\ref{def:maximal-weak-compatible-aou}の定義域で取った忘却写像 $p,q$ の fiber は
+      \[
+       p^{-1}[(\mathcal A_b,L)]\simeq W(E_6)\text{ の torsor},\qquad
+       q^{-1}[\mathcal A_b]\simeq\Lambda/\mathbb ZK
+         \simeq Q(E_6)^\vee.
+      \]
+\end{enumerate}
+第一 fiber は $51840$ 点である。
+第二 fiber の自然な整数ラベルは $E_6$ の weight lattice であり、
+固定した圏内の線束選択そのもののラベル $\Lambda$ と区別する。
+\end{theorem}
+\begin{proof}
+補題\ref{lem:aou-fullsupport-torus}の正規化切断により、
+八次元 torus $T_Q$ 自身の上に普遍有限 AOU 代数を置ける。
+定理\ref{thm:universal-directed-family}は階数 $45$、大域次元 $2$、
+固定九頂点 projective と相対 smooth proper 性を与える。
+従って相対 Serre 関手とその逆は可逆 perfect 双加群で実現され、
+相対 perfect RHom と底変更の条件も満たす。
+系\ref{cor:actual-aou-weak-heart}により、非空開部分 $U\subset T_Q$ で
+指定反標準 heart、弱公理、全対象 RR、内在的階数との整合性が得られる。
+
+可換基準点は $\operatorname{Aut}(X)=1$ となるように選ぶ。
+定理\ref{thm:very-general-picard-kernel}の非常に一般の組 $(X,\pi)$ について
+この条件を同時に満たせる。
+標準可換列の関係式は全係数非零であり、$b_0\in T_Q$ を定める。
+命題\ref{prop:aou-kodaira-spencer-iso}と上の torus 商により
+\[
+ T_{b_0}T_Q\xrightarrow{\sim}HH^2(X)
+\]
+なので、Poisson 成分がこの $\pi$ に等しい接ベクトルを選べる。
+$U$ に $b_0$ が含まれる必要はなく、
+注意\ref{rem:generic-heart-dense-domain}のとおり
+heart を $U\cup\{b_0\}$ で持つ形の族仮定を使う。
+従って定理\ref{thm:very-general-line-existence}と
+定理\ref{thm:very-general-numerical-aut}を $B=T_Q$ に適用できる。
+これで全線束存在、全許容性、$\Gamma_{\mathcal A_b}=\mathbb ZK$ を得る。
+
+全線束存在は系\ref{cor:admissible-root-halfspace}により条件(R0)を与える。
+任意の標準 AOU 型表示を固定弱標識 $(\mathcal A_b,L)$ へ輸送すると、
+その thread は定理\ref{thm:aou-helix-line-recognition}の仮定を満たす。
+従って九対象は自動的に $\mathcal A_b$ 内の線束である。
+逆にすべての構成した線束標識は
+系\ref{cor:line-helix-as-reconstruction}と命題\ref{prop:aou-simple-resolution}により
+weak heart と exact に比較できる AOU 型 AS 標識を与える。
+これで定義\ref{def:maximal-weak-compatible-aou}の fiber と
+標準線束標識の fiber が一致する。
+系\ref{cor:very-general-actual-fibers}を適用して二つの式を得る。
+\end{proof}
+
+\begin{remark}[範囲と自然なラベル]\label{rem:generic-aut-aou-input}
+この結果は標準 AOU relation torus の非常に一般の点についての定理である。
+証明の稠密開部分 $U$ に marked 側を恣意的に制限すると、
+同じ弱標識の別の Weyl 標識を落とす可能性がある。
+そのため fiber は定義\ref{def:maximal-weak-compatible-aou}の全適合範囲で取り、
+$U$ は対象の存在と公理の確認に用いる。
+全 GIT 境界への写像、全 OU 型の分類、Weyl 作用の全域正則性は含まない。
+
+全頂点はラベル付きで扱う。頂点を置換する自己同値は、その数値ラベル $w$ に含まれる。
+数値的に自明な自己同値群自体が自明であるとは主張しない。
+その核は線束と標識の同型類へ自明に作用するので、ここでの fiber には影響しない。
+また $Q(E_6)^\vee$ は離散的な整数ラベルであり、連続 moduli 次元を表さない。
 \end{remark}

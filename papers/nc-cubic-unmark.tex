@@ -21,34 +21,31 @@
 \newcommand{\Cw}{\mathfrak C^{\rm w}}\newcommand{\Cu}{\mathfrak C^{\rm u}}
 \title{非可換三次曲面の二段階の標識忘却\\\large 反標準 heart・有限 Weyl 群・線束の選択}
 \author{植田一石}
-\date{2026年11月18日 / unmark-v11}
+\date{2026年11月18日 / unmark-v12}
 \begin{document}\maketitle
 \begin{abstract}
-AOU の三ブロック線束型標識から弱標識へ、弱標識から無標識へ至る二段階の忘却を、
-反標準 heart を基準として集合論的に研究する。
-固定弱標識上の三ブロック線束標識の選択と、固定 heart 内の線束の選択を調べ、
-それらを圏の exact 同値類を点とする moduli fiber と区別する。
-比較する別の心は AS heart のみとする。
+AOU の標準三ブロック標識から弱標識へ、弱標識から無標識へ至る二段階の忘却を、
+反標準 heart を基準として集合論的に研究する。比較する別の表面の heart は AS heart のみとする。
+標準 AOU relation torus の非常に一般の点では、固定 heart 内の許容線束は
+三次曲面の Picard 格子 $\Lambda=I_{1,6}$ の全類で一意に添字付けられ、
+各先頭線束上の標準 full very strong 標識は $W(E_6)$-torsor をなす。
+圏の exact 同値類を点に取る実際の忘却 fiber は、順に
+$W(E_6)$-torsor と $\Lambda/\mathbb ZK\simeq Q(E_6)^\vee$ である。
 
-弱三次曲面の内在的公理と全対象の数値 Riemann--Roch の下で、
-Serre 消滅、階数認識、有効次数正値性と線束の数値的一意性を示す。
-零次数 root 型単純対象がない場合、三対象交換を実際に構成し、
-非空な標準標識集合が $W(E_6)$-torsor であることを証明する。
-許容線束を含む helix からの再構成により、AS heart と反標準 heart の比較も得る。
-root 型単純対象が存在する場合には、線束集合上の affine 反射と
-許容線束の半空間条件を示すが、この単純対象の実例は構成していない。
+証明では、楕円 decuple に由来する正則中心元と有限余次元 corner を用い、
+実際の稠密開部分上で AS heart と反標準 heart の exact 比較、豊富性、弱公理を確認する。
+曲線因子により数値階数と内在的 Gabriel--Krull filtration を比較する。
+固定弱反標準 heart では、右反標準 tail の第一 Ext 消滅から
+単純な数値的階数一対象の torsion-free 性を導き、
+標準 very strong helix の全九対象を線束として認識する。
+零次数 root 型単純対象がない場合の三対象交換は、有限 Weyl 作用を実現する。
 
-指定された反標準 heart と相対 perfect モデルを持つ代数族が可換三次曲面を含むとき、
-非常に一般の fiber では全 Picard 類の許容線束が存在し、各先頭線束上の
-標準標識集合は $W(E_6)$-torsor となる。
-実際の集合論的 fiber は自己同値の数値像 $\Gamma$ による軌道商であり、
-反標準シフトによる $\mathbb ZK$ の同一視を必ず含む。
-さらに有限 AOU 代数族と一次 Poisson 接方向の条件の下で、
-可算個の関係式等化子を用いて非常に一般の自己同値の数値像を $\mathbb ZK$ と決定する。
-許容 Artin 変形では、可換自己同型群が自明で一次 Poisson 障害の整数核が
-$\mathbb ZK$ なら、全次数で二つの fiber はそれぞれ
-$W(E_6)$-torsor と $\Pic/\mathbb ZK$ となる。
-代数族の仮定、AOU locus への適用、および未解決の範囲を明記する。
+非常に一般の全線束存在には、個々の projective 複体の代数化と可算個の開条件を用いる。
+自己同値の数値像は、有限 AOU 関係式の等化子と一次 Poisson 障害により
+$\mathbb ZK$ と決定する。generic 自己同値そのものの特殊化は必要としない。
+許容 Artin 変形でも対応する全次数の fiber を求める。
+標識付き側の定義域は、弱公理と反標準 heart の比較を満たす標準 AOU 型の全範囲である。
+全 GIT 境界や標準 Euler 型と異なる一般 OU helix は結論の対象としない。
 \end{abstract}
 {\small\tableofcontents}
 \clearpage
@@ -69,14 +66,16 @@ $W(E_6)$-torsor と $\Pic/\mathbb ZK$ となる。
 最初に調べる集合は
 $\operatorname{Mark}^{\rm line}_Q(\mathcal A,L)$ と
 $\operatorname{Line}_{\rm adm}(\mathcal A)$ であり、
-前者は AOU の標準三ブロック線束型に限定する。
+前者をまず AOU の標準三ブロック線束型について調べ、
+その後、同じ Euler 型の full very strong helix 全体を認識する。
 数値格子上の Weyl 作用だけで実際の helix の存在を推論せず、
 各数値的線束類の存在・一意性・許容性もそれぞれ確認する。
 対象同士のテンソル積や Picard 格子による固定非可換圏上の作用は仮定しない。
-本稿で構成する線束標識は AOU 型の AS 標識を与えるが、
-任意の AOU 標識の全九対象が固定反標準 heart で torsion-free になるという
-逆向きの認識は未証明である（注意\ref{rem:aou-line-converse}）。
-従って以下の第一 fiber は、この明示した線束型に限定して取る。
+本稿で構成する線束標識は AOU 型の AS 標識を与える。
+逆に、零次数 root のない固定弱反標準 heart 上では、
+任意の標準 full very strong helix の九対象は自動的に線束となる
+（定理\ref{thm:aou-helix-line-recognition}）。
+従って標識付き側の適合定義域では、線束性を最初から制限として課す必要はない。
 
 圏の exact 同値類を点に取る moduli では、集合論的 fiber にも自己同値による同一視が入る。
 全線束と標識の実現された範囲で、自己同値の数値像を
@@ -118,15 +117,37 @@ helix 全体が豊富で、その代数は右 noetherian となる。
 Polishchuk 再構成によって AS heart は指定反標準 heart に exact 同値となる
 （補題\ref{lem:ample-helix-reconstruction}、系\ref{cor:line-helix-as-reconstruction}）。
 零次数 root のない場合は、有限 End 代数が全係数非零の AOU relation 表示を持つことも示す。
+さらに $r(E)=1$、$\End(E)=\mathbb C$、
+$\Ext^1(E,H^nL)=0$ ($n\gg0$) から $E$ の torsion-free 性を導く
+（命題\ref{prop:right-tail-torsionfree-recognition}）。
+最大 torsion 部分の右 tail Euler 多項式の一次係数が負の有効次数になることが要点である。
+これと反標準 Hom による heart 検出、Euler 格子からの階数認識を合わせることで、
+標準 very strong helix を線束型へ認識する。
+
+\paragraph{実際の AOU 族における反標準 heart.}
+楕円 decuple の spherical helix に対する OU の構成から、
+completion 次数一の正則中心元を得る。
+その商は楕円線束の Hom 代数であり、豊富列の再構成と正則中心元による持上げから
+rolled-up 代数の noetherian 性が従う。
+先頭頂点 $e$ に対する有限余次元条件 $\dim B/BeB<\infty$ は、
+可換点で成立する一つの有限次数の開条件として確保できる。
+これにより稠密開部分で
+$\qgr B\simeq\qgr(eBe)$ を得る。
+通常の有界導来圏との比較、AZ 豊富性、曲線因子による内在的階数認識まで確認して、
+反標準 heart の弱公理を実際に証明する
+（系\ref{cor:actual-aou-weak-heart}）。
+
 
 \paragraph{代数族と形式近傍の到達点.}
-定理\ref{thm:very-general-line-existence}は、有限局所自由代数族と各 fiber の
-指定弱反標準 heart、数値格子、相対 perfect 比較、可換三次曲面 fiber を仮定する。
+定理\ref{thm:very-general-line-existence}は、有限局所自由代数族と相対 perfect 比較を
+底全体に置き、指定弱反標準 heart と数値格子を稠密開部分および可換基準点で仮定する。
+この稠密開部分が基準点を含む必要はない。
 各古典的線束を有界 projective 複体として代数化し、
 単射・全射の witness と可算個の消滅条件を用いることで、
 非常に一般の点に全 Picard 類の許容線束を構成する。
 全線束存在は零次数 root を排除し、各先頭線束に対する標準標識も実現する。
-この族仮定を AOU の具体的 locus で確認することと、抽象的な条件付き結論とを区別する。
+系\ref{cor:actual-aou-weak-heart}によって、これらの族仮定を
+標準 AOU relation torus 上で満たせる。
 
 許容 Artin 変形では全線束と標識が一意に持ち上がる。
 $\Aut(X)=1$ かつ一次 Poisson 障害の整数核が $\mathbb ZK_X$ なら、
@@ -138,14 +159,17 @@ exact 自己同値の特殊化像は全次数でちょうど $\mathbb ZK_X$ で�
 別に決定する（定理\ref{thm:very-general-numerical-aut}）。
 各 affine 数値ラベルに対応する九対象の End 代数が元の代数と一致する locus は、
 反標準平行移動を除けば真閉となる。
-これにより、指定した族の仮定の下で非常に一般の実際の fiber も
+これにより、標準 AOU relation torus の非常に一般の実際の fiber は
 $W(E_6)$-torsor と $\Lambda/\mathbb ZK$ である
-（系\ref{cor:very-general-actual-fibers}）。
-第一 fiber は前述の三ブロック線束型に限定する。
+（定理\ref{thm:actual-aou-very-general}）。
+第一 fiber は、weak 公理と AS/反標準 heart 比較を満たす標準 AOU 型標識の
+全適合定義域で取る。証明用の開部分に標識付き側を縮めると、
+別の Weyl 標識を落とし得るため、この二つの範囲を区別する。
 
 \paragraph{先行研究と本稿の導出の位置.}
 AOU\cite{AOU}は標準九線束の relation 表示と標識付き非可換三次曲面のモジュライを構成する。
-その標準列\cite[(4.1), (9.44)]{AOU}と、古典的格子 frame の
+その標準列\cite[(4.1), (9.44)]{AOU}、楕円 decuple との birational 対応と
+線束 spherical helix\cite[Theorem 1.1, Lemma 7.4]{AOU}、古典的格子 frame の
 $W(E_6)$-torsor\cite[\S2.6]{DGK}は本稿の既知入力である。
 OU\cite[Definition 1.1(3)]{OU2025}の一般の marking は very strong helix の選択であり、
 本稿の有限性をその全体へ拡張していない。
@@ -156,6 +180,11 @@ OU\cite[(18)--(25)および末尾の議論]{OUHelix}を用いる。
 AZ 豊富性では異なる負指数を許す任意 tail の有限生成を使い、
 Polishchuk\cite[Lemma 2.1(ii), Theorem 2.4]{PolishchukProj}の再構成を適用する。
 一般の豊富対だけに高次 Ext 消滅を読み込むことはしない。
+通常の $D^b(\qgr)$ と有限代数の導来圏の比較には
+Minamoto--Mori\cite[Corollary 4.13, Theorem 4.14]{MM}を用いる。
+有限余次元 corner による tails 同値は、Amiot\cite[Corollary 3.3の証明]{AmiotCorners}にも
+現れる既知の機構である。本稿は必要な有限生成・Tor の確認を与え、
+AOU 族の有限開条件、豊富性、内在的階数公理を結び付けて適用する。
 
 Serre 双対性、階数一の非零射の単射性、有効次数による第二 Ext 消滅には
 Hoffmann--Reede\cite[Lemma 3.9]{HR}の先行例がある。
@@ -180,26 +209,28 @@ De Deken--Lowen、一次変形における Picard 作用は Toda の枠組みを
 \input{papers/sections/aou_to_unmarked.tex}
 \input{papers/sections/line_bundle_classification.tex}
 \input{papers/sections/weyl_line_markings.tex}
+\input{papers/sections/aou_heart_recognition.tex}
 \input{papers/sections/generic_line_choices.tex}
 \input{papers/sections/commutative_formal_markings.tex}
 \input{papers/sections/picard_obstructions.tex}
 \input{papers/sections/picard_invariants.tex}
 
 \section{現在の課題}
-第一の核心は、定理\ref{thm:very-general-line-existence}の反標準 heart・数値表示・
-相対 perfect 比較の仮定を AOU relation 族の具体的な既約 locus で確認することである。
-有限代数・関係式商・Kodaira--Spencer 側の入力は確認でき、
-その heart 仮定の下では定理\ref{thm:very-general-numerical-aut}が
-自己同値の数値像を $\mathbb ZK$ と決定する。
-第二は、任意の AOU 型標識の九対象が、固定反標準 heart で線束対象となるという
-逆向きの認識である。これを示して初めて、三ブロック線束型の $W(E_6)$-torsor を
-制限なしの AOU fiber と同一視できる。
+標準 AOU relation torus の非常に一般の点について、
+反標準 heart の弱公理、全数値線束の存在と許容性、標準 helix の線束認識、
+二つの集合論的 fiber は定理\ref{thm:actual-aou-very-general}でまとまる。
+次の核心は、弱公理に適合する最大の locus と、その特殊部分の構造である。
+零次数 root 型単純対象の実在・排除、部分的な線束実現集合と許容半空間の関係、
+Weyl 標識変更がどの範囲で代数的に定義されるかを調べる。
 
-特殊 locus では零次数 root 型単純対象の実在・排除、および
-$\mathcal A_0\subset\{d=0\}$ が残る。
-条件なしの全数値類存在、全線束の許容性、全 GIT 境界・全 OU helix の分類は結論していない。
+中心楕円因子を持つ今回の稠密 locus では
+$\mathcal A_0=\{r=d=0\}$ も成立する
+（命題\ref{prop:elliptic-divisor-length-recognition}）。
+中心因子を仮定しない抽象的な弱 heart の全体での逆向きは残る。
+全 GIT 境界、標準 Euler 型と異なる一般 OU helix、
+数値的に自明な自己同値群そのものの分類は結論していない。
 既知結果との比較を続け、公表上の中心結果と新規性を確定する。
-群oid・stack・降下の精密化は、これらの集合論的分類の後に行う。
+群oid・stack・降下の精密化は、現在の集合論的結果を基礎に次段階で扱う。
 
 \appendix
 \section{可換三次曲面のHochschild変形}\label{sec:hh}
@@ -238,9 +269,11 @@ $\wedge^3T_X=0$なので$\HH^3=0$。
 \path{computations/verify_weyl_frames.py}、
 静的参照検査は \path{scripts/verify_unmark_bundle.py} である。
 計算は数値恒等式を検算するもので、線束の存在やheartの同定の証明ではない。
-反標準 Serre 消滅・階数認識を入力に、root affine 反射、三対象交換、
-helix 再構成、代数族の線束存在・自己同値等化子と許容 Artin fiber の
-新しい証明を点検した。
+今回の追加証明では、右 tail による torsion-free 認識、
+中心楕円因子、有限余次元 corner、通常の導来比較、AZ 豊富性、
+内在的階数と有限長の認識、および実際の AOU 族への適用を論理点検した。
+既存の root affine 反射、三対象交換、代数族の線束存在・自己同値等化子と
+許容 Artin fiber の証明も、仮定を明示して保持する。
 数値上の有限探索では27本の $(-1)$ 類の網羅性、72個の六組、
 $51840$ 個の順序付き標識、単純反射の Coxeter 関係を検算する。
 数値計算は圏内での exactness や存在を証明するものではなく、
@@ -256,7 +289,7 @@ Adv. Math. 109 (1994), 228--287,
 \bibitem{AOU} T. Abdelgadir, S. Okawa, K. Ueda,
 \emph{Compact moduli of marked noncommutative cubic surfaces},
 \href{https://arxiv.org/abs/2404.00175}{arXiv:2404.00175}, v1.
-参照: Introduction, \S\S4.6, 5.1--5.4, Theorems 1.1, 1.2, 9.4, Lemma 9.2.
+参照: Introduction, \S\S4.6, 5.1--5.4, 7、Theorems 1.1, 1.2, 9.4、Lemmas 7.4, 9.2。
 \bibitem{Lowen} W. Lowen,
 \emph{Obstruction theory for objects in abelian and derived categories},
 Comm. Algebra 33 (2005), 3195--3223,
@@ -282,7 +315,23 @@ Definition 1.1 and Theorem 6.4.
 \bibitem{OUHelix} S. Okawa, K. Ueda,
 \emph{AS-regular algebras from acyclic spherical helices},
 \href{https://arxiv.org/abs/2007.07620}{arXiv:2007.07620v1} (2020).
-参照: (18)--(25)、Proposition 2、Theorem 5の後の最終段落。
+参照: (18)--(25), (30)--(32)、Proposition 2、Theorem 5とその後の最終段落。
+\bibitem{MM} H. Minamoto, I. Mori,
+\emph{The structure of AS-Gorenstein algebras},
+Adv. Math. 226 (2011), no. 5, 4061--4095,
+\href{https://doi.org/10.1016/j.aim.2010.11.004}{doi:10.1016/j.aim.2010.11.004}.
+一次資料照合は著者版
+\href{https://www.math.kyoto-u.ac.jp/preprint/2010/06Minamoto.pdf}{\emph{Structures of AS-regular Algebras}}
+の Definition 1.2、Corollary 4.13、Theorem 4.14による。
+\bibitem{AmiotCorners} C. Amiot,
+\emph{Preprojective algebras, singularity categories and orthogonal decompositions},
+in \emph{Algebras, Quivers and Representations}, Abel Symposia 8,
+Springer (2013), 1--11,
+\href{https://doi.org/10.1007/978-3-642-39485-0_1}{doi:10.1007/978-3-642-39485-0\_1};
+\href{https://www-fourier.univ-grenoble-alpes.fr/~amiot/amiot.pdf}{著者公開原稿}.
+参照: Theorem 2.3（Minamoto の導来比較と次数シフト）、
+Corollary 3.3の証明（有限余次元 corner による tails 同値）。
+本稿ではこの一次資料の本文と参照番号を確認した。
 \bibitem{KellerCY} B. Keller,
 \emph{Deformed Calabi--Yau completions},
 \href{https://arxiv.org/abs/0908.3499}{arXiv:0908.3499}.

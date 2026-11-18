@@ -1,7 +1,9 @@
 % !TeX root = ../nc-cubic-unmark.tex
 \section{AOU 型線束標識の有限性と反射への還元}\label{sec:weyl-frame}
 \subsection{標準九対象からの格子標識の復元}
-以下では AOU の三ブロック型の\emph{線束}標識に対象を限定する。
+まず AOU の標準三ブロック型の線束標識を分類する。
+節末の定理\ref{thm:aou-helix-line-recognition}で、同じ標準 Euler 型の
+full very strong helix をこの線束型へ認識する。
 OU\cite[Definition 1.1(3)]{OU2025}の任意の very strong helix は、
 この型に限られないので、以下の有限性をその全体には主張しない。
 定義\ref{def:weak-cubic}を満たす $(\mathcal A,\OO_0)$ を固定し、
@@ -613,14 +615,167 @@ $m+1,m+2,m+3$ を使って表示している。
 \end{remark}
 
 
-\begin{remark}[AOU 標識への包含と逆向きの範囲]\label{rem:aou-line-converse}
-以上により、本稿の三ブロック線束標識は実際の AOU 型 AS 標識を与える。
-先頭が許容線束なら、その AS heart は指定反標準 heart に同定される。
-逆に任意の AOU 型標識が、同じ反標準 heart 内で九つの
-rank-one torsion-free 対象からなることは、本稿では証明していない。
-Euler 型・Serre 作用から数値階数を求めることと、torsion-free 性の認識は別である。
-従って第一忘却の torsor・fiber の結論は、明示した三ブロック線束型の対象範囲について述べる。
-全 AOU fiber への拡張にはこの逆向きの認識が必要である。
+\subsection{右反標準 tail による線束認識}
+
+この小節では、標準 helix の各対象が線束であるという仮定を外す。
+反標準 heart の weak 公理、式\eqref{eq:line-rr}--\eqref{eq:line-H}、
+$r(\OO_0)=1$、および式\eqref{eq:no-zero-root}を仮定する。
+
+\begin{lemma}[数値的階数一と generic 単純性]
+\label{lem:numerical-rank-one-generic-simple}
+$E\in\mathcal A$ が $r(E)=1$ を満たすとき、
+$qE\in\mathcal A/\mathcal A_1$ は非零単純対象である。
+特に $E$ が $\mathcal A_1$ の非零部分対象を持たなければ、
+内在的に rank-one torsion-free である。
+\end{lemma}
+\begin{proof}
+定理\ref{thm:ac-serre-positivity}より
+$\mathcal A_1=\{r=0\}$ であり、全対象の階数は非負整数である。
+従って $qE\ne0$ である。
+$qE$ が非零真部分対象を持つなら、Serre 商の部分対象の持上げにより
+$E'\subset E$ があって $qE'$ と $q(E/E')$ はともに非零となる。
+すると両者の階数は正整数であり、
+$1=r(E)=r(E')+r(E/E')\ge2$ となって矛盾する。
+\end{proof}
+
+\begin{proposition}[右反標準 tail による torsion-free 判定]
+\label{prop:right-tail-torsionfree-recognition}
+$L\in\operatorname{Line}_{\rm adm}(\mathcal A)$ とする。
+$E\in\mathcal A$ が
+\[
+ r(E)=1,\qquad \End(E)=\mathbb C,\qquad
+ \Ext^1(E,H^nL)=0\quad(n\gg0)
+\]
+を満たせば、$E$ は rank-one torsion-free である。
+さらに $E$ が例外的なら線束対象である。
+この判定に $E$ 自身の豊富性は仮定しない。
+\end{proposition}
+\begin{proof}
+Noetherian 性により、$E$ の $\mathcal A_1$ に属す最大の部分対象 $T$ が存在する。
+完全列
+\[
+ 0\longrightarrow T\longrightarrow E\longrightarrow F\longrightarrow0
+\]
+を取る。$F$ は $\mathcal A_1$ の非零部分対象を持たず、$r(F)=1$ である。
+前補題により $F$ は rank-one torsion-free である。
+定理\ref{thm:numerical-line-uniqueness}の第二 Ext 消滅を用いると、
+$d(F)<d(H^nL)+3=d(L)+3n+3$ となる十分大きな $n$ に対し
+\[
+ \Ext^2(F,H^nL)=0
+\]
+となる。
+長完全列の
+\[
+ \Ext^1(E,H^nL)\longrightarrow\Ext^1(T,H^nL)
+ \longrightarrow\Ext^2(F,H^nL)
+\]
+から $\Ext^1(T,H^nL)=0$ を得る。
+また $T\in\mathcal A_1$ と $H^nL$ の torsion-free 性により
+$\Hom(T,H^nL)=0$ である。
+従って $n\gg0$ に対し
+\[
+ \chi(T,H^nL)=\dim\Ext^2(T,H^nL)\ge0.
+\]
+$\operatorname{ch}T=(0,C,s)$、$D_L=c_1(L)$ とすると、Riemann--Roch は
+\[
+ \chi(T,H^nL)
+ =s-C\cdot D_L+\tfrac12 K\cdot C-n\,d(T)
+\]
+を与える。有効次数正値性 $d(T)\ge0$ と合わせると $d(T)=0$ である。
+
+式\eqref{eq:no-zero-root}と補題\ref{lem:zero-degree-point-type}により、
+$T\ne0$ なら $\operatorname{ch}T=(0,0,s)$、$s\in\mathbb Z_{>0}$ となる。
+一方、任意の非零射 $f:F\to T$ は、上の全射と単射との合成により
+$E$ の非零な平方零自己準同型を与える。
+これは $\End(E)=\mathbb C$ に反するから、$\Hom(F,T)=0$ である。
+Serre 双対性と $F$ の torsion-free 性から
+\[
+ \Ext^2(F,T)=\Hom(T,H^{-1}F)^*=0
+\]
+でもある。従って
+\[
+ s=\chi(F,T)=-\dim\Ext^1(F,T)\le0,
+\]
+となって矛盾する。ゆえに $T=0$ であり、結論を得る。
+この証明は Mukai の不等式も、剛体 torsion 対象の分類も用いない。
+\end{proof}
+
+\begin{theorem}[標準三ブロック helix の線束認識]
+\label{thm:aou-helix-line-recognition}
+$L\in\operatorname{Line}_{\rm adm}(\mathcal A)$ とし、
+$D^b(\mathcal A)$ の九対象 $\mathbb E=(E_0,\ldots,E_8)$ が
+$E_0\cong L$ を満たす full strong exceptional thread であるとする。
+各ブロックは完全直交し、Euler 行列は式\eqref{eq:frame-euler}の $C_Q$ とする。
+さらに $E_{i+9}=HE_i$ による helix は very strong とする。
+このとき九対象はすべて反標準 heart $\mathcal A$ の線束対象である。
+
+従って、この条件を満たす導来圏内の thread の同型類集合を
+$\operatorname{Mark}^{\rm vs}_Q(\mathcal A,L)$ と書けば、
+\[
+ \operatorname{Mark}^{\rm vs}_Q(\mathcal A,L)
+ =\operatorname{Mark}^{\rm line}_Q(\mathcal A,L).
+\]
+この集合が非空なら、定理\ref{thm:rootfree-cross-reflection}により
+$W(E_6)$-torsor である。
+\end{theorem}
+\begin{proof}
+\emph{heart の認識。}
+各 $i$ に対して $H^nE_i$ は $n\gg0$ で $L=E_0$ より後に位置するので、
+very strongness は
+\[
+ \Hom(L,H^nE_i[k])=0\qquad(k\ne0,\ n\gg0)
+\]
+を与える。許容構造対象を $L$ に取り替えて
+補題\ref{lem:ac-heart-detection}を適用すれば $E_i\in\mathcal A$ となる。
+
+\emph{数値的階数の認識。}
+可換三次曲面上の標準九線束 thread の数値 $K$ 格子を $V_{\rm st}$ とし、
+その基底を $e_0,\ldots,e_8$、点の数値類を $p_{\rm st}$ とする。
+二つの full exceptional basis の Euler 行列が $C_Q$ で一致するので、
+\[
+ G:V_{\rm st}\xrightarrow{\sim}K_0^{\rm num}(\mathcal A),
+ \qquad G(e_i)=[E_i]
+\]
+は整数 Euler 格子の同型である。
+非退化な Euler 形式は Serre 作用を一意に定めるので、$G$ は Serre 作用、
+従って $H_*$ および $N=H_*-1$ と可換である。
+数値表示空間のベクトル $p=(0,0,1)$ に対し、式\eqref{eq:line-H}から
+\[
+ N^2v=3r(v)p
+\]
+が成り立つ。標準側で $r(e_0)=1$、対象側で $G(e_0)=[L]$、$r(L)=1$ なので
+\[
+ 3G(p_{\rm st})=G(N^2e_0)=N^2[L]=3p.
+\]
+数値表示空間で $G(p_{\rm st})=p$ であり、特に $p$ は整数数値類としても実現される。
+Riemann--Roch による $\chi(p,v)=r(v)$ を使うと
+\[
+ r(E_i)=\chi(p,G(e_i))
+       =\chi(p_{\rm st},e_i)=1
+\]
+を得る。
+
+\emph{torsion-free 性。}
+各 $E_i$ は例外的なので $\End(E_i)=\mathbb C$ である。
+また $H^nL$ は $n\gg0$ で $E_i$ より後にあるため、very strongness より
+\[
+ \Ext^1(E_i,H^nL)=0\qquad(n\gg0)
+\]
+となる。命題\ref{prop:right-tail-torsionfree-recognition}を各 $E_i$ に適用すれば
+rank-one torsion-free 性が従う。例外性はもともとの仮定に含まれるので、
+九対象はすべて線束対象である。
+逆の包含は線束標識の定義による。
+\end{proof}
+
+\begin{remark}[AOU への適用範囲]\label{rem:aou-line-converse}
+この定理は、固定した弱標識の上に、標準 Euler 型を持つ full very strong helix として
+実現されるすべての AOU 型標識を認識する。
+各九対象の heart への所属・数値的階数一・torsion-free 性を別に仮定する必要はない。
+従って、そのような実現と weak 反標準 heart の比較が確認された定義域では、
+第一 fiber を線束型の部分集合に制限する理由はなくなる。
+他方、AOU 関係式の全 GIT 境界でこの実現と weak 公理が成立することを、
+本定理だけから主張するものではない。
+標準 Euler 型と異なる一般 OU helix も、この定理の対象ではない。
 \end{remark}
 
 \subsection{自己同値の数値作用と実際の集合論的 fiber}

@@ -38,6 +38,17 @@ def main() -> None:
     base = (1, other, product(other, other)/2)
     hilbert = sp.Rational(3,2)*rank*m*(m+1)+(degree_v-rank*degree_o)*m+chi(base,v)
     assert sp.expand(chi(base,twist(v,m))-hilbert) == 0
+    # Right-tail torsion recognition: the linear coefficient is -d(T).
+    torsion = (0, divisor, s)
+    right_tail = s-product(divisor,other)+product(canonical,divisor)/2-m*degree_v
+    assert sp.expand(chi(torsion,twist(base,m))-right_tail) == 0
+    point_torsion = (0, sp.zeros(7,1), s)
+    assert sp.expand(chi((1,divisor,t),point_torsion)-s) == 0
+    # A periodic Hilbert polynomial has r=d=0: difference coefficients.
+    period = sp.symbols('a', positive=True, integer=True)
+    diff = sp.expand(hilbert-hilbert.subs(m,m-period))
+    assert sp.expand(diff.coeff(m)-3*period*rank) == 0
+    assert sp.expand(diff.subs(rank,0)-period*degree_v) == 0
     # Conditional root-simple evaluation: C^2=-2, K.C=0, s=C.D0+c.
     c, root_dot_base, base_square = sp.symbols('c root_dot_base base_square')
     root_square = -2
@@ -80,7 +91,8 @@ def main() -> None:
     print('PASS: Serre duality, H-invariance, same-class negative quotient degree=-3; parity')
     print('PASS: arbitrary-base Hilbert polynomial; conditional root-evaluation defect=0')
     print('PASS: root universal-extension defect=-b*h; affine reflection and involution')
-    print('PASS: (H-1)^2 v=3r[point]')
+    print('PASS: (H-1)^2 v=3r[point]; right-tail Euler slope=-d(T); chi(F,point)=s')
+    print('PASS: periodic Hilbert polynomial forces rank and degree zero')
     print('PASS: twist quotient degree=3r, theta Euler difference=-degree')
     print('LIMIT: categorical existence, positivity (EP), and heart/rank comparison are not tested')
 
