@@ -1,6 +1,6 @@
-# 研究方針：反標準 heart における二段階の標識忘却
+# 研究方針：構造対象・quiver 標識と忘却射のモジュライ
 
-**2026-11-18 / unmark-v12。最初に本ファイルを読む。** 次に `papers/nc-cubic-unmark.tex`、`research/unmark_notes.md`。GitHub `uedakazushi/nc-cubic-unmark` の main をソース正本とする。
+**2026-11-19 / unmark-v13。最初に本ファイルを読む。** 次に `papers/nc-cubic-unmark.tex`、`research/unmark_notes.md`。GitHub `uedakazushi/nc-cubic-unmark` の main をソース正本とする。
 
 ## I. 恒常的な研究原則と保存許可
 
@@ -12,21 +12,27 @@
 
 ## II. 本研究の対象と達成基準
 
-基準は **anticanonical heart** `A_ac=qgr R_e`、`H=S^{-1}[2]`。比較する別のheartは **AS heartのみ**。Rains/VdB heartは議論に用いない。Hのt-exact性だけで任意のheartを反標準heartと呼ばず、豊富対による再構成または指定されたexact比較を保持する。
+**主目標は、構造対象を指定する O-marking と、rolled-up quiver Q を持つ full very strong exceptional collection を指定する Q-marking のモジュライ、および忘却射 p:M^Q→M^O とその fiber を定義・記述することである。** 固定圏内の標識集合、基礎点との同定を保持する2-fiber、同型類集合のfiberを区別する。複素点の群oidと一般fiberの記述には到達し、次は実際の代数族との比較と相対幾何を中心に進める。
 
-中心は二段階の集合論的分類である。
+採用する最小のO-markingは、noetherian Abel圏A、Hom有限なDb(A)のSerre作用H=S^{-1}[2]、H(A)=A、GK filtrationでrank1 torsion-freeなO、AZ豊富対(O,H)、三次曲面型の反標準Hilbert級数からなる。Oの例外性は仮定に含めず、smooth proper enhancement・数値Picard格子・ambient表示も独立に扱う（`def:o-marked-cubic`）。AZ再構成によりAはqgr R_Oとなるため、基準はanticanonical heartである。比較する別の表面heartはAS heartのみ。構造対象をテンソル単位とみなさない。
 
-1. 固定した弱標識 `(A_ac,L)` 上の標準Euler型を持つfull very strongなAOU三ブロック標識を有限Weyl群 `W(E6)` で記述する。九対象の線束性も認識する。
-2. 固定した `A_ac` 内の許容線束を数値Picard格子 `Λ=I_{1,6}` で分類し、その後、圏のexact同値類を点とする忘却写像のfiberを求める。
+Qは頂点の順序・先頭頂点・cut次数を含むrolled-up quiver。有限foundation R=End(⊕E_i)とB=⊕Hom(⊕E_i,H^n⊕E_i)を区別し、Bのaugmentationに関する最小表示kQ/Iを要求する。矢・関係・potentialの基底は標識に含めない（`def:q-marking`）。先頭E1は構造対象であり、残りの対象のheart所属はvery strongnessから導く。
 
-固定圏内の対象の同型類と、圏の自己同値による同一視は集合論の段階から区別する。標準AOU relation torusのvery generalな点では、前者は `W(E6)` のtorsorと `Λ`、後者は `W(E6)` のtorsorと `Λ/ZK≅P(E6)` である。後者の第二fiberが生のPicard格子ではないのは、Hの冪が必ずK方向を同一視するためである。群oid/stack・慣性・降下はこの集合論的問題の後に扱う。
+標準AOU型では、Q-markingの存在から比較用weak公理と全対象RR/H構造を導く。さらに零次数root非存在条件(R0)と非空性の下で、固定(A,O)の標識集合はW(E6)-torsor。rawな2-fiberは51840個のB(Gm^8)の非交和、成分スカラーを除いた2-fiberは51840点、同型類集合のfiberはΓ_O\W(E6)である。exact自己同値の数値作用はこの範囲で忠実なので、Γ_Oは実際のO-pointed自己同値群と同型である。
 
-標準AOU relation torusの稠密開部分 `U` について、指定反標準heartのweak公理・全対象のRR/H作用・相対perfect比較を確認し、very-general定理を実際に適用するという達成基準は満たした（`sec:aou-heart-recognition`, `thm:actual-aou-very-general`）。忘却写像の定義域は、weak公理と指定AS/反標準heart比較に適合する標準AOU・full very strong標識の最大の範囲 `M_Q^ac` とする（`def:maximal-weak-compatible-aou`）。証明用に選んだ開部分 `U` へmarked側を恣意的に縮めると別のWeyl標識を落とし得るため、`U` とfiberの定義域を区別する。一般OUの全型や全GIT境界はこの定理の対象としない。
+実際の標準AOU relation torusのvery general点では、全許容線束の数値類がΛ、Aut_ex(A)=〈H〉≅Z、Aut_ex(A,O)=1であり、同型類集合の第一fiberも51840点となる。保持する第二の忘却結果Λ/ZK≅P(E6)は、**例外的構造対象の部分**のfiberである。最小O-markingの全体で例外性が従うことは未証明であり、第二fiberを無条件に全体へ広げない。
+
+これらの点ごとの結果を代数スタックの存在や有限étale射の証明と同一視しない。relativeモデルの選択、heart・Serre・基底変換、降下、rigidificationの仮定を次の課題として明示する。証明用の小さい開Uと、全Weyl標識を含む飽和した定義域は異なる。一般OUの全quiver型や全GIT境界の分類は現結論に含めない。
 
 ## III. 現在の到達点と証明の状態
 
-以下の到達点には本文に証明を記載する。今回追加した右tail認識、実際のAOU heart構成、階数・有限長認識、代数族への適用は独立に論理点検した。保持した既存証明すべてを今回再査読したという意味ではない。既知再構成・変形・格子論と本稿の推論を区別する。外部査読、証明支援系による形式化、網羅的な新規性確認は未実施。
+以下の到達点には本文に証明を記載する。今回の論理点検は最小O公理、Qの最小表示からEuler形式への導出、RRを使わないhelixのheart認識、群oidのfiber・慣性、Oの欠損比較、exact自己同値の数値作用の忠実性を中心とする。既存のvery-general線束存在の主要な依存関係も点検したが、保持した全証明の新たな独立再査読を意味しない。既知再構成・Morita理論・変形・格子論と本稿の推論を区別する。外部査読、証明支援系による形式化、網羅的な新規性確認は未実施。
 
+- **最小構造対象と例外性の差**：定義からhdim A=2、負自己twistのHom消滅、非負自己twistのExt²消滅、中心Cを導く（`lem:o-minimal-consequences`, `lem:dimension-centre`）。既存のweak/RR heart内の構造対象はδ=D²/2−ch₂≥0を持ち、Ext¹(O,H^mO)=2δ (m≥0)。δ=0、例外性、正自己twist消滅、旧許容線束が同値（`prop:o-marking-defect-comparison`）。I_pは自己HomのHilbert条件を満たすがAZ生成を満たさず、最小O公理全体の反例ではない。
+- **RRなしのheart認識**：構造対象からの全非負自己twist高次Ext消滅は、AZ生成とhdim2により全対象のeventual Serre消滅を与える。これが反標準Homによるheart検出を与え、very strong helixの全対象がAに入る（`lem:o-ample-serre-vanishing`, `prop:o-helix-heart-recognition`）。一般の豊富対だけに高次Ext消滅を読み込まない。
+- **quiverから数値構造へ**：標準27矢rolled-up quiverのcut0部分は18矢三層代数。まずgldim≤2を示し、Kellerの未変形3-CY completionの最小逆関係矢を比較して九つの独立関係、dim R=45、標準Euler行列を得る（`prop:aou-quiver-euler-recognition`）。一つのQ-markingからsmooth proper性、O例外性、K0=Knum、全対象RR/Hと内在的rankを導く（`cor:q-marking-numerical-inputs`）。全係数非零には(R0)を別に使う。
+- **モジュライとfiber**：M^O、M^Q、M^{Q,rig}を複素点の群oidとして定義。2-fiberは標識集合で添字付けられたB(Gm^{ell−1})、rigidified fiberは離散標識集合、π0のfiberはO-pointed自己同値軌道（`thm:q-o-fiber-groupoids`）。絶対慣性には中央拡大があるが、一般の分裂やglobalな積gerbeを主張しない（`prop:q-marking-scalar-inertia`）。étale site上の相対定義はモデルを指定してstackificationを取る。代数性・相対finite étale性は未証明。
+- **数値作用の忠実性**：標準Q-marking存在+(R0)の下で、数値的に恒等のexact自己同値は各E_iを固定する。全係数非零関係のarrow rescalingはvertex innerに限られ、exact関手のdg liftとMorita bimoduleからF≅idを導く（`prop:q-numerical-auto-faithful`）。Aut_ex(A)↪Λ⋊W、O安定化群↪W、その標識集合への作用は自由。very generalにはAut_ex(A)=〈H〉、pointed群=1。抽象的な任意のtriangulated自己同値や、rootを持つ全圏への主張ではない。
 - **内在的線束判定と数値一意性**：weak公理、全対象上の三次曲面型RR/H作用、r(O0)=1から、Serre消滅、A1={r=0}、有効次数正値性を導く。rank1tfのEnd=C、Ext²self=0、欠陥n≥0、Ext¹self=2n。例外性はn=0と同値で、c1でlineが一意（`thm:intrinsic-line-criterion`, `thm:ac-serre-positivity`, `thm:numerical-line-uniqueness`）。rank1tfだけでは例外性は出ず、可換I_pが反例。抽象weak heart全体でのA0⇒d=0は未証明だが、中心楕円因子を持つ実際のAOU locusでは以下の認識結果が成立する。
 - **許容性の判定**：有限個の負H-twist of LからO0への全射と、全m≥0の正自己twist高次Ext消滅が、Lのweak許容性と同値（`prop:line-admissibility-test`）。
 - **root型simpleの条件付き構成**：零次数root simple T=(0,C,s)が存在する場合、a=s−D·CについてHom(L,T)=max(a,0)、Ext¹(L,T)=max(−a,0)。評価核・普遍拡大によりline集合に反射D↦D−aCを構成し、反標準切断環を保つ。許容線束はa>0を満たす（`thm:root-line-reflection`, `cor:admissible-root-halfspace`）。Tの実在も一般的な排除も主張しない。全Λの許容lineがあればTは排除される。
@@ -37,19 +43,19 @@
 - **実際のAOU locusの零次元層**：中心楕円因子を持つUでは `A0={r=d=0}`、`A1={r=0}`、`A2=A`（`prop:elliptic-divisor-length-recognition`）。単純対象への中心元の作用を同型の場合と零の場合に分け、前者はHilbert多項式の周期性、後者は曲線上の点層から次数零を導く。曲線商の点層の非零自己拡大は保たれるため、root simpleは中心元が可逆に作用する部分へ限定できる（`cor:root-simple-off-divisor`）。抽象weak公理だけに一般化してはいない。
 - **very-general存在定理と実際の適用**：有限局所自由代数族と相対perfect比較を滑らかな既約底全体に持ち、weak反標準heartを稠密開Uと可換基準点b0で持てば、very generalに `Line_adm=Line≅Λ`、かつ全L上の標準標識が非空なW(E6)-torsor（`thm:very-general-line-existence`）。`b0∈U` は不要。projective複体の代数化、単射・全射のwitnessと可算個のheart/消滅条件を用いる。標準AOU relation torusでは上記のheart認識と普遍有限代数によって全入力が確認できる。
 - **集合論的な実際のfiber**：full標識があればexact自己同値の数値像Γ_AはΛ⋊W(E6)の部分群で、中心のZKを含む。全line・標識の存在範囲で第一fiberはΓ_L\W、第二はΛ/Γ_A=(Λ/ZK)/barΓ_A（`prop:affine-auto-action`, `cor:actual-set-fibers`）。「set theoretic」でも自己同値による同一視は残る。
-- **実際のvery-general自己同値像とfiber**：八次元の標準AOU relation torusにはAut(X)=1の可換点と整数核ZKのPoisson接方向を選べる。全係数非零のrelation商を八つの明示的torus不変式で記述し、可算個の数値ラベルごとにEnd代数の等化子が真閉となることから、very generalに `Γ_A=ZK`（`thm:very-general-numerical-aut`, `thm:actual-aou-very-general`）。generic自己同値自体の特殊化は不要。最大のweak適合標準AOU定義域では第一fiberは51840点のW(E6)-torsor、第二は `Λ/ZK≅P(E6)`。数値的に自明な自己同値群そのものの分類は含まない。
+- **実際のvery-general自己同値像とfiber**：八次元の標準AOU relation torusにはAut(X)=1の可換点と整数核ZKのPoisson接方向を選べる。全係数非零のrelation商を八つの明示的torus不変式で記述し、可算個の数値ラベルごとにEnd代数の等化子が真閉となることから、very generalに `Γ_A=ZK`（`thm:very-general-numerical-aut`, `thm:actual-aou-very-general`）。generic自己同値自体の特殊化は不要。最大のweak適合標準AOU定義域で同型類集合の第一fiberは51840点のW(E6)-torsor、例外的構造対象に限った第二fiberは `Λ/ZK≅P(E6)`。上の忠実性命題を合わせると、このlocusでは自己同値群自体が〈H〉≅Zとなり、O-pointed群は自明である。
 - **許容Artin底の全次数**：Aut(X)=1と、整数核がZKの一次Poisson方向を持つ許容相対変形では、特殊化自己同値像はちょうどZK。第一fiberはW-torsor、第二はPic/ZK。compatible形式塔にも成立（`thm:artin-actual-fibers`, `cor:first-order-pointings`）。分数体の任意の自己同値を特殊化できるとは主張しない。
 
 有効な可換・形式比較、Picard一次障害・整数核・不変式、普遍有限代数、HH/Serre数値計算を現行本文・付録に保持する。線束持上げとtensor自己同値持上げを混同しない。
 
 ## IV. 未解決の核心と次の着手
 
-1. **特殊locusの線束とroot simple。** 中心楕円因子を持つUではGabriel--Krull filtrationを数値的に認識できた。次は零次数root simpleの実在・排除を調べ、部分的な線束実現集合Ω_Aと許容半空間条件の関係を決定する。曲線の点層は非零self Ext¹を持ち、exact fully faithfulな商環からの制限がその拡大を保つため、rigidなroot simpleは中心元が可逆に作用する部分に限られる（`cor:root-simple-off-divisor`）。この部分のsimpleと線束に対する評価射から実在条件を追う。root affine反射は先頭Lを動かすので、固定L上の有限W作用とは別である。中心因子を仮定しない抽象weak heartではA0⇒d=0も残る。
-2. **最大weak適合locusの幾何学的境界と作用。** 証明に用いたUは全適合範囲の一部である。有限余次元corner条件、noetherian性、AS/反標準比較、weak公理のどこが境界で失われるかを分けて調べる。三対象交換のkernel・cokernel・cohomology構成を相対化し、有限Weyl作用がどこまで代数的・正則に定義されるかを追う。一般OUの全Euler型や全GIT境界の分類を現在の結果へ読み込まない。
-3. **先行研究との精密な比較と公表上の位置。** AOU/OUの標識moduli、Minamoto–MoriとAmiotの導来・corner比較、既存の非可換del Pezzo線束分類を一次資料で照合し、仮定と対象範囲の差、新たな導出の優先権を確定する。有限Weyl格子論・AZ再構成・相対持上げ理論そのものは既知入力として扱う。
-4. **集合論の後の精密化。** 特殊locusと最大定義域を見極めた後、数値自明な自己同値、相対降下、groupoid/stackを扱う。very-general fiberの集合論的結論はその前提として保持する。
+1. **実際の族と内在的モジュライの比較。** AOUの関係式表示[R_good/G_18]から相対qgr、構造対象、指定helixを構成する。有限余次元corner、noetherian性、perfect HomとSerre、基底変換・heartの両立、exact同値の降下を確認し、`def:relative-marked-moduli` のモデルを具体化する。次の作業は相対corner比較と豊富対を保つ局所同型の降下から始める。証明用開Uをそのまま全fiberの定義域にせず、Weyl標識変更で飽和させる。
+2. **rigidificationと相対忘却射。** vertexスカラーGm^8が平坦・有限表示の相対慣性部分群となることを確認し、Stacks Tag04V2の仮定を満たしてrigidificationを構成する。Q側の関係式商と内在的群oidを比較した後、O側の代数性とrigidified射の表現可能性を証明する。三対象交換のkernel/cokernel/中間cohomologyを相対化し、rootのない範囲での有限étale性と次数51840を調べる。点ごとの51840や形式的な一意持上げだけではpropernessや全familyの有限性を結論しない。
+3. **忘却像と最小O公理。** 最小公理からExt¹(O,O)=0が従うかを先に調べる。既知RR heartでは欠損δに帰着するので、AZ生成とδ>0の両立を検討する。I_pは生成に失敗するため反例として使わない。その後、例外的Oから標準Q collectionが存在する条件を求める。特殊locusのroot simple、部分的許容類集合、許容半空間はこの像を理解する補助問題として保持する。
+4. **境界・他型・公表上の位置。** 中心楕円因子locusではroot simpleは中心元が可逆に作用する部分に限られる。そこでの実在条件と、corner/豊富性/AS比較が失敗する境界を分けて調べる。中心因子なしのA0⇒d=0、他のOU quiver型、全GIT境界は未解決。AOU/OU、Keller/Toën、既存nc del Pezzo分類との一次資料比較を進め、各追加導出の優先権と公表価値を確認する。
 
-標準AOU relation torusの非常に一般の点については、全線束の存在・許容性、標準helixの線束認識、自己同値の数値像、二段階の実際のfiberがまとまった。現在の中心課題はこの結論を一律に全境界へ広げることではなく、特殊locusの具体的な障害と最大適合範囲の構造を理解することである。
+今の研究方針は、定義と複素点のfiberを基礎として相対モジュライの幾何に進むことである。以前の集合論的結果はこの基礎として保持し、例外性の範囲を越えて主張を拡張しない。
 
 ## V. 再現
 
@@ -63,4 +69,4 @@ python3 scripts/verify_unmark_bundle.py
 latexmk -lualatex papers/nc-cubic-unmark.tex
 ```
 
-出力は `build/nc-cubic-unmark.pdf`。bundleには `pdf/nc-cubic-unmark.pdf` と必要な全ソースを入れ、GitにPDF/ZIPを追跡しない。実行検証とその限界は `research/unmark_validation.json` に記す。本文に証明があることと、当該版の計算・組版・GitHub反映・Library保存が完了したことは別の状態であり、成功は各確認後にのみ記録する。
+組版環境はLuaLaTeX、`ltjsarticle`、Haranoaji。TeX Liveの `scheme-basic` に `luatexja haranoaji mathtools booktabs jknapltx rsfs xkeyval fontspec lualatex-math` と依存パッケージを追加すればよい。出力は `build/nc-cubic-unmark.pdf`。bundleには `pdf/nc-cubic-unmark.pdf` と必要な全ソースを入れ、GitにPDF/ZIPを追跡しない。実行検証とその限界は `research/unmark_validation.json` に記す。本文に証明があることと、当該版の計算・組版・GitHub反映・Library保存が完了したことは別の状態であり、成功は各確認後にのみ記録する。

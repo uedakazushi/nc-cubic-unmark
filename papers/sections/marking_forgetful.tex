@@ -1,63 +1,164 @@
 % !TeX root = ../nc-cubic-unmark.tex
-\section{内在的定義と二段階の標識忘却}\label{sec:weak-definition}
-本節では$\kk=\mathbb C$とする。ambient、次数一生成性、二次包絡のAS正則性は仮定しない。
-\begin{definition}[許容構造対象と弱標識]\label{def:weak-cubic}
-$\mathcal A$を$\kk$線型noetherian Abel圏とし、$D^b(\mathcal A)$は
-Hom有限なsmooth proper dg enhancementとSerre関手$\mathsf S$を持つとする。
-$H=\mathsf S^{-1}[2]$は$t$-exactで$H(\mathcal A)=\mathcal A$を満たす。
-$\mathcal A_0$を有限長対象のSerre部分圏、$\mathcal A_1$を
-$\mathcal A/\mathcal A_0$で有限長になる対象の逆像とし、
-$q:\mathcal A\to\mathcal A/\mathcal A_1$を商関手とする。
-対象$\OO\in\mathcal A$が\emph{許容構造対象}であるとは、
+\section{構造対象と $\mathcal O$-marking}\label{sec:weak-definition}
+本節では $\kk=\mathbb C$ とする。
+非可換 del Pezzo の内在的定義に現れる構造対象の選択を
+$\mathcal O$-marking と呼ぶ。
+この定義と、後の線束・Weyl 群の定理で用いる追加仮定を分ける。
+
+\begin{definition}[$\mathcal O$-marked del Pezzo と cubic]
+\label{def:o-marked-cubic}
+$d\in\{1,\ldots,9\}$ とする。
+$\mathcal A$ は $\kk$ 線型 noetherian Abel 圏で、$D^b(\mathcal A)$ は
+Hom 有限で Serre 関手 $\mathsf S$ を持ち、
+$H=\mathsf S^{-1}[2]$ が $H(\mathcal A)=\mathcal A$ を満たすとする。
+$\mathcal A_0$ を有限長対象の Serre 部分圏、
+$\mathcal A_1$ を $\mathcal A/\mathcal A_0$ で有限長になる対象の逆像とし、
+$q:\mathcal A\to\mathcal A/\mathcal A_1$ を商関手とする。
+対象 $\OO\in\mathcal A$ が\emph{次数 $d$ の構造対象}であるとは、次を満たすことをいう。
+\begin{enumerate}
+\item $q\OO$ は非零単純対象であり、
+      $\Hom(T,\OO)=0$ がすべての $T\in\mathcal A_1$ に対して成り立つ。
+      これを Gabriel--Krull の意味で rank-one torsion-free と呼ぶ。
+\item $(\OO,H)$ は Artin--Zhang 豊富である。
+      すなわち全対象は十分負の $H$-twist の有限直和の商となり、
+      任意の全射 $M\twoheadrightarrow N$ に対して
+      $\Hom(\OO,H^nM)\to\Hom(\OO,H^nN)$ は $n\gg0$ で全射となる。
+\item 反標準切断環 $R_{\OO}=\bigoplus_{n\ge0}\Hom(\OO,H^n\OO)$ は
+      次の Hilbert 級数を持つ。
+      \begin{equation}\label{eq:o-del-pezzo-hilbert}
+       h_{R_{\OO}}(t)=\frac{1+(d-2)t+t^2}{(1-t)^3},\qquad
+       \dim\Hom(\OO,H^n\OO)=1+\frac d2n(n+1)\quad(n\ge0).
+      \end{equation}
+\end{enumerate}
+組 $(\mathcal A,\OO)$ を\emph{$\mathcal O$-marked nc del Pezzo of degree $d$}、
+$d=3$ の場合を\emph{$\mathcal O$-marked nc cubic}と呼ぶ。
+基礎圏 $\mathcal A$ がこのような対象を少なくとも一つ持つことを、
+本稿で採用する無標識 nc del Pezzo の内在的条件とする。
+構造対象の例外性、smooth proper dg enhancement、数値 Picard 格子、
+AS 表示および ambient 非可換射影空間は、この定義には含めない。
+\end{definition}
+
+ここで ``structure sheaf'' はテンソル単位を意味しない。
+対象間のテンソル積を仮定せず、同じ $\mathcal A$ の中に複数の構造対象があってよい。
+Serre 関手は圏から定まり、$H$ は別の自由な標識データではない。
+exact 同値は Gabriel--Krull filtration と Serre 双対性を輸送するので、
+上の条件は $(\mathcal A,\OO)$ の exact 同値で不変である。
+
+\begin{lemma}[最小公理から従う消滅と次元]
+\label{lem:o-minimal-consequences}
+定義\ref{def:o-marked-cubic}の下で、$\mathcal A$ の homological 次元は $2$ である。
+また
+\begin{equation}\label{eq:o-minimal-vanishing}
+ \End(\OO)=\kk,\qquad
+ \Hom(\OO,H^{-b}\OO)=0\ (b>0),\qquad
+ \Ext^2(\OO,H^n\OO)=0\ (n\ge0).
+\end{equation}
+$\mathcal A/\mathcal A_1$ の全対象は有限長であり、その単純対象は
+$q\OO$ の一つの同型類だけである。
+\end{lemma}
+\begin{proof}
+Serre 双対性から
+$\Ext^i(M,N)\simeq\Hom(HN,M[2-i])^*$ となり、$i>2$ では零である。
+非零 $M$ に対して $N=H^{-1}M$ と取ると
+$\Ext^2(M,N)\simeq\End(M)^*\ne0$ なので次元はちょうど $2$ である。
+$\End(\OO)=\kk$ は Hilbert 関数の $n=0$ からも従う。
+
+rank-one torsion-free 対象間の非零射 $f:E\to F$ は単射である。
+実際、$qf=0$ なら $\operatorname{im}f\in\mathcal A_1$ が $F$ に埋め込まれて矛盾し、
+$qf\ne0$ なら単純対象間の同型なので $\ker f\in\mathcal A_1$ となって核は零である。
+$H$ は exact だから、この議論は $H$-twist にも適用できる。
+もし $\OO\to H^{-b}\OO$ が非零なら単射であり、
+$h(n)=\dim\Hom(\OO,H^n\OO)$ に対して $h(n)\le h(n-b)$ が全整数 $n$ で成り立つ。
+各剰余類 $n\bmod b$ でこれは $h(n)$ の有界性を与え、
+式\eqref{eq:o-del-pezzo-hilbert}の二次増大と矛盾する。
+第二 Ext の消滅は Serre 双対性とこの負の Hom 消滅による。
+
+$j\ge i$ なら $\Hom(H^i\OO,H^j\OO)\ne0$ であり、
+その非零射は商圏の単純対象間の同型を与える。
+従って全 $qH^i\OO$ は $q\OO$ に同型である。
+豊富性による有限生成全射を $q$ で写せば、任意の $qM$ は
+$q\OO$ の有限直和の商となる。よって結論を得る。
+\end{proof}
+
+\begin{lemma}[中心と自然自己同型]\label{lem:dimension-centre}
+定義\ref{def:o-marked-cubic}の下で
+\[
+ \operatorname{Nat}(\mathrm{id}_{\mathcal A},\mathrm{id}_{\mathcal A})=\kk.
+\]
+恒等関手の可逆自然変換は $\kk^\times$ であり、$\OO$ 上の恒等を要求すれば自明である。
+同じことは、構造対象上の同型を指定した exact 同値の自然自己同型にも成り立つ。
+\end{lemma}
+\begin{proof}
+自然変換 $\eta$ は各 $H^n\OO$ 上でスカラー $c_n$ として作用する。
+$\Hom(H^i\OO,H^j\OO)\ne0$ ($j\ge i$) に対する自然性から $c_i=c_j$ である。
+任意の対象は有限個の負 twist の直和の商なので、$\eta$ は全対象上で同じスカラーである。
+exact 同値の場合はその準逆を合成し、恒等関手の場合に帰着する。
+\end{proof}
+
+\begin{proposition}[構造対象による反標準表示]
+\label{prop:o-anticanonical-reconstruction}
+$\mathcal O$-marked cubic $(\mathcal A,\OO)$ に対して、
+Artin--Zhang 再構成は
+\[
+ (\mathcal A,\OO,H)\simeq(\qgr R_{\OO},\pi R_{\OO},(1))
+\]
+という exact 同値を与える。
+従ってここで採用する構造対象は、反標準表示において実際に
+$\pi R_{\OO}$ という構造層として現れる。
+\end{proposition}
+\begin{proof}
+$\OO$ は noetherian、$\End(\OO)=\kk$ は右 noetherian、
+全 $\Hom(\OO,M)$ は有限次元であり、$(\OO,H)$ は豊富である。
+これらは Artin--Zhang\cite[Theorem 4.5]{AZ}の再構成の仮定である。
+\end{proof}
+
+\subsection{線束・Weyl 群の比較で用いる強化条件}
+\begin{definition}[例外的構造対象と比較用の弱公理]\label{def:weak-cubic}
+定義\ref{def:o-marked-cubic}の $d=3$ の組 $(\mathcal A,\OO)$ が、さらに
+$D^b(\mathcal A)$ の smooth proper dg enhancement と
+\begin{equation}\label{eq:exceptional}
+ \Ext^i(\OO,\OO)=0\qquad(i>0)
+\end{equation}
+を持つとき、本稿の\emph{比較用の弱公理}を満たすと呼ぶ。
+後の数値分類でいう許容線束は、この例外的な構造対象である。
+この範囲では rank 条件と Hilbert 関数を
 \begin{gather}
  q\OO\text{ が非零単純},\qquad
  \Hom(T,\OO)=0\quad(T\in\mathcal A_1),\label{eq:gk-rank}\\
- \End(\OO)=\kk,\qquad \Ext^i(\OO,\OO)=0\quad(i>0),\label{eq:exceptional}\end{gather}
-および$(\OO,H)$のArtin--Zhang豊富性と
-\begin{equation}\label{eq:weak-hilbert}
  \dim\Hom(\OO,H^m\OO)=
  \begin{cases}1+\frac32m(m+1)&m\ge0,\\0&m<0\end{cases}
-\end{equation}
-を満たすことをいう。式\eqref{eq:gk-rank}が内在的な
-rank-one torsion-free性の意味である。組$(\mathcal A,\OO)$を
-\emph{弱標識付き非可換三次曲面}と呼ぶ。
+ \label{eq:weak-hilbert}
+\end{gather}
+と記す。負方向の消滅は補題\ref{lem:o-minimal-consequences}の帰結である。
+以下で「弱標識」と記す組は、この比較用の弱公理を満たす
+$\mathcal O$-marking を意味し、最小定義全体を指さない。
 \end{definition}
-これらは明示的な公理であり、exceptionalityやrank条件が以前の数値的公理から
-自動的に従うとは主張しない。exactなAbel同値はGabriel--Krull filtration、
-Serre作用、例外性および豊富性を保つので定義は同値不変である。
 
-\begin{lemma}[次元と中心]\label{lem:dimension-centre}
-上記の非零圏のhomological次元は2であり、
-$\operatorname{Nat}(\mathrm{id}_{\mathcal A},\mathrm{id}_{\mathcal A})=\kk$である。
-従って恒等関手の可逆自然変換は$\mathbb G_m$であり、$\OO$上の恒等を要求すれば自明である。
-\end{lemma}
-\begin{proof}
-Serre双対性により
-$\Ext^i(M,N)\simeq\Hom(HN,M[2-i])^*$であるから$i>2$では零。
-非零$M$に対し$N=H^{-1}M$と取れば$\Ext^2(M,N)\simeq\End(M)^*\ne0$である。
-自然自己変換$\eta$は$H^n\OO$上でスカラー$c_n$として作用する。
-$\Hom(H^i\OO,H^j\OO)\ne0$ ($j\ge i$) に対する自然性から$c_i=c_j$である。
-豊富性により任意の対象は有限個の$H^{-n}\OO$の直和の商なので、
-$\eta$は全対象上で同じスカラーとして作用する。
-\end{proof}
+最小の $\mathcal O$-marking とこの強化を同一視しない。
+前者の公理から $\Ext^1(\OO,\OO)=0$ が従うかは、本稿では未解決である。
+後の命題\ref{prop:o-marking-defect-comparison}は、既知の三次曲面型 heart の中で
+この差を数値的欠損と自己拡大によって正確に記述する。
+$Q$-marking の先頭対象は例外対象なので、その忘却像は例外的な
+$\mathcal O$-marked 部分に入る。
 
-\paragraph{忘却の集合論的規約.}
-以下の $\mathcal A$ は、前節で指定した反標準 heart とする。
-固定圏内の構造対象の選択集合は $\operatorname{Line}_{\rm adm}(\mathcal A)$、
-固定構造対象上の標識の選択集合は
-$\operatorname{Mark}_{\rm AOU/OU}(\mathcal A,\OO)$ である。
-
-\begin{theorem}[固定圏における選択と同値類]\label{thm:forgetful-fibres}
-基礎圏との同定を保持すると、弱標識を忘れる選択集合は
-$\operatorname{Line}_{\rm adm}(\mathcal A)$ である。
-基礎圏の同定を忘れ、組の exact 同値類を考えると、同値類集合は
-$\operatorname{Line}_{\rm adm}(\mathcal A)/\operatorname{Aut}_{\rm ex}(\mathcal A)$ となる。
-固定した弱標識上で AOU/OU 標識を忘れる選択集合は
-$\operatorname{Mark}_{\rm AOU/OU}(\mathcal A,\OO)$ である。
+\begin{theorem}[固定圏における構造対象の選択と同値類]
+\label{thm:forgetful-fibres}
+固定した $\mathcal A$ の次数 $3$ の構造対象の同型類集合を
+$\operatorname{Str}_3(\mathcal A)$ とする。
+基礎圏との同定を保持した $\mathcal O$-marking の選択は
+$\operatorname{Str}_3(\mathcal A)$、同定を忘れた組の exact 同値類は
+\[
+ \operatorname{Aut}_{\rm ex}(\mathcal A)\backslash
+ \operatorname{Str}_3(\mathcal A)
+\]
+である。例外的部分に限れば $\operatorname{Str}_3$ を
+$\operatorname{Line}_{\rm adm}$ に置き換える。
+固定した構造対象上の $Q$-marking の選択も同様に対象の同型類で考えるが、
+その moduli fiber には構造対象を保つ自己同値の作用が入る。
+その群oidと軌道集合の正確な区別は第\ref{sec:marked-moduli}節で与える。
 \end{theorem}
 \begin{proof}
-基礎圏を同定すると構造対象をその圏内に輸送でき、対象の同型類だけが残る。
-二つの基礎圏同定の差は exact 自己同値なので、同定を忘れるとその軌道で同一視する。
-標識については構造対象と標準 thread を同時に輸送すればよい。
+基礎圏を同定すると構造対象をその圏内に輸送できる。
+二つの同定の差は exact 自己同値なので、同定を忘れるとその軌道で同一視する。
+例外的部分は許容線束の定義そのものである。
 \end{proof}
-

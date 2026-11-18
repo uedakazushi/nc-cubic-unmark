@@ -1,16 +1,42 @@
-# 研究ノート：反標準 heart・有限 Weyl 標識・線束選択
+# 研究ノート：構造対象・quiver 標識・モジュライ fiber
 
-2026-11-18 / unmark-v12。最初に `00_research_plan.md` を読む。論文に証明のある事項はラベルを参照し、ここでは再開に有用な要点・障害・補助的観察を保持する。
+2026-11-19 / unmark-v13。最初に `00_research_plan.md` を読む。論文に証明のある事項はラベルを参照し、ここでは再開に有用な要点・障害・補助的観察を保持する。
 
-## 集合論的な辞書
+## 構造対象と quiver 標識の辞書
 
-基準はA=A_ac=qgr R_e、H=S^{-1}[2]。比較する別のheartはAS heartのみ。weak標識は許容線束Lのchoice。固定圏内の対象の同型だけを取ればLine_adm(A)、固定L上では標準Euler型のMark_Q^vs(A,L)を数える。root-free条件(R0)の下ではMark_Q^vs=Mark_Q^lineを認識済みである。矢の基底は標識に含めない。
+基準はA=A_ac=qgr R_O、H=S^{-1}[2]。比較する別の表面heartはAS heartのみ。O-markingは内在的定義の構造対象を指定する。rank1 torsion-free、AZ豊富性、反標準Hilbert級数を要求し、例外性・smooth proper性・数値格子は最小定義に足さない（`def:o-marked-cubic`）。既存のweak標識/許容線束は例外性等を備えた比較用部分である。最小公理から例外性が従うかは未解決。
 
-全line・標識の存在が確認された範囲では、raw choicesはΛとW(E6)-torsor。圏のexact同値類を点にすると、第一fiberはMark(A,L)/Aut_ex(A,L)、第二はLine_adm(A)/Aut_ex(A)。full九対象があると自己同値の数値作用はD↦t+gD、g∈W(E6)で、Hの冪によるZKが中心に入る。従って実際のfiberはΓ_L\Wと(Λ/ZK)/barΓ_A（`prop:affine-auto-action`, `cor:actual-set-fibers`）。ΛとΛ/ZKの違いは可算集合の抽象的濃度ではなく、自然な数値ラベルと同一視の内容の違いである。
+Qには順序付きラベル、先頭頂点1、非負cut次数を固定する。有限foundation R=End(T)とrolled-up B=⊕_{n≥0}Hom(T,H^nT)を区別する。B0=Rで、元の矢はcut0、周期を越える逆矢はcut1。augmentation m=rad R⊕B_{>0}について、矢はm/m²を最小生成する。無限BのJacobson radicalを使わない。I⊂arrowideal²である最小斉次表示kQ/Iの存在を要求し、表示同型・矢の基底・関係の代表・potentialの座標は標識データにしない（`def:q-marking`）。
 
-G_Q=(Gm)^18による矢の基底変更は九射影のK0を固定し、幾何学的Weyl標識変更とは異なる。全weak cubicがAOU/OUの像に入るとも、OUの一般very strong helixが標準三ブロック型とも仮定しない。
+collection全体を[1]だけシフトしてもrolled-up代数は同じだが、非零E1∈AならE1[1]∉Aである。従ってQと導来collectionだけから指定heartの構造対象は自動的には決まらず、先頭の構造対象適合性を定義に含める。
 
-`thm:actual-aou-very-general` の忘却写像は、weak公理・指定AS/反標準比較に適合する標準AOU full very strong標識の最大の範囲M_Q^acを定義域とする（`def:maximal-weak-compatible-aou`）。heart公理を確保するために選んだ稠密開Uにmarked側を制限すると、同じweak markingの別のWeyl標識がUから外れる可能性がある。従ってU上の存在定理とM_Q^acでのfiber定理を区別する。全GIT境界への写像やWeyl作用の全域正則性は未確定である。
+E1が構造対象、Eがfull very strongなら、全対象はAに属する（`prop:o-helix-heart-recognition`）。証明は正自己twistのExt消滅→AZ生成とhdim2による全対象のSerre消滅→反標準Homのheart検出であり、数値RRに依存しない。一般の豊富対だけに高次Ext消滅を読み込まない。
+
+標準AOU型Qは三ブロック各3頂点、隣接する二層に9+9矢、終端から先頭へ9逆矢。degree0の任意の三層関係代数はgldim≤2、Kellerの未変形3-CY completionには最小関係ごと逆矢が一つある。最小rolled-up quiverの指定から関係次元が各対1となり、dim R=45、標準Euler行列C_Qを得る（`prop:aou-quiver-euler-recognition`）。この時点では関係の全係数非零を使わない。一つのQ-markingからsmooth proper性とO例外性、全対象RR/H、K0=Knum、内在的rankを導ける（`cor:q-marking-numerical-inputs`）。その後の線束認識・Weyl実現には(R0)を別に使う。
+
+### 三種類の fiber と慣性
+
+x=(A,O)を固定する。Mark_Q(A,O)は同じAの中でE1≅Oを満たすcollectionの対象同型類集合であり、圏の自己同値で割らない。M^Oの射は(F,α:FO≅O)をcompatible自然同型で割る。自然中心Cの計算により、先頭O上で恒等な自然自己同型は自明。M^Qの射には全成分の指定同型を含め、M^{Q,rig}はi>1の同型の存在だけを要求する（`def:o-moduli-groupoid`, `def:q-moduli-groupoids`）。
+
+`thm:q-o-fiber-groupoids`：基礎点との同定を保持する2-fiberは非交和 ⨿_{Mark_Q} B((C×)^{ell−1})。rigidifiedな2-fiberは離散Mark_Q。π0のfiberはG_x\Mark_Qで、G_x=Aut_ex(A,O)。基礎点との同定を保持したfiberをさらにG_xで割らない。raw Qの絶対慣性は相対torusとG_x内のmarking安定化群の中央拡大（`prop:q-marking-scalar-inertia`）。一般の分裂やglobal積gerbeは未証明。
+
+標準Q存在+(R0)ならMark_QはW(E6)-torsor。raw fiberは51840個のB(Gm^8)、rigidified fiberは51840点、π0のfiberはΓ_O\Wで51840/|Γ_O|点（`cor:standard-q-o-weyl-fibers`）。この点数からfamilyの有限étale性を推論しない。étale siteで相対enhanced圏・heart・平坦対象・Serre/basechangeを指定しstackificationを取る定義は `def:relative-marked-moduli`。全内在的対象を含むモデル、代数性、相対rigidificationの仮定は未確認。
+
+### 数値的に自明な exact 自己同値
+
+`prop:q-numerical-auto-faithful` は標準Q存在+(R0)でAut_ex(A)→Aut(Knum,χ)が単射であると示す。数値的に恒等のFは九線束を固定し、Rの各頂点を保つ自己同型を誘導する。全係数非零関係により十八矢のscalingはvertex scaling、従ってinnerに限られる。Fはexactなので標準dg quotientへliftし、tilting後のMorita bimodule XはF(T)≅Tから次数0に集中する。H0Xがinner-twisted regularなのでX≃Rとなる。一般のabstract triangulated自己同値への主張ではない。
+
+この結果でG_x≅Γ_O⊂Wとなり、標識集合への作用が自由になる。rigidified Q対象の絶対慣性は自明、raw Q対象の絶対慣性はGm^8（`cor:standard-q-absolute-inertia`）。very generalにΓ_A=ZKという既存の結果と合わせるとAut_ex(A)=〈H〉≅Z、G_x=1（`cor:very-general-q-o-groupoids`）。先頭を忘れる第二の写像のΛ/ZKは、例外的構造対象の部分についての結果である。
+
+### 表示の商と標識の忘却を区別する
+
+G_18=(Gm)^18による矢の基底変更は九射影のK0を固定し、幾何学的Weyl標識変更とは異なる。AOU relation/potential quotientのvertex scalar kernelはGm^8だが、この階数一致だけで内在的M^Qと同定しない。相対heart、基底変換、exact比較、同型降下が要る。
+
+`thm:actual-aou-very-general` の集合論的忘却写像は、weak公理と指定AS/反標準比較に適合する標準AOU full very strong標識の全範囲を定義域とする（`def:maximal-weak-compatible-aou`）。heart公理を確保するproof open Uにmarked側を制限すると別のWeyl標識を落とし得る。次の相対比較でも飽和定義域が必要。全GIT境界・全OU型・Weyl作用の全域正則性は未確定。
+
+### 最小構造対象と欠損
+
+既存のweak/RR heart内の最小構造対象Oについてδ=D²/2−ch₂≥0、Ext¹(O,H^mO)=2δ (m≥0)（`prop:o-marking-defect-comparison`）。δ=0、例外性、正自己twist消滅、旧許容線束が同値。I_pは自己Homの反標準Hilbert級数がO_Xと同じでもExt¹self=2であり、負twistからの射が全てpのidealを通るためO_Xを生成できず、AZ豊富性に失敗する（`rem:o-ideal-sheaf-test`）。従ってI_pは最小O公理から例外性を導けないことの反例ではない。次はAZ生成とδ>0が本当に両立するかを調べる。
 
 ## 線束分類と反標準再構成
 
@@ -104,7 +130,7 @@ Ext²(L_D,L_D)=0を用い、固定有界projective項の微分のschemeが指定
 
 数値ラベルごとに一つの既約étale branchだけを選ぶ。一般点でのline一意性がそのbranchの九対象と任意の自己同値像を同定するので、全branchの列挙は不要。八次元relation torusの正規化切断上で適用し、18→8の正次元商に真閉集合を直接押し下げない。
 
-`thm:actual-aou-very-general` は以上を統合し、可算個の真閉集合を除く実際のAOU点でLine_adm=Line≅Λ、Γ_A=ZK、M_Q^acからの第一fiber=W(E6)-torsor、第二fiber=Λ/ZK≅P(E6)を得る。全Λの許容line存在が(R0)を与え、線束認識定理がincomingな全標準very strong標識を捕捉する。構成した各line標識がAOU表示とAS比較を持つことにより逆包含も成立する。数値的に自明な自己同値群自体の分類は不要で、その核はline・標識の同型類に自明に作用する。
+`thm:actual-aou-very-general` は以上を統合し、可算個の真閉集合を除く実際のAOU点でLine_adm=Line≅Λ、Γ_A=ZK、M_Q^acからの第一fiber=W(E6)-torsor、第二fiber=Λ/ZK≅P(E6)を得る。全Λの許容line存在が(R0)を与え、線束認識定理がincomingな全標準very strong標識を捕捉する。構成した各line標識がAOU表示とAS比較を持つことにより逆包含も成立する。この集合論的証明自体は数値作用の核の分類を使わない。さらに `prop:q-numerical-auto-faithful` によって、この標準root-free locusの核は自明で、自己同値群は〈H〉≅Zとなる。
 
 ## 許容Artin変形の実際のfiber
 
@@ -134,7 +160,7 @@ Hoffmann–Reede, Torsion-free rank one sheaves over del Pezzo orders, J.Algebra
 
 可換例外層のK0類での一意性はKN §1.3 p433の命題として既知。今回は出版社一次PDF由来の検索本文で命題を確認し、その前後の証明を全面再査読したとはしない。root型評価核の形式はSeidel–Thomas, arXiv math/0001043v2 Def2.7/Def2.9/Prop2.10のdual spherical twistと対応する。本文の短完全列による直接証明はtwist同値定理に依存しない。AZ原論文Cor7.5の原文は未取得なので、一般χ条件とSerre消滅の定理を未確認引用で追加しない。
 
-本稿のanticanonical heartは、許容構造対象の反標準切断環のqgrとして定義・再構成する。他の文献やリポジトリのheartの同定を暗黙の入力にしない。定義と比較の必要条件は本稿だけで確認できる。
+本稿のanticanonical heartは、最小定義の構造対象の反標準切断環のqgrとして定義・再構成する。他の文献やリポジトリのheartの同定を暗黙の入力にしない。定義と比較の必要条件は本稿だけで確認できる。
 
 内在的線束判定、Serre消滅・階数認識、root反射、有限Weyl実現、very-general族の導出は既存文献との重複の可能性があり、一般的新規性を主張しない。本稿の追加導出は指定した反標準heartの公理からの証明である。既知の古典格子論・AZ再構成・相対持上げ理論そのものを本研究の新結果として扱わない。
 
@@ -143,5 +169,7 @@ Hoffmann–Reede, Torsion-free rank one sheaves over del Pezzo orders, J.Algebra
 実際のheart認識の一次資料：AOU arXiv:2404.00175v1, Theorem1.1, §4.6, Definition7.1/Lemma7.4。OU arXiv:2007.07620v1, (30)–(32)の自然変換とtriangleを使用する。Minamoto–Mori, The structure of AS-Gorenstein algebras, Adv.Math.226(2011),4061–4095, DOI10.1016/j.aim.2010.11.004（著者版の表題はStructures of AS-regular Algebras）, Corollary4.13/Theorem4.14（著者preprint https://www.math.kyoto-u.ac.jp/preprint/2010/06Minamoto.pdf ）は準Fano代数のpreprojective algebraと通常のtailsの有界導来圏を比較する。Amiot, Preprojective Algebras, Singularity Categories and Orthogonal Decompositions, in Algebras, Quivers and Representations, Abel Symposia8, Springer(2013),1–11, DOI10.1007/978-3-642-39485-0_1（著者稿 https://www-fourier.univ-grenoble-alpes.fr/~amiot/amiot.pdf ）のTheorem2.3に導来同値の具体的関手と反Serre/shift対応、Corollary3.3の証明に有限余次元cornerによるqgr同値を確認した。arXiv:1211.2615の表題はSingularity categories, preprojective algebras and orthogonal decompositionsで、刊行版と語順が異なる。本文照合には著者稿を用いた。一般corner同値、AS-regularity、通常のD^b比較そのものの新規性は主張しない。
 
 有限AOU resolutionの追加一次資料：Keller, Deformed Calabi–Yau completions, arXiv:0908.3499, Theorems4.8/6.10（本稿は変形パラメータ零）。Ginzburg, Calabi–Yau algebras, arXiv:math/0612139, Proposition5.1.9/Corollary5.4.3。Kellerのerratum arXiv:1809.01126は一般の変形パラメータの負巡回持上げ条件を扱うため、ここでは未変形completionのTheorem4.8を入力とする。Toda arXiv:math/0502571, Proposition5.6/Lemma5.8/§6では核の自己Extを介したHochschild作用と一次障害の比較を確認した。
+
+本版で重点的に照合した一次資料：AOU §§4.2–4.5/§5の有限quiver・rolled-up quiverとrelation/potential商、OU2025 Definition1.1(3)/§5とRemark5.4のmarking・periodic展開、OU2020 (18)–(22)のcompletion。Keller arXiv:0908.3499 §6.9/Theorem6.10の未変形completionから最小関係への逆矢を使用。Keller, On differential graded categories, ICM2006 Vol.II pp151–190, arXiv:math/0601185v5 §4.4/Thm4.8のdg quotientと、Toën, The homotopy theory of dg-categories and derived Morita theory, Invent.Math.167(2007)615–667, DOI10.1007/s00222-006-0025-y, arXiv:math/0408337v7 Thm7.2(2)/Cor7.6のMorita表示を数値自己同値忠実性に使用。Stacks Tag0436はstackificationの普遍性、Tag04V2は既に代数的なstackの平坦慣性部分群のrigidificationの仮定確認に使用し、代数性を先取りしない。
 
 当該版の計算・組版などの実行状況と限界は `research/unmark_validation.json` を参照。本文の証明、独立点検、数値検算、配布物の生成・保存は別の状態として扱う。

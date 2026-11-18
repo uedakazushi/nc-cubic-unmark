@@ -1,0 +1,357 @@
+% !TeX root = ../nc-cubic-unmark.tex
+\section{$\mathcal O$-marked と $Q$-marked のモジュライと忘却射}
+\label{sec:marked-moduli}
+
+本節ではまず複素数体上のモジュライ群oidを構成し、その $2$-fiber を計算する。
+この構成は数値 Picard 格子、線束の全類の実現、自己同値の数値像の計算を必要としない。
+それらを仮定する Weyl 型の記述は、その後の特殊化として分離する。
+族における代数性と降下は最後に定式化し、複素点の群oidの計算から
+代数スタックの存在や忘却射の有限性を推論しない。
+
+\subsection{二つのモジュライ群oid}
+
+\begin{definition}[$\mathcal O$-marked のモジュライ群oid]
+\label{def:o-moduli-groupoid}
+$\mathfrak M^{\OO}(\mathbb C)$ の対象は、定義\ref{def:o-marked-cubic}の
+$\mathcal O$-marked cubic $(\mathcal A,\OO)$ とする。
+$(\mathcal A,\OO)$ から $(\mathcal A',\OO')$ への射は
+\[
+ (F,\alpha),\qquad F:\mathcal A\xrightarrow{\sim}\mathcal A'
+ \text{ は $\mathbb C$ 線型 exact 同値},\quad
+ \alpha:F\OO\xrightarrow{\sim}\OO'
+\]
+の次の同値関係による類である：$(F,\alpha)$ と $(F',\alpha')$ は
+$\alpha'\eta_{\OO}=\alpha$ を満たす可逆自然変換
+$\eta:F\Rightarrow F'$ があるとき同一視する。
+合成は exact 同値と構造対象の同型の合成から定める。
+\end{definition}
+
+exact 同値の導来延長は Serre 関手と自然に可換なので、$H$ の比較を独立の標識として
+追加しない。ここでの $2$-射は Abel 圏上の自然同型であり、導来対象への作用には
+その導来延長を用いる。定義\ref{def:o-marked-cubic}の Hilbert 条件から
+$\End(H^n\OO)=\mathbb C$ と
+$\Hom(H^i\OO,H^j\OO)\ne0$ ($j\ge i$) が従う。
+従って補題\ref{lem:dimension-centre}の中心の証明は、この最小の内在的定義でも有効である。
+恒等関手の自然自己変換は全対象上で同じスカラーとなり、$\OO$ 上で恒等なら自明である。
+ゆえに上の $\eta$ は存在すれば一意であり、自然同型で割る操作は
+非自明な $2$-自己同型を隠していない。
+
+\begin{definition}[$Q$-marked の二つのモジュライ群oid]
+\label{def:q-moduli-groupoids}
+定義\ref{def:q-marking}の labelled rooted cut 型を固定し、その指定頂点を $1$ と書く。
+$\mathfrak M^Q(\mathbb C)$ の対象は $Q$-marked cubic
+$(\mathcal A,\mathbb E)$、$\mathbb E=(E_1,\ldots,E_\ell)$ である。
+ここで $\OO=E_1\in\mathcal A$ であり、他の $E_i$ は定義に従って
+$D^b(\mathcal A)$ の対象でよい。
+射は
+\[
+ (F,(\phi_i)_{i=1}^{\ell}),\qquad
+ \phi_i:(D^bF)(E_i)\xrightarrow{\sim}E'_i
+\]
+を成分同型に適合する可逆自然変換で割った類とする。
+つまり $\eta:F\Rightarrow F'$ に対し
+$\phi'_i\eta_{E_i}=\phi_i$ を全 $i$ で要求する。
+
+同じ対象を持つ群oid $\mathfrak M^{Q,\mathrm{rig}}(\mathbb C)$ では、
+射として $\mathcal O$-marked 同値 $[(F,\alpha)]$ のうち
+\[
+ (D^bF)(E_i)\cong E'_i\quad(1\le i\le\ell),\qquad
+ \alpha:F E_1\xrightarrow{\sim}E'_1
+\]
+を満たすものを取る。$i>1$ の同型は存在だけを要求し、その選択を射に含めない。
+この意味で後者を\emph{成分スカラーを除いた} $Q$-marked 群oidと呼ぶ。
+\end{definition}
+
+どちらの定義にも矢の基底、関係式の代表、potential の代表は含まれない。
+ただし成分の同型そのものを射に含めるかどうかによって自己同型群は異なる。
+その差を除去したことを示す上付き $\mathrm{rig}$ を省略しない。
+定義から忘却射
+\begin{equation}\label{eq:q-to-o-groupoid-maps}
+ \mathfrak M^Q(\mathbb C)
+ \xrightarrow{\ r\ }\mathfrak M^{Q,\mathrm{rig}}(\mathbb C)
+ \xrightarrow{\ p^{\mathrm{rig}}\ }\mathfrak M^{\OO}(\mathbb C),
+ \qquad p=p^{\mathrm{rig}}r
+\end{equation}
+が得られる。$p$ は対象を $(\mathcal A,E_1)$ に、射を $[(F,\phi_1)]$ に送る。
+$p^{\mathrm{rig}}$ は忠実である。
+
+\subsection{固定された $\mathcal O$-marked cubic 上の fiber}
+
+\begin{definition}[標識の群oidと選択集合]\label{def:marking-fiber-groupoid}
+$(\mathcal A,\OO)$ を固定する。
+$\mathcal F_Q(\mathcal A,\OO)$ の対象を
+$\mathcal A$ 上で実現された $Q$-marking $\mathbb E$ と
+同型 $\epsilon:E_1\xrightarrow{\sim}\OO$ の組とし、
+射を成分ごとの同型 $u_i:E_i\xrightarrow{\sim}E'_i$ で
+$\epsilon'u_1=\epsilon$ を満たすものとする。
+ここで $i>1$ の同型は $D^b(\mathcal A)$ で取る。
+その同型類集合を
+\[
+ \operatorname{Mark}_Q(\mathcal A,\OO)
+ :=\pi_0\mathcal F_Q(\mathcal A,\OO)
+\]
+と書く。圏の自己同値では商を取らない。
+\end{definition}
+
+\begin{theorem}[忘却射の $2$-fiber と同型類集合の fiber]
+\label{thm:q-o-fiber-groupoids}
+$x=(\mathcal A,\OO)\in\mathfrak M^{\OO}(\mathbb C)$ とし、
+$T_{\ell-1}=(\mathbb G_m)^{\ell-1}$ と置く。
+次が成立する。
+\begin{enumerate}
+\item 忘却射 $p$ の $x$ 上の $2$-fiber は
+      $\mathcal F_Q(\mathcal A,\OO)$ と同値である。
+      各標識の代表を選べば、群oidの同値
+      \begin{equation}\label{eq:raw-q-o-fiber}
+       \operatorname{Fib}_x(p)
+       \simeq
+       \coprod_{m\in\operatorname{Mark}_Q(\mathcal A,\OO)}
+       B\bigl(T_{\ell-1}(\mathbb C)\bigr)
+      \end{equation}
+      を得る。右辺の $B(G)$ は自己同型群が $G$ である一対象群oidを表す。
+\item $p^{\mathrm{rig}}$ の $x$ 上の $2$-fiber は
+      $\operatorname{Mark}_Q(\mathcal A,\OO)$ を離散群oidとみなしたものと同値である。
+\item 自然な同定 $\pi_0\mathfrak M^Q=\pi_0\mathfrak M^{Q,\mathrm{rig}}$ の下で、
+      同型類の\emph{集合}の間の写像 $\pi_0(p)=\pi_0(p^{\mathrm{rig}})$ の fiber は
+      \begin{equation}\label{eq:coarse-q-o-fiber}
+       \bigl(\pi_0p\bigr)^{-1}([x])
+       \simeq G_x\backslash\operatorname{Mark}_Q(\mathcal A,\OO),
+       \qquad
+       G_x=\Aut_{\mathfrak M^{\OO}(\mathbb C)}(x)
+      \end{equation}
+      である。$G_x$ は $F\OO\cong\OO$ を満たす exact 自己同値の自然同型類の群と同型である。
+\end{enumerate}
+この定理は標識集合の非空性を仮定しない。
+\end{theorem}
+\begin{proof}
+$2$-fiber の対象は、$Q$-marked cubic $(\mathcal B,\mathbb E)$ と
+その忘却像から $x$ への $\mathcal O$-marked 同値 $[(F,\alpha)]$ の組である。
+各 $E_i$ を $D^bF$ で $\mathcal A$ に輸送すると、先頭の同型 $\alpha$ を持つ
+$\mathcal F_Q(\mathcal A,\OO)$ の対象になる。
+輸送の代表を自然同型で変えた場合、その成分が輸送後の標識の同型を与える。
+逆に固定圏内の標識には恒等同値を添えればよい。
+$2$-fiber の射の適合条件は、輸送後にはちょうど
+$\epsilon'u_1=\epsilon$ となるので、これらは互いに擬逆な群oid同値を与える。
+
+各 $E_i$ は例外的だから $\Aut(E_i)=\mathbb C^\times$ である。
+固定された $\epsilon$ を保つ自己同型では $u_1=1$ であり、他の成分のスカラーは任意である。
+従って $\mathcal F_Q(\mathcal A,\OO)$ の各対象の自己同型群は
+$(\mathbb C^\times)^{\ell-1}$ である。
+各連結成分の代表を一つ選ぶと、その成分はこの群の分類群oidと同値になる。
+これで第一の主張を得る。
+
+成分同型の選択を忘れた場合、輸送後の二標識の間には、
+同じ成分同型類を持つとき一意の射があり、それ以外には射がない。
+また $p^{\mathrm{rig}}$ が忠実なので $2$-fiber 内に非自明な自己同型は残らない。
+従って第二の主張が従う。
+
+同型類集合で $x$ の上にある対象を比較する際は、忘却像と $x$ の同定を保持しない。
+二つの同定の差は $G_x$ の元であり、標識を同じ固定圏へ輸送した後には
+その作用による同一視がちょうど残る。これが式\eqref{eq:coarse-q-o-fiber}である。
+最後に $F\OO\cong\OO$ の同型の二つの選択はスカラー倍だけ異なり、
+同じスカラーによる $F$ の自然自己同型で同一視される。
+従って $G_x$ は述べた exact 自己同値の群である。
+\end{proof}
+
+\begin{corollary}[像の必要条件]\label{cor:q-marking-image-obstruction}
+構造対象 $\OO$ が例外的でなければ、$p$ の $x=(\mathcal A,\OO)$ 上の fiber は空である。
+従って最小の内在的 $\mathcal O$-marked cubic の全体への全射性は、
+定義からは従わない。
+\end{corollary}
+\begin{proof}
+$Q$-marking の先頭 $E_1\cong\OO$ は例外生成列の成分である。
+\end{proof}
+
+\begin{proposition}[忘却に伴う慣性の核]\label{prop:q-marking-scalar-inertia}
+$\mathbb E$ を $x=(\mathcal A,\OO)$ 上の標識とし、
+$G_{x,[\mathbb E]}\subset G_x$ をその成分同型類を保つ部分群とする。
+中央拡大
+\begin{equation}\label{eq:q-inertia-extension}
+ 1\longrightarrow (\mathbb C^\times)^{\ell-1}
+ \longrightarrow\Aut_{\mathfrak M^Q(\mathbb C)}(\mathcal A,\mathbb E)
+ \longrightarrow G_{x,[\mathbb E]}\longrightarrow1
+\end{equation}
+がある。一方、$\mathfrak M^{Q,\mathrm{rig}}(\mathbb C)$ での自己同型群は
+$G_{x,[\mathbb E]}$ である。
+\end{proposition}
+\begin{proof}
+最後の射は成分同型の選択を忘れるものである。
+安定化群の元には各 $E_i$ の同型を選べるので全射である。
+核の元は自然同型によって $F=\mathrm{id}$ とし、先頭の同型を恒等にできる。
+残るデータは $i>1$ の独立なスカラーである。
+先頭上で恒等な自然自己同型は自明なので、これらを更に同一視するものはない。
+全ての関手は $\mathbb C$ 線型であり、成分同型による共役はスカラーを保つため核は中心に入る。
+成分同型を選ばない定義ではこの核がない。
+\end{proof}
+
+式\eqref{eq:q-inertia-extension}の分裂は主張しない。
+式\eqref{eq:raw-q-o-fiber}は固定された $\mathcal O$-marked 対象との同定を保持した
+fiber の記述であり、$\mathfrak M^Q$ 自体を直積の gerbe と同定するものではない。
+特に $\ell=9$ では相対スカラー群は八次元 torus である。
+これは AOU の全係数非零 potential 表示における頂点スカラーの核
+$(\mathbb G_m)^9/\mathbb G_m$ と同じ階数を持つ\cite[Lemma 5.2]{AOU}。
+この一致だけから potential の商スタックと本節の圏のモジュライを同一視することはしない。
+
+\subsection{標準三次曲面型での Weyl fiber}
+
+\begin{corollary}[root-free な標準型における三種類の fiber]
+\label{cor:standard-q-o-weyl-fibers}
+$(\mathcal A,\OO)$ が弱反標準公理、三次曲面型の全対象 Riemann--Roch、
+式\eqref{eq:no-zero-root}を満たし、
+定理\ref{thm:aou-helix-line-recognition}と定理\ref{thm:rootfree-cross-reflection}の
+標準 Euler 型の標識集合 $S$ が非空であるとする。
+この標準型の適合部分に忘却射を制限すると、
+\[
+ S=\operatorname{Mark}^{\mathrm{vs}}_Q(\mathcal A,\OO)
+  =\operatorname{Mark}^{\mathrm{line}}_Q(\mathcal A,\OO)
+\]
+は $W(E_6)$-torsor であり、
+\begin{align}
+ \operatorname{Fib}_x(p^{\mathrm{rig}})&\simeq S,
+ \label{eq:rigid-weyl-fiber}\\
+ \operatorname{Fib}_x(p)&\simeq
+   \coprod_{m\in S}B\bigl((\mathbb C^\times)^8\bigr),
+ \label{eq:raw-weyl-fiber}\\
+ \bigl(\pi_0p\bigr)^{-1}([x])&\simeq\Gamma_{\OO}\backslash W(E_6).
+ \label{eq:set-weyl-fiber}
+\end{align}
+第三式では一つの格子 frame を選び、$\Gamma_{\OO}$ を
+$G_x$ の $\OO$ に正規化した数値 Picard 格子への像とする。
+従って集合論的 fiber の点数は $51840/|\Gamma_{\OO}|$ である。
+\end{corollary}
+\begin{proof}
+引用した二定理によって、全ての標準 very strong 標識は線束標識であり、
+その集合は $W(E_6)$-torsor である。
+定理\ref{thm:q-o-fiber-groupoids}を適用すれば第一、第二式を得る。
+命題\ref{prop:affine-auto-action}と線束の数値的一意性により、$G_x$ の作用は
+$\Gamma_{\OO}\subset W(E_6)$ を通じる。
+格子 frame に対するこの作用は標準格子からの右 Weyl 作用と可換な左作用である。
+基準 frame を選べば作用は $\Gamma_{\OO}$ による左乗法となるので、第三式と点数が従う。
+\end{proof}
+
+この系は一般の $Q$、異なる Euler 型、または全ての内在的 cubic についての定理ではない。
+また点数が $51840$ であることは、族における忘却射が有限 \'etale であることを意味しない。
+一般の $Q$ では数値的に自明な自己同値が存在する可能性を除いていない。
+そのような自己同値は式\eqref{eq:q-inertia-extension}の安定化群に現れ得るが、
+固定対象との同定を保持した式\eqref{eq:rigid-weyl-fiber}を更に商にする理由にはならない。
+標準 $Q_{\rm AOU}$ 型で命題\ref{prop:q-numerical-auto-faithful}が適用できるときは、
+この核自体も除くことができる。
+
+\begin{corollary}[標準型の自己同値作用と絶対慣性]
+\label{cor:standard-q-absolute-inertia}
+系\ref{cor:standard-q-o-weyl-fibers}の対象について、
+命題\ref{prop:q-numerical-auto-faithful}の適用条件も満たすとする。
+このとき $G_x\cong\Gamma_{\OO}\subset W(E_6)$ であり、$G_x$ は $S$ に自由に作用する。
+任意の $m=[\mathbb E]\in S$ に対し
+\begin{equation}\label{eq:standard-q-absolute-inertia}
+ \Aut_{\mathfrak M^{Q,\mathrm{rig}}(\mathbb C)}(\mathcal A,\mathbb E)=1,
+ \qquad
+ \Aut_{\mathfrak M^Q(\mathbb C)}(\mathcal A,\mathbb E)
+   \cong(\mathbb C^\times)^8.
+\end{equation}
+従って、ここで raw な $Q$-marked 対象に残る絶対慣性は、
+成分同型の選択から生じる八つのスカラーだけである。
+\end{corollary}
+\begin{proof}
+引用した忠実性命題によって、exact 自己同値の自然同型類は数値作用で決まる。
+$\OO$ を保つ部分群では平行移動部分が零なので $G_x\cong\Gamma_{\OO}$ である。
+この群の作用は、基準 frame により $W(E_6)$ の部分群の左乗法と同定されるから自由である。
+従って $G_{x,[\mathbb E]}=1$ であり、
+命題\ref{prop:q-marking-scalar-inertia}から式\eqref{eq:standard-q-absolute-inertia}が従う。
+\end{proof}
+
+\begin{corollary}[非常に一般の標準点への特殊化]
+\label{cor:very-general-q-o-groupoids}
+前系の適用条件を満たし、さらに既存の族・存在・自己同値の定理によって
+$S$ が非空な $W(E_6)$-torsor、$\Gamma_{\mathcal A}=\mathbb ZK$ と分かる点を考える。
+このとき
+\[
+ \Aut_{\rm ex}(\mathcal A)=\langle H\rangle\cong\mathbb Z,
+ \qquad G_x=1.
+\]
+$p^{\mathrm{rig}}$ の $2$-fiber と $\pi_0p$ の集合論的 fiber は、
+いずれも $51840$ 点の $W(E_6)$-torsor である。
+raw な $2$-fiber は $51840$ 個の $B((\mathbb C^\times)^8)$ の非交和であり、
+各 $Q$-marked 対象の絶対慣性も $(\mathbb C^\times)^8$ である。
+\end{corollary}
+\begin{proof}
+$H$ は数値的に $-K$ による平行移動を与える。
+数値作用が忠実でその像が $\mathbb ZK$ なので、全ての exact 自己同値は
+ちょうど $H$ の一つの冪と自然同型である。
+$\OO$ を保つ非零の $K$ 方向の平行移動は存在しないため $G_x=1$ となる。
+残りは前二系による。
+\end{proof}
+この特殊化は、指定した族・存在・自己同値の定理の仮定と証明に依存し、
+本節の群oidの構成だけからは得られない。
+また絶対慣性の点ごとの計算から、相対モジュライの代数性や忘却射の有限性は従わない。
+
+\begin{proposition}[可換三次曲面での検算]\label{prop:commutative-q-o-fibers}
+$X$ を滑らかな三次曲面、$x=(\operatorname{coh}X,\OO_X)$ とする。
+標準 AOU 型では
+\[
+ G_x\cong\Aut(X),\qquad
+ \operatorname{Fib}_x(p^{\mathrm{rig}})\simeq W(E_6)\text{-torsor},\qquad
+ \bigl(\pi_0p\bigr)^{-1}([x])\simeq\Aut(X)\backslash W(E_6).
+\]
+最後の集合は $51840/|\Aut(X)|$ 点である。
+raw な $Q$-marked 群oidでは、各標識に $(\mathbb C^\times)^8$ の相対慣性が残る。
+\end{proposition}
+\begin{proof}
+定理\ref{thm:commutative-structure}により、exact 自己同値の自然同型類は
+線束捩れと $X$ の自己同型からなる。
+$\OO_X$ を保つ条件は線束捩れを自明にするので $G_x\cong\Aut(X)$ である。
+固定曲面上の標準標識は $W(E_6)$-torsor であり、$\Aut(X)$ はこれに自由に作用する
+（定理\ref{thm:aou-commutative-quotient}）。
+定理\ref{thm:q-o-fiber-groupoids}と命題\ref{prop:q-marking-scalar-inertia}を適用すればよい。
+\end{proof}
+
+\subsection{族のモジュライと今後証明すべき性質}
+
+\begin{definition}[許容相対モデルからのモジュライ]
+\label{def:relative-marked-moduli}
+複素数体上のスキームの \'etale site を用い、
+以下を備えた相対圏の $2$-fibered category $\mathscr C$ を一つ指定する。
+底 $S$ 上の対象は、$S$ 線型 enhancement、指定された heart とその平坦対象、
+相対 Serre 関手および $H_S$、perfect な相対 Hom と導来底変更を持つものとする。
+基底変換の整合性をデータに含め、構造対象と例外列の成分は
+全ての基底変換後に指定した相対対象であることを要求する。
+各幾何学的 fiber は本稿の対応する $\mathcal O$-marking または $Q$-marking の公理を満たす。
+一般の底変更を heart 全体の exact 関手であるとは要求せず、
+enhancement 上の導来底変更と標識対象の平坦性を使う。
+
+この指定された相対モデルの上で、定義\ref{def:o-moduli-groupoid}と
+定義\ref{def:q-moduli-groupoids}を $S$ 線型に行い、
+自然同型類を射に取った群oid値の擬関手を
+$\mathcal P^{\OO}_{\mathscr C}$、$\mathcal P^Q_{\mathscr C}$、
+$\mathcal P^{Q,\mathrm{rig}}_{\mathscr C}$ とする。
+対応する fibered category の \'etale 位相での stackification をそれぞれ
+$\mathfrak M^{\OO}_{\mathscr C}$、$\mathfrak M^Q_{\mathscr C}$、
+$\mathfrak M^{Q,\mathrm{rig}}_{\mathscr C}$ と呼ぶ。
+\end{definition}
+
+標識を忘れる操作は底変更と両立するので、stackification の普遍性\cite[Tag 0436]{Stacks}から
+\begin{equation}\label{eq:relative-q-o-morphism}
+ \mathfrak M^Q_{\mathscr C}\longrightarrow
+ \mathfrak M^{Q,\mathrm{rig}}_{\mathscr C}\longrightarrow
+ \mathfrak M^{\OO}_{\mathscr C}
+\end{equation}
+が定まる。これは\emph{指定した族の概念に相対的な}スタックの定義である。
+$\Spec\mathbb C$ の \'etale 被覆は分裂するので、相対モデルが与える
+複素点の群oidはこの stackification によって変わらない。
+任意の内在的 cubic を含む相対モデルの構成、異なるモデル間の比較、
+代数スタック性、局所有限表示性、対角射の表現可能性は追加の問題である。
+
+族で式\eqref{eq:q-inertia-extension}を $T_{\ell-1,S}$ による rigidification として使うには、
+少なくとも相対自己 Hom のスカラー同定、自然中心と $\OO_S$ 上の作用の整合性、
+基底変換との両立、およびその inertia 部分群の降下を確認する必要がある。
+本節では複素点について直接証明した群oidの商と、
+これらの相対条件を必要とする代数スタックの rigidification を区別する。
+既知の rigidification 定理\cite[Tag 04V2]{Stacks}は、代数スタックと適切な平坦慣性部分群を
+構成した\emph{後}に適用するものである。
+
+標準 AOU 関係式・potential の商は族を構成する具体的な候補となるが、
+それを式\eqref{eq:relative-q-o-morphism}の始域と同定するには、
+関係式からの反標準 heart の相対的構成、標識の復元、および exact 同値の降下を示す必要がある。
+当面の目標は、この比較を成立範囲を明記して構成し、
+標識変更の相対化と有限性を証明して、複素点の式\eqref{eq:rigid-weyl-fiber}を
+族における fiber 定理へ高めることである。

@@ -1,8 +1,12 @@
-\section{反標準 heart を基準とする二段階の忘却}\label{sec:ac-set-framework}
+\section{反標準表示と二種類の標識}\label{sec:ac-set-framework}
 本稿の基準は \emph{anticanonical heart}（反標準 heart）である。
 AOU/OU の標準表示を使う場合だけ \emph{AS heart} を併用する。
 この二つの指定された heart の比較と、標識の忘却とを混同しない。
-本稿の分類対象は、まず対象の同型類および圏の exact 同値類の\emph{集合}である。
+本稿の主対象は、構造対象を一つ選ぶ $\mathcal O$-marking と、
+指定 rolled-up quiver 型の full very strong exceptional collection を選ぶ
+$Q$-marking の間の忘却である。
+対象の同型類だけでなく、その同型を保持する moduli 群oidも定義する。
+各点への群oid fiber と、exact 同値類集合の fiber とを区別する。
 
 \subsection{反標準環と固定する heart}
 Serre 関手 $\mathsf S$ を持つ導来圏と対象 $e$ に対し $H=\mathsf S^{-1}[2]$ と置く。
@@ -24,7 +28,7 @@ $R_e$ と $A^{\rm AS}$、および二つの heart は、名前だけで同一視
 $(e,H)$ が Artin--Zhang 豊富である場合には、
 その再構成定理により $\mathcal A\simeq\qgr R_e$ となる
 \cite[Theorem 4.5]{AZ}。
-従って本稿の内在的公理（定義\ref{def:weak-cubic}）は、
+従って本稿の内在的公理（定義\ref{def:o-marked-cubic}）は、
 このように反標準 heart として認識された $\mathcal A$ 上で用いる。
 単に $H$ が $t$-exact というだけで、任意に選んだ heart を
 反標準 heart と呼び替えることはしない。
@@ -38,7 +42,10 @@ rank-one torsion-free exceptional 対象と呼び、
 \]
 とする。さらに $(L,H)$ が豊富で所定の切断数を持つものを
 $\operatorname{Line}_{\rm adm}(\mathcal A)$ とする。
-weak marking とはその一つを選ぶこと、すなわち $(\mathcal A,L)$ である。
+$\mathcal O$-marking 全体は定義\ref{def:o-marked-cubic}の構造対象の選択であり、
+その\emph{例外的部分}がこの許容線束の選択に対応する。
+後の数値分類でいう weak marking は、比較用の弱公理
+（定義\ref{def:weak-cubic}）を満たすこの部分の組 $(\mathcal A,L)$ を指す。
 全線束の許容性が証明された範囲では二集合は一致する。
 一致をまだ証明していない範囲では、その未解決点を明記する。
 
@@ -46,6 +53,8 @@ weak marking とはその一つを選ぶこと、すなわち $(\mathcal A,L)$ �
 $\operatorname{Mark}_{\rm AOU/OU}(\mathcal A,L)$ と書く。
 ここで、指定した構造対象が $L$ に対応する標準 helix/thread の実現を選び、
 固定圏内の対象の同型で同一視する。矢の基底は標識に含めない。
+$Q$-marking では quiver の次数、頂点の順序と先頭頂点を固定し、
+有限 End 代数と rolled-up 代数を区別する（定義\ref{def:q-marking}）。
 AS 表示から得る場合は、その対象を反標準 heart に移せることを先に確認する。
 全域で標準 helix が存在するとは仮定しない。
 
@@ -102,4 +111,6 @@ Artin--Zhang 再構成\cite[Theorem 4.5]{AZ}をこの組に適用する。
 という\emph{集合としての軌道商}を考える。
 ここでも最初から線束の選択集合を軌道商で置き換えない。
 まず各数値類での存在・一意性と許容性を解き、次にこの作用を計算する。
-群oid・stack・相対降下は、この集合論的分類の後の課題とする。
+第\ref{sec:marked-moduli}節では、この軌道商に先立つ moduli 群oidと
+$Q$-marking の忘却 fiber を定義する。
+族の降下と代数的 stack としての表現可能性は、点上の分類とは別に検証する課題である。

@@ -1,0 +1,122 @@
+% !TeX root = ../nc-cubic-unmark.tex
+\section{構造対象からの helix の heart 認識}
+\label{sec:o-helix-heart-recognition}
+
+本節では定義\ref{def:o-marked-cubic}の最小の $\mathcal O$-marking を用いる。
+数値的 Riemann--Roch、Picard 格子、root 型単純対象の非存在は仮定しない。
+very strong helix の先頭に構造対象を置くと、
+その helix の全対象は指定した Abel 圏に属することを示す。
+
+\begin{lemma}[正自己 twist の消滅からの反標準 Serre 消滅]
+\label{lem:o-ample-serre-vanishing}
+$(\mathcal A,\OO)$ を $\mathcal O$-marked cubic とし、
+$H=\mathsf S^{-1}[2]$ と置く。さらに
+\begin{equation}\label{eq:o-positive-self-vanishing}
+ \Ext^i(\OO,H^m\OO)=0\qquad(i>0,\ m\ge0)
+\end{equation}
+を仮定する。このとき任意の $M\in\mathcal A$ に対して
+\begin{equation}\label{eq:o-all-object-serre-vanishing}
+ \Ext^i(\OO,H^nM)=0\qquad(i>0,\ n\gg0)
+\end{equation}
+が成り立つ。また任意の $C\in D^b(\mathcal A)$ に対して
+\begin{equation}\label{eq:o-minimal-heart-detection}
+ C\in\mathcal A\quad\Longleftrightarrow\quad
+ \Hom(\OO,H^nC[k])=0\qquad(k\ne0,\ n\gg0)
+\end{equation}
+が成り立つ。右辺の閾値は $C$ に依存してよい。
+\end{lemma}
+\begin{proof}
+補題\ref{lem:o-minimal-consequences}により、
+圏の homological 次元は $2$ であり、
+$\Hom(\OO,H^{-b}\OO)=0$ ($b>0$) である。
+AZ 豊富性から、有限個の整数 $a_j$ を用いた全射
+\[
+ P=\bigoplus_jH^{-a_j}\OO\twoheadrightarrow M
+\]
+を取る。Serre 双対性は
+\[
+ \Ext^2(\OO,H^nM)
+ \simeq\Hom(M,H^{-n-1}\OO)^*
+\]
+を与える。一方、この Hom は
+\[
+ \Hom(M,H^{-n-1}\OO)
+ \lhook\joinrel\longrightarrow
+ \bigoplus_j\Hom(\OO,H^{a_j-n-1}\OO)
+\]
+により十分大きい $n$ で零となる。
+この議論を $N=\ker(P\to M)$ にも適用すると、
+$\Ext^2(\OO,H^nN)=0$ を得る。
+$H$ の exact 性から生じる長完全列
+\[
+ \Ext^1(\OO,H^nP)\longrightarrow\Ext^1(\OO,H^nM)
+ \longrightarrow\Ext^2(\OO,H^nN)
+\]
+の左端は式\eqref{eq:o-positive-self-vanishing}により $n\gg0$ で零である。
+従って第一 Ext も消え、式\eqref{eq:o-all-object-serre-vanishing}を得る。
+
+次に $C$ の有限個の非零 cohomology 対象に
+式\eqref{eq:o-all-object-serre-vanishing}を同時に適用する。
+$H$ は $t$-exact なので、cohomology に関する spectral sequence は
+十分大きい $n$ で次数零の Hom のみに退化し、すべての $k$ に対し
+\[
+ \Hom(\OO,H^nC[k])
+ \simeq\Hom(\OO,H^n\mathcal H^k(C))
+\]
+を得る。
+非零対象 $M$ に対して $\Hom(\OO,H^nM)$ が
+十分大きいすべての $n$ で零となることはない。
+実際、AZ 豊富性の生成条件は任意に負の tail における
+$H^{-n}\OO$ の有限直和による生成を与えるので
+\cite[Lemma 2.1(ii)]{PolishchukProj}、そのような消滅は $M=0$ を強制する。
+従って式\eqref{eq:o-minimal-heart-detection}の右辺は
+$\mathcal H^k(C)=0$ ($k\ne0$) と同値であり、結論を得る。
+ここでは Hilbert 多項式による対象の検出を用いていない。
+\end{proof}
+
+\begin{proposition}[構造対象を先頭に持つ very strong helix]
+\label{prop:o-helix-heart-recognition}
+$(\mathcal A,\OO)$ を $\mathcal O$-marked cubic とする。
+$D^b(\mathcal A)$ の full exceptional collection
+$\mathbb E=(E_1,\ldots,E_\ell)$ が $E_1\cong\OO$ を満たし、
+$E_{i+\ell}=HE_i$ による helix が very strong であるとする。
+このとき構造対象 $\OO$ は例外的であり、
+式\eqref{eq:o-positive-self-vanishing}と
+式\eqref{eq:o-all-object-serre-vanishing}が成り立つ。
+さらにすべての $i\in\mathbb Z$ に対して $E_i\in\mathcal A$ である。
+従って定義\ref{def:q-marking}の $Q$-marking では、
+先頭が $\mathcal O$-marking の構造対象であることを確認すれば、
+残りの thread の対象の heart 所属を独立に仮定する必要はない。
+\end{proposition}
+\begin{proof}
+$\OO\cong E_1$ の例外性は exceptional collection の定義から従う。
+$m>0$ に対して $H^m\OO\cong E_{1+m\ell}$ は $E_1$ より後に位置するため、
+very strongness は
+\[
+ \Hom(\OO,H^m\OO[k])=0\qquad(k\ne0)
+\]
+を与える。$m=0$ では例外性を使えばよい。
+従って式\eqref{eq:o-positive-self-vanishing}を満たし、
+前補題により全対象の反標準 Serre 消滅と heart 検出を得る。
+
+各 $i$ を固定し、$i+n\ell>1$ となる十分大きい $n$ を取る。
+very strongness より
+\[
+ \Hom(\OO,H^nE_i[k])
+ \simeq\Hom(E_1,E_{i+n\ell}[k])=0
+ \qquad(k\ne0)
+\]
+である。式\eqref{eq:o-minimal-heart-detection}を $C=E_i$ に適用すれば
+$E_i\in\mathcal A$ となる。
+\end{proof}
+
+\begin{remark}[heart 認識と数値的線束認識の区別]
+前命題は、helix の対象が指定 heart に属することを示す。
+各対象の階数一、torsion-free 性、有限 Weyl 群による標識分類までを
+この最小公理だけから主張するものではない。
+標準三次曲面型でこれらを得るには、後述の数値的構造と
+root 型単純対象に関する条件を別に用いる。
+また、任意の $\mathcal O$-marking に対する
+式\eqref{eq:o-positive-self-vanishing}の成立は本節では証明していない。
+本節では、その消滅を very strong helix の存在から得ている。
+\end{remark}

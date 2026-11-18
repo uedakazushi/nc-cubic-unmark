@@ -57,7 +57,7 @@ $h_E(n)\le h_E(n-b)$ がすべての $n$ で成り立つ。
 各剰余類 $n\bmod b$ で $h_E(n)$ は上に有界となり、上の二次増大と矛盾する。
 Serre 双対性から
 $\Ext^2(E,E)=\Hom(E,H^{-1}E)^*=0$ である。
-補題\ref{lem:dimension-centre}によって高次 Ext は消え、
+補題\ref{lem:o-minimal-consequences}によって高次 Ext は消え、
 前補題の $\dim\End(E)=1$ と Euler 形式の定義から結論を得る。
 \end{proof}
 
@@ -138,7 +138,7 @@ $N=\ker(P\to M)$ にもこの第二 Ext 消滅を適用すると、
  \longrightarrow\Ext^2(\OO_0,H^nN)
 \]
 の両端が $n\gg0$ で零となる。
-高次 Ext は補題\ref{lem:dimension-centre}で消える。
+高次 Ext は補題\ref{lem:o-minimal-consequences}で消える。
 これで式\eqref{eq:ac-serre-vanishing}を得て、Riemann--Roch を展開すれば
 式\eqref{eq:ac-hilbert-polynomial}となる。
 
@@ -277,6 +277,83 @@ $\Ext^1(L,H^nM)=0$ も従う。
 定理\ref{thm:intrinsic-line-criterion}の負の自己 Hom 消滅から得られる。
 従って $L$ は許容構造対象である。
 \end{proof}
+
+\subsection{$\mathcal O$-marking と許容線束の比較}
+
+定義\ref{def:o-marked-cubic}の $\mathcal O$-marking は、
+構造対象の例外性を最初から要求しない。
+ここでは既に許容線束 $\OO_0$ を持つ固定 heart 上で、
+その定義と従来の許容線束の条件との差を明示する。
+
+\begin{proposition}[構造対象候補の自己拡大と例外的部分]
+\label{prop:o-marking-defect-comparison}
+定理\ref{thm:ac-serre-positivity}の仮定の下で、同じ $\mathcal A$ 内の
+$\mathcal O$-marking の構造対象を $\OO$ とする。
+その数値表示を $\operatorname{ch}(\OO)=(1,D,s)$ と書き、
+$\delta(\OO)=D^2/2-s$ と置くと、$\delta(\OO)\in\mathbb Z_{\ge0}$ であり、
+すべての整数 $m\ge0$ について
+\begin{align}
+ \chi(\OO,H^m\OO)
+ &=1+\tfrac32m(m+1)-2\delta(\OO),
+ \label{eq:o-marking-self-euler}\\
+ \Ext^2(\OO,H^m\OO)&=0,\qquad
+ \dim\Ext^1(\OO,H^m\OO)=2\delta(\OO).
+ \label{eq:o-marking-self-ext}
+\end{align}
+従って、次の条件は同値である。
+\begin{enumerate}
+\item $\OO$ は例外対象である。
+\item $\delta(\OO)=0$ である。
+\item ある $m\ge0$ に対して $\Ext^1(\OO,H^m\OO)=0$ である。
+\item $\Ext^i(\OO,H^m\OO)=0$ が $i>0$, $m\gg0$ に対して成立する。
+\item $\OO\in\operatorname{Line}_{\rm adm}(\mathcal A)$ である。
+\end{enumerate}
+この命題は最小の $\mathcal O$-marking の公理だけから
+$\delta(\OO)=0$ が従うとは主張しない。
+\end{proposition}
+\begin{proof}
+内在的 rank-one torsion-free 性から数値階数が $1$ となることは
+定理\ref{thm:ac-serre-positivity}による。
+系\ref{cor:line-numerical-defect}により $\delta(\OO)$ は非負整数である。
+式\eqref{eq:line-rr}--\eqref{eq:line-H}を展開すれば
+式\eqref{eq:o-marking-self-euler}を得る。
+Serre 双対性と定理\ref{thm:intrinsic-line-criterion}の負方向の Hom 消滅より、
+\[
+ \Ext^2(\OO,H^m\OO)
+ \simeq\Hom(\OO,H^{-m-1}\OO)^*=0
+ \qquad(m\ge0).
+\]
+高次 Ext は圏の homological 次元が $2$ であるため消える。
+$\mathcal O$-marking の所定の切断数
+$\dim\Hom(\OO,H^m\OO)=1+3m(m+1)/2$ と
+式\eqref{eq:o-marking-self-euler}との差を取れば
+式\eqref{eq:o-marking-self-ext}が従う。
+$\End(\OO)=\mathbb C$ も内在的 rank-one torsion-free 性から従うので、
+最初の四条件は同値である。
+最後の同値には、豊富性と所定の切断数が既に
+$\mathcal O$-marking の条件に含まれていることを用いる。
+\end{proof}
+
+\begin{remark}[Hilbert 関数だけでは自己拡大を検出しない]
+\label{rem:o-ideal-sheaf-test}
+滑らかな可換三次曲面 $X$ と点 $p\in X$ に対し、
+$I_p$ は rank-one torsion-free で
+\[
+ \operatorname{Hom}_X(I_p,I_p\otimes\OO_X(-mK_X))
+ \simeq H^0(X,\OO_X(-mK_X))\qquad(m\ge0)
+\]
+を満たすが、$\dim\Ext^1(I_p,I_p)=2$ である。
+前者は $\mathcal Hom_X(I_p,I_p)=\OO_X$、後者は
+Riemann--Roch と第二 Ext 消滅から従う。
+ただし $(I_p,(-)\otimes\OO_X(-K_X))$ は AZ 豊富でない。
+実際、点 $p$ で $\mathcal Hom_X(I_p,\OO_X)=\OO_X$ であり、
+任意の twist から $\OO_X$ への射の像は $I_p\OO_{X,p}$ に含まれる。
+従って負 twist の有限直和から $\OO_X$ への全射を作れない。
+この例は rank-one 性と Hilbert 関数だけでは例外性が出ないことを示すが、
+$\mathcal O$-marking の全公理への反例ではない。
+最小公理における豊富性が正方向の自己 Ext 消滅を強制するかは、
+命題\ref{prop:o-marking-defect-comparison}とは別に確かめる必要がある。
+\end{remark}
 
 \subsection{零次数単純対象と許容性の障害}
 ここでも定理\ref{thm:ac-serre-positivity}の数値仮定を置く。

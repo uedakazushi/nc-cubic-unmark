@@ -19,76 +19,115 @@
 \newcommand{\Pic}{\operatorname{Pic}}\newcommand{\Aut}{\operatorname{Aut}}
 \newcommand{\End}{\operatorname{End}}\newcommand{\RHom}{\operatorname{RHom}}
 \newcommand{\Cw}{\mathfrak C^{\rm w}}\newcommand{\Cu}{\mathfrak C^{\rm u}}
-\title{非可換三次曲面の二段階の標識忘却\\\large 反標準 heart・有限 Weyl 群・線束の選択}
+\title{非可換三次曲面の構造対象と quiver 標識\\\large $\mathcal O$-marking、$Q$-marking と忘却射の fiber}
 \author{植田一石}
-\date{2026年11月18日 / unmark-v12}
+\date{2026年11月19日 / unmark-v13}
 \begin{document}\maketitle
 \begin{abstract}
-AOU の標準三ブロック標識から弱標識へ、弱標識から無標識へ至る二段階の忘却を、
-反標準 heart を基準として集合論的に研究する。比較する別の表面の heart は AS heart のみとする。
-標準 AOU relation torus の非常に一般の点では、固定 heart 内の許容線束は
-三次曲面の Picard 格子 $\Lambda=I_{1,6}$ の全類で一意に添字付けられ、
-各先頭線束上の標準 full very strong 標識は $W(E_6)$-torsor をなす。
-圏の exact 同値類を点に取る実際の忘却 fiber は、順に
-$W(E_6)$-torsor と $\Lambda/\mathbb ZK\simeq Q(E_6)^\vee$ である。
+非可換 del Pezzo の内在的定義に現れる構造対象を一つ選ぶ
+$\mathcal O$-marking と、指定された rolled-up quiver を持つ
+full very strong exceptional collection を選ぶ $Q$-marking を定義し、
+後者から前者への忘却射を研究する。
+複素点のモジュライ群oidを構成し、固定した $(\mathcal A,\OO)$ 上の
+$2$-fiber を標識集合で添字付けられた $B(\mathbb G_m^{\ell-1})$ の非交和として記述する。
+成分スカラーを除いた fiber は標識集合そのものであり、
+同型類集合の fiber はさらに構造対象を保つ exact 自己同値で割った軌道集合である。
 
-証明では、楕円 decuple に由来する正則中心元と有限余次元 corner を用い、
-実際の稠密開部分上で AS heart と反標準 heart の exact 比較、豊富性、弱公理を確認する。
-曲線因子により数値階数と内在的 Gabriel--Krull filtration を比較する。
-固定弱反標準 heart では、右反標準 tail の第一 Ext 消滅から
-単純な数値的階数一対象の torsion-free 性を導き、
-標準 very strong helix の全九対象を線束として認識する。
-零次数 root 型単純対象がない場合の三対象交換は、有限 Weyl 作用を実現する。
+構造対象を先頭に持つ very strong helix の全対象が指定 heart に入ることを、
+数値的 Riemann--Roch を仮定せずに証明する。
+標準三ブロックの二十七矢 quiver については、最小表示と
+Calabi--Yau completion から有限 foundation の十八矢・九関係と Euler 形式を導く。
+一つの $Q$-marking の存在により比較用の弱公理と三次曲面型数値構造が得られ、
+零次数 root の非存在条件の下で標識集合は $W(E_6)$-torsor となる。
+従ってこの範囲の rigidified な幾何学的 fiber は $51840$ 点である。
+実際の標準 AOU relation torus の非常に一般の点では
+exact 自己同値の数値作用の忠実性も示し、
+構造対象を固定する自己同値群自体が自明となる。従って同型類集合の fiber も同じ点数となる。
 
-非常に一般の全線束存在には、個々の projective 複体の代数化と可算個の開条件を用いる。
-自己同値の数値像は、有限 AOU 関係式の等化子と一次 Poisson 障害により
-$\mathbb ZK$ と決定する。generic 自己同値そのものの特殊化は必要としない。
-許容 Artin 変形でも対応する全次数の fiber を求める。
-標識付き側の定義域は、弱公理と反標準 heart の比較を満たす標準 AOU 型の全範囲である。
-全 GIT 境界や標準 Euler 型と異なる一般 OU helix は結論の対象としない。
+既存の線束の存在・一意性、AS/反標準 heart 比較、自己同値の数値像、
+許容 Artin 変形の証明を保持する。
+構造対象自体を忘れる第二の写像については、例外的構造対象の部分で
+$\Lambda/\mathbb ZK\simeq Q(E_6)^\vee$ という非常に一般の fiber を得る。
+最小の内在的公理だけから構造対象の例外性が従うか、
+相対モジュライの代数性、忘却射の相対有限 \'etale 性と全境界への延長は未解決である。
 \end{abstract}
 {\small\tableofcontents}
 \clearpage
 \section{はじめに}
-本稿の基本問題は
+本稿の中心は、非可換三次曲面に二種類の標識を導入し、忘却射
 \[
- \text{AOU marked}\longrightarrow
- \text{weakly marked}\longrightarrow\text{unmarked}
+ p:\mathfrak M^Q\longrightarrow\mathfrak M^{\OO}
 \]
-という二段階の忘却である。
-基準とする Abel 圏は反標準環の $\qgr$ として得る
-\emph{anticanonical heart} であり、比較する別の心は \emph{AS heart} のみとする。
-対象の同型類と圏の exact 同値類の集合を扱い、
-群oid・stack および相対降下の定式化はその後の課題とする。
+とその fiber を記述することである。
+$\mathcal O$-marking は非可換 del Pezzo の定義に現れる構造対象を一つ指定し、
+$Q$-marking はその対象を先頭に置いた full very strong exceptional collection を指定する。
+基準となる Abel 圏は、その構造対象と反標準作用による豊富対から再構成される
+\emph{anticanonical heart} である。比較する別の表面の heart は \emph{AS heart} のみとする。
 
-\paragraph{二段階の選択と moduli fiber.}
-弱標識は固定反標準 heart $\mathcal A$ の許容線束 $L$ の選択である。
-最初に調べる集合は
-$\operatorname{Mark}^{\rm line}_Q(\mathcal A,L)$ と
-$\operatorname{Line}_{\rm adm}(\mathcal A)$ であり、
-前者をまず AOU の標準三ブロック線束型について調べ、
-その後、同じ Euler 型の full very strong helix 全体を認識する。
-数値格子上の Weyl 作用だけで実際の helix の存在を推論せず、
-各数値的線束類の存在・一意性・許容性もそれぞれ確認する。
-対象同士のテンソル積や Picard 格子による固定非可換圏上の作用は仮定しない。
-本稿で構成する線束標識は AOU 型の AS 標識を与える。
-逆に、零次数 root のない固定弱反標準 heart 上では、
-任意の標準 full very strong helix の九対象は自動的に線束となる
-（定理\ref{thm:aou-helix-line-recognition}）。
-従って標識付き側の適合定義域では、線束性を最初から制限として課す必要はない。
+\paragraph{構造対象と例外性を分ける.}
+定義\ref{def:o-marked-cubic}では、Gabriel--Krull filtration による階数一かつ torsion-free、
+反標準作用の豊富性、三次曲面型の切断環 Hilbert 級数を要求する。
+構造対象の例外性は独立の追加条件として分ける。
+対象間のテンソル積を仮定せず、structure sheaf をテンソル単位とは解釈しない。
+Artin--Zhang 再構成ではこの対象が反標準環の $\pi R$ に対応する。
+比較用の「弱標識」は、例外性と smooth proper な dg enhancement を備えた部分を指す。
+最小の $\mathcal O$-marking 全体とこの部分を混同しない。
 
-圏の exact 同値類を点に取る moduli では、集合論的 fiber にも自己同値による同一視が入る。
-全線束と標識の実現された範囲で、自己同値の数値像を
-$\Gamma_{\mathcal A}\subset\Lambda\rtimes W(E_6)$、$L$ の安定化像を $\Gamma_L$ と書くと、
+\paragraph{有限 foundation と rolled-up quiver.}
+$T=\bigoplus_iE_i$ に対し、$\End(T)$ と
+$\bigoplus_{n\ge0}\Hom(T,H^nT)$ は異なる代数である。
+本稿の $Q$ は後者の最小 quiver であり、頂点順序、先頭頂点、cut 次数も固定する。
+矢や関係の基底は標識に含めない。
+命題\ref{prop:o-helix-heart-recognition}は、先頭が構造対象であることから
+全 helix の heart 所属を導く。
+命題\ref{prop:aou-quiver-euler-recognition}は、標準二十七矢の rolled-up quiver から
+有限 foundation の Euler 行列を復元する。
+その結果、一つの標準 $Q$-marking が存在すれば、
+比較用の弱公理と全対象上の三次曲面型 Riemann--Roch が得られる
+（系\ref{cor:q-marking-numerical-inputs}）。
+
+\paragraph{三つの fiber.}
+固定した $x=(\mathcal A,\OO)$ 上の実現された標識の同型類集合を
+$\operatorname{Mark}_Q(\mathcal A,\OO)$ と書く。
+ここでは圏の自己同値による同一視をまだ行わない。
+第\ref{sec:marked-moduli}節では、成分同型を射に含める群oidと、
+そのスカラーを除いた群oidを定義し、
 \[
- p^{-1}[(\mathcal A,L)]\simeq\Gamma_L\backslash W(E_6),\qquad
- q^{-1}[\mathcal A]\simeq(\Lambda/\mathbb ZK)/\overline\Gamma_{\mathcal A}
+ \operatorname{Fib}_x(p)\simeq
+ \coprod_{\operatorname{Mark}_Q(\mathcal A,\OO)}B(\mathbb G_m^{\ell-1}),
+ \qquad
+ \operatorname{Fib}_x(p^{\rm rig})\simeq
+ \operatorname{Mark}_Q(\mathcal A,\OO)
 \]
-となる（系\ref{cor:actual-set-fibers}）。
-第一 fiber は有限 Weyl 軌道であり、安定化像が自明なら torsor である。
-第二 fiber は反標準シフト $H$ の冪による $K$ 方向の同一視を必ず持つ。
-従って、固定 heart 内の線束選択が Picard 格子そのものでも、
-通常の同値類の fiber の自然なラベルは異なる。
+を示す。これに対し同型類集合の fiber は
+\[
+ (\pi_0p)^{-1}([x])\simeq
+ \operatorname{Aut}_{\rm ex}(\mathcal A,\OO)
+ \backslash\operatorname{Mark}_Q(\mathcal A,\OO)
+\]
+である。後者の軌道を二つの幾何学的 fiber と区別することが要点である。
+標準三次曲面型で零次数 root がなく、標識が存在すれば、
+標識集合は $W(E_6)$-torsor となる。
+従って rigidified fiber は $51840$ 点であり、元の fiber には各成分に
+$(\mathbb C^\times)^8$ の自己同型が残る。
+さらに標準型で root がなければ、exact 自己同値の数値作用は忠実であり、
+rigidified $Q$-marked 対象の絶対慣性は自明となる
+（命題\ref{prop:q-numerical-auto-faithful}、系\ref{cor:standard-q-absolute-inertia}）。
+族については相対 enhanced 圏と heart のモデルを指定した上で
+モジュライを stackification により定義するが、代数性と有限 \'etale 性は別の課題とする。
+
+\paragraph{構造対象自体の選択との関係.}
+固定 heart 内の例外的構造対象は、後述の許容線束である。
+全数値線束類と標識が実現される範囲では、
+自己同値の数値像を $\Gamma_{\mathcal A}\subset\Lambda\rtimes W(E_6)$、
+構造対象の安定化像を $\Gamma_{\OO}$ として、
+同型類集合の第一 fiber は $\Gamma_{\OO}\backslash W(E_6)$ となる。
+構造対象自体も忘れる第二の写像の例外的部分は
+$(\Lambda/\mathbb ZK)/\overline\Gamma_{\mathcal A}$ である。
+非常に一般の標準 AOU 点では $\Gamma_{\mathcal A}=\mathbb ZK$ なので、
+それぞれ $W(E_6)$-torsor と $\Lambda/\mathbb ZK$ となる。
+第二の結論を、例外性をまだ確認していない全構造対象に拡大してはいない。
+対象のテンソル積や、Picard 格子による固定非可換圏上の自己同値作用も仮定しない。
 
 \paragraph{線束の内在的判定と零次数障害.}
 rank-one torsion-free 対象の自己第二 Ext は消え、例外性は自己 Euler 形式 $1$ と同値である
@@ -196,6 +235,12 @@ root 型対象の評価・普遍拡大は spherical twist の既知の形式
 \cite[Definitions 2.7, 2.9]{ST}と対応するが、本稿の証明は固定 heart 内の完全列を用いる。
 その twist が $t$-exact であるとは仮定しない。
 
+標準 quiver から最小関係を復元する段階では
+Keller\cite[\S6.9, Theorem 6.10]{KellerCY}の未変形 Calabi--Yau completion を用いる。
+数値的に自明な exact 自己同値の排除には、全係数非零の関係式と線束の内在的な数値的一意性に、
+Keller\cite[\S4.4]{KellerDG}および To\"en\cite[Theorem 7.2(2), Corollary 7.6]{ToenMorita}の
+既知の dg quotient・Morita 表示を組み合わせる。
+
 可換自己同値分類は Bondal--Orlov、対象持上げと形式比較は Lowen と
 De Deken--Lowen、一次変形における Picard 作用は Toda の枠組みを用いる。
 これらの既知結果そのものを新結果とはしない。
@@ -206,6 +251,9 @@ De Deken--Lowen、一次変形における Picard 作用は Toda の枠組みを
 
 \input{papers/sections/anticanonical_set_unmark.tex}
 \input{papers/sections/marking_forgetful.tex}
+\input{papers/sections/quiver_markings.tex}
+\input{papers/sections/helix_heart_recognition.tex}
+\input{papers/sections/marked_moduli.tex}
 \input{papers/sections/aou_to_unmarked.tex}
 \input{papers/sections/line_bundle_classification.tex}
 \input{papers/sections/weyl_line_markings.tex}
@@ -216,21 +264,28 @@ De Deken--Lowen、一次変形における Picard 作用は Toda の枠組みを
 \input{papers/sections/picard_invariants.tex}
 
 \section{現在の課題}
-標準 AOU relation torus の非常に一般の点について、
-反標準 heart の弱公理、全数値線束の存在と許容性、標準 helix の線束認識、
-二つの集合論的 fiber は定理\ref{thm:actual-aou-very-general}でまとまる。
-次の核心は、弱公理に適合する最大の locus と、その特殊部分の構造である。
-零次数 root 型単純対象の実在・排除、部分的な線束実現集合と許容半空間の関係、
-Weyl 標識変更がどの範囲で代数的に定義されるかを調べる。
+第一の課題は、第\ref{sec:marked-moduli}節の相対モジュライの定義を
+実際の標準 AOU relation 表示と結び付けることである。
+関係式族からの $\qgr$、構造対象、relative Serre 関手、heart と基底変換の適合性を確認し、
+頂点・矢の座標変更の商から内在的な標識付きモジュライへの比較射を構成する。
+証明用に選ぶ小さい開集合と、全 Weyl 標識を保持する飽和した定義域を区別する。
 
-中心楕円因子を持つ今回の稠密 locus では
-$\mathcal A_0=\{r=d=0\}$ も成立する
-（命題\ref{prop:elliptic-divisor-length-recognition}）。
-中心因子を仮定しない抽象的な弱 heart の全体での逆向きは残る。
-全 GIT 境界、標準 Euler 型と異なる一般 OU helix、
-数値的に自明な自己同値群そのものの分類は結論していない。
-既知結果との比較を続け、公表上の中心結果と新規性を確定する。
-群oid・stack・降下の精密化は、現在の集合論的結果を基礎に次段階で扱う。
+第二に、相対スカラー群による rigidification を行える条件を確認し、
+代数スタック性と忘却射の表現可能性を証明する。
+その後、三対象交換と標識の持上げを族で構成し、
+root のない適切な範囲での有限 \'etale 性、次数 $51840$、
+および特殊点での振舞いを調べる。
+複素点の fiber の濃度だけからこれらを推論しない。
+
+第三に、最小の $\mathcal O$-marked cubic における構造対象の例外性と
+標準 full very strong collection の存在を調べ、忘却像を決定する。
+既知の弱 heart 内での差は命題\ref{prop:o-marking-defect-comparison}の欠損で測れるが、
+欠損が正の構造対象の実例も、その一般的非存在も本稿では結論していない。
+零次数 root 型単純対象、部分的な線束実現集合、全 GIT 境界と他の OU quiver 型は
+個別の障害を確認しながら扱う。
+中心楕円因子のない抽象的な弱 heart 全体での
+$\mathcal A_0=\{r=d=0\}$ の逆向きも残る。
+一次資料による新規性・優先権の網羅的な比較は継続課題である。
 
 \appendix
 \section{可換三次曲面のHochschild変形}\label{sec:hh}
@@ -269,11 +324,15 @@ $\wedge^3T_X=0$なので$\HH^3=0$。
 \path{computations/verify_weyl_frames.py}、
 静的参照検査は \path{scripts/verify_unmark_bundle.py} である。
 計算は数値恒等式を検算するもので、線束の存在やheartの同定の証明ではない。
-今回の追加証明では、右 tail による torsion-free 認識、
-中心楕円因子、有限余次元 corner、通常の導来比較、AZ 豊富性、
-内在的階数と有限長の認識、および実際の AOU 族への適用を論理点検した。
-既存の root affine 反射、三対象交換、代数族の線束存在・自己同値等化子と
-許容 Artin fiber の証明も、仮定を明示して保持する。
+今回の追加証明では、最小の構造対象の公理とその帰結、
+数値的 Riemann--Roch を使わない helix の heart 認識、
+最小 rolled-up quiver からの Euler 形式の復元、
+モジュライ群oidの $2$-fiber と慣性、構造対象の欠損比較、
+および exact 自己同値の数値作用の忠実性を論理点検した。
+既存の root affine 反射、三対象交換、中心楕円因子・corner による heart 比較、
+代数族の線束存在・自己同値等化子と許容 Artin fiber の証明は、仮定を明示して保持する。
+今回、代数族の線束存在の主要な依存関係も点検したが、
+保持した既存証明すべてを新たに独立再査読したという意味ではない。
 数値上の有限探索では27本の $(-1)$ 類の網羅性、72個の六組、
 $51840$ 個の順序付き標識、単純反射の Coxeter 関係を検算する。
 数値計算は圏内での exactness や存在を証明するものではなく、
@@ -336,6 +395,18 @@ Corollary 3.3の証明（有限余次元 corner による tails 同値）。
 \emph{Deformed Calabi--Yau completions},
 \href{https://arxiv.org/abs/0908.3499}{arXiv:0908.3499}.
 参照: Theorems 4.8, 6.10。本稿では変形パラメータ零の completion のみを用いる。
+\bibitem{KellerDG} B. Keller,
+\emph{On differential graded categories},
+in International Congress of Mathematicians, Vol. II,
+Eur. Math. Soc., Z\"urich (2006), 151--190,
+\href{https://arxiv.org/abs/math/0601185}{arXiv:math/0601185v5}.
+参照: \S4.4、Theorem 4.8（dg quotient）。
+\bibitem{ToenMorita} B. To\"en,
+\emph{The homotopy theory of dg-categories and derived Morita theory},
+Invent. Math. 167 (2007), 615--667,
+\href{https://doi.org/10.1007/s00222-006-0025-y}{doi:10.1007/s00222-006-0025-y};
+\href{https://arxiv.org/abs/math/0408337}{arXiv:math/0408337v7}.
+参照: Theorem 7.2(2)、Corollary 7.6（quasi-functor の双加群表示）。
 \bibitem{GinzburgCY} V. Ginzburg,
 \emph{Calabi--Yau algebras},
 \href{https://arxiv.org/abs/math/0612139}{arXiv:math/0612139}.
@@ -343,7 +414,9 @@ Corollary 3.3の証明（有限余次元 corner による tails 同値）。
 \bibitem{Stacks} The Stacks Project Authors,
 \emph{The Stacks Project},
 \href{https://stacks.math.columbia.edu/tag/057G}{Tag 057G},
-Lemma 37.38.5（指定点を通る smooth 射の \'etale slice）。
+Lemma 37.38.5（指定点を通る smooth 射の \'etale slice）；
+\href{https://stacks.math.columbia.edu/tag/0436}{Tag 0436}（stackification の普遍性）；
+\href{https://stacks.math.columbia.edu/tag/04V2}{Tag 04V2}（rigidification とその仮定）。
 \bibitem{DGK} I. Dolgachev, B. van Geemen, S. Kond\=o,
 \emph{A complex ball uniformization of the moduli space of cubic surfaces
 via periods of K3 surfaces},

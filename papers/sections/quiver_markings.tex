@@ -1,0 +1,459 @@
+% !TeX root = ../nc-cubic-unmark.tex
+\section{構造対象を指定する標識と rolled-up quiver 標識}
+\label{sec:quiver-markings}
+
+本節では、定義\ref{def:o-marked-cubic}の構造対象を一つ選ぶ
+$\mathcal O$-marking と、例外生成列を選ぶ $Q$-marking を区別する。
+固定する $Q$ は rolled-up quiver であり、有限 foundation の
+endomorphism 代数を表示する非巡回 quiver とは区別する。
+この区別は AOU\cite[\S\S4.2--4.5]{AOU}および
+OU\cite[Definition 1.1(3), \S5]{OU2025}のものに従う。
+以下の定義では、矢の基底や potential の座標を標識の追加データにはしない。
+
+\subsection{固定する quiver の型と二つの endomorphism 代数}
+\begin{definition}[頂点、foundation、cut を指定した型]
+\label{def:rooted-cut-quiver}
+$Q_0=\{1,\ldots,\ell\}$ をラベル付きで順序を持つ頂点集合とし、
+有限 quiver $Q$、非負整数の cut 次数
+$\delta:Q_1\to\mathbb Z_{\ge0}$、構造対象を読む頂点 $1$ を固定する。
+次数零の矢からなる部分 quiver $Q^{\to}$ は非巡回であり、
+その矢は小さい番号から大きい番号へ向かうとする。
+本稿で $Q$ の型を固定するというときは、このラベル、順序、cut、指定頂点を含む。
+\end{definition}
+
+cut 次数は一周期 $H$ を何回越えるかを記録する。
+具体的には周期展開の頂点を $(i,m)\in Q_0\times\mathbb Z$ とし、
+矢 $a:i\to j$ を
+$ (i,m)\to(j,m+\delta(a)) $ に展開する。
+OU\cite[Remark 5.4, (5.5)--(5.8)]{OU2025}の規約では、
+foundation 内の矢の次数は零、foundation の終端を越える矢の次数は一である。
+順序や cut を忘れた抽象的な有向グラフだけでは、
+有限 foundation の代数も、$\mathcal O$ として選ぶ対象も指定されない。
+
+$\mathcal A$ を対象となる Abel 圏とし、$D^b(\mathcal A)$ の
+Serre functor を $S$、反標準作用を $H=S^{-1}[2]$ と書く。
+full strong exceptional collection
+$\mathbb E=(E_1,\ldots,E_\ell)$ と
+$T_{\mathbb E}=\bigoplus_iE_i$ に対して、
+\begin{equation}\label{eq:foundation-and-rolled-end}
+ R_{\mathbb E}=\End(T_{\mathbb E}),\qquad
+ B_{\mathbb E}
+ =\bigoplus_{n\ge0}\Hom(T_{\mathbb E},H^nT_{\mathbb E})
+\end{equation}
+を定める。前者は有限次元の foundation 代数、後者は
+completion 次数 $n$ を持つ rolled-up endomorphism 代数である。
+次数 $m$ の $f$ と次数 $n$ の $g$ の積は
+$g\cdot f=H^m(g)\circ f$ とし、
+\[
+ e_j(B_{\mathbb E})_ne_i=\Hom(E_i,H^nE_j),\qquad
+ (B_{\mathbb E})_0=R_{\mathbb E}
+\]
+という規約を用いる。
+これは OU\cite[(18)--(22)]{OUHelix}の completion 次数であり、
+cohomological 次数や、例外生成列の添字の差とは異なる。
+
+exceptionality と半直交性により $R_{\mathbb E}$ は三角的で、
+$R_{\mathbb E}/\operatorname{rad}R_{\mathbb E}\simeq\kk^{Q_0}$ である。
+従って $B_{\mathbb E}$ には正の completion 次数と
+$\operatorname{rad}R_{\mathbb E}$ を殺す標準 augmentation
+\[
+ \epsilon_{\mathbb E}:B_{\mathbb E}\longrightarrow\kk^{Q_0}
+\]
+がある。以下の最小 quiver は、その核
+$\mathfrak m_{\mathbb E}=\ker\epsilon_{\mathbb E}$ に対する
+$\mathfrak m_{\mathbb E}/\mathfrak m_{\mathbb E}^2$ で読む。
+無限次元代数 $B_{\mathbb E}$ の Jacobson radical を用いる定義ではない。
+
+\begin{definition}[$Q$-marking]\label{def:q-marking}
+定義\ref{def:rooted-cut-quiver}の型を固定する。
+非可換三次曲面 $\mathcal A$ の $Q$-marking は、次を満たす
+順序付き collection $\mathbb E=(E_1,\ldots,E_\ell)$ である。
+\begin{enumerate}
+ \item $E_i\in D^b(\mathcal A)$ は full strong exceptional collection をなし、
+ $E_{i+\ell}=HE_i$ により延長した helix が very strong、すなわち
+ $\Hom^p(E_i,E_j)=0$ が $i<j$、$p\ne0$ に対して成り立つ。
+ \item $E_1\in\mathcal A$ は定義\ref{def:o-marked-cubic}の構造対象である。
+ \item $B_{\mathbb E}$ は、頂点ラベル、augmentation、cut 次数を保つ最小表示
+ \begin{equation}\label{eq:q-minimal-presentation}
+  B_{\mathbb E}\simeq\kk Q/I,\qquad I\subset\mathfrak a^2
+ \end{equation}
+ を持つ。ここで $\mathfrak a\subset\kk Q$ は全矢で生成されるイデアルで、
+ $I$ は cut 次数について斉次である。
+\end{enumerate}
+表示の\emph{存在}を条件とし、その同型、各矢の基底、関係式の基底、
+potential を $Q$-marking のデータとして選ばない。
+全ての $E_i$ が指定された $\mathcal A$ に属す場合を
+\emph{heart 適合な $Q$-marking}と呼ぶ。
+\end{definition}
+
+先頭対象への適合条件は、忘却射を定義するために必要である。
+collection 全体を $[1]$ だけシフトしても full very strongness と
+rolled-up 代数の同型類は変わらないが、非零の $E_1\in\mathcal A$ に対して
+$E_1[1]\notin\mathcal A$ である。
+従って quiver と導来圏内の collection だけから指定 heart の構造対象を
+無条件に読み取ることはできない。
+本稿は $E_1$ が構造対象であるという適合性を定義に含め、
+残りの対象については次の heart 認識によって補う。
+
+式\eqref{eq:q-minimal-presentation}は
+$\mathfrak a/\mathfrak a^2\simeq
+\mathfrak m_{\mathbb E}/\mathfrak m_{\mathbb E}^2$ を誘導する。
+単に $\kk Q$ から全射を持つという条件だけでは、余分な矢を加えられるため
+quiver の型を固定したことにならない。
+また全ての $E_i$ を最初から線束とする条件は課していない。
+命題\ref{prop:o-helix-heart-recognition}は、この定義から
+heart 適合性が自動的に従うことを示す。
+標準 AOU 型の適合する範囲では、さらに後の数値的認識定理が線束性を導く。
+
+先頭の頂点を残す操作は
+\begin{equation}\label{eq:q-to-o-on-objects}
+ (\mathcal A,\mathbb E)\longmapsto(\mathcal A,E_1)
+\end{equation}
+である。さらに、$e=e_1$ とすれば構造対象の反標準切断環は
+\begin{equation}\label{eq:q-o-corner}
+ R(\mathcal A,E_1,H)
+ =\bigoplus_{n\ge0}\Hom(E_1,H^nE_1)=eB_{\mathbb E}e
+\end{equation}
+となる。この恒等式自体に noetherian 性や corner の有限余次元性は不要である。
+$\qgr B_{\mathbb E}\simeq\qgr(eB_{\mathbb E}e)$ や、
+これらと指定された $\mathcal A$ の exact 同値は別に確認する事項である。
+
+\begin{proposition}[$Q$-marking の像の必要条件]
+\label{prop:q-leading-self-ext}
+$Q$-marking の先頭 $\mathcal O=E_1$ について
+\[
+ \Ext^p_{\mathcal A}(\mathcal O,H^n\mathcal O)=0
+ \qquad(p>0,\ n\ge0)
+\]
+が成り立つ。特に $\mathcal O$ は例外対象である。
+\end{proposition}
+\begin{proof}
+$n=0$ では $E_1$ の exceptionality を用いる。
+$n>0$ では $H^nE_1=E_{1+n\ell}$ なので very strongness を用いる。
+これらの対象は $\mathcal A$ に属し、Abel 圏の Ext はその有界導来圏の Hom と一致する。
+\end{proof}
+
+この命題は $Q$-marking から来る $\mathcal O$ に対する結論である。
+構造対象の最小の内在的条件から exceptionality が従うこと、または
+全ての $\mathcal O$-marked cubic が $Q$-marking を持つことを意味しない。
+
+\subsection{標準三ブロック quiver からの Euler 型の導出}
+標準 AOU rolled-up quiver $Q_{\rm AOU}$ の頂点を
+\[
+ U_1,U_2,U_3;\quad V_1,V_2,V_3;\quad W_1,W_2,W_3
+\]
+と順序付け、指定頂点を $U_1$ とする。
+全ての組に対して矢
+\[
+ a_{ji}:U_i\longrightarrow V_j,\qquad
+ b_{kj}:V_j\longrightarrow W_k,\qquad
+ c_{ik}:W_k\longrightarrow U_i
+\]
+を一本ずつ置く。全部で九頂点、二十七矢であり、
+$\delta(a)=\delta(b)=0$、$\delta(c)=1$ とする。
+有限 quiver $Q_{\rm AOU}^{\to}$ は $c$ を除いた十八矢の quiver である。
+AOU\cite[Figures 4.1--4.2, (4.2)--(4.9)]{AOU}は、有限 quiver を $Q$、
+rolled-up quiver を $\widetilde Q$ と表す。本稿の従来の有限関係式計算で使う $Q$ は、
+この $Q_{\rm AOU}^{\to}$ に当たる。
+
+\begin{proposition}[rolled-up 型による有限関係式と Euler 行列の認識]
+\label{prop:aou-quiver-euler-recognition}
+$\mathbb E$ を定義\ref{def:q-marking}の $Q_{\rm AOU}$-marking とする。
+このとき $R_{\mathbb E}$ は $Q_{\rm AOU}^{\to}$ の path algebra を、
+各 $(i,k)$ について一本の非零な二次関係式
+\begin{equation}\label{eq:aou-q-relations}
+ r_{ki}=\sum_{j=1}^3\lambda_{kji}b_{kj}a_{ji}
+ \qquad(1\le i,k\le3)
+\end{equation}
+で割った代数である。従って
+\begin{equation}\label{eq:aou-q-euler}
+ \bigl(\chi(E_i,E_j)\bigr)_{i,j}
+ =\begin{pmatrix}
+ I_3&J_3&2J_3\\
+ 0&I_3&J_3\\
+ 0&0&I_3
+ \end{pmatrix},\qquad \dim R_{\mathbb E}=45,
+\end{equation}
+ただし $J_3$ は全成分が一の三次正方行列である。
+また $R_{\mathbb E}$ の大域次元は二であり、
+\[
+ B_{\mathbb E}\simeq
+ \kk Q_{\rm AOU}/(\partial\Phi),\qquad
+ \Phi=\sum_{i,k}c_{ik}r_{ki}
+\]
+と表示できる。ここで全ての $\lambda_{kji}$ が非零であるとはまだ主張しない。
+\end{proposition}
+\begin{proof}
+まず $R=(B_{\mathbb E})_0$ を考える。
+非負の cut 次数を保つ表示なので、次数零の部分は
+$\kk Q_{\rm AOU}^{\to}$ の剰余であり、最小性により頂点と十八矢は消えない。
+有限 quiver に長さ三以上の道はなく、長さ二の道は $U_i$ から $W_k$ へ向かう。
+従って
+\[
+ R=\kk Q_{\rm AOU}^{\to}/I_0,\qquad
+ I_0=\bigoplus_{i,k}I_{ki},\quad
+ I_{ki}\subset\bigoplus_{j=1}^3\kk b_{kj}a_{ji}.
+\]
+ここではまだ $d_{ki}:=\dim I_{ki}$ は未知である。
+
+この三層代数は $d_{ki}$ の値によらず大域次元が高々二である。
+実際、$P_x=e_xR$ を右射影加群とする本節の積の規約では、
+$U_i$ の単純加群は射影的である。
+$V_j$ の単純加群は $\bigoplus_iP_{U_i}\to P_{V_j}$ による長さ一の解消を持つ。
+$W_k$ の単純加群には
+\[
+ 0\longrightarrow\bigoplus_iP_{U_i}^{\oplus d_{ki}}
+ \longrightarrow\bigoplus_jP_{V_j}
+ \longrightarrow P_{W_k}\longrightarrow S_{W_k}\longrightarrow0
+\]
+という解消がある。中間写像の核は、各始点 $U_i$ での三つの道の関係
+$I_{ki}$ で尽くされるため、この列は完全である。
+
+full strong collection による導来 Morita 同値の下で、
+$H$ は $R$ の逆 Serre functor の二シフトに対応する。
+従って変形パラメータ零の三次元 Calabi--Yau completion は
+\[
+ \Pi_3(R)\simeq
+ \bigoplus_{n\ge0}\RHom(T_{\mathbb E},H^nT_{\mathbb E})
+\]
+と、completion 次数と積を保って同定される
+\cite[(18)--(22)]{OUHelix}。
+$n=0$ の高次 cohomology は strongness により零であり、
+$n\ge1$ の成分では $j+n\ell>i$ だから very strongness により零である。
+よってこの dg 代数の cohomology は次数零に集中し、その零次代数は $B_{\mathbb E}$ である。
+
+$I_0$ の全関係は長さ二であり、前後に矢を掛ける余地がないので、
+各 $I_{ki}$ の基底はそのまま最小関係式の基底となる。
+Keller\cite[\S6.9, Theorem 6.10]{KellerCY}を変形パラメータ零で適用すると、
+$\Pi_3(R)$ は、各最小関係 $r_{ki,t}$ に対して逆向きの矢
+$c_{ik,t}:W_k\to U_i$ を追加した quiver $Q_R$ と
+\[
+ \Phi_R=\sum_{i,k}\sum_{t=1}^{d_{ki}}c_{ik,t}r_{ki,t}
+\]
+の Ginzburg dg 代数と quasi-isomorphic である。
+この構成は、元の矢の completion 次数を零、追加矢の次数を一とする grading を保つ。
+実際、元の最小関係を cohomological 次数 $-1$、completion 次数零の生成元で
+解消する dg 模型では、その双対から生じる逆矢の completion 次数は一であり、
+Keller の構成に現れる微分と比較写像はこの grading について斉次である。
+従って零次 cohomology を取ると、頂点と augmentation を保つ同型
+\[
+ B_{\mathbb E}\simeq\kk Q_R/(\partial\Phi_R)
+\]
+を得る。$\Phi_R$ は矢の語長について三次であり、その微分は全て二次である。
+従って、この表示には一次の関係はなく、追加した $d_{ki}$ 本の矢は
+augmentation ideal の二乗で割っても独立である。
+
+一方、$Q$-marking の最小表示では、次数一の
+$W_k\to U_i$ の矢は一本である。
+$\mathfrak m_{\mathbb E}/\mathfrak m_{\mathbb E}^2$ の同じ頂点対・次数の成分を比較して
+$d_{ki}=1$ を得る。これにより式\eqref{eq:aou-q-relations}と Jacobian 表示が従う。
+隣接ブロック間の Hom は一次元、第一ブロックから第三ブロックへの Hom は
+$3-1=2$ 次元で、同じブロック内では恒等射だけが残る。
+strongness によってこれらは Euler 数と一致し、式\eqref{eq:aou-q-euler}を得る。
+代数の次元は $9+18+9\cdot2=45$ である。
+九つの関係は全て非零で、上の単純加群の解消は極小なので、
+大域次元はちょうど二である。
+\end{proof}
+
+\begin{remark}[仮定の必要な部分]
+この認識は、三層の標準 quiver、cut 次数、full very strongness、
+および最小表示を合わせて使う。
+任意の ungraded quiver の形だけから Euler 行列が決まるという命題ではない。
+特に、矢を追加した冗長な表示では逆矢の本数から最小関係の次元を読めない。
+Keller の completion 定理と OU の rolled-up 構成は既知入力であり、
+本命題はこれらを用いて、本稿の $Q$ 型と既存の標準 Euler 型を接続するものである。
+\end{remark}
+
+\begin{corollary}[一つの $Q$-marking が与える比較公理と数値格子]
+\label{cor:q-marking-numerical-inputs}
+$\mathcal O$-marked cubic $(\mathcal A,\OO)$ が
+$E_1\cong\OO$ を満たす $Q_{\rm AOU}$-marking $\mathbb E$ を一つ持つとする。
+このとき $(\mathcal A,\OO)$ は定義\ref{def:weak-cubic}の比較用の弱公理を満たす。
+さらに、$\mathbb E$ と可換三次曲面上の標準 AOU collection の対応を選ぶと、
+全対象に対する数値表示
+\[
+ K_0(\mathcal A)=K_0^{\rm num}(\mathcal A)
+ \xrightarrow{\sim}
+ \{(r,D,s):r\in\mathbb Z,\ D\in\Lambda,
+                         \ s-D^2/2\in\mathbb Z\}
+\]
+が得られ、式\eqref{eq:line-rr}--\eqref{eq:line-H}が成り立つ。
+この表示では $\operatorname{ch}(\OO)=(1,0,0)$ で、全 $E_i$ の数値階数は一である。
+特に
+\[
+ \mathcal A_1=\{M\in\mathcal A:r(M)=0\},\qquad
+ r(M)=\operatorname{length}_{\mathcal A/\mathcal A_1}(qM)
+\]
+が成り立つ。この表示は選んだ collection を基準とするものであり、
+モジュライ全体に大域的な格子標識を選んだという意味ではない。
+\end{corollary}
+\begin{proof}
+命題\ref{prop:aou-quiver-euler-recognition}により
+$R=\End(T_{\mathbb E})$ は有限次元で大域次元二である。
+$D^b(\mathcal A)$ の標準 dg enhancement における
+$T_{\mathbb E}$ の dg endomorphism 代数は、strongness により $R$ と quasi-isomorphic である。
+fullness によって
+\[
+ D^b(\mathcal A)\simeq\operatorname{Perf}(R)
+\]
+となる。有限次元で有限大域次元の代数の perfect dg 圏は smooth proper だから、
+必要な enhancement が得られる。
+$\OO\cong E_1$ は例外的であり、その他の条件は $\mathcal O$-marking の公理に含まれるので、
+比較用の弱公理を満たす。
+
+full exceptional collection の類 $[E_i]$ は $K_0(\mathcal A)$ の整数基底である。
+その Euler 行列は式\eqref{eq:aou-q-euler}で、行列式は一であるから、
+Euler 形式の根基は零であり $K_0(\mathcal A)=K_0^{\rm num}(\mathcal A)$ となる。
+この基底を滑らかな可換三次曲面 $X$ 上の標準九線束の基底に対応させれば、
+整数 Euler 格子の同型 $K_0(\mathcal A)\simeq K_0(X)$ を得る。
+可換側の Chern character と Riemann--Roch をこの同型で輸送する。
+Serre 作用は非退化な Euler 形式の双対性から一意に決まるので、
+この同型は Serre 作用および $H$ の数値作用とも可換である。
+従って式\eqref{eq:line-rr}--\eqref{eq:line-H}が全対象で成り立つ。
+先頭の標準線束は $\OO_X$ だから $\operatorname{ch}(\OO)=(1,0,0)$ であり、
+残りの標準線束も階数一なので $r(E_i)=1$ である。
+これは命題\ref{prop:aou-full-rr-transport}の輸送を一つの marking に適用したものである。
+
+ここまでで定理\ref{thm:ac-serre-positivity}の全入力を確認したので、
+$\mathcal A_1=\{r=0\}$ が従う。
+補題\ref{lem:o-minimal-consequences}によって商圏の全対象は有限長で、
+その単純対象は $q\OO$ の一つの同型類だけである。
+$r$ は $\mathcal A_1$ 上で零なので商圏の Grothendieck 群に降り、
+$r(\OO)=1$ であるから、商圏での長さと一致する。
+\end{proof}
+
+従って、一つの $Q_{\rm AOU}$-marking を持つ $\mathcal O$-marked cubic では、
+既存の標準 Weyl fiber 定理のうち、比較用の弱公理と全対象の数値的構造は
+marking の存在自体から得られる。
+さらに零次数 root の非存在条件\eqref{eq:no-zero-root}を仮定すれば、
+定理\ref{thm:aou-helix-line-recognition}により九対象の線束性を認識できる。
+heart 所属だけは、より一般的に命題\ref{prop:o-helix-heart-recognition}から従う。
+逆向きには、補題\ref{lem:rootfree-aou-presentation}と
+命題\ref{prop:aou-simple-resolution}が標準線束標識から同じ最小 rolled-up quiver を与える。
+このように、既存の Weyl fiber の結果を新しい $Q$-marking に適用する際は、
+ここで記した適合範囲を通じて比較する。
+全ての内在的 $\mathcal O$-marked cubic に同じ認識定理が成り立つことや、
+全ての quiver 型の fiber が $W(E_6)$ で尽くされることは主張しない。
+
+\subsection{root がない場合の数値的自己同値作用の忠実性}
+\begin{proposition}[標準 $Q$ 型における数値的自己同値の核]
+\label{prop:q-numerical-auto-faithful}
+$\mathcal O$-marked cubic $(\mathcal A,\OO)$ が
+$E_1\cong\OO$ を満たす $Q_{\rm AOU}$-marking を一つ持ち、
+系\ref{cor:q-marking-numerical-inputs}で得た数値表示について
+零次数 root の非存在条件\eqref{eq:no-zero-root}を満たすとする。
+同じ heart $\mathcal A$ の $\mathbb C$ 線型 exact 自己同値を自然同型で割った群について、
+数値作用
+\[
+ \operatorname{Aut}_{\rm ex}(\mathcal A)
+ \longrightarrow \operatorname{Aut}(K_0^{\rm num}(\mathcal A),\chi)
+\]
+は単射である。従って命題\ref{prop:affine-auto-action}の準同型も単射であり、
+\[
+ \operatorname{Aut}_{\rm ex}(\mathcal A)
+ \hookrightarrow\Lambda\rtimes W(E_6),\qquad
+ \operatorname{Aut}_{\rm ex}(\mathcal A,[\OO])
+ \hookrightarrow W(E_6)
+\]
+を得る。後者は $\OO$ の同型類を保つ自己同値の部分群であり、
+固定した $\OO$ 上の順序付き $Q_{\rm AOU}$-marking の集合に自由に作用する。
+\end{proposition}
+\begin{proof}
+系\ref{cor:q-marking-numerical-inputs}と
+定理\ref{thm:aou-helix-line-recognition}により、選んだ九対象 $E_i$ は線束対象である。
+$K_0^{\rm num}$ に自明に作用する exact 自己同値 $F$ を取る。
+exact 同値は Gabriel--Krull filtration、rank-one torsion-free 性と例外性を保つので、
+$F(E_i)$ も線束対象である。
+定理\ref{thm:numerical-line-uniqueness}により $F(E_i)\cong E_i$ である。
+これらの同型を選ぶと、$T=\bigoplus_iE_i$ に対する
+$R=\End(T)$ の各原始冪等元を保つ代数自己同型 $\varphi$ が得られる。
+
+補題\ref{lem:rootfree-aou-presentation}により、$R$ は
+式\eqref{eq:aou-q-relations}の全ての係数 $\lambda_{kji}$ が非零の表示を持つ。
+隣接ブロック間の Hom 空間は一次元だから、ある非零スカラーで
+\[
+ \varphi(a_{ji})=\alpha_{ji}a_{ji},\qquad
+ \varphi(b_{kj})=\beta_{kj}b_{kj}
+\]
+と書ける。各関係直線が保存され、全係数が非零であることから、
+\[
+ \beta_{kj}\alpha_{ji}=\gamma_{ki}\qquad\text{は $j$ に依存しない。}
+\]
+ここで
+\[
+ u_i=\alpha_{1i}^{-1},\qquad
+ v_j=\alpha_{j1}/\alpha_{11},\qquad w_k=\beta_{k1}
+\]
+と置く。$i=1$ の式から $\beta_{kj}=w_k/v_j$、
+一般の $i$ の式から $\alpha_{ji}=v_j/u_i$ を得る。
+従って
+\[
+ d=\sum_i u_i e_{U_i}+\sum_jv_j e_{V_j}+\sum_kw_k e_{W_k}\in R^\times
+\]
+によって $\varphi(x)=dxd^{-1}$ である。
+これは補題\ref{lem:aou-fullsupport-torus}の頂点スカラーによる作用核の計算を、
+一つの有限代数の自己同型に適用したものである。
+
+最後に、この inner 性から $F\cong\mathrm{id}_{\mathcal A}$ を導く。
+$F$ は exact なので、有界複体への成分ごとの適用は dg functor となり、
+acyclic 複体を保つ。従って acyclic 複体による dg quotient を通じて
+$D^b(\mathcal A)$ の標準 dg enhancement に自己同値を誘導する。
+dg quotient の構成には\cite[\S4.4, Theorem 4.8]{KellerDG}、
+quasi-functor の bimodule による表示には
+To\"en\cite[Theorem 7.2(2), Corollary 7.6]{ToenMorita}を用いる。
+tilting Morita 同値 $D^b(\mathcal A)\simeq\operatorname{Perf}(R)$ により、
+この自己同値はある $R$--$R$ dg bimodule $X$ による導来 tensor 関手として表示される。
+右 $R$ 加群としての $X$ は、正則加群 $R$ の像、すなわち $F(T)$ の像である。
+$F(T)\cong T$ だから、$X$ の cohomology は零次だけに集中し、
+$H^0(X)$ は右加群として $R$ と同型である。
+この同型の下で左作用は上で計算した $\varphi$ による捻りであり、
+$\varphi$ が inner なので $H^0(X)$ は正則 $R$--$R$ bimodule と同型である。
+通常の代数 $R^{\mathrm{op}}\otimes R$ 上の複体としての標準 truncation により
+\[
+ X\simeq H^0(X)\cong R
+ \quad\text{in }D(R^{\mathrm{op}}\otimes R)
+\]
+となる。従って導来自己同値は恒等関手と自然同型であり、
+heart に制限して $F\cong\mathrm{id}_{\mathcal A}$ を得る。
+この議論は exact 関手が持つ dg lift を用いており、
+任意の抽象的 triangulated 自己同値に対する主張ではない。
+
+affine Weyl 型の記述は命題\ref{prop:affine-auto-action}による。
+その作用が自明なら全 $E_i$ の第一 Chern 類を固定し、線束類は
+$\operatorname{ch}(E_i)=(1,D_i,D_i^2/2)$ だから $K_0$ の全基底を固定する。
+従ってこの準同型の核も自明である。
+$F(\OO)\cong\OO$ のとき平行移動部分は零である。
+さらに $F$ が一つの順序付き marking の同型類を固定すれば、
+$K_0$ の基底 $[E_i]$ を全て固定するので、今示した単射性から $F\cong\mathrm{id}$ となる。
+従って固定 $\OO$ 上の marking 集合への作用は自由である。
+\end{proof}
+
+この命題の仮定の下で、数値像 $\Gamma_{\mathcal A}$ は
+自己同値群そのものと同型である。
+特に後の定理\ref{thm:actual-aou-very-general}が与える非常に一般の AOU 点では
+$\Gamma_{\mathcal A}=\mathbb ZK$ なので、
+$\operatorname{Aut}_{\rm ex}(\mathcal A)=\langle H\rangle\cong\mathbb Z$、
+$\operatorname{Aut}_{\rm ex}(\mathcal A,[\OO])=1$ である。
+一方、marking の各成分の同型を射に含めることから生じるスカラー慣性は、
+自己同値関手の自然同型類とは異なる。
+命題\ref{prop:q-marking-scalar-inertia}の $(\mathbb G_m)^8$ はこの結論によって消えない。
+
+\subsection{関係式の座標変更と標識変更}
+命題\ref{prop:aou-quiver-euler-recognition}の九つの関係直線は
+\[
+ \mathcal R_{Q_{\rm AOU}}=(\mathbb P^2)^9
+\]
+の点であり、有限 quiver の十八本の矢の基底変換群は
+$G_{\to}=(\mathbb G_m)^{18}$ である。
+AOU\cite[(5.3), (5.11), Proposition 5.1]{AOU}は
+関係式 stack $[\mathcal R_{Q_{\rm AOU}}/G_{\to}]$ から
+二十七本の矢の三次 potential の stack への開埋込みを与える。
+これは矢・関係式の基底を取り替える自由度を商する操作である。
+固定圏内の例外生成列を取り替えることや、先頭対象を残して忘却する操作とは異なる。
+
+また、AOU\cite[Lemma 5.2, (5.17)]{AOU}の全係数非零の potential locus では、
+頂点スカラーの群 $ (\mathbb G_m)^9/\mathbb G_m $ が作用の核となり、
+これを rigidify した商は八次元の torus になる。
+この具体的なパラメータ表示を、内在的な $Q$-marked cubic のモジュライ全体と同一視するには、
+指定された heart の構成、族での基底変換、exact 比較、同型の降下を確認する必要がある。
+本稿はその比較が確認された範囲を用い、GIT 境界全体への拡張を定義により仮定しない。
