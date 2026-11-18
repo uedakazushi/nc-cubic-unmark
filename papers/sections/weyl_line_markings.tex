@@ -34,8 +34,9 @@ $K_0=-3h_0+\sum_i e_i^0$ とする。
 本節で $\operatorname{Mark}_Q^{\rm line}(\mathcal A,L)$ と書く集合は、
 この Euler 型を持ち、full strong thread から $E_{i+9}=HE_i$ により得る helix が
 very strong である九つ組の同型類とする。各対象は指定された反標準 heart に属す。
-指定 AS 表示の再構成条件も含めて AOU/OU marking とみなす場合には、
-その条件を満たす部分集合に限定する。以下の単射と上界はその部分集合にも成立する。
+許容線束 $L$ を先頭に持つ場合、AS 表示と指定反標準 heart の比較は
+系\ref{cor:line-helix-as-reconstruction}で従う。
+有限 AOU quiver の表示は補題\ref{lem:rootfree-aou-presentation}で確認する。
 対象の同型類を数え、矢の基底や自己同値による同一視は含めない。
 
 \begin{lemma}[Euler 行列による標識復元]\label{lem:weyl-frame-reconstruction}
@@ -110,7 +111,7 @@ $\mathfrak F(\Lambda,K)$ は位数51840の $W(E_6)$ の torsor なので上界�
 
 \begin{corollary}[一種類の三対象変換への還元]\label{cor:weyl-one-move}
 標準型は先頭 $L$ を保つ各直交ブロック内の頂点ラベルの置換に安定であるとする
-（上で定義した九つ組の集合では成立し、追加の AS 表示条件を課す場合もその安定性を確認する）。
+（上で定義した九つ組の集合では成立する）。
 上の定理の反射閉性を示すには、すべての標識について次の変換を実現すれば十分である：
 \begin{equation}\label{eq:weyl-cross-block-move}
  \begin{gathered}
@@ -144,5 +145,574 @@ $s_6$ は最初のブロック内の $A,B$ の交換である。
 順序が変わるのが同一周期の完全直交な組だけであることから従う。
 
 この還元は、数値的反射だけから新しい線束や very strongness を作るものではない。
-特に式\eqref{eq:weyl-cross-block-move}の実現は、一般の非可換点では残された課題である。
+以下では零次数 root 型単純対象の非存在を仮定し、
+式\eqref{eq:weyl-cross-block-move}を実際の対象で構成する。
+この非存在を仮定しない一般の点での実現は残された課題である。
 可換点の許容形式変形では、通常の各標識の持上げによりこの実現が得られる。
+
+\subsection{零次数 root の非存在による反射の実現}
+
+以下では定理\ref{thm:ac-serre-positivity}の仮定を置き、さらに
+\begin{equation}\label{eq:no-zero-root}
+ T\text{ が単純で }d(T)=0\quad\Longrightarrow\quad c_1(T)=0
+ \tag{R0}
+\end{equation}
+を仮定する。補題\ref{lem:zero-degree-simple-classification}により、これは零次数の
+root 型単純対象が存在しないことと同値である。
+この非存在を一般の非可換点で証明したとはしない。
+
+\begin{lemma}[零階数・零次数対象]\label{lem:zero-degree-point-type}
+式\eqref{eq:no-zero-root}の下で、$r(T)=d(T)=0$ なら
+\[
+ \operatorname{ch}(T)=(0,0,s(T)),\qquad
+ T\ne0\Longrightarrow s(T)\in\mathbb Z_{>0}.
+\]
+任意の線束対象 $M$ に対して
+$\Ext^1(T,M)=\Ext^1(M,T)=0$ である。
+\end{lemma}
+\begin{proof}
+定理\ref{thm:ac-serre-positivity}によって $T$ は有限長であり、
+階数・次数の加法性と非負性によって各組成因子も階数・次数が零である。
+式\eqref{eq:no-zero-root}と補題\ref{lem:numerical-point-ext}を各組成因子に適用し、
+加法性と長完全列で結論を得る。
+この議論には有限長対象すべてが次数零であるという逆向きの主張は不要である。
+\end{proof}
+
+\begin{lemma}[二つの評価写像]\label{lem:cross-two-evaluations}
+$\mathbb E=(L,A,B;X_1,X_2,X_3;Y_1,Y_2,Y_3)$ を
+$\operatorname{Mark}^{\rm line}_Q(\mathcal A,L)$ の元とする。
+$i\ne j$ を $\{1,2,3\}$ の元とし、非零射
+$u_i:B\to X_i$, $u_j:B\to X_j$、
+$f_i:X_i\to Y_1$, $f_j:X_j\to Y_1$ を取る。
+式\eqref{eq:no-zero-root}の下で
+\[
+ (u_i,u_j):B\longrightarrow X_i\oplus X_j
+ \quad\text{は単射},\qquad
+ (f_i,f_j):X_i\oplus X_j\longrightarrow Y_1
+ \quad\text{は全射}
+\]
+であり、それぞれの余核 $F_{ij}$ と核 $G_{ij}$ は線束対象である。
+相対第一 Chern 類は
+\[
+ c_1(F_{ij})-c_1(L)=x_i+x_j-b,\qquad
+ c_1(G_{ij})-c_1(L)=x_i+x_j-y_1.
+\]
+\end{lemma}
+\begin{proof}
+非零な線束間の射はすべて単射である。
+従って $(u_i,u_j)$ は単射であり、その余核 $F=F_{ij}$ の階数は一である。
+各 $X_i,X_j$ は $F$ に埋め込まれ、それぞれによる商は
+$X_j/B$, $X_i/B$ である。
+もし $T\subset F$ が torsion 部分対象なら、$T$ は各 $X_i,X_j$ と交わらず、
+両方の $Q_i=X_i/B$, $Q_j=X_j/B$ に単射する。
+$r(Q_i)=r(Q_j)=0$、$d(Q_i)=d(Q_j)=1$ なので、
+次数の非負性から $d(T)=0$ または $1$ である。
+
+$d(T)=0$ なら前補題で $\Ext^1(T,B)=0$ であり、
+$0\to B\to X_i\oplus X_j\to F\to0$ に $\Hom(T,-)$ を適用すると
+$\Hom(T,F)=0$ となる。従って $T=0$ である。
+$d(T)=1$ なら $Q_i/T$, $Q_j/T$ は階数・次数が零なので、前補題から
+$c_1(Q_i)=c_1(T)=c_1(Q_j)$ となる。
+これは $x_i\ne x_j$ と矛盾する。
+従って $F$ は torsion-free である。
+$\mathcal A_1=\{r=0\}$ と階数の整数性により、階数一の torsion-free 対象は
+内在的にも rank-one torsion-free である。
+実際、$qF$ に非零真部分対象があれば、それと商の正整数階数の和が $1$ となって矛盾する。
+数値計算
+$\operatorname{ch}(F)=\operatorname{ch}(X_i)+\operatorname{ch}(X_j)-\operatorname{ch}(B)
+=v_{c_1(L)+x_i+x_j-b}$ と系\ref{cor:line-numerical-defect}により $F$ は線束対象となる。
+
+次に $f=(f_i,f_j)$ の余核を $T$、核を $G$ とする。
+$T$ は $Q_i'=Y_1/X_i$, $Q_j'=Y_1/X_j$ の共通の商であり、
+これらは階数零、次数一なので $d(T)\in\{0,1\}$ である。
+$d(T)=1$ なら両全射の核の階数・次数が零となり、前補題から
+$c_1(Q_i')=c_1(T)=c_1(Q_j')$ を得るが、$x_i\ne x_j$ に反する。
+従って $d(T)=0$ であり、$\operatorname{ch}(T)=(0,0,s)$、
+$T\ne0$ なら $s>0$ である。
+$G$ は torsion-free な $X_i\oplus X_j$ の部分対象であり、
+$f$ の像は $X_i$ を含むので $r(G)=1$ である。
+一方、数値計算により
+\[
+ \operatorname{ch}(G)
+ =v_{c_1(L)+x_i+x_j-y_1}+(0,0,s),\qquad n(G)=-s.
+\]
+系\ref{cor:line-numerical-defect}から $s=0$、従って $T=0$ となる。
+これで $f$ の全射性と $G$ の線束性が従う。
+\end{proof}
+
+\begin{theorem}[三対象反射の実現]\label{thm:rootfree-cross-reflection}
+式\eqref{eq:no-zero-root}の下で、系\ref{cor:weyl-one-move}の三対象交換は
+固定した反標準 heart の中で実現される。
+従って $\operatorname{Mark}^{\rm line}_Q(\mathcal A,L)$ が非空なら
+\[
+ \operatorname{Mark}^{\rm line}_Q(\mathcal A,L)
+ \xrightarrow{\sim}\mathfrak F(\Lambda,K)
+\]
+は全単射であり、この集合は $W(E_6)$-torsor である。
+先頭 $L$ が許容線束なら、AS 表示と指定反標準 heart の比較も保たれる
+（系\ref{cor:line-helix-as-reconstruction}）。
+\end{theorem}
+\begin{proof}
+各非零射 $u_k:B\to X_k$, $f_k:X_k\to Y_1$ を取る。
+合成 $f_ku_k$ は単射なので非零である。
+任意の二つの合成が線型従属なら、その関係は非零射
+$B\to G_{ij}$ を与える。
+前補題により $G_{ij}$ は線束対象であるから、この射は単射である。
+両辺の次数は等しく、余核は階数・次数零なので第一 Chern 類が零である。
+従って $c_1(B)=c_1(G_{ij})$ となるが、$\{i,j,k\}=\{1,2,3\}$ とすれば
+\[
+ c_1(G_{ij})-c_1(B)=e_4-e_k\ne0
+\]
+であり矛盾する。
+よって三つの合成は二つずつ線型独立である。
+$\Hom(B,Y_1)$ は二次元なので、唯一の関係
+\[
+ \lambda_1f_1u_1+\lambda_2f_2u_2+\lambda_3f_3u_3=0
+\]
+は $\lambda_1\lambda_2\lambda_3\ne0$ を満たす。
+$u_k$ を $\lambda_ku_k$ で置き換え、$fu=0$ とする。
+
+$B'=G_{12}$、$Y_1'=F_{12}$ とし、複体
+\[
+ B\xrightarrow{u}X_1\oplus X_2\oplus X_3\xrightarrow{f}Y_1
+\]
+の中間 cohomology を $X_3'$ とする。
+$u$ は単射、$f$ は $(f_1,f_2)$ が全射なので全射である。
+さらに $X_3\to Y_1$ の単射性と snake lemma により
+\[
+ 0\longrightarrow X_3'\longrightarrow Y_1'
+ \longrightarrow Y_1/X_3\longrightarrow0
+\]
+が得られる。従って $X_3'$ は rank-one torsion-free である。
+その数値類は
+\[
+ [X_3']=[X_1]+[X_2]+[X_3]-[B]-[Y_1]
+ =v_{c_1(L)+h-y_1}
+\]
+なので、系\ref{cor:line-numerical-defect}から線束対象となる。
+三つの相対類はちょうど
+\[
+ b'=x_1+x_2-y_1,\quad x_3'=h-y_1,\quad y_1'=h-x_3
+\]
+である。
+
+新しい九対象を
+$\mathbb E'=(L,A,B';X_1,X_2,X_3';Y_1',Y_2,Y_3)$ とする。
+これらはすべて線束対象であり、反射が Euler 形式を保つので Euler 行列は
+式\eqref{eq:frame-euler}のままである。
+対象の次数は $d(L),d(L)+1,d(L)+2$ の三つなので、
+定理\ref{thm:numerical-line-uniqueness}によってすべての組の第二 Ext は零である。
+異なるブロックの後方から前方への Hom は、単射の余核の次数が負となるため零である。
+同一ブロック内の異なる対象間に非零射があれば、余核は階数・次数零であり、
+式\eqref{eq:no-zero-root}から両対象の第一 Chern 類が一致してしまう。
+従ってこの Hom も零である。
+これらの組の Euler 形式は零なので、第一 Ext も零となる。
+従って $\mathbb E'$ は三ブロック例外列である。
+
+二つの完全列
+\[
+ 0\to B'\to X_1\oplus X_2\to Y_1\to0,
+ \qquad
+ 0\to B\to X_1\oplus X_2\to Y_1'\to0
+\]
+から、旧対象 $Y_1,B$ は新九対象が生成する thick 部分圏に属す。
+上の monad の二つの短完全列から $X_1\oplus X_2\oplus X_3$ も属し、
+その直和因子 $X_3$ も属す。残りの旧対象は変更していないから、$\mathbb E'$ は full である。
+
+最後に very strongness を確認する。
+$H=\mathsf S^{-1}[2]$ による周期延長は type $(9,3)$ の helix を与える。
+$H$ の $t$-exact 性によってこの helix の全対象は固定した heart に属し、
+三つの直交ブロックは周期的な block structure を与える。
+Bridgeland--Stern\cite[Theorem 5.3(ii)]{BSHelices} の pure block helix 定理により、
+この helix は geometric、すなわち本稿の very strong である。
+同定に必要な仮定は、同論文\S2.1の finite type・algebraicity、Serre 関手、
+および上で確認した purity と block structure であり、
+本稿の smooth proper dg enhancement と反標準 heart の公理がこれらを満たす。
+従って $\mathbb E'$ は同じ集合の元である。
+系\ref{cor:weyl-one-move}と定理\ref{thm:weyl-frame-injection}から最後の主張が従う。
+\end{proof}
+
+
+\subsection{一つの豊富な剰余列による helix 全体の再構成}
+
+次の補題では線束の数値類を使わない。固定した反標準 heart の中で
+very strong helix が得られ、その一つの剰余列が既に豊富であれば、
+AS heart との比較を追加仮定として残す必要はない。
+
+\begin{lemma}[豊富な部分列を含む very strong helix]\label{lem:ample-helix-reconstruction}
+$\mathcal A$ を本稿の noetherian な反標準 heart とし、
+$H=\mathsf S^{-1}[2]$ をその exact 自己同値とする。
+$\mathbb E=(E_i)_{i\in\mathbb Z}$ を $D^b(\mathcal A)$ の full very strong helix とし、
+周期を $\ell$、$E_{i+\ell}\cong HE_i$ とする。すべての $E_i$ は $\mathcal A$ に属すとする。
+ある $r$ に対して $(E_r,H)$ が Artin--Zhang 豊富なら、次が成り立つ。
+\begin{enumerate}
+\item 任意の $M\in\mathcal A$ と $1\le j\le\ell$ に対し
+\[
+ \Ext^p(E_j,H^nM)=0\qquad(p>0,\ n\gg0).
+\]
+\item $\mathbb E$ は Polishchuk の意味で豊富な列である。
+\item $B_{ji}=\Hom(E_i,E_j)$ と置くと、$B$ は正次数連結かつ局所有限な
+右 noetherian $\mathbb Z$-代数であり、exact 同値
+\[
+ \Phi:\mathcal A\xrightarrow{\sim}\qgr B,
+ \qquad E_i\longmapsto\pi P_i
+\]
+を持つ。ここで $P_i=e_iB$ であり、$H$ は添字を $\ell$ だけ進める
+自己同値に対応する。
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+まず
+\begin{equation}\label{eq:helix-backward-hom}
+ \Hom(E_i,E_j)=0\qquad(i>j)
+\end{equation}
+を確認する。$0<i-j<\ell$ なら二対象は同じ foundation に属し、
+例外列の半直交性を用いる。$i\ge j+\ell$ なら
+$\mathsf S E_{j+\ell}\cong E_j[2]$ と Serre 双対性により
+\[
+ \Hom(E_i,E_j)\cong\Ext^2(E_{j+\ell},E_i)^*=0.
+\]
+等号 $i=j+\ell$ の場合は例外性、それ以外は very strongness を用いた。
+
+$L=E_r$ と置き、豊富性から有限直和による全射
+$P=\bigoplus_\nu H^{-a_\nu}L\twoheadrightarrow M$ を選ぶ。
+これと Serre 双対性から
+\[
+ \Ext^2(E_j,H^nM)^*
+ \cong\Hom(M,H^{-n-1}E_j)
+ \hookrightarrow\bigoplus_\nu\Hom(L,H^{a_\nu-n-1}E_j).
+\]
+右辺の終域の helix 添字は $n\gg0$ で $r$ より小さくなるので、
+式\eqref{eq:helix-backward-hom}によって右辺は零である。
+同じ第二 Ext 消滅を $N=\ker(P\to M)$ に適用する。
+長完全列の
+\[
+ \Ext^1(E_j,H^nP)\longrightarrow\Ext^1(E_j,H^nM)
+ \longrightarrow\Ext^2(E_j,H^nN)
+\]
+で、左辺は $n\gg0$ なら very strongness によって零、右辺は上の議論で零となる。
+$p>2$ は反標準 heart の cohomological dimension が高々二であることから零である。
+これで (1) を得る。
+
+任意の全射 $M\twoheadrightarrow M'$ の核を $N'$ とする。
+(1) と有限個の剰余類 $j\bmod\ell$ を用いると、
+$\Ext^1(E_i,N')=0$ が $i\ll0$ で成り立つ。
+従って $\Hom(E_i,M)\to\Hom(E_i,M')$ は $i\ll0$ で全射となり、
+$\mathbb E$ は projective sequence である。
+また任意の負の tail は $H^{-a}L$ の任意に負の tail を含む。
+$(L,H)$ の豊富性から、任意の $M$ はその tail 内の有限直和の商である。
+Polishchuk\cite[Lemma 2.1(ii)]{PolishchukProj}により (2) を得る。
+
+次に右 noetherian 性を直接確認する。式\eqref{eq:helix-backward-hom}と例外性により、
+$B$ は正次数連結であり、Hom 有限性により局所有限である。
+$J\subset P_j$ を任意の右部分加群とする。
+各 $J_i\subset\Hom(E_i,E_j)$ の元が定める像の有限和を考える。
+$E_j$ は noetherian なので、これらの有限和には最大のもの $I\subset E_j$ が存在する。
+従って有限個の元 $s_\nu\in J_{a_\nu}$ を選んで
+\[
+ Q=\bigoplus_\nu E_{a_\nu}\twoheadrightarrow I
+\]
+とでき、すべての $J_i$ の元は $I$ を経由する。
+$s_\nu$ が生成する右部分加群を $J'\subset J$ とする。
+projective sequence の性質により、$i\ll0$ で
+$\Hom(E_i,Q)\twoheadrightarrow\Hom(E_i,I)$ である。
+さらに $i\le\min a_\nu$ としておけば、合成による定義から
+\[
+ J'_i=\Hom(E_i,I)=J_i
+ \quad\text{（いずれも $\Hom(E_i,E_j)$ の部分空間として）}.
+\]
+よって $J/J'$ は左に有界である。一方 $P_j$ は $j$ より大きい次数で零であり、
+各成分は有限次元なので、$J/J'$ は有限次元である。
+従って $J/J'$ も有限生成、ゆえに $J$ は有限生成である。
+これですべての $P_j$ が noetherian であることが分かった。
+
+従って $B$ 上の有限生成加群、coherent 加群、noetherian 加群は一致する。
+その torsion 加群はちょうど有限次元加群である：有限生成 torsion 加群は左に有界であり、
+有限生成性から右にも有界で、局所有限性から有限次元だからである。
+このため Polishchuk の $\operatorname{cohproj}B$ と OU の
+$\qgr B=\operatorname{mod}B/\operatorname{tor}B$ は同じ Abel 圏になる。
+Polishchuk\cite[Theorem 2.4]{PolishchukProj}を (2) に適用すると、
+\[
+ \Phi(M)=\pi\!\left(\bigoplus_{i\le m}\Hom(E_i,M)\right)
+\]
+が求める exact 同値を与える。$m$ の変更は有限次元加群を変えるだけである。
+$M=E_j$ なら式\eqref{eq:helix-backward-hom}から $\Phi(E_j)=\pi P_j$ であり、
+$E_{i+\ell}\cong HE_i$ から $H$ と周期シフトの両立も従う。
+\end{proof}
+
+\begin{corollary}[三次曲面型線束 helix の AS 表示]\label{cor:line-helix-as-reconstruction}
+定理\ref{thm:ac-serre-positivity}の仮定の下で、
+$L\in\operatorname{Line}_{\rm adm}(\mathcal A)$ を固定する。
+$\mathbb E\in\operatorname{Mark}^{\rm line}_Q(\mathcal A,L)$ なら、
+その helix $\mathbb Z$-代数 $B$ は OU の意味で次元三、parameter 九の AS-regular 代数であり、
+その AS heart は補題\ref{lem:ample-helix-reconstruction}の exact 同値により
+指定した反標準 heart $\mathcal A$ と同定される。
+従ってこの比較条件は、固定 $L$ の下で構成したブロック置換および三対象反射によって保たれる。
+\end{corollary}
+\begin{proof}
+OU\cite[(18)--(25)および末尾の議論]{OUHelix}の helix 代数構成では、
+full exceptional foundation の滑らかな有限 dg 代数と $\mathsf S^{-1}[2]$ を用いる。
+very strongness によりその helix dg 代数は次数零に集中する。
+式 (25) の双対性から
+\[
+ \Ext^p_B(S_i,P_j)=
+ \begin{cases}
+  \mathbb C & (p,j)=(3,i-9),\\
+  0 & \text{それ以外}
+ \end{cases}
+\]
+という AS-Gorenstein 条件を得る。
+同論文の滑らかな tensor dg 代数の議論により有限 global dimension も従う。
+実際の global dimension も三であることを確認する。
+右単純を $S_i$、左単純を $T_i$ と書けば、上式と perfect duality は
+\[
+ \RHom_B(S_i,B)\simeq T_{i-9}[-3],\qquad
+ \RHom_{B^{\rm op}}(T_{i-9},B)\simeq S_i[-3]
+\]
+を与える。左単純 $T_i$ も perfect である。
+正次数連結な局所有限代数の有限 minimal projective resolution では、
+最後の projective 項の恒等射は双対複体の境界にならない。
+従って後の式から $\operatorname{pd}_{B^{\rm op}}T_i=3$ である。
+右 noetherian 性と有限 global dimension により、有限生成右加群 $M$ は
+有限生成 projective による有限 minimal resolution を持つ。
+次数 $p>3$ の項が非零なら適当な $T_i$ と tensor して
+$\operatorname{Tor}^B_p(M,T_i)\ne0$ となり、左単純の projective dimension に反する。
+従って全ての有限生成右加群の projective dimension は高々三である。
+特に任意の $P_i/J$ について成立するので、generator 版の Baer 判定と
+三回の dimension shifting により全右加群の injective dimension も高々三となる。
+非零の第三 Ext により global dimension はちょうど三である。
+
+この入力は OU\cite[\S3, Definition 3.1の直後]{OU2025}にも明記されている。
+ここで必要なのは本稿の proper dg enhancement、fullness、Serre 関手、
+very strongness であり、別の heart から対象を移す操作ではない。
+
+残る polynomial growth は本稿の Riemann--Roch から確認する。
+$1\le a,b\le9$、$n\ge0$ について、添字の順序が前向きなら
+\[
+ \dim\Hom(E_a,H^nE_b)
+ =\chi(E_a,H^nE_b)
+ =\frac32n(n+1)+(d(E_b)-d(E_a))n+\chi(E_a,E_b).
+\]
+前向きでない有限個の組は零である。
+剰余類 $a,b$ は有限個なので、$\dim B_{ji}$ は $j-i$ の一つの二次多項式で一様に抑えられる。
+従って OU の AS-regularity の全条件を満たす。
+最後の heart の同定とその安定性は前補題による。
+\end{proof}
+
+\begin{remark}[適用範囲]
+この系が自動化するのは、helix から得る AS 表示の反標準 heart との比較である。
+任意の very strong helix を AOU の標準三ブロック線束型と同一視する主張ではない。
+零次数 root がない場合の有限 AOU quiver 表示は、次の補題で確認する。
+heart 比較条件を重ねて仮定する必要はない。
+\end{remark}
+
+
+\begin{lemma}[AOU の有限 quiver 表示]\label{lem:rootfree-aou-presentation}
+式\eqref{eq:no-zero-root}の下で、任意の
+$\mathbb E=(L,A,B;X_1,X_2,X_3;Y_1,Y_2,Y_3)
+\in\operatorname{Mark}^{\rm line}_Q(\mathcal A,L)$ の有限 endomorphism 代数は、
+AOU\cite[\S4.2, (4.2)]{AOU}の十八本の矢を持つ quiver と九本の二次関係で表示される。
+各関係の三つの係数はすべて非零である。
+\end{lemma}
+\begin{proof}
+very strongness と Euler 行列から、隣接ブロック間の Hom は一次元、
+第一ブロックから第三ブロックへの Hom は二次元である。
+従って確認すべきことは、各組
+$U\in\{L,A,B\}$、$Y_s\in\{Y_1,Y_2,Y_3\}$ に対して、
+三つの中間対象を通る合成が二つずつ線型独立であることである。
+
+補題\ref{lem:cross-two-evaluations}の証明は $Y_1$ を任意の $Y_s$ に替えて同じであり、
+非零な成分を持つ全射 $X_i\oplus X_j\twoheadrightarrow Y_s$ の核 $G_{ij,s}$ は
+相対第一 Chern 類
+\[
+ g_{ij,s}=x_i+x_j-y_s=-h+e_i+e_j+e_{3+s}
+\]
+を持つ線束対象である。
+もし $U\to X_i\to Y_s$ と $U\to X_j\to Y_s$ が線型従属なら、
+各合成は単射なので非零であり、その関係は非零射 $U\to G_{ij,s}$ を与える。
+これは線束間の射だから単射である。
+両辺の次数は $d(L)$ なので、余核は階数・次数零である。
+補題\ref{lem:zero-degree-point-type}により $c_1(U)=c_1(G_{ij,s})$ となる。
+しかし
+\[
+ g_{ij,s}\notin\{0,\,-2h+\textstyle\sum_{t=1}^6e_t,\,
+                    -h+e_1+e_2+e_3\}
+\]
+であり矛盾する。実際、初めの二つとは $h$ の係数が異なり、
+最後のものとは $e_{3+s}$ の係数が異なる。
+
+従って各三次元の長さ二の path 空間から二次元 Hom 空間への合成写像は全射である。
+その核は一次元であり、三つの path が二つずつ独立なので関係の各係数は非零である。
+その他の Hom は隣接ブロック間の矢、各頂点の恒等射、およびこれらの合成で尽くされる。
+有限 quiver には長さ三以上の path がないので、得られた九本の二次関係が全関係である。
+\end{proof}
+
+\begin{proposition}[標準三ブロック型の simple resolution]\label{prop:aou-simple-resolution}
+式\eqref{eq:no-zero-root}を仮定し、
+$\mathbb E\in\operatorname{Mark}^{\rm line}_Q(\mathcal A,L)$ とする。
+helix を三対象ずつのブロックで $E_{\alpha,m}$
+($\alpha\in\{0,1,2\}$、$m\in\mathbb Z$) と添字付けし、
+$E_{\alpha,m+3}=HE_{\alpha,m}$ とする。
+その helix $\mathbb Z$-代数の単純右加群は minimal resolution
+\begin{equation}\label{eq:aou-cubic-resolution-incoming}
+ 0\longrightarrow P_{\alpha,m-3}
+ \longrightarrow\bigoplus_{\beta=0}^2P_{\beta,m-2}
+ \longrightarrow\bigoplus_{\beta=0}^2P_{\beta,m-1}
+ \longrightarrow P_{\alpha,m}\longrightarrow S_{\alpha,m}\longrightarrow0
+\end{equation}
+を持つ。従って AOU の標準三ブロック AS 型の resolution 条件を満たす。
+\end{proposition}
+\begin{proof}
+補題\ref{lem:rootfree-aou-presentation}によって有限 foundation の endomorphism 代数は
+$R=\mathbb C Q/I$ であり、$Q$ は三層の間の十八本の矢を持ち、
+$I$ は第一層から第三層への九本の独立な二次関係で生成される。
+この $R$ の global dimension は高々二である。
+実際、第一層の単純右加群は projective、第二層の単純加群は長さ一の resolution を持ち、
+第三層の単純加群は中間層の三 projective と関係に対応する第一層の三 projective を使う
+長さ二の resolution を持つ。
+
+各最小関係 $r$ の逆向きに一本ずつ矢 $\rho_r$ を追加した quiver を $\widetilde Q$ とし、
+$W=\sum_r\rho_r r$ とする。
+Keller\cite[Theorem 6.10]{KellerCY}によって、変形パラメータ零の三次元 Calabi--Yau completion は
+\[
+ \Pi_3(R)=T_R(\mathsf S_R^{-1}[2])
+ \simeq\Gamma_3(\widetilde Q,W)
+\]
+である。左辺は rolled-up helix dg 代数であり、very strongness によって次数零に集中する。
+従ってその零次代数 $C$ は $\mathbb C\widetilde Q/(\partial W)$ に同型である。
+Keller\cite[Theorem 4.8]{KellerCY}により $C$ は三次元 Calabi--Yau 代数である。
+
+各矢に block distance 一の次数を付ければ $W$ は次数三の homogeneous potential である。
+これは元の二種類の矢の completion 次数が零、追加矢の completion 次数が一である規約と両立する。
+具体的には、元の頂点の block 番号を $b(v)\in\{0,1,2\}$ とすると、
+completion 次数 $n$ の $v\to w$ の block distance は $3n+b(w)-b(v)$ である。
+
+Ginzburg\cite[Proposition 5.1.9, Corollary 5.4.3]{GinzburgCY}により、
+この homogeneous Jacobian 代数は標準の長さ三の projective diagonal bimodule resolution を持つ。
+最初の syzygy は矢、次は矢に双対な関係、最後は頂点に対応し、
+それぞれ block distance 一、二、三である。
+これを右単純加群と tensor して $\{0,1,2\}\times\mathbb Z$ に展開すると、
+各頂点への三本の incoming arrows が直前ブロックの三 projective を与え、
+各頂点からの三本の outgoing arrows に双対な項が二つ前のブロックの三 projective を与える。
+最後の項は同じ頂点を三ブロック戻したものなので、
+式\eqref{eq:aou-cubic-resolution-incoming}となる。
+すべての微分の成分は正の block distance を持つので minimal である。
+
+この diagonal resolution を任意の右加群と tensor すれば長さ三の projective resolution となる。
+従って global dimension は高々三であり、minimal resolution の最後の項が非零なので三に等しい。
+\end{proof}
+
+\begin{remark}[AOU の表示と指数方向]
+AOU\cite[(4.13), Definition 4.1]{AOU}は同じ resolution の型を
+$m+1,m+2,m+3$ を使って表示している。
+本稿の $B_{ji}=\Hom(E_i,E_j)$、右 $P_i=e_iB$、
+および $E_{\alpha,m+3}=HE_{\alpha,m}$ の規約では
+式\eqref{eq:aou-cubic-resolution-incoming}の負符号が正しい。
+同文献の resolution 型と比較するときは block 添字を反転して対応させる。
+この添字の選択は heart の変更ではなく、追加の幾何学的仮定でもない。
+\end{remark}
+
+
+\begin{remark}[AOU 標識への包含と逆向きの範囲]\label{rem:aou-line-converse}
+以上により、本稿の三ブロック線束標識は実際の AOU 型 AS 標識を与える。
+先頭が許容線束なら、その AS heart は指定反標準 heart に同定される。
+逆に任意の AOU 型標識が、同じ反標準 heart 内で九つの
+rank-one torsion-free 対象からなることは、本稿では証明していない。
+Euler 型・Serre 作用から数値階数を求めることと、torsion-free 性の認識は別である。
+従って第一忘却の torsor・fiber の結論は、明示した三ブロック線束型の対象範囲について述べる。
+全 AOU fiber への拡張にはこの逆向きの認識が必要である。
+\end{remark}
+
+\subsection{自己同値の数値作用と実際の集合論的 fiber}
+
+\begin{proposition}[自己同値の affine Weyl 型数値作用]\label{prop:affine-auto-action}
+定理\ref{thm:ac-serre-positivity}の仮定の下で、
+$\mathcal A$ に full な標準三ブロック線束標識が一つ存在するとする。
+線束の座標を $D=c_1(L)-c_1(\OO_0)\in\Lambda$ と取る。
+exact 自己同値は数値階数を保ち、線束の第一 Chern 類に
+\begin{equation}\label{eq:affine-auto-action}
+ D\longmapsto t_F+g_FD,\qquad
+ (t_F,g_F)\in\Lambda\rtimes W(E_6)
+\end{equation}
+として作用する。その数値像を $\Gamma_{\mathcal A}$ とすると、
+$H$ の冪が与える中心部分群 $\mathbb ZK$ は $\Gamma_{\mathcal A}$ に含まれる。
+数値作用の核は、すべての線束および標準線束標識の同型類に自明に作用する。
+\end{proposition}
+\begin{proof}
+九対象の $K_0$ 類から
+\[
+ p=[L]+[A]+[B]-2\sum_{i=1}^3[X_i]+\sum_{j=1}^3[Y_j]
+\]
+と置く。補題\ref{lem:weyl-frame-reconstruction}の式と
+$\operatorname{ch}L_D=(1,D,D^2/2)$ を代入すると
+$\operatorname{ch}p=(0,0,1)$ である。
+共通の線束類の数値的な平行移動はこの等式を変えない。
+復元式から $\ker r$ の第一 Chern 類は $\Lambda$ 全体を生成し、
+整数条件から $r=c_1=0$ の数値類は整数倍の $p$ である。従って
+\[
+ 0\longrightarrow\mathbb Zp\longrightarrow\ker r
+ \xrightarrow{c_1}\Lambda\longrightarrow0.
+\]
+ここで数値 $K$ 群は torsion-free である。
+full exceptional foundation の九類は $K_0$ を生成し、
+その Euler 行列が非退化なので、数値 Chern 表示も単射である。
+
+$N=H_*-1$ と置くと、式\eqref{eq:line-H}から
+\[
+ N^2(r,D,s)=3r p.
+\]
+$F$ は Serre 関手と可換であり、$F(\OO_0)$ は内在的に rank-one torsion-free である。
+定理\ref{thm:ac-serre-positivity}により $r(F\OO_0)=1$ だから
+$3F(p)=F(N^2[\OO_0])=N^2[F\OO_0]=3p$ となり、$F(p)=p$ である。
+同じ等式を任意の数値類に適用すると、$F$ は $r$ を保つ。
+従って $F$ は $\ker r/\mathbb Zp=\Lambda$ に自己同型 $g_F$ を誘導する。
+rank 零の二類に対する $\chi(v,w)=-c_1(v)c_1(w)$ から $g_F$ は交叉形式を保つ。
+また $N(0,D,s)=-(DK)p$ と $FN=NF$ から $g_F$ は $K$ を保つ。
+古典的格子論\cite[\S2.6]{DGK}により
+$O(\Lambda)_K=W(E_6)$ である。
+
+$t_F=c_1(F\OO_0)-c_1(\OO_0)$ と置き、
+$[L]-[\OO_0]\in\ker r$ に作用させると式\eqref{eq:affine-auto-action}を得る。
+$H$ は $(-K,1)$ に対応し、$g_FK=K$ なのでこの平行移動は中心にある。
+数値作用の核が対象の同型類に自明に作用することは
+定理\ref{thm:numerical-line-uniqueness}による。
+標識は対象の九つ組であり、矢の基底を含めないので最後の主張も従う。
+\end{proof}
+
+\begin{corollary}[選択集合と moduli fiber]\label{cor:actual-set-fibers}
+前命題の下で
+$\operatorname{Line}_{\rm adm}(\mathcal A)=\operatorname{Line}(\mathcal A)\simeq\Lambda$
+であり、各 $L$ 上の標準標識集合が非空な $W(E_6)$-torsor であるとする。
+圏の exact 同値類を点とする二つの忘却写像を $p,q$ と書くと、
+集合論的 fiber は
+\begin{align}
+ p^{-1}[(\mathcal A,L)]&\simeq\Gamma_L\backslash W(E_6),\label{eq:actual-first-fiber}\\
+ q^{-1}[\mathcal A]&\simeq\Lambda/\Gamma_{\mathcal A}
+ \simeq(\Lambda/\mathbb ZK)/\overline\Gamma_{\mathcal A}.
+ \label{eq:actual-second-fiber}
+\end{align}
+ここで $\Gamma_L\subset W(E_6)$ は $L$ を保つ自己同値の数値像、
+$\overline\Gamma_{\mathcal A}=\Gamma_{\mathcal A}/\mathbb ZK$ である。
+第一 fiber は有限 $W(E_6)$ 軌道であり、
+$\Gamma_L=1$ なら $51840$ 点の torsor である。
+$\Gamma_{\mathcal A}=\mathbb ZK$ なら、第二 fiber は自然に
+$\Lambda/\mathbb ZK\simeq Q(E_6)^\vee$ で添字付けられる。
+\end{corollary}
+\begin{proof}
+固定した $(\mathcal A,L)$ と同値な対象の標識を $\mathcal A$ へ輸送すると、
+輸送の選択の差は $\Aut_{\rm ex}(\mathcal A,L)$ である。
+従って第一 fiber は固定圏内の標識集合の同群による軌道商である。
+格子 frame は標準格子から $\Lambda$ への同型なので、
+標準格子側からの右 Weyl 作用と自己同値による左作用は可換である。
+一つの frame を基点に選ぶと第一式となる。
+同様に第二 fiber は線束の選択集合の $\Aut_{\rm ex}(\mathcal A)$ による軌道商である。
+前命題により作用は $\Gamma_{\mathcal A}$ を通じ、
+中心部分群 $\mathbb ZK$ を先に割れるので第二式を得る。
+最後の格子同型は命題\ref{prop:picard-root-index}による。
+\end{proof}
+
+この区別は集合論の段階で必要であり、群oid・stack を導入する必要はない。
+また $\Lambda\simeq\mathbb Z^7$ と $\Lambda/\mathbb ZK\simeq\mathbb Z^6$ は
+いずれも可算集合であるから、抽象的な全単射の有無を問題にしているのではない。
+第一 Chern 類による自然な添字付けと、実際に同一視される構造対象を記述している。
+

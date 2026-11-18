@@ -45,6 +45,24 @@ def main() -> None:
     kernel_ch2 = base_square/2-c*(root_dot_base+c)
     assert sp.expand(kernel_square/2-kernel_ch2) == 0
     assert 1-c*c-c*c+2*c*c == 1
+    # A root C has C^2=-2. For a=s_T-D.C=h-b, the universal
+    # extension by b copies of T has defect -b*h.
+    hdim, bdim, dc, dsq = sp.symbols('hdim bdim dc dsq')
+    sval = dc + hdim - bdim
+    extension_square = dsq + 2*bdim*dc - 2*bdim**2
+    extension_ch2 = dsq/2 + bdim*sval
+    assert sp.expand(extension_square/2-extension_ch2+bdim*hdim) == 0
+    aval = sval-dc
+    reflected_square = dsq-2*aval*dc-2*aval**2
+    reflected_ch2 = dsq/2-aval*sval
+    assert sp.expand(reflected_square/2-reflected_ch2) == 0
+    reflected_pairing = dc+2*aval
+    assert sp.expand(sval-reflected_pairing+aval) == 0
+    # (H-1)^2 v = (0,0,3r), used to recognize rank intrinsically.
+    hv, hhv = twist(v, 1), twist(v, 2)
+    assert hhv[0]-2*hv[0]+v[0] == 0
+    assert hhv[1]-2*hv[1]+v[1] == sp.zeros(7, 1)
+    assert sp.expand(hhv[2]-2*hv[2]+v[2]-3*rank) == 0
     # Twisting identities retained as numerical checks only.
     structure = (1, sp.zeros(7, 1), 0)
     theta_v = twist(v, -1)
@@ -61,6 +79,8 @@ def main() -> None:
     print('PASS: self Euler=1-2n, Ext1 numerical value=2n; anticanonical Hilbert polynomial')
     print('PASS: Serre duality, H-invariance, same-class negative quotient degree=-3; parity')
     print('PASS: arbitrary-base Hilbert polynomial; conditional root-evaluation defect=0')
+    print('PASS: root universal-extension defect=-b*h; affine reflection and involution')
+    print('PASS: (H-1)^2 v=3r[point]')
     print('PASS: twist quotient degree=3r, theta Euler difference=-degree')
     print('LIMIT: categorical existence, positivity (EP), and heart/rank comparison are not tested')
 

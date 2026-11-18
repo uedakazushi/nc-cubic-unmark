@@ -21,132 +21,185 @@
 \newcommand{\Cw}{\mathfrak C^{\rm w}}\newcommand{\Cu}{\mathfrak C^{\rm u}}
 \title{非可換三次曲面の二段階の標識忘却\\\large 反標準 heart・有限 Weyl 群・線束の選択}
 \author{植田一石}
-\date{2026年11月18日 / unmark-v10}
+\date{2026年11月18日 / unmark-v11}
 \begin{document}\maketitle
 \begin{abstract}
-AOU/OU 型標識から弱標識へ、弱標識から無標識へ至る二段階の忘却を、
+AOU の三ブロック線束型標識から弱標識へ、弱標識から無標識へ至る二段階の忘却を、
 反標準 heart を基準として集合論的に研究する。
-第一段階は固定した弱標識上の標準標識の有限 Weyl 群 $W(E_6)$ による自由度、
-第二段階は固定した反標準 heart 内の線束の選択である。
-AS heart は標準表示との比較にのみ用いる。
-固定圏内の線束選択と、exact 自己同値による軌道商を区別する。
+固定弱標識上の三ブロック線束標識の選択と、固定 heart 内の線束の選択を調べ、
+それらを圏の exact 同値類を点とする moduli fiber と区別する。
+比較する別の心は AS heart のみとする。
 
-内在的な公理の下で rank-one torsion-free 対象の自己第二 Ext は消え、
-例外性は自己 Euler 形式 $1$ と同値である。
-三次曲面型の数値表示と構造対象の数値階数 $1$ を仮定すると、
-反標準 Serre 消滅、数値階数と内在的 torsion 部分圏の対応、および
-有効次数正値性が従い、各数値的線束類の対象は高々一つである。
-AOU 三ブロック型の九線束から格子標識を復元し、固定弱標識上の標識数を
-$51840$ 以下に抑える。全 Weyl 作用の実現は一種類の三対象交換へ還元される。
-零次数 root 型単純対象が存在する場合には、構造対象と同じ反標準切断環を持つが
-豊富でない線束ができるという条件付き障害も示す。その実在は未解決である。
-全数値類の存在と全線束の許容性は別に確認すべき問題として残す。
-可換 locus と許容形式近傍では通常の有限 Weyl 標識を記述し、
-一次 Picard 障害によって線束の持上げと自己同値の持上げを区別する。
-一般の AOU/OU 部分での有限 Weyl 軌道の実現・網羅性と、
-全数値的線束類の実現は、証明された範囲と未解決の範囲を分けて扱う。
+弱三次曲面の内在的公理と全対象の数値 Riemann--Roch の下で、
+Serre 消滅、階数認識、有効次数正値性と線束の数値的一意性を示す。
+零次数 root 型単純対象がない場合、三対象交換を実際に構成し、
+非空な標準標識集合が $W(E_6)$-torsor であることを証明する。
+許容線束を含む helix からの再構成により、AS heart と反標準 heart の比較も得る。
+root 型単純対象が存在する場合には、線束集合上の affine 反射と
+許容線束の半空間条件を示すが、この単純対象の実例は構成していない。
+
+指定された反標準 heart と相対 perfect モデルを持つ代数族が可換三次曲面を含むとき、
+非常に一般の fiber では全 Picard 類の許容線束が存在し、各先頭線束上の
+標準標識集合は $W(E_6)$-torsor となる。
+実際の集合論的 fiber は自己同値の数値像 $\Gamma$ による軌道商であり、
+反標準シフトによる $\mathbb ZK$ の同一視を必ず含む。
+さらに有限 AOU 代数族と一次 Poisson 接方向の条件の下で、
+可算個の関係式等化子を用いて非常に一般の自己同値の数値像を $\mathbb ZK$ と決定する。
+許容 Artin 変形では、可換自己同型群が自明で一次 Poisson 障害の整数核が
+$\mathbb ZK$ なら、全次数で二つの fiber はそれぞれ
+$W(E_6)$-torsor と $\Pic/\mathbb ZK$ となる。
+代数族の仮定、AOU locus への適用、および未解決の範囲を明記する。
 \end{abstract}
 {\small\tableofcontents}
 \clearpage
 \section{はじめに}
 本稿の基本問題は
 \[
- \text{AOU/OU marked}\longrightarrow
+ \text{AOU marked}\longrightarrow
  \text{weakly marked}\longrightarrow\text{unmarked}
 \]
 という二段階の忘却である。
 基準とする Abel 圏は反標準環の $\qgr$ として得る
 \emph{anticanonical heart} であり、比較する別の心は \emph{AS heart} のみとする。
-対象の同型類と圏の exact 同値類の集合を先に分類し、
-群oid・stack および相対的な降下の定式化はその後の課題とする。
+対象の同型類と圏の exact 同値類の集合を扱い、
+群oid・stack および相対降下の定式化はその後の課題とする。
 
-\paragraph{第一段階：有限 Weyl 群による標識の選択.}
-AOU\cite{AOU}とOU\cite{OU2025}の標準表示から
-反標準 heart と構造対象が得られる範囲を取り、その弱標識を固定する。
-残る標識の自由度を有限 Weyl 群 $W(E_6)$ で記述するのが第一の目標である。
-可換三次曲面の通常標識およびその許容形式持上げは既存の比較で扱える。
-非可換全域における幾何学的標識の実現・網羅性は、
-数値格子上の Weyl 作用があることだけからは従わない。
-AOU/OU 標識の像が任意の弱標識付き nc cubic を尽くすとも仮定しない。
+\paragraph{二段階の選択と moduli fiber.}
+弱標識は固定反標準 heart $\mathcal A$ の許容線束 $L$ の選択である。
+最初に調べる集合は
+$\operatorname{Mark}^{\rm line}_Q(\mathcal A,L)$ と
+$\operatorname{Line}_{\rm adm}(\mathcal A)$ であり、
+前者は AOU の標準三ブロック線束型に限定する。
+数値格子上の Weyl 作用だけで実際の helix の存在を推論せず、
+各数値的線束類の存在・一意性・許容性もそれぞれ確認する。
+対象同士のテンソル積や Picard 格子による固定非可換圏上の作用は仮定しない。
+本稿で構成する線束標識は AOU 型の AS 標識を与えるが、
+任意の AOU 標識の全九対象が固定反標準 heart で torsion-free になるという
+逆向きの認識は未証明である（注意\ref{rem:aou-line-converse}）。
+従って以下の第一 fiber は、この明示した線束型に限定して取る。
 
-\paragraph{第二段階：固定反標準 heart 内の線束の選択.}
-弱標識とは $(\mathcal A_{\rm ac},L)$ という構造対象の選択である。
-従って最初に調べる集合は $\operatorname{Line}_{\rm adm}(\mathcal A_{\rm ac})$ である。
-対象同士のテンソル積や、Picard 格子による固定圏上の作用を先に仮定しない。
-各数値的線束類 $v_D=(1,D,D^2/2)$ についての存在・一意性を証明し、
-全線束が弱標識として許容されることを確認する。
-exact 自己同値による軌道は、線束の選択集合を決定した後に別に取る。
+圏の exact 同値類を点に取る moduli では、集合論的 fiber にも自己同値による同一視が入る。
+全線束と標識の実現された範囲で、自己同値の数値像を
+$\Gamma_{\mathcal A}\subset\Lambda\rtimes W(E_6)$、$L$ の安定化像を $\Gamma_L$ と書くと、
+\[
+ p^{-1}[(\mathcal A,L)]\simeq\Gamma_L\backslash W(E_6),\qquad
+ q^{-1}[\mathcal A]\simeq(\Lambda/\mathbb ZK)/\overline\Gamma_{\mathcal A}
+\]
+となる（系\ref{cor:actual-set-fibers}）。
+第一 fiber は有限 Weyl 軌道であり、安定化像が自明なら torsor である。
+第二 fiber は反標準シフト $H$ の冪による $K$ 方向の同一視を必ず持つ。
+従って、固定 heart 内の線束選択が Picard 格子そのものでも、
+通常の同値類の fiber の自然なラベルは異なる。
 
-線束対象の数値的判定（定理\ref{thm:intrinsic-line-criterion}）を出発点とする。
-定理\ref{thm:ac-serre-positivity}では、全対象に対する三次曲面型 Riemann--Roch と
-$r(\OO_0)=1$ の正規化から、反標準 Serre 消滅と
-$\mathcal A_1=\{r=0\}$ を導く。有効次数正値性はその帰結であり、
-独立に仮定せずに数値的線束類の一意性
-（定理\ref{thm:numerical-line-uniqueness}）を得る。
-この一意性を用いて、AOU 型の九対象から復元する格子標識への単射と
-標識数の上界 $51840$ を証明する（定理\ref{thm:weyl-frame-injection}）。
-六つの単純反射のうち五つは直交ブロック内の置換であり、残る一つは
-三対象交換として明示できる（系\ref{cor:weyl-one-move}）。
-交換後の標識の存在が分かれば、Coxeter 関係と網羅性は一意性から従う。
-許容線束を変えて反標準環を作り直しても、Artin--Zhang 再構成により
-同じ反標準 heart を得る（命題\ref{prop:ac-line-reconstruction}）。
-これは既知の再構成定理の直接の帰結であり、新しい一般的再構成を主張しない。
-一方、命題\ref{prop:root-simple-obstruction}は零次数 root 型単純対象の
-存在を仮定して、例外性と切断環の一致だけでは固定 heart 内の豊富性を
-判定できないことを示す。この単純対象の実例は構成していない。
-以上の導出は本稿に証明を記載するが、一般的な先行研究との重複・新規性は
-引き続き照合を要する。
+\paragraph{線束の内在的判定と零次数障害.}
+rank-one torsion-free 対象の自己第二 Ext は消え、例外性は自己 Euler 形式 $1$ と同値である
+（定理\ref{thm:intrinsic-line-criterion}）。
+定理\ref{thm:ac-serre-positivity}では、全対象の三次曲面型 Riemann--Roch と
+$r(\OO_0)=1$ から反標準 Serre 消滅、$\mathcal A_1=\{r=0\}$、有効次数正値性を導く。
+これにより各数値的線束類の対象は高々一つである
+（定理\ref{thm:numerical-line-uniqueness}）。
+線束の許容性は構造対象への生成全射と正の自己 twist の消滅で判定できる
+（命題\ref{prop:line-admissibility-test}）。
 
-\paragraph{先行研究と保持する補助結果.}
-AOU の標準九線束\cite[(4.1), (9.44)]{AOU}と古典的格子標識の
-$W(E_6)$-torsor\cite[\S2.6]{DGK}は既知の入力である。
-本稿の有限上界は、それらと固定反標準 heart 内の線束の一意性を組み合わせた帰結である。
+零次数 root 型単純対象 $T$ が存在する場合、評価核と普遍拡大によって
+線束の Chern 類に affine 反射を実現する（定理\ref{thm:root-line-reflection}）。
+この反射は反標準切断環を保つが、許容性はその壁の一方の半空間に制限される。
+特に切断環の一致だけでは固定 heart 内の豊富性は判定できない。
+これは $T$ の存在を仮定した条件付き障害であり、実例の構成ではない。
+
+\paragraph{有限 Weyl 作用の実現と AS 比較.}
+九線束から格子 frame を復元し、一意性によって標識数を $51840$ 以下に抑える。
+零次数 root 型単純対象がなければ、三対象交換を kernel、cokernel、三項複体で構成できる。
+その線束性、fullness、very strongness を確認することで
+非空な標識集合が $W(E_6)$-torsor となる
+（定理\ref{thm:rootfree-cross-reflection}）。
+また、full very strong helix の一剰余列が AZ 豊富なら、
+helix 全体が豊富で、その代数は右 noetherian となる。
+Polishchuk 再構成によって AS heart は指定反標準 heart に exact 同値となる
+（補題\ref{lem:ample-helix-reconstruction}、系\ref{cor:line-helix-as-reconstruction}）。
+零次数 root のない場合は、有限 End 代数が全係数非零の AOU relation 表示を持つことも示す。
+
+\paragraph{代数族と形式近傍の到達点.}
+定理\ref{thm:very-general-line-existence}は、有限局所自由代数族と各 fiber の
+指定弱反標準 heart、数値格子、相対 perfect 比較、可換三次曲面 fiber を仮定する。
+各古典的線束を有界 projective 複体として代数化し、
+単射・全射の witness と可算個の消滅条件を用いることで、
+非常に一般の点に全 Picard 類の許容線束を構成する。
+全線束存在は零次数 root を排除し、各先頭線束に対する標準標識も実現する。
+この族仮定を AOU の具体的 locus で確認することと、抽象的な条件付き結論とを区別する。
+
+許容 Artin 変形では全線束と標識が一意に持ち上がる。
+$\Aut(X)=1$ かつ一次 Poisson 障害の整数核が $\mathbb ZK_X$ なら、
+exact 自己同値の特殊化像は全次数でちょうど $\mathbb ZK_X$ である。
+従って実際の二つの fiber は $W(E_6)$-torsor と $\Pic(X)/\mathbb ZK_X$ となる
+（定理\ref{thm:artin-actual-fibers}）。
+一般の分数体上の自己同値がこの形式近傍へ延長できるとは主張しない。
+代数族の自己同値像は、全係数非零の関係式の明示的な八次元 torus 商を使って
+別に決定する（定理\ref{thm:very-general-numerical-aut}）。
+各 affine 数値ラベルに対応する九対象の End 代数が元の代数と一致する locus は、
+反標準平行移動を除けば真閉となる。
+これにより、指定した族の仮定の下で非常に一般の実際の fiber も
+$W(E_6)$-torsor と $\Lambda/\mathbb ZK$ である
+（系\ref{cor:very-general-actual-fibers}）。
+第一 fiber は前述の三ブロック線束型に限定する。
+
+\paragraph{先行研究と本稿の導出の位置.}
+AOU\cite{AOU}は標準九線束の relation 表示と標識付き非可換三次曲面のモジュライを構成する。
+その標準列\cite[(4.1), (9.44)]{AOU}と、古典的格子 frame の
+$W(E_6)$-torsor\cite[\S2.6]{DGK}は本稿の既知入力である。
 OU\cite[Definition 1.1(3)]{OU2025}の一般の marking は very strong helix の選択であり、
-今回の有限性はその全体ではなく、明示した三ブロック線束型に対して述べる。
-AZ 豊富性には、Polishchuk\cite[Lemma 2.1(ii)]{PolishchukProj}で明記される
-任意 tail の異なる指数を用いた有限生成を使う。
+本稿の有限性をその全体へ拡張していない。
+Bridgeland--Stern\cite[Theorem 5.3(ii)]{BSHelices}の pure block helix の geometricity を、
+固定反標準 heart 内で構成した三ブロック列に適用する。
+helix 代数の AS-Gorenstein 性と有限 global dimension には
+OU\cite[(18)--(25)および末尾の議論]{OUHelix}を用いる。
+AZ 豊富性では異なる負指数を許す任意 tail の有限生成を使い、
+Polishchuk\cite[Lemma 2.1(ii), Theorem 2.4]{PolishchukProj}の再構成を適用する。
 一般の豊富対だけに高次 Ext 消滅を読み込むことはしない。
-Serre 双対性と階数一の非零射の単射性から第二 Ext を消す論法には、
+
+Serre 双対性、階数一の非零射の単射性、有効次数による第二 Ext 消滅には
 Hoffmann--Reede\cite[Lemma 3.9]{HR}の先行例がある。
-同補題は $\PP^2$ 上の terminal del Pezzo order に対し、同じ第一 Chern 類の
-rank-one torsion-free 加群間の第二 Ext 消滅を示す。
-本稿はその分類結果を移し替えるのではなく、指定された反標準 heart の公理から
-必要な階数認識と次数正値性を導いて同様の消滅論法を適用する。
-対象範囲の包含や一般的な優先権は主張しない。
-可換 del Pezzo 曲面の例外層の $K_0$ 類による一意性も既知であり、
-Karpov--Nogin\cite[\S1.3, p.~433]{KN}に明記されている。
-また root 型単純対象からの評価核は、既知の dual spherical twist の
-評価複体\cite[Definition 2.7]{ST}と同じ形を持つ。
-本稿ではその一般理論を証明の入力とせず、固定 heart 内の短完全列から
-非生成性と切断環の同型を直接確認する。
-さらに、AOUの関係式表示、OUのAS標識、Bondal--Orlovの可換自己同値、
-LowenとDe Deken--Lowenの変形理論、TodaのFourier--Mukai変形作用を入力とする。
-Picard一次障害、非常に一般の整数核、および一次不変式の証明を保持するが、
-それらを線束の存在分類や全域的な有限Weyl商の代わりにはしない。
-普遍有限代数、支持によるHochschild計算、数値Serre--$E_6$、
-形式変形の比較の証明は付録に置く。
-数値的 $E_6$ の一致も、AS表示の導来同値も、それだけで
-反標準 heart の一致を与えるわけではない。
+同論文は $\PP^2$ 上の terminal del Pezzo order を扱い、
+本稿はその分類を移し替えず、指定反標準 heart の公理から階数認識と正値性を導く。
+可換 del Pezzo 曲面上の例外層の数値的一意性は
+Karpov--Nogin\cite[\S1.3, p.~433]{KN}にも明記されている。
+root 型対象の評価・普遍拡大は spherical twist の既知の形式
+\cite[Definitions 2.7, 2.9]{ST}と対応するが、本稿の証明は固定 heart 内の完全列を用いる。
+その twist が $t$-exact であるとは仮定しない。
+
+可換自己同値分類は Bondal--Orlov、対象持上げと形式比較は Lowen と
+De Deken--Lowen、一次変形における Picard 作用は Toda の枠組みを用いる。
+これらの既知結果そのものを新結果とはしない。
+本稿の追加導出には証明を記載し、仮定と依存関係を明示するが、
+一般的な先行研究との重複・新規性の網羅的確認は未完了である。
+有効な Picard 一次障害・不変式と、普遍有限代数・Hochschild・数値 Serre 格子の計算は
+現行本文および付録に保持する。
 
 \input{papers/sections/anticanonical_set_unmark.tex}
 \input{papers/sections/marking_forgetful.tex}
 \input{papers/sections/aou_to_unmarked.tex}
 \input{papers/sections/line_bundle_classification.tex}
 \input{papers/sections/weyl_line_markings.tex}
+\input{papers/sections/generic_line_choices.tex}
 \input{papers/sections/commutative_formal_markings.tex}
 \input{papers/sections/picard_obstructions.tex}
 \input{papers/sections/picard_invariants.tex}
 
 \section{現在の課題}
-最優先は二点である。第一は系\ref{cor:weyl-one-move}の三対象交換を
-固定反標準 heart 内で構成し、線束性・完全性・very strongness を示すことである。
-数値上一意な候補が分かっても、核・余核・複体の cohomology が
-必要な対象になることは別に確認する。
-第二は全数値的線束類の実現と weak 許容性を決定することである。
-零次数 root 型単純対象の存在・排除、数値的点に対する Ext 消滅から
-一般の生成へ進む条件、および正の反標準自己 twist の消滅を調べる。
-AS heart との比較はこの二問題に必要な範囲だけで行う。
-自己同値軌道、相対族、群oid・stack はこの分類の後の段階とする。
+第一の核心は、定理\ref{thm:very-general-line-existence}の反標準 heart・数値表示・
+相対 perfect 比較の仮定を AOU relation 族の具体的な既約 locus で確認することである。
+有限代数・関係式商・Kodaira--Spencer 側の入力は確認でき、
+その heart 仮定の下では定理\ref{thm:very-general-numerical-aut}が
+自己同値の数値像を $\mathbb ZK$ と決定する。
+第二は、任意の AOU 型標識の九対象が、固定反標準 heart で線束対象となるという
+逆向きの認識である。これを示して初めて、三ブロック線束型の $W(E_6)$-torsor を
+制限なしの AOU fiber と同一視できる。
+
+特殊 locus では零次数 root 型単純対象の実在・排除、および
+$\mathcal A_0\subset\{d=0\}$ が残る。
+条件なしの全数値類存在、全線束の許容性、全 GIT 境界・全 OU helix の分類は結論していない。
+既知結果との比較を続け、公表上の中心結果と新規性を確定する。
+群oid・stack・降下の精密化は、これらの集合論的分類の後に行う。
 
 \appendix
 \section{可換三次曲面のHochschild変形}\label{sec:hh}
@@ -185,10 +238,13 @@ $\wedge^3T_X=0$なので$\HH^3=0$。
 \path{computations/verify_weyl_frames.py}、
 静的参照検査は \path{scripts/verify_unmark_bundle.py} である。
 計算は数値恒等式を検算するもので、線束の存在やheartの同定の証明ではない。
-反標準 Serre 消滅・階数認識・root 型障害・格子標識復元の証明を点検した。
+反標準 Serre 消滅・階数認識を入力に、root affine 反射、三対象交換、
+helix 再構成、代数族の線束存在・自己同値等化子と許容 Artin fiber の
+新しい証明を点検した。
 数値上の有限探索では27本の $(-1)$ 類の網羅性、72個の六組、
 $51840$ 個の順序付き標識、単純反射の Coxeter 関係を検算する。
-これらは三対象交換の圏内での実現を証明しない。
+数値計算は圏内での exactness や存在を証明するものではなく、
+それらは本文の証明によって確認する。
 保持した既存証明すべての独立再査読を実施したという意味でもない。
 検証状況は \path{research/unmark_validation.json} に記す。
 \begin{thebibliography}{99}
@@ -219,6 +275,26 @@ Theorems 4.5, 5.13, 5.15 and Definition 5.12.
 \emph{Marked Artin--Schelter surfaces of del Pezzo types},
 \href{https://arxiv.org/abs/2508.04986}{arXiv:2508.04986v1} (2025),
 Definition 1.1 and Theorem 6.4.
+\bibitem{BSHelices} T. Bridgeland, D. Stern,
+\emph{Helices on del Pezzo surfaces and tilting Calabi--Yau algebras},
+\href{https://arxiv.org/abs/0909.1732}{arXiv:0909.1732}.
+参照: Definition 3.1, Theorems 4.5, 5.3(ii)（pure な block helix の geometricity）。
+\bibitem{OUHelix} S. Okawa, K. Ueda,
+\emph{AS-regular algebras from acyclic spherical helices},
+\href{https://arxiv.org/abs/2007.07620}{arXiv:2007.07620v1} (2020).
+参照: (18)--(25)、Proposition 2、Theorem 5の後の最終段落。
+\bibitem{KellerCY} B. Keller,
+\emph{Deformed Calabi--Yau completions},
+\href{https://arxiv.org/abs/0908.3499}{arXiv:0908.3499}.
+参照: Theorems 4.8, 6.10。本稿では変形パラメータ零の completion のみを用いる。
+\bibitem{GinzburgCY} V. Ginzburg,
+\emph{Calabi--Yau algebras},
+\href{https://arxiv.org/abs/math/0612139}{arXiv:math/0612139}.
+参照: Proposition 5.1.9, Corollary 5.4.3。
+\bibitem{Stacks} The Stacks Project Authors,
+\emph{The Stacks Project},
+\href{https://stacks.math.columbia.edu/tag/057G}{Tag 057G},
+Lemma 37.38.5（指定点を通る smooth 射の \'etale slice）。
 \bibitem{DGK} I. Dolgachev, B. van Geemen, S. Kond\=o,
 \emph{A complex ball uniformization of the moduli space of cubic surfaces
 via periods of K3 surfaces},

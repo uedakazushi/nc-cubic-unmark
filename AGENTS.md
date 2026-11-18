@@ -2,7 +2,7 @@
 
 最初に `00_research_plan.md` を読む。anticanonical heartを基準とし、比較対象はAS heartのみ。Rains/VdB heartの議論を本稿へ戻さない。
 
-最優先は二段階の集合論的分類：(1)固定weak marking上のAOU/OU markingの有限W(E6)自由度、(2)固定anticanonical heart内のline bundleのchoice。数値的線束類の存在・一意性、weak許容性を先に解き、自己同値軌道は後に扱う。groupoid/stack・慣性・相対降下を先行課題にしない。
+最優先は二段階の集合論的分類：(1)固定weak marking上のAOU/OU markingの有限W(E6)自由度、(2)固定anticanonical heart内のline bundleのchoice。数値的線束類の存在・一意性、weak許容性と自己同値軌道を区別する。明示的族仮定の下のvery-general存在定理と許容Artin底のfiber定理は現行原稿にあり、条件付き代数族ではvery-general自己同値像もZKと決定した。次はAOU族へのheart仮定確認と、任意のAOU標識の九対象のtorsion-free認識を優先する。groupoid/stack・慣性・相対降下を先行課題にしない。
 
 A_ac=qgr R_e、AS heart=qgr A_ASを区別し、Hがt-exactな心を自動的にA_acと呼ばない。有限Weyl群による標識の実現・網羅性と、線束全体を固定圏のPicard自己同値とみなすことも区別する。対象範囲の違う分類からA_acの全線束存在を推測しない。
 

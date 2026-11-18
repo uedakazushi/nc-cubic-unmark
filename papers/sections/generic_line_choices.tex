@@ -1,0 +1,446 @@
+% !TeX root = ../nc-cubic-unmark.tex
+\section{代数族の非常に一般の点での線束と標識}\label{sec:generic-lines}
+
+ここでは、個々の形式的持上げから非常に一般の代数的 fiber の存在へ進むための
+仮定と証明を明示する。基礎圏内の選択集合を決定した後、
+有限関係式の等化子を用いて自己同値による商も求める。
+
+\begin{lemma}[反標準 Hom による heart の検出]\label{lem:ac-heart-detection}
+定理\ref{thm:ac-serre-positivity}の仮定の下で、$C\in D^b(\mathcal A)$ に対して
+\[
+ C\in\mathcal A\quad\Longleftrightarrow\quad
+ \Hom(\OO_0,H^nC[i])=0\quad(i\ne0,\ n\gg0)
+\]
+が成立する。
+\end{lemma}
+\begin{proof}
+$C$ の有限個の cohomology 対象に反標準 Serre 消滅を同時に適用すると、
+十分大きい $n$ に対して
+\[
+ \Hom(\OO_0,H^nC[i])\cong
+ \Hom(\OO_0,H^n\mathcal H^i(C))
+\]
+となる。非零の heart 対象の Hilbert 多項式は恒等的に零ではないので、
+右辺が tail 全体で零になることと $\mathcal H^i(C)=0$ は同値である。
+\end{proof}
+
+\begin{theorem}[代数族における非常に一般の線束選択]\label{thm:very-general-line-existence}
+$B$ を滑らかな既約有限型複素多様体、$b_0\in B(\mathbb C)$ とし、次を仮定する。
+\begin{enumerate}
+\item $B$ 上の有限局所自由代数 $\mathscr B$ と有限個の直交冪等元 $e_i$ があり、
+      $\sum_i e_i=1$ とする。
+      $\operatorname{Perf}(\mathscr B_{b_0})$ の各対象は
+      $e_i\mathscr B_{b_0}$ の有限直和を項とする有界複体で表せる。
+\item 各 $b$ に対して
+      $\operatorname{Perf}(\mathscr B_b)\simeq D^b(\mathcal A_b)$ が与えられ、
+      $(\mathcal A_b,\OO_b)$ は指定された反標準 heart における弱三次曲面である。
+      全対象の数値表示\eqref{eq:line-rr}--\eqref{eq:line-H}、格子 $\Lambda$、
+      $r(\OO_b)=1$ は固定 projective の $K_0$ 類と両立して族上で同定される。
+\item $\OO_b$ は相対 perfect 対象 $\mathscr O$ の fiber であり、
+      $H_b=\mathsf S_b^{-1}[2]$ は底変更と両立する可逆な相対 perfect 双加群で実現される。
+      相対 perfect 対象間の RHom は底上 perfect で、底変更を満たす。
+\item $\mathcal A_{b_0}\simeq\operatorname{coh}X$、$\OO_{b_0}\simeq\OO_X$ であり、
+      $X$ は滑らかな三次曲面、$\Pic(X)=\Lambda$ とする。
+\end{enumerate}
+このとき $B$ の可算個の真の閉部分集合の合併の外では
+\begin{equation}\label{eq:generic-all-lines}
+ \operatorname{Line}_{\rm adm}(\mathcal A_b)
+ =\operatorname{Line}(\mathcal A_b)
+ \xrightarrow[\sim]{\ c_1\ }\Lambda
+\end{equation}
+である。さらに任意の許容線束 $L$ に対して、標準三ブロック線束標識の集合
+$\operatorname{Mark}^{\rm line}_Q(\mathcal A_b,L)$ は非空な $W(E_6)$-torsor となる。
+\end{theorem}
+\begin{proof}
+\emph{線束の代数化。}
+$D\in\Lambda$ を固定し、古典的線束 $L_D$ を有界 projective 複体
+$(P^\bullet,d_0)$ で表す。各項を同じ有限直和の $e_i\mathscr B$ に置き換える。
+微分の候補は有限局所自由な Hom 束の全空間の点であり、
+$d^{j+1}d^j=0$ という有限個の方程式で有限表示 scheme $Z\to B$ を得る。
+この射は $d_0$ において smooth である。
+実際、小 Artin 拡大の核 $I$ に対して微分を一旦持ち上げると、
+その平方は $I\otimes\operatorname{End}^2(P^\bullet)$ の cycle を与える。
+障害は
+\[
+ I\otimes H^2\operatorname{End}(P^\bullet)
+ =I\otimes\Ext^2(L_D,L_D)=0
+\]
+なので次数一の補正で平方を零にできる。有限表示と無限小持上げ判定から
+指定点での smoothness が従う。
+その点を通る \textit{\'etale slice}\cite[Tag 057G]{Stacks}
+を取り、既約な \textit{\'etale} 近傍 $(V,v_0)\to(B,b_0)$ と、
+$F_{v_0}=L_D$ なる相対 perfect 複体 $F$ を得る。
+$B$ は滑らかなので $v_0$ を含む成分を開で取り直せる。
+$F$ の数値類は全体で $v_D=(1,D,D^2/2)$ である。
+
+\emph{単射と生成全射の延長。}
+十分大きい $m,a$ を取り、可換 fiber で
+\[
+ i_0:L_D\hookrightarrow H_{b_0}^m\OO_X,\qquad
+ p_0:(H_{b_0}^{-a}L_D)^{\oplus N}\twoheadrightarrow\OO_X
+\]
+を選ぶ。$m,a$ を増やすと対応する二つの RHom は次数零に集中する。
+相対 perfect 性と底変更により、$V$ を縮めると Hom は vector bundle となり、
+選んだ射は
+\[
+ i:F\longrightarrow H^m\mathscr O,\qquad
+ p:(H^{-a}F)^{\oplus N}\longrightarrow\mathscr O
+\]
+へ延長する。$C_i=\operatorname{Cone}(i)$、
+$C_p=\operatorname{Cone}(p)[-1]$ と置く。
+$F,C_i,C_p$ の $v_0$ での fiber はいずれも $\operatorname{coh}X$ に属す。
+
+\emph{heart と許容性の可算開条件。}
+これら三対象に対し、$n\ge n_0$ の反標準 RHom が次数零に集中するように
+共通の $n_0$ を $v_0$ で選ぶ。
+各固定 $n$ に対して
+\[
+ \RHom(\mathscr O,H^nF),\quad
+ \RHom(\mathscr O,H^nC_i),\quad
+ \RHom(\mathscr O,H^nC_p)
+\]
+の fiber が次数零に集中する locus は、$v_0$ を含む Zariski 開集合である。
+これら可算個の開集合の共通部分上では、補題\ref{lem:ac-heart-detection}により
+$F,C_i,C_p$ は指定 heart に属す。従って $i$ は単射、$p$ は全射である。
+$F$ は $H^m\OO_b$ に埋め込まれるので torsion-free であり、
+$r(F)=1$ だから $qF$ は非零、かつ単純対象 $qH^m\OO_b$ の部分対象である。
+従って $F$ は内在的に rank-one torsion-free であり、
+数値類 $v_D$ と系\ref{cor:line-numerical-defect}から線束対象である。
+
+さらに各 $\ell\ge0$ に対して $\RHom(F,H^\ell F)$ の次数零集中を課す。
+$v_0$ では Kodaira 消滅と $H^{>0}(X,\OO_X)=0$ により成立するので、
+これも可算個の $v_0$ を含む開条件である。
+全射 $p$ と命題\ref{prop:line-admissibility-test}により、
+これらの条件を満たす fiber の $F$ は許容線束となる。
+
+\emph{基底への移行と全数値類。}
+$V\to B$ は相対次元零の dominant な \textit{\'etale} 射である。
+各 bad closed subset $Z'\subsetneq V$ に対し
+$\dim Z'<\dim B$ なので、その像の閉包も $B$ の真の閉部分集合である。
+$B\setminus\operatorname{im}(V)$ とこれら可算個の閉包を除けば、
+残る $b$ は $V$ に持ち上がり、上の全条件を満たす線束を得る。
+ここでは像と可算共通部分を交換していない。
+$\Lambda$ は可算なので、全 $D$ についての除外集合の合併も可算である。
+これで全数値類の許容線束が得られる。
+定理\ref{thm:numerical-line-uniqueness}により、他の線束対象もその数値類の
+許容線束と同型であり、式\eqref{eq:generic-all-lines}が従う。
+
+\emph{各先頭線束に対する標識の存在。}
+各 $D$ について、$X$ 上の一つの標準九線束を $L_D$ で共通 tensor する。
+その九数値類について上の構成を行い、九つの \textit{\'etale} 近傍の有限 fiber 積の
+指定点を含む既約成分を取る。各対象には上記の単射・生成の witness を保持する。
+従って適切な可算開条件の下で、九対象は実際の線束となる。
+有限 thread の強例外性と各ブロックの完全直交性は、相対 RHom による有限個の開条件である。
+
+fullness もここでは具体的に開条件で確保できる。
+固定 projective 生成対象 $G=\bigoplus_i e_i\mathscr B$ に対して、
+九対象 $E_9,E_8,\ldots,E_1$ の順に
+\[
+ M\longmapsto\operatorname{Cone}
+ \bigl(\RHom(E_j,M)\otimes E_j\longrightarrow M\bigr)
+\]
+を適用する。得られる相対 perfect 対象は古典点で零なので、
+さらに非空開近傍で零である。各 triangle により $G$ が九対象の thick 生成部分圏に
+属することになり、thread は full である。
+適用順序 $9,8,\ldots,1$ では $\RHom(E_k,E_j)=0$ ($k>j$) により、
+既に消した右直交性が保たれる。
+$H_b$ の $t$-exact 性から周期延長は pure な三ブロック helix であり、
+Bridgeland--Stern\cite[Theorem 5.3(ii)]{BSHelices}により very strong である。
+上と同じ像の閉包の議論を全 $D$ に適用すれば、非常に一般の点で
+各先頭線束に対する標識が少なくとも一つ存在する。
+
+式\eqref{eq:generic-all-lines}と系\ref{cor:admissible-root-halfspace}から
+零次数 root 型単純対象は存在しない。
+従って定理\ref{thm:rootfree-cross-reflection}を各先頭線束に適用すると、
+標識集合が $W(E_6)$-torsor であることが従う。
+\end{proof}
+
+\begin{remark}[AOU 族への適用範囲]\label{rem:generic-family-scope}
+この定理は、指定された反標準 heart とその代数的モデルの比較を仮定する。
+有限 relation algebra の族、固定頂点 projective、導来 Serre 作用だけから、
+仮定(2)の heart・階数・数値表示を自動的に得たとはしない。
+AOU の relation parameter 上ではこれらの比較を確認した既約 locus に適用する。
+全 GIT 境界、別の既約成分、任意の OU 型の helix への主張ではない。
+結論の非常に一般の locus を単一の Zariski 開集合とも主張しない。
+自己同値の数値像は、さらに有限 AOU 族と接方向の仮定を加えた
+定理\ref{thm:very-general-numerical-aut}で決定する。
+\end{remark}
+
+\subsection{有限関係式の等化子による自己同値像の決定}
+\label{sec:generic-aut-equalizers}
+
+非常に一般の fiber の自己同値を可換 fiber へ特殊化できるとは限らない。
+ここでは自己同値そのものの特殊化を用いず、その標準九対象の像を代数化し、
+有限 endomorphism 代数が同型になるための等式を調べる。
+先に必要となる有限代数の商を明示する。
+
+\begin{lemma}[全係数非零の関係式の明示的商]
+\label{lem:aou-fullsupport-torus}
+全係数非零の関係式空間を
+\[
+ R_Q^\circ=\prod_{i,j=0}^2
+ \{[c_{ij0}:c_{ij1}:c_{ij2}]\mid c_{ij0}c_{ij1}c_{ij2}\ne0\}
+ \simeq(\mathbb G_m)^{18}
+\]
+とし、$r_{ijm}=c_{ijm}/c_{ij0}$ ($m=1,2$) と置く。
+八つの関数
+\begin{equation}\label{eq:aou-torus-invariants}
+ \theta_{ijm}=
+ \frac{r_{ijm}r_{00m}}{r_{i0m}r_{0jm}},
+ \qquad i,j=1,2,\quad m=1,2
+\end{equation}
+は、矢の基底変換群 $G_Q=(\mathbb G_m)^{18}$ による幾何学的商
+\[
+ \nu:R_Q^\circ\longrightarrow T_Q=(\mathbb G_m)^8
+\]
+を与え、この射には大域切断がある。
+作用の核は頂点スカラーのトーラス $(\mathbb G_m)^9/\mathbb G_m$ に等しい。
+従って有効な十次元トーラスの作用は自由であり、有限の追加安定化群はない。
+
+二つの関係式の有限代数がラベル付き頂点冪等元を固定する同型を持つことと、
+八つの $\theta$ が一致することは同値である。
+この最後の主張と正規化は、体上だけでなく任意の局所可換環上で成立する。
+\end{lemma}
+\begin{proof}
+$u_i\to w_m$、$w_m\to z_j$ の矢のスカラーを $a_{im},b_{mj}$ と書く。
+基底変換の向きを一方に固定すれば、$r_{ijm}$ の変換は
+\[
+ r_{ijm}\longmapsto
+ r_{ijm}\frac{a_{im}b_{mj}}{a_{i0}b_{0j}}
+ =r_{ijm}\alpha_{im}\beta_{mj}
+\]
+である。$m=1,2$ ごとに独立な、非零成分を持つ $3\times3$ 行列の行・列スカラー作用である。
+$\alpha_{im}=r_{i0m}^{-1}$、$\beta_{mj}=r_{00m}/r_{0jm}$ と取ると、
+第零行と第零列はすべて $1$、残りの四成分は $\theta_{ijm}$ となる。
+この正規化はすべて単元の積と逆数で書けるので、環上でも成立する。
+従って各 fiber は一つの軌道であり、正規化された二つの行列を取る大域切断を得る。
+
+作用の核では $\alpha_{im}\beta_{mj}=1$ だから、
+$\alpha_{im}=\lambda_m$、$\beta_{mj}=\lambda_m^{-1}$ であり、
+$a_{i0}$、$b_{0j}$、$\lambda_1,\lambda_2$ が自由な八つの単元である。
+頂点スカラーを
+\[
+ s_{w_0}=1,\quad s_{u_i}=a_{i0}^{-1},\quad
+ s_{z_j}=b_{0j},\quad s_{w_m}=\lambda_m
+\]
+と取れば $a_{im}=s_{w_m}/s_{u_i}$、$b_{mj}=s_{z_j}/s_{w_m}$ となる。
+よって核はちょうど頂点スカラーであり、非連結な有限部分は残らない。
+
+最後に、頂点を固定する代数同型は隣接層の一次元成分の各々を単元倍する。
+その始点・終点を持つ長い道はないので、矢への高次の項の付加はない。
+代数は矢で生成されるから、その同型は十八本の矢の基底変換で尽くされる。
+局所環上も同じ成分は階数一の自由加群である。
+従って代数同型の存在は上の軌道条件、すなわち $\theta$ の一致と同値である。
+\end{proof}
+
+次に使う一次障害は、相対 Abel heart の構成を必要としない導来変形の必要条件でもある。
+\begin{lemma}[導来自己同値の一次必要条件]
+\label{lem:derived-picard-tangent-necessity}
+$\operatorname{Perf}(B_0)\simeq D^b(\operatorname{coh}X)$ とし、$X$ は滑らかな三次曲面とする。
+平坦な $\mathbb C[\epsilon]/(\epsilon^2)$-代数 $B_\epsilon$ の
+Hochschild 変形類を $u=(\xi,\pi)\in HH^2(X)$ と書く。
+$\operatorname{Perf}(B_\epsilon)$ の $\mathbb C[\epsilon]/(\epsilon^2)$-線型導来 Morita 自己同値が
+特殊 fiber で $(-)\otimes L_t$ となるなら、$\delta_\pi(t)=0$ である。
+\end{lemma}
+\begin{proof}
+導来 Morita 同値による Hochschild 変形類の輸送を $\phi_*$ と書く。
+同じ変形上の同値の持上げが存在するためには $\phi_*(u)=u$ が必要である。
+この必要性は、可逆な特殊 fiber の双加群 $P$ を持ち上げる一次障害からも分かる。
+その障害は、左右の積の一次補正が $P$ に作用する二つの類の差であり、
+\[
+ HH^2(B_0)\ \simeq\
+ \operatorname{Ext}^2_{B_0^{\rm op}\otimes B_0}(P,P)
+\]
+によって $\phi_*(u)-u$ に対応する。
+同型は $P$ が可逆であることから従い、障害の差の式は
+双加群の結合則を $\epsilon$ の一次まで展開して得られる。
+従って持上げられた双加群があればこの差は零である。
+幾何学的な記述は Toda\cite[Proposition 5.6, Lemma 5.8, \S6]{Toda}の
+核と Hochschild 類の比較に一致する。
+
+$\phi=(-)\otimes L_t$ の作用は命題\ref{prop:picard-first-order}の
+\v{C}ech 計算で与えられる Picard shear であり、
+$H^1(T_X)$ 成分の差は $\pm\delta_\pi(t)$ である。
+符号は左右の Morita 規約によるが、零になる条件には影響しない。
+この比較は導来 Morita 不変な Hochschild 類の計算なので、
+$B_\epsilon$ に反標準 heart が相対的に与えられているとは仮定しない。
+\end{proof}
+
+\begin{theorem}[有限 AOU 族での非常に一般の自己同値の数値像]
+\label{thm:very-general-numerical-aut}
+定理\ref{thm:very-general-line-existence}の族の仮定に加え、次を仮定する。
+\begin{enumerate}
+\item $\mathscr B$ は射 $\rho:B\to R_Q^\circ$ による普遍 AOU 有限代数の引戻しであり、
+      可換 fiber での頂点射影対象は、順序と左右規約を固定すると標準九線束 thread
+      $\mathbb E^0=(E_v^0)$ となる。その先頭は $\OO_X$ である。
+\item $\operatorname{Aut}(X)=1$ であり、ある $\eta\in T_{b_0}B$ の
+      Kodaira--Spencer 類 $u=(\xi,\pi)\in HH^2(X)$ は
+      $\ker(\delta_\pi:\Lambda\to H^1(T_X))=\mathbb ZK$ を満たす。
+\end{enumerate}
+このとき、$B$ の可算個の真の閉部分集合の合併の外で、
+$\mathbb C$-線型 exact 自己同値の数値像は
+\begin{equation}\label{eq:generic-numerical-aut}
+ \Gamma_{\mathcal A_b}=\{(nK,1)\mid n\in\mathbb Z\}
+ \subset\Lambda\rtimes W(E_6)
+\end{equation}
+である。
+\end{theorem}
+\begin{proof}
+\emph{標準対象と数値ラベル。}
+定理\ref{thm:very-general-line-existence}により、非常に一般の点では
+すべての線束類が一意に許容線束として存在し、各先頭上の標識は $W(E_6)$-torsor となる。
+元の族の頂点対象 $\mathscr E_v^0$ 自身も非常に一般の点で線束となることを確認する。
+各可換 fiber の線束 $E_v^0$ を十分大きい $H^m\OO_X$ に埋め込み、
+この射を相対 Hom 束の切断へ延長する。
+前定理と同じ可算個の反標準 Hom 条件を
+$\mathscr E_v^0$ とその cone に課すと、両方が heart に属し、射は単射となる。
+これで数値類が line 型の $\mathscr E_v^0$ は実際の線束である。
+先頭は $\mathscr O$ と数値類が同じなので、一意性により $\OO_b$ と同型となる。
+元の九対象は full strong であるから、$H$ の $t$-exact 性と
+Bridgeland--Stern の結果により標準線束標識を与える。
+
+命題\ref{prop:affine-auto-action}から、すべての exact 自己同値は
+数値ラベル $a=(t,w)\in\Lambda\rtimes W(E_6)$ を持つ。
+この集合は可算である。
+以下、$a$ を一つ固定してその出現を有限代数の等式に還元する。
+
+\emph{一つの数値ラベルに付随する代数族。}
+$\mathbb E_w$ を可換 $X$ 上の frame $w$ の標準九線束とし、
+$\mathbb E^a=L_t\otimes\mathbb E_w$ と置く。
+$D_v=c_1(E_v^0)$ と書けば、$c_1(E_v^a)=t+wD_v$ である。
+前定理の構成を九対象とその単射 witness に適用し、有限 fiber 積を取る。
+これにより一つの既約な \textit{\'etale} 近傍
+\[
+ p_a:(V_a,v_a)\longrightarrow(B,b_0)
+\]
+上に、指定した特殊 fiber $\mathbb E^a$ を持つ九つの相対 perfect 対象を得る。
+強例外性、Hom の指定階数、fullness は有限個の開条件なので、$V_a$ を縮めて満たせる。
+fullness には前定理の固定生成対象に対する九回の評価 cone の議論を用いる。
+従って九対象の直和は相対 tilting 対象であり、有限 End 代数は局所自由となる。
+
+可換 fiber では補題\ref{lem:rootfree-aou-presentation}により、
+長さ二の積写像は階数二で、その核の関係式の三係数はすべて非零である。
+これも有限個の開条件である。
+隣接 Hom の直線束を $v_a$ の開近傍で自明化し、そこへ縮めると、
+この有限 End 代数から関係式の写像 $V_a\to R_Q^\circ$ を得る。
+補題\ref{lem:aou-fullsupport-torus}により、その商への写像
+\[
+ m_a:V_a\longrightarrow T_Q
+\]
+は選んだ矢の基底に依存しない。元の代数の写像を $m_0=\nu\rho:B\to T_Q$ と書く。
+分離的なトーラスへの二つの射の等化子
+\begin{equation}\label{eq:generic-algebra-equalizer}
+ Z_a=\{v\in V_a\mid m_a(v)=m_0(p_a(v))\}
+\end{equation}
+は閉部分集合である。
+
+\emph{$w\ne1$ の排除。}
+もし $v_a\in Z_a$ なら、頂点を固定する有限 End 代数の同型から
+$E_v^0\mapsto E_v^a$ となる $D^b(\operatorname{coh}X)$ の自己同値を得る。
+Bondal--Orlov\cite[Theorem 3.1]{BO}と $\operatorname{Aut}(X)=1$ により、
+これは $(-)\otimes M[k]$ である。
+先頭 $\OO_X$ の像が $L_t$ なので $M=L_t$、$k=0$ となる。
+従って $wD_v=D_v$ がすべての $v$ について成立するが、
+標準 thread の相対第一 Chern 類は $\Lambda$ を生成する。
+よって $w=1$ であり矛盾する。
+従って $w\ne1$ では $Z_a\subsetneq V_a$ である。
+
+\emph{$w=1$、$t\notin\mathbb ZK$ の排除。}
+この場合は共通 tensor により $m_a(v_a)=m_0(b_0)$ である。
+$\eta$ の一意な持上げを $\widetilde\eta\in T_{v_a}V_a$ とする。
+もし
+\[
+ d m_a(\widetilde\eta)=d(m_0p_a)(\widetilde\eta)
+\]
+なら、その双対数点への二つの $T_Q$ 値は等しい。
+補題\ref{lem:aou-fullsupport-torus}の局所環上の主張により、
+二つの有限代数は頂点を固定する同型を持つ。
+相対 tilting によって、この同型は元の一次代数変形の
+$\mathbb C[\epsilon]/(\epsilon^2)$-線型導来 Morita 自己同値を与える。
+特殊 fiber で九対象に与える像は $E_v^0\mapsto L_t\otimes E_v^0$ であるから、
+上と同じ Bondal--Orlov の議論で、その特殊化は $(-)\otimes L_t$ となる。
+補題\ref{lem:derived-picard-tangent-necessity}より $\delta_\pi(t)=0$ となり、仮定に矛盾する。
+従って二つの接写像は異なり、特に $Z_a\subsetneq V_a$ である。
+
+\emph{一つの \textit{\'etale} branch で十分な理由。}
+前定理の heart・単射・許容性の条件は、$V_a$ 内の可算個の
+$v_a$ を含む開集合で課せる。
+その補集合と、非標準ラベルに対する $Z_a$ はいずれも真の閉部分集合である。
+$V_a$ は既約で $\dim V_a=\dim B$、$p_a$ は相対次元零なので、
+これらの像の閉包は $B$ の真の閉部分集合となる。
+さらに $B\setminus p_a(V_a)$ を除く。
+これは $p_a$ が \textit{\'etale} であることから真の閉部分集合である。
+
+残る $b$ に数値ラベル $a$ の exact 自己同値 $F$ が存在すると仮定する。
+$b$ の $V_a$ への持上げ $v$ を一つ選ぶ。
+除外集合の取り方により、九対象 $E^a_{j,v}$ はすべて指定 heart の線束である。
+$F(E^0_{j,b})$ と $E^a_{j,v}$ は同じ第一 Chern 類を持つから、
+数値一意性によって各々同型である。
+これらの同型と $F$ の射への作用から、頂点を固定する End 代数の同型を得る。
+従って $m_a(v)=m_0(b)$、すなわち $v\in Z_a$ となり矛盾する。
+この議論では他の代数化 branch を列挙していない。
+選んだ一つの branch にも、非常に一般の fiber 上では各数値線束が一意に現れるためである。
+
+非標準ラベル $a\notin\mathbb ZK\times\{1\}$ は可算個しかない。
+それぞれに対する上の除外集合と、最初の線束・標識存在の除外集合を併せると、
+非常に一般の $b$ ではすべての自己同値の数値ラベルが $(nK,1)$ となる。
+逆に $H$ の冪は必ずこれらすべてを実現する。
+従って式\eqref{eq:generic-numerical-aut}が従う。
+\end{proof}
+
+\begin{corollary}[条件付き非常に一般の二段階 fiber]
+\label{cor:very-general-actual-fibers}
+前定理の仮定の下で、標準三ブロック線束標識
+$\operatorname{Mark}^{\rm line}_Q$ を標識付き側とし、
+圏の exact 同値類を点とする集合論的 moduli の
+非常に一般の点での二段階の忘却 fiber は、順に
+\[
+ W(E_6)\text{ の torsor},\qquad
+ \Lambda/\mathbb ZK\simeq Q(E_6)^\vee
+\]
+である。固定圏内で自己同値によって割る前の弱標識選択は、これに対して $\Lambda$ である。
+\end{corollary}
+\begin{proof}
+系\ref{cor:actual-set-fibers}を適用する。
+非零の $nK$ による平行移動はどの線束類も固定しないので $\Gamma_L=1$ である。
+数値作用の核に属する自己同値は、線束と標識の同型類には自明に作用する。
+従って自己同値群そのものの核を分類する必要はない。
+\end{proof}
+
+\begin{remark}[普遍 AOU 族で確認済みの入力と残る仮定]
+\label{rem:generic-aut-aou-input}
+有限代数側の入力は本稿で確認できる。
+補題\ref{lem:aou-fullsupport-torus}の正規化切断により、八次元の $T_Q$ 自身の上に
+普遍有限代数を置ける。
+定理\ref{thm:universal-directed-family}は階数 $45$、大域次元 $2$、
+固定された九つの頂点 projective、相対 smooth proper 性を与える。
+従って相対 Serre 関手とその逆は可逆な perfect 双加群で実現でき、
+相対 perfect RHom と底変更の条件も満たす。
+命題\ref{prop:aou-kodaira-spencer-iso}と上の明示的商により、可換点で
+\[
+ T_{m_0(b_0)}T_Q\xrightarrow{\ \sim\ }HH^2(X)
+\]
+である。したがって $T_Q$ の開近傍を底とすれば、
+定理\ref{thm:very-general-picard-kernel}の非常に一般の組 $(X,\pi)$ から
+必要な接方向を選べる。
+$\operatorname{Aut}(X)=1$ は同時に課す可換点の条件として明示しておく。
+十八次元 relation torus 上で始めた場合も、選んだ点を通る正規化切断に制限すればよい。
+この八次元切断上で定理を適用することにより、正次元の商射に沿って
+可算個の真閉集合を押し下げるという誤った議論を避けられる。
+
+なお、これは実際の AOU moduli 全体への無条件な適用ではない。
+残る入力は、選んだ既約開近傍での\emph{指定反標準 heart と有限代数族との比較}、
+弱三次曲面公理、および全対象の数値表示・階数の族との整合性である。
+これらは定理\ref{thm:very-general-line-existence}の仮定として残る。
+それらを確認した locus では、新たに generic 自己同値を特殊化する仮定を加えずに
+式\eqref{eq:generic-numerical-aut}と二つの fiber が得られる。
+本結果は自己同値の\emph{数値像}と線束・標識への作用を決定するものであり、
+数値的に自明な自己同値群自体の消滅を主張しない。
+またすべての頂点はラベル付きで扱った。
+頂点を置換する自己同値は、自己同値の数値ラベル $w$ として上の議論に既に含まれる。
+第一 fiber の記述は標準三ブロック線束標識に対するものである。
+元の AOU 定義の対象全体と同一視するには、その適用 locus の九つの構造対象が
+反標準 heart の rank-one torsion-free exceptional 対象であることを確認する。
+上の定理は普遍頂点対象についてこの線束性を非常に一般の点で導いているが、
+任意の AOU 型表示や一般 OU helix の全体を分類したとはしない。
+\end{remark}

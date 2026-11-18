@@ -123,6 +123,8 @@ def main():
              sub(h, y[0]), sub(h, x[2]), y[1], y[2]]
     assert [reflection(v, roots[2]) for v in vertices] == moved
     old = [ch(v) for v in vertices]
+    point = add(*old[:3], *(scale(-2, v) for v in old[3:6]), *old[6:])
+    assert point == (0, *ZERO, 2)  # Integral point class, in 2*ch2 coordinates.
     assert sub(add(old[3], old[4]), old[6]) == ch(moved[2])
     assert sub(add(old[3], old[4]), old[2]) == ch(moved[6])
     assert sub(add(old[3], old[4], old[5]), add(old[2], old[6])) == ch(moved[5])
@@ -130,6 +132,7 @@ def main():
     print('PASS: E6 simple roots, K preservation, all Coxeter relations')
     print('PASS: AOU Euler matrix, frame recovery, five block relabelings')
     print('PASS: cross-block reflection and three candidate K0/Chern formulas')
+    print('PASS: integral point class from the nine-object foundation')
     print('LIMIT: line existence, exactness of candidate maps, and helix conditions are not tested')
 
 

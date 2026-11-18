@@ -89,7 +89,9 @@ $xyz$はJacobian環$\mathbb C[x,y,z]/(x^2,y^2,z^2)$の次数3において非零�
 \begin{remark}[ここから結論していないこと]
 階数は$\Pic(X)\otimes\mathbb C$上の階数であり、
 整数群$\ker(\delta_\pi:\Pic(X)\to H^1(T_X))$のrankをこの階数計算だけでは直ちに決定しない。非常に一般の組については定理\ref{thm:very-general-picard-kernel}で決定する。
-またこの障害は一次であり、全次数での自己同値の持上げや大域Picard商の存在は未解決である。
+この障害自体は一次である。後の定理\ref{thm:artin-actual-fibers}では、
+その必要条件と反標準自己同値の実在を組み合わせ、許容 Artin 底の全次数で
+線束上の軌道を決める。任意の非可換大域成分への適用とは区別する。
 一方、固定した一次変形上で全Picard群が自己同値として作用するという
 素朴な予想を否定するには十分である。
 特に$\Aut(X)=1$の許容相対変形では、$\delta_\pi(L)\ne0$なら
@@ -184,54 +186,83 @@ $\mathcal P^{\rm m}\setminus\bigcup_{D\notin\mathbb ZK}Z_D$
 これで式\eqref{eq:very-general-picard-kernel}を得る。
 \end{proof}
 
-\begin{corollary}[非常に一般の非可換fiberでの構造対象の同型類]\label{cor:first-order-pointings}
-$X$は自己同型群が自明な滑らかな三次曲面とし、
-$\mathcal A_\varepsilon$は特殊ファイバー$\operatorname{coh}X$との同定を持つ
-許容相対一次Abel変形（$\varepsilon^2=0$）とする。
-HKRのPoisson成分$\pi$を含む組$(X,\pi)$が
-定理\ref{thm:very-general-picard-kernel}の非常に一般の条件を満たすとき、
-exactな$\mathbb C[\varepsilon]/(\varepsilon^2)$線型自己同値を
-特殊ファイバーへ制限する準同型
+\begin{theorem}[許容 Artin 変形の実際の二段階 fiber]\label{thm:artin-actual-fibers}
+$X$ を $\Aut(X)=1$ なる滑らかな三次曲面、$R$ を剰余体 $\mathbb C$ の局所 Artin 代数とする。
+$\mathcal A_R$ は定理\ref{thm:formal-structure}および
+系\ref{cor:formal-all-line-markings}の相対底変更・生成条件を満たす許容反標準変形とする。
+特殊ファイバーが線束 $L$ である一意な flat 許容持上げを $L_R$ と書く。
+自己同値は $R$-線型かつ exact とする。
+特殊ファイバーとの同定は以下の $\sigma_R$ を定義するために用い、
+自己同値の特殊化 $F_0$ による非自明な作用も許す。
+
+全射 $R\twoheadrightarrow\mathbb C[\varepsilon]/(\varepsilon^2)$ があり、
+誘導される一次変形の Poisson 成分 $\pi$ が
+$\ker(\delta_\pi:\Pic(X)\to H^1(T_X))=\mathbb ZK_X$
+を満たすとする。このとき特殊化準同型
 \[
- \pi_0\Aut_{\rm ex}(\mathcal A_\varepsilon)
-       \longrightarrow\Pic(X)
+ \sigma_R:\pi_0\Aut^{\rm ex}_R(\mathcal A_R)\longrightarrow\Pic(X),
+ \qquad F_0\simeq(-)\otimes M\longmapsto[M]
 \]
-の像は$\mathbb Z[-K_X]$に一致する。
-従って特殊ファイバーで線束となる許容構造対象の持上げを
-固定圏内のexact自己同値で同一視した同型類の集合は
+の像は $\mathbb ZK_X$ である。
+全 $L_R$ 上の作用は $\sigma_R$ による平行移動を通じて因子化するので、
+弱標識から無標識への実際の集合論的 fiber は
 \begin{equation}\label{eq:very-general-pointings}
- \Pic(X)/\mathbb ZK_X
- \ \simeq\ Q(E_6)^\vee
- \ \simeq\mathbb Z^6
+ \Pic(X)/\mathbb ZK_X\simeq Q(E_6)^\vee\simeq\mathbb Z^6
 \end{equation}
-である。これは同型類の集合の主張であり、
-相対的なモジュライ構造についての主張ではない。
-\end{corollary}
+である。固定した $L_R$ 上の標準相対線束標識から弱標識への fiber は
+$\operatorname{Mark}(X)$、すなわち $W(E_6)$-torsor である。
+後者の主張には $\pi$ の核に関する仮定は不要である。
+\end{theorem}
 \begin{proof}
-定理\ref{thm:formal-structure}により、各線束$L$は
-構造対象$L_\varepsilon$へ一意に持ち上がる。
-Bondal--Orlovによるexact自己同値の可換特殊化の分類
-（定理\ref{thm:commutative-structure}）と$\Aut(X)=1$から、
-任意の相対exact自己同値の特殊化は$(-)\otimes L$となる。
-命題\ref{prop:picard-first-order}の必要条件は
-$\delta_\pi(L)=0$なので、前定理により$L$の類は$\mathbb ZK_X$に属す。
-逆に、相対Serre作用から定まる$t$-exact自己同値
-$H_\varepsilon=\mathsf S_\varepsilon^{-1}[2]$は
-特殊ファイバー上で$(-)\otimes\OO_X(-K_X)$となる。
-従って$H_\varepsilon$の全冪が実際の自己同値を与え、
-特殊化像は$\mathbb Z[-K_X]$と一致する。
-線束持上げの一意性とこの作用から同型類の商が
-$\Pic(X)/\mathbb ZK_X$となる。
-最後の格子同型は命題\ref{prop:picard-root-index}による。
+定理\ref{thm:commutative-structure}と $\Aut(X)=1$ により、
+任意の相対 exact 自己同値 $F$ の特殊化は一意な線束 $M$ による tensor である。
+$R$-線型 exact 関手は各イデアルにより消される対象の部分圏を保つから、
+上の双対数商に沿って一次変形の自己同値へ制限できる。
+命題\ref{prop:picard-first-order}から $\delta_\pi(M)=0$ となり、
+$\operatorname{im}\sigma_R\subset\mathbb ZK_X$ を得る。
+逆に $H_R=\mathsf S_R^{-1}[2]$ は exact 自己同値であり、
+特殊化は $(-)\otimes\OO_X(-K_X)$ だから、その全冪により逆包含を得る。
+
+$F(L_R)$ は $L\otimes M$ の flat 許容持上げである。
+定理\ref{thm:formal-structure}の一意性から
+$F(L_R)\cong(L\otimes M)_R$ となる。
+従って $\ker\sigma_R$ を関手として分類しなくても、
+線束の同型類への作用は $\sigma_R$ を通じることが分かる。
+これで第二 fiber の記述を得る。格子同型は命題\ref{prop:picard-root-index}による。
+
+$F(L_R)\cong L_R$ なら特殊化により $L\otimes M\cong L$、従って $M\cong\OO_X$ である。
+相対標識の各対象 $E_{i,R}$ は古典的線束 $E_i$ の一意な持上げなので、
+$F_0\cong\mathrm{id}$ は $F(E_{i,R})\cong E_{i,R}$ を与える。
+標識には矢の基底を含めないため、安定化部分群は標識の同型類に自明に作用する。
+系\ref{cor:formal-all-line-markings}により固定圏内の選択集合は
+$\operatorname{Mark}(X)$ であり、これが第一 fiber に等しい。
+この段落は $\delta_\pi$ の仮定を用いていない。
 \end{proof}
 
-\begin{remark}
-この結果は「非常に一般」という条件と一次Artin底、
-許容相対heart・Serreの仮定を持つ。
-任意の有限型の非可換大域成分の一般点に直ちに適用するものではなく、
-高次変形での自己同値の全持上げやAOUの標識付きGIT商の有限性も結論しない。
-とくに$Q(E_6)^\vee$は整数格子の商であり、
-Poisson一次変形の底に新しい連続的な6次元成分を作ったわけではない。
+\begin{corollary}[一次の場合と形式塔]\label{cor:first-order-pointings}
+定理\ref{thm:very-general-picard-kernel}の非常に一般の $(X,\pi)$ に対して、
+前定理は $R=\mathbb C[\varepsilon]/(\varepsilon^2)$ に適用できる。
+また $R_n=\mathbb C[t]/(t^{n+1})$ 上の許容変形が compatible な系として与えられ、
+その一次部分が同じ核条件を満たすとき、対象と自己同値を compatible な系として取っても
+二つの fiber はそれぞれ $W(E_6)$-torsor と $\Pic(X)/\mathbb ZK_X$ である。
+\end{corollary}
+\begin{proof}
+有限段階の持上げの一意性を compatible な同型へ直すには、
+$\Aut(L_{R_n})=R_n^\times$ と
+$R_{n+1}^\times\twoheadrightarrow R_n^\times$ を使って帰納的にスカラーを補正すればよい。
+compatible な自己同値系は一次段階へ制限できるため前定理の必要条件を満たし、
+compatible な $H_{R_n}$ の冪がすべての $\mathbb ZK_X$ を実現する。
+\end{proof}
+
+\begin{remark}[範囲と残る問題]
+一般には $S_R=\operatorname{im}\sigma_R$ と書けば
+$\mathbb ZK_X\subset S_R\subset\ker\delta_\pi$ であり、第二 fiber は $\Pic(X)/S_R$ となる。
+複数の双対数商があれば、その全ての整数核の共通部分に $S_R$ が含まれる。
+上の定理は $R$-線型同値についての主張であり、底の自己同型による半線型同一視は加えない。
+また対象範囲は特殊ファイバーが通常の線束である flat 持上げと、
+系\ref{cor:formal-all-line-markings}で指定した相対標識である。
+形式塔の結果はその effectivity や分数体上の任意の自己同値の分類を含まない。
+$Q(E_6)^\vee$ は離散的な整数格子の商であり、変形底の新しい連続次元を表さない。
 \end{remark}
 
 \section{有限Weyl群、root latticeとPicard格子の区別}
