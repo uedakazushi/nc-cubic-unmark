@@ -73,9 +73,9 @@ $\dim\Ext^1(E,E)=2\operatorname{length}Z$ となる。
 \end{remark}
 
 \subsection{数値的欠損と同一数値類での一意性}
-次の数値的構造と正値性は\emph{追加仮定}である。
+次の三次曲面型の数値的構造は\emph{追加仮定}である。
 $K_0^{\rm num}(\mathcal A)$ に三次曲面型の表示
-$\operatorname{ch}(E)=(r,D,s)$、$D\in\Lambda=I_{1,6}$、
+$\operatorname{ch}(E)=(r,D,s)$、$r\in\mathbb Z$、$D\in\Lambda=I_{1,6}$、
 $K^2=3$ を指定し、$s-D^2/2\in\mathbb Z$、
 \begin{align}
  \chi((r,D,s),(r',D',s'))
@@ -84,9 +84,108 @@ $K^2=3$ を指定し、$s-D^2/2\in\mathbb Z$、
  \operatorname{ch}(HE)
  &=(r,D-rK,s-D\cdot K+\tfrac12rK^2)\label{eq:line-H}
 \end{align}
-を仮定する。rank-one torsion-free 対象の $r$ は $1$、
-$T\in\mathcal A_1$ の $r$ は $0$ とする。
+をすべての対象について仮定し、$r(\OO_0)=1$ と正規化する。
+数値的階数と内在的 rank 条件の対応、および torsion 対象の次数正値性は、
+以下でこの仮定から導く。
 数値的線束類とは $v_D=(1,D,D^2/2)$ のことである。
+
+\begin{theorem}[反標準 Serre 消滅と内在的階数]\label{thm:ac-serre-positivity}
+定義\ref{def:weak-cubic}と式\eqref{eq:line-rr}--\eqref{eq:line-H}、
+$r(\OO_0)=1$ を仮定する。$d(M)=(-K)\cdot c_1(M)$、$d_0=d(\OO_0)$ と置く。
+任意の $M\in\mathcal A$ に対して
+\begin{equation}\label{eq:ac-serre-vanishing}
+ \Ext^i(\OO_0,H^nM)=0\qquad(i>0,\ n\gg0)
+\end{equation}
+であり、十分大きな $n$ で
+\begin{equation}\label{eq:ac-hilbert-polynomial}
+ \dim\Hom(\OO_0,H^nM)
+ =\tfrac32r(M)n(n+1)+(d(M)-r(M)d_0)n+\chi(\OO_0,M).
+\end{equation}
+さらに次が成り立つ。
+\begin{enumerate}
+\item 全対象で $r(M)\ge0$。$r(M)=0$ なら $d(M)\ge0$。
+\item $r(M)=d(M)=0$ なら $M\in\mathcal A_0$。$M\ne0$ なら
+      $\chi(\OO_0,M)>0$ であり、$\operatorname{length}M\le\chi(\OO_0,M)$。
+\item $\mathcal A_1=\{M:r(M)=0\}$。rank-one torsion-free 対象 $E$ には $r(E)=1$。
+\end{enumerate}
+特に有効次数正値性
+\begin{equation}\label{eq:effective-degree-positivity}
+ d(T)\ge0\qquad(T\in\mathcal A_1) \tag{EP}
+\end{equation}
+は独立の仮定を要しない。
+\end{theorem}
+\begin{proof}
+$D_0=c_1(\OO_0)$ とする。$\OO_0$ の例外性と Riemann--Roch より
+$\operatorname{ch}(\OO_0)=v_{D_0}$ であり、
+$\chi(\OO_0,H^m\OO_0)=1+3m(m+1)/2$ である。
+$m\ge0$ では Serre 双対性と所定の負の Hom 消滅から
+$\Ext^2(\OO_0,H^m\OO_0)=0$ である。
+式\eqref{eq:weak-hilbert}との差を取れば
+$\Ext^1(\OO_0,H^m\OO_0)=0$ も得る。
+
+豊富性により $P=\bigoplus_jH^{-a_j}\OO_0\twoheadrightarrow M$ を選ぶ。
+この全射は
+\[
+ \Hom(M,H^{-n-1}\OO_0)
+ \hookrightarrow\bigoplus_j\Hom(\OO_0,H^{a_j-n-1}\OO_0)
+\]
+を与える。右辺は $n\gg0$ で零なので、Serre 双対性から
+$\Ext^2(\OO_0,H^nM)=0$ となる。
+$N=\ker(P\to M)$ にもこの第二 Ext 消滅を適用すると、
+長完全列の
+\[
+ \Ext^1(\OO_0,H^nP)\longrightarrow\Ext^1(\OO_0,H^nM)
+ \longrightarrow\Ext^2(\OO_0,H^nN)
+\]
+の両端が $n\gg0$ で零となる。
+高次 Ext は補題\ref{lem:dimension-centre}で消える。
+これで式\eqref{eq:ac-serre-vanishing}を得て、Riemann--Roch を展開すれば
+式\eqref{eq:ac-hilbert-polynomial}となる。
+
+非零対象 $M$ ではこの多項式は恒等的に零でない。
+実際、AZ 豊富性は任意に負の tail 内の有限直和による生成を与える
+\cite[Lemma 2.1(ii)]{PolishchukProj}ので、
+$\Hom(\OO_0,H^nM)$ は任意に大きい $n$ のうち少なくとも一つで非零である。
+非負の値を取る非零多項式の最高次係数を順に見ると、(1)と、
+$r(M)=d(M)=0$, $M\ne0$ のときの $\chi(\OO_0,M)\in\mathbb Z_{>0}$ を得る。
+
+$r(M)=d(M)=0$ のとき、加法性と (1) により全部分商の $r,d$ も零である。
+従って任意の有限な厳密部分対象列の各非零商に対して
+$\chi(\OO_0,-)$ は正整数であり、列の長さは $\chi(\OO_0,M)$ 以下である。
+これが (2) を示す。
+
+次に $r(M)=0$ とし、$Q_0:\mathcal A\to\mathcal A/\mathcal A_0$ と置く。
+$Q_0M$ の有限な厳密部分対象列は、Serre 商の部分対象の持上げにより
+$M$ 内の有限な部分対象列で表せる。必要なら代表の累積和を取り、
+始点を $0$、終点を $M$ とする。
+各厳密段階の商 $N$ は $r(N)=0$ かつ $Q_0N\ne0$ だから、(2) より $d(N)>0$ である。
+$d(N)$ は整数なので、この列の長さは $d(M)$ 以下である。
+従って $Q_0M$ は有限長、すなわち $M\in\mathcal A_1$ となる。
+この議論は $d$ が $\mathcal A_0$ 上で零になることを用いていない。
+
+逆に $T\in\mathcal A_1$ に対し、全射
+$\bigoplus_jH^{-a_j}\OO_0\twoheadrightarrow T$ の各成分の像を $I_j$ とする。
+$\mathcal A_1$ は Serre 部分圏なので $I_j\in\mathcal A_1$ であり、
+(1)と $r(\OO_0)=1$ から $r(I_j)\in\{0,1\}$ である。
+$r(I_j)=1$ なら、その成分の核の階数は零、従って既に示した向きにより
+核も $\mathcal A_1$ に入る。すると $H^{-a_j}\OO_0\in\mathcal A_1$ となり、
+$q\OO_0\ne0$ と矛盾する。
+従って全 $I_j$ の階数は零であり、その有限和 $T$ も階数零である。
+これで $\mathcal A_1=\{r=0\}$ を得る。
+
+rank-one torsion-free 対象 $E$ には豊富性と
+補題\ref{lem:rank-one-monomorphism}から $H^{-a}\OO_0\hookrightarrow E$ が存在する。
+商圏で非零単純対象間の同型になるので、その余核は $\mathcal A_1$ に入る。
+従って $r(E)=1$。最後に (EP) は (1)と (3) の帰結である。
+\end{proof}
+
+\begin{remark}[入力と結論の範囲]\label{rem:serre-inputs}
+上の消滅は一般の AZ 豊富性だけから導いたものではない。
+指定した Serre 関手、三次曲面型 Riemann--Roch、構造対象の Hilbert 関数を使っている。
+生成には異なる指数の有限直和だけを使い、各 $n\gg0$ について
+単一の $H^{-n}\OO_0$ の直和で生成できるとは主張しない。
+また (2) の逆、すなわち $M\in\mathcal A_0\Rightarrow d(M)=0$ もここでは未証明である。
+\end{remark}
 
 \begin{corollary}[零次元欠損の数値的類似]\label{cor:line-numerical-defect}
 rank-one torsion-free 対象 $E$ の表示を $(1,D,s)$ とし、
@@ -104,16 +203,13 @@ $n(E)=D^2/2-s$ と置く。このとき
 \end{proof}
 
 一意性には自己 Ext だけではなく二対象間の Ext が必要である。
-そのため次の有効次数正値性を明示して使う：
-\begin{equation}\label{eq:effective-degree-positivity}
- d(T):=(-K)\cdot c_1(T)\ge0\quad(T\in\mathcal A_1).
- \tag{EP}
-\end{equation}
-この条件を、Euler 行列や数値的 $E_6$ が一致するという理由だけで
-仮定なしに用いてはならない。
+以下の Serre 双対性と次数による消滅論法は、異なる設定である
+terminal del Pezzo order 上の先行例\cite[Lemma 3.9]{HR}とも共通する。
+そのため定理\ref{thm:ac-serre-positivity}で導いた (EP) を用いる。
+有限代数の Euler 行列だけの一致は、この定理の反標準 heart の仮定を代用しない。
 
 \begin{theorem}[数値的線束類における一意性]\label{thm:numerical-line-uniqueness}
-式\eqref{eq:line-rr}--\eqref{eq:line-H}と (EP) を仮定する。
+定理\ref{thm:ac-serre-positivity}の数値仮定を置く。
 rank-one torsion-free 対象 $E,F$ が $d(E)<d(F)+3$ を満たせば
 $\Ext^2(E,F)=0$ である。特に $[E]=[F]=v_D$ なら $E\cong F$ である。
 従って $\operatorname{Line}(\mathcal A)$ から $\Lambda$ への第一 Chern 類写像は単射である。
@@ -150,6 +246,111 @@ $H$ は線束対象を保つので $\Omega_{\mathcal A}-K=\Omega_{\mathcal A}$�
 ここで第二 Ext の消滅は定理\ref{thm:intrinsic-line-criterion}から従う。
 所定の切断数のためには交差 Ext の消滅、豊富性のためには生成条件が別に必要である。
 さらに $H$ の軌道商と全 exact 自己同値の軌道商を同一視しない。
+\end{remark}
+
+\subsection{零次数単純対象と許容性の障害}
+ここでも定理\ref{thm:ac-serre-positivity}の数値仮定を置く。
+次の命題は、線束対象であることから AZ 豊富性へ進む際に
+調べるべき障害を与える。障害となる単純対象の実在は仮定であり、
+本稿はその具体例を構成したとは主張しない。
+
+\begin{proposition}[零次数の root 型単純対象]\label{prop:root-simple-obstruction}
+$T$ を $d(T)=0$ なる単純対象とし、$C=c_1(T)$ とする。
+このとき $C=0$、または
+\[
+ C^2=-2,\qquad HT\cong T,\qquad \Ext^1(T,T)=0
+\]
+のいずれかである。
+後者の場合 $c=\dim\Hom(\OO_0,T)>0$ と置くと、評価列
+\begin{equation}\label{eq:root-simple-evaluation}
+ 0\longrightarrow E\longrightarrow\OO_0
+ \longrightarrow T^{\oplus c}\longrightarrow0
+\end{equation}
+の核 $E$ は線束対象であるが、$(E,H)$ は AZ 豊富でない。
+しかも任意の整数 $n$ について制限写像は
+\begin{equation}\label{eq:root-same-orbit-ring}
+ \Hom(\OO_0,H^n\OO_0)\xrightarrow{\sim}\Hom(E,H^nE)
+\end{equation}
+を与え、$n\ge0$ での直和は次数付き環同型 $R_{\OO_0}\cong R_E$ である。
+従って所定の Hilbert 関数だけでも、例外性と Hilbert 関数の組合せでも、
+この条件付き障害を排除できない。
+\end{proposition}
+\begin{proof}
+$T\in\mathcal A_0\subset\mathcal A_1$ だから $r(T)=0$ である。
+Hom 有限性と単純性より $\End(T)=\mathbb C$。
+$H^{-1}T$ も単純なので
+\[
+ \epsilon:=\dim\Ext^2(T,T)=\dim\Hom(T,H^{-1}T)\in\{0,1\},
+ \qquad\dim\Ext^1(T,T)=1+\epsilon+C^2.
+\]
+$C\in K^\perp$、$K^2=3$、$\Lambda$ の符号は $(1,6)$ なので
+$K^\perp$ は負定値である。
+また $\chi(\OO_0,T)=s(T)-D_0\cdot C$ は整数であり、
+$s(T)-C^2/2\in\mathbb Z$ から $C^2$ は偶数である。
+従って $C\ne0$ なら $C^2=-2$、$\epsilon=1$、$\Ext^1(T,T)=0$ となる。
+$\epsilon=1$ は $HT\cong T$ を意味する。
+
+この場合、定理\ref{thm:ac-serre-positivity}と $HT\cong T$ より
+$\Ext^{>0}(\OO_0,T)=0$、$c=\chi(\OO_0,T)>0$ である。
+$\Hom(\OO_0,T)$ の基底による写像 $\OO_0\to T^{\oplus c}$ は全射である。
+そうでなければ、その像を殺す非零射 $T^{\oplus c}\to T$ が存在して
+基底間に非自明な線型関係を与えるからである。
+核 $E$ は $\OO_0$ の部分対象で torsion-free であり、$qE\cong q\OO_0$ なので階数一である。
+$d(T)=0$ より $\chi(T,\OO_0)=\chi(\OO_0,T)=c$、$\chi(T,T)=2$ であるから
+\[
+ \chi(E,E)=1-c\chi(\OO_0,T)-c\chi(T,\OO_0)+c^2\chi(T,T)=1.
+\]
+定理\ref{thm:intrinsic-line-criterion}によって $E$ は線束対象となる。
+評価列に $\Hom(-,T)$ を作用させると、
+$\Hom(T^{\oplus c},T)\to\Hom(\OO_0,T)$ が同型で
+$\Ext^1(T^{\oplus c},T)=0$ なので $\Hom(E,T)=0$ となる。
+従ってすべての $n$ について $\Hom(H^{-n}E,T)=0$ であり、AZ 生成は成立しない。
+
+最後に、torsion-free 性と Serre 双対性から、すべての $n$ で
+\[
+ \Hom(T,H^n\OO_0)=0,\qquad
+ \Ext^1(T,H^n\OO_0)
+ \cong\Ext^1(H^n\OO_0,H^{-1}T)^*=0.
+\]
+従って評価列の第一変数への適用は
+$\Hom(\OO_0,H^n\OO_0)\cong\Hom(E,H^n\OO_0)$ を与える。
+また $\Hom(E,H^nT)=0$ なので第二変数への適用は
+$\Hom(E,H^nE)\cong\Hom(E,H^n\OO_0)$ を与える。
+この同型は、$\OO_0\to H^n\OO_0$ の $E$ への制限が
+$H^nE$ に入ることによって定まり、$H$ と合成に両立する。
+従って式\eqref{eq:root-same-orbit-ring}は環同型を与える。
+\end{proof}
+
+\begin{lemma}[数値的点への Ext 消滅]\label{lem:numerical-point-ext}
+$P$ を $\operatorname{ch}(P)=(0,0,s)$ なる単純対象とする。
+このとき $s>0$ であり、任意の線束対象 $L$ について
+\[
+ \Ext^1(P,L)=\Ext^1(L,P)=0,\qquad \dim\Hom(L,P)=s.
+\]
+\end{lemma}
+\begin{proof}
+$s=\chi(\OO_0,P)>0$ は定理\ref{thm:ac-serre-positivity}から従う。
+非分裂な拡大 $0\to L\to F\to P\to0$ が存在すると仮定する。
+$F$ の非零 torsion 部分対象は $L$ と交わらず $P$ に単射するため、
+単純性から $P$ と同型になり、拡大を分裂させてしまう。
+従って $F$ は rank-one torsion-free である。
+しかし $\operatorname{ch}(F)=\operatorname{ch}(L)+(0,0,s)$ なので
+$n(F)=-s<0$ となり、系\ref{cor:line-numerical-defect}に矛盾する。
+これで $\Ext^1(P,L)=0$ を得る。
+$H^{-1}L$ も線束対象であり、Serre 双対性から
+$\Ext^1(L,P)\cong\Ext^1(P,H^{-1}L)^*=0$。
+さらに $\Ext^2(L,P)=\Hom(P,H^{-1}L)^*=0$ なので、
+$\chi(L,P)=s$ が Hom 次元を与える。
+\end{proof}
+
+\begin{remark}[許容性に対する必要条件]
+命題\ref{prop:root-simple-obstruction}により
+$\operatorname{Line}_{\rm adm}(\mathcal A)=\operatorname{Line}(\mathcal A)$ を示すには、
+少なくとも零次数 root 型単純対象を排除する必要がある。
+それを排除できれば、$r=d=0$ の対象の組成因子はすべて数値的点となり、
+補題\ref{lem:numerical-point-ext}の第一 Ext 消滅は組成列によりそれら全体に拡張する。
+この必要条件は全線束の豊富性・正の反標準自己 twist 消滅の十分条件ではない。
+root 型単純対象の実在・非存在、および正次数 torsion と生成の問題は残る。
 \end{remark}
 
 \subsection{AS heart と反標準 heart の比較}

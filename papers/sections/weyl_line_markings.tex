@@ -1,0 +1,148 @@
+% !TeX root = ../nc-cubic-unmark.tex
+\section{AOU 型線束標識の有限性と反射への還元}\label{sec:weyl-frame}
+\subsection{標準九対象からの格子標識の復元}
+以下では AOU の三ブロック型の\emph{線束}標識に対象を限定する。
+OU\cite[Definition 1.1(3)]{OU2025}の任意の very strong helix は、
+この型に限られないので、以下の有限性をその全体には主張しない。
+定義\ref{def:weak-cubic}を満たす $(\mathcal A,\OO_0)$ を固定し、
+反標準 heart $\mathcal A$ に式\eqref{eq:line-rr}--\eqref{eq:line-H}を仮定し、
+$r(\OO_0)=1$ の正規化を置く。
+線束対象の第一 Chern 類写像は定理\ref{thm:numerical-line-uniqueness}により単射である。
+
+$\Lambda_{\rm std}=\mathbb Zh_0\oplus\bigoplus_{i=1}^6\mathbb Ze_i^0$ を
+$h_0^2=1$, $(e_i^0)^2=-1$ なる直交基底を持つ格子とし、
+$K_0=-3h_0+\sum_i e_i^0$ とする。
+標識格子の候補の集合を
+\[
+ \mathfrak F(\Lambda,K)
+ =\operatorname{Isom}((\Lambda_{\rm std},K_0),(\Lambda,K))
+\]
+とする。これは非空なら前合成による右 $W(E_6)$-torsor である
+\cite[\S2.6]{DGK}。
+
+固定線束 $L$ に対し、$Q$ の頂点でラベル付けされた九対象を
+\[
+ (L,A,B;X_1,X_2,X_3;Y_1,Y_2,Y_3)
+\]
+と書く。すべて線束対象であり、各ブロックは互いに完全直交し、
+この順の Euler 行列が
+\begin{equation}\label{eq:frame-euler}
+ C_Q=\begin{pmatrix}I_3&J_3&2J_3\\0&I_3&J_3\\0&0&I_3\end{pmatrix},
+ \qquad J_3=(1)_{3\times3}
+\end{equation}
+である標準型を考える。行が射の始域、列が終域である。
+本節で $\operatorname{Mark}_Q^{\rm line}(\mathcal A,L)$ と書く集合は、
+この Euler 型を持ち、full strong thread から $E_{i+9}=HE_i$ により得る helix が
+very strong である九つ組の同型類とする。各対象は指定された反標準 heart に属す。
+指定 AS 表示の再構成条件も含めて AOU/OU marking とみなす場合には、
+その条件を満たす部分集合に限定する。以下の単射と上界はその部分集合にも成立する。
+対象の同型類を数え、矢の基底や自己同値による同一視は含めない。
+
+\begin{lemma}[Euler 行列による標識復元]\label{lem:weyl-frame-reconstruction}
+上の九対象の $L$ に対する相対第一 Chern 類を
+$(0,a,b;x_1,x_2,x_3;y_1,y_2,y_3)$ と置く。このとき
+\begin{equation}\label{eq:frame-reconstruction}
+ h=x_1+x_2+x_3-b,\qquad
+ e_i=x_i\ (1\le i\le3),\qquad e_{3+j}=h-y_j\ (1\le j\le3)
+\end{equation}
+は $\Lambda$ の整基底であり、
+\[
+ h^2=1,\quad e_i^2=-1,\quad h\cdot e_i=e_i\cdot e_j=0\ (i\ne j),
+ \qquad K=-3h+\sum_{i=1}^6e_i.
+\]
+さらに $a=K+h$ と $b=-h+e_1+e_2+e_3$ が成り立つ。
+従って九対象は一意な $\varphi\in\mathfrak F(\Lambda,K)$ を定め、
+その相対 Chern 類は AOU\cite[(4.1), (9.44)]{AOU}の標準九類の $\varphi$ による像である。
+\end{lemma}
+\begin{proof}
+数値的線束類 $v_D,v_E$ に対する Riemann--Roch から
+\[
+ \chi(v_D,v_E)=1+\frac{(E-D)^2-K\cdot(E-D)}2
+\]
+である。従って式\eqref{eq:frame-euler}は
+\[
+ -K\cdot a=-K\cdot b=0,\quad -K\cdot x_i=1,\quad -K\cdot y_j=2
+\]
+と、次の交点数を与える：
+\[
+ \begin{gathered}
+ a^2=b^2=-2,\quad a\cdot b=-1,\quad
+ x_i^2=-1,\quad x_i\cdot x_j=0\ (i\ne j),\\
+ y_i^2=0,\quad y_i\cdot y_j=1\ (i\ne j),\quad
+ x_i\cdot y_j=0,\\
+ a\cdot x_i=b\cdot x_i=a\cdot y_j=b\cdot y_j=-1.
+ \end{gathered}
+\]
+これを式\eqref{eq:frame-reconstruction}へ代入すると、$h,e_i$ の Gram 行列は
+$\operatorname{diag}(1,-1,\ldots,-1)$ になる。その行列式の絶対値が1であり、
+$\Lambda$ も階数7の unimodular 格子なので、生成する部分格子の指数は1である。
+次数の計算から $K\cdot h=-3$, $K\cdot e_i=-1$ となり、
+$K=-3h+\sum_i e_i$ を得る。
+$a$ と $K+h$ はこの基底のすべての元との交点数が同じなので等しい。
+$b$ の式は $h$ の定義である。
+\end{proof}
+
+\begin{theorem}[固定弱標識上の有限性と反射への還元]\label{thm:weyl-frame-injection}
+上の仮定の下で、固定 $(\mathcal A,L)$ における標準三ブロック線束標識の集合
+$\operatorname{Mark}_Q^{\rm line}(\mathcal A,L)$ から
+$\mathfrak F(\Lambda,K)$ への復元写像は単射である。特に
+\[
+ \#\operatorname{Mark}_Q^{\rm line}(\mathcal A,L)\le51840.
+\]
+この集合が非空であり、各実現された標識の格子標識を任意の単純反射で
+前合成したものも同じ種類の標識として実現されるなら、この写像は全単射である。
+この場合、実際の標識集合は $W(E_6)$-torsor となり、
+反射操作の Coxeter 関係は対象の同型類上で自動的に成り立つ。
+\end{theorem}
+\begin{proof}
+同じ格子標識を与える二つの標識では、対応する九対象の第一 Chern 類が
+$c_1(L)$ を含めて一致する。線束の数値的一意性により、対応する対象は同型である。
+helix の残りの対象は指定した $H$ の反復で定まり、矢の基底は数えないので、
+二つの標識は同じである。これで単射性を得る。
+標識集合が非空なら復元補題により $\mathfrak F(\Lambda,K)$ も非空である。
+$\mathfrak F(\Lambda,K)$ は位数51840の $W(E_6)$ の torsor なので上界が従う。
+反射に関する存在条件の下では、非空な像はすべての単純反射に安定であり、
+単純反射は $W(E_6)$ を生成するから像は全体である。
+各反射操作はこの全単射を通じた $W(E_6)$ の作用に等しい。
+従って異なる反射語が同じ Weyl 元を与えれば、対応する対象の数値類が一致し、
+単射性によって同じ標識を与える。
+\end{proof}
+
+\begin{corollary}[一種類の三対象変換への還元]\label{cor:weyl-one-move}
+標準型は先頭 $L$ を保つ各直交ブロック内の頂点ラベルの置換に安定であるとする
+（上で定義した九つ組の集合では成立し、追加の AS 表示条件を課す場合もその安定性を確認する）。
+上の定理の反射閉性を示すには、すべての標識について次の変換を実現すれば十分である：
+\begin{equation}\label{eq:weyl-cross-block-move}
+ \begin{gathered}
+ (0,a,b;x_1,x_2,x_3;y_1,y_2,y_3)
+ \longmapsto(0,a,b';x_1,x_2,x_3';y_1',y_2,y_3),\\
+ b'=x_1+x_2-y_1,\qquad x_3'=h-y_1,\qquad y_1'=h-x_3.
+ \end{gathered}
+\end{equation}
+ここで必要なのは、指定した相対 Chern 類を持つ三つの線束対象の存在に加え、
+置換後の九対象が同じ標準型の marking となることである。
+\end{corollary}
+\begin{proof}
+単純根を
+\[
+ \alpha_i=e_i-e_{i+1}\ (1\le i\le5),\qquad
+ \alpha_6=-h+e_4+e_5+e_6=a-b
+\]
+と取る。これらの負 Gram 行列は $E_6$ の Cartan 行列であり、
+$s_\alpha(v)=v+(v\cdot\alpha)\alpha$ は $K$ を固定する。
+現在の標識 $\varphi$ において
+$s_{\varphi(\alpha)}\circ\varphi=\varphi\circ s_\alpha$ であるから、
+以下の反射は上で定義した右作用と両立する。
+$s_1,s_2$ は $X$ ブロックの隣接交換、$s_4,s_5$ は $Y$ ブロックの隣接交換、
+$s_6$ は最初のブロック内の $A,B$ の交換である。
+いずれも $L$ を保ち、仮定により標識上で実現される。
+残る $s_3$ は $e_3,e_4$ を交換し、それ以外の $h,e_i$ を固定する。
+標準九類へ代入すれば式\eqref{eq:weyl-cross-block-move}となる。
+\end{proof}
+
+ブロック内の置換が very strongness を保つことは、周期を越えた射を含めて
+順序が変わるのが同一周期の完全直交な組だけであることから従う。
+
+この還元は、数値的反射だけから新しい線束や very strongness を作るものではない。
+特に式\eqref{eq:weyl-cross-block-move}の実現は、一般の非可換点では残された課題である。
+可換点の許容形式変形では、通常の各標識の持上げによりこの実現が得られる。

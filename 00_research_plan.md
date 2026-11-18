@@ -1,6 +1,6 @@
 # 研究方針：反標準 heart における二段階の標識忘却
 
-**2026-11-18 / unmark-v9。最初に本ファイルを読む。** 次に `papers/nc-cubic-unmark.tex`、`research/unmark_notes.md`。GitHub `uedakazushi/nc-cubic-unmark` の main をソース正本とする。
+**2026-11-18 / unmark-v10。最初に本ファイルを読む。** 次に `papers/nc-cubic-unmark.tex`、`research/unmark_notes.md`。GitHub `uedakazushi/nc-cubic-unmark` の main をソース正本とする。
 
 ## I. 恒常的な研究原則と保存許可
 
@@ -27,21 +27,24 @@
 
 ## III. 現在の到達点と確実性
 
-- **定式化・既知再構成の帰結**：`anticanonical_set_unmark.tex`。二段階の選択集合を定義。許容線束Lで `R_L` を作り直してもAZ再構成で同じA_acを得る（`prop:ac-line-reconstruction`）。これは環同型やLを交換する固定圏の自己同値を主張しない。
-- **可換・許容形式範囲**：通常の標識は有限W(E6)で記述できる（`aou_to_unmarked.tex`, `commutative_formal_markings.tex`）。一般の非可換AOU/OU領域で全標識を尽くすことは未証明。AOU/OU部分が全weak cubicを尽くすとも主張しない。
-- **内在的証明を保持**：rank1tfのEnd=C、負H自己Hom=0、Ext²自己=0、exceptional iff χself=1。三次曲面型RR表示と有効次数正値性(EP)の下で各数値的線束類の対象は高々一つ（`line_bundle_classification.tex`）。この推論に他のheartを使わない。新規性は未確認。
-- **未解決の存在・許容性**：`Ω_A={D:v_Dを持つrank1tf対象が存在}`、`Line_adm=Line`。一意性からΩ_A=Λを結論しない。任意の線束の交差Ext消滅やAZ生成も未証明の範囲では条件として残す。
-- **自己同値との区別のための補助結果**：Picard一次障害 `δπ(L)=H¹(π^sharp)c1(L)`、一般rank4、非常に一般の整数核ZK、許容一次変形での軌道Pic/ZK、一次不変式。線束選択と自己同値の持上げを区別するために保持（`picard_obstructions.tex`, `picard_invariants.tex`）。
-- **付録に保持**：普遍45次元有限代数、Artin関係式変形、HH支持公式、一定の数値Serre–E6、AS locus、DDL形式比較。これらだけでA_acとAS heartの一致や標識の網羅性を結論しない。形式Abel変形が反標準heartの許容条件を満たす範囲は別に確認する。
+- **既知再構成の帰結**：許容線束Lなら反標準環R_Lのqgrは同じA_ac（`prop:ac-line-reconstruction`）。構造対象を交換する自己同値を与えるとはしない。
+- **内在的線束判定・証明記載**：rank1tfのEnd=C、負H自己Hom=0、Ext²自己=0、exceptional iff χself=1（`thm:intrinsic-line-criterion`）。rank1tfだけから例外性は出ず、可換I_pが反例。
+- **本稿で導出・今回独立点検**：weak公理、全対象上の三次曲面型RR/H作用、r(O0)=1から、任意MのExt^{>0}(O0,H^nM)=0 (n≫0)、Hilbert多項式、r≥0、A1={r=0}、rank1tfのr=1、有効次数正値性(EP)を導く（`thm:ac-serre-positivity`）。旧来のrank互換性と(EP)は独立仮定不要。A0⇒d=0は未証明。
+- **一意性・証明記載と依存更新**：上の数値仮定だけでc1:Line(A)→Λが単射（`thm:numerical-line-uniqueness`）。Ω_A−K=Ω_AだがΩ_A=Λは未証明。内在的定義だけにRRを自動付与するとはしない。
+- **第一段階の有限上界・今回証明**：AOU三ブロック線束型の九対象からK-frameを一意に復元し、Mark_Q^line(A,L)→F(Λ,K)は単射、標識数≤51840（`lem:weyl-frame-reconstruction`, `thm:weyl-frame-injection`）。一般OUの全very strong helicesへの上界ではない。
+- **実現問題の還元・今回証明**：六単純反射の五つは直交ブロック内の置換。残るe3↔e4に対応する三対象交換を各標識で実現すれば、W(E6)-torsorとCoxeter関係・網羅性が従う（`cor:weyl-one-move`）。一般非可換点での交換の実現は未証明。
+- **許容形式範囲**：特殊ファイバーでrank1tf性を保つAOU型相対線束標識は、通常の51840標識の一意な持上げで尽くされる（`cor:formal-all-line-markings`）。固定相対heartと特殊ファイバー同定を保持し、自己同値で割らないのでAut(X)=1不要。相対perfect底変更・helix生成等の入力は明記する。
+- **条件付き障害・今回証明、実例未構成**：d=0でc1≠0のsimple Tが存在すれば、TはH不変のroot型であり、評価O0→T^cの核Eはline、R_E≅R_O0だが(E,H)はnon-ample（`prop:root-simple-obstruction`）。現公理の下でTが実在するとも不可能とも未証明。数値的点simpleへのLineのExt¹は両向きに消える（`lem:numerical-point-ext`）。
+- **有効な補助結果を保持**：Picard一次障害δπ、一般rank4/非常に一般の整数核ZK、一次軌道Pic/ZKと不変式。付録の普遍45次元有限代数、HH支持公式、数値Serre–E6、AS locus、DDL形式比較。これらの仮定と証明は現行本文に保持し、全域線束存在の代替にしない。
 
-今回の改稿は研究対象と順序の再整理が中心。有限Weyl商と全線束存在の新しい全域定理を証明したとはしない。既存の全証明を再査読したわけでもない。
+新しい導出の証明を本文に記載し、独立の論理点検と数値検算を行った。外部査読・証明支援系による形式化・網羅的な優先権確認は未実施。既知の格子論・再構成定理と本稿の推論を区別する。一般の有限Weyl作用、全数値類の存在、全線束の許容性は完成した定理として扱わない。
 
 ## IV. 次の課題と具体的な着手
 
-1. 固定 `(A_ac,L)` のAOU/OU標識を正規化し、標準単純反射ごとに対象の変換を記述する。Lを保持すること、Weyl関係、標識集合の網羅性を順に検証する。G_Qの矢基底変更をW(E6)作用と同一視しない。
-2. A_ac内の数値的線束類の存在構成を進める。既存一意性にはRRと(EP)の適用を確認する。存在した線束の交差Ext消滅・AZ生成を調べ、Line_adm=Lineを示す。まず既知の可換点と許容形式近傍を基準にする。
-3. 必要な箇所だけAS heartとA_acを比較する。構造対象・反Serre作用・生成列の同定を明記し、導来同値のみからexact同値を主張しない。
-4. 以上の選択集合が決まってからAut_exによる軌道を分類する。groupoid/stackと相対族は後段とする。
+1. **三対象交換を構成する。** 九対象を(L,A,B;X1,X2,X3;Y1,Y2,Y3)とする。反射後の候補はB'=ker(X1⊕X2→Y1)、Y1'=coker(B→X1⊕X2)、X3'は[B→X1⊕X2⊕X3→Y1]の中間cohomology。まずAOUの一つの関係式で複体を作り、両端のexactness、rank1tf・χself=1、fullness・very strongnessを示す。数値式は検算済み、実際の対象は未構成。詳細は研究ノート。
+2. **Line_adm=Lineの障害を調べる。** 零次数root型simpleが反標準heartの公理で排除されるかを先に調べる。数値的点へのExt消滅を正次数torsionへ拡張し、生成条件へ結ぶ。Hilbert関数や反標準切断環の一致だけを豊富性の証明にしない。
+3. **数値的線束類の存在を構成する。** Ω_Aを決定する。既存一意性は用いてよいが、未知のv_Dの対象を形式的に操作して存在したと扱わない。可換点と許容Artin近傍の全線束を基準にし、個々の開条件の可算交叉をZariski開としない。
+4. 必要な箇所だけAS heartとA_acを比較し、構造対象・反Serre作用・生成列を追う。以上を解いた後にAut_ex軌道、さらにgroupoid/stack・相対族へ進む。
 
 ## V. 再現
 
@@ -50,6 +53,7 @@ python3 -m pip install -r requirements.txt
 python3 computations/verify_marking_lattice.py
 python3 computations/verify_aou_relation_tangent.py
 python3 computations/verify_line_bundle_numerics.py
+python3 computations/verify_weyl_frames.py
 python3 scripts/verify_unmark_bundle.py
 latexmk -lualatex papers/nc-cubic-unmark.tex
 ```

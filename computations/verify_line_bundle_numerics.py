@@ -32,7 +32,20 @@ def main() -> None:
     assert sp.expand(chi(ideal,ideal)-(1-2*n)) == 0
     assert sp.expand(chi(line,twist(line,m))-(1+3*m*(m+1)/2)) == 0
     assert sp.expand(product(-canonical,twist(line,-1)[1]-line[1])) == -3
-    # Numerical signs used in the Cartier/restriction and GK proofs.
+    # Hilbert polynomial with an arbitrary normalized structure line.
+    degree_v = product(-canonical, divisor)
+    degree_o = product(-canonical, other)
+    base = (1, other, product(other, other)/2)
+    hilbert = sp.Rational(3,2)*rank*m*(m+1)+(degree_v-rank*degree_o)*m+chi(base,v)
+    assert sp.expand(chi(base,twist(v,m))-hilbert) == 0
+    # Conditional root-simple evaluation: C^2=-2, K.C=0, s=C.D0+c.
+    c, root_dot_base, base_square = sp.symbols('c root_dot_base base_square')
+    root_square = -2
+    kernel_square = base_square-2*c*root_dot_base+c*c*root_square
+    kernel_ch2 = base_square/2-c*(root_dot_base+c)
+    assert sp.expand(kernel_square/2-kernel_ch2) == 0
+    assert 1-c*c-c*c+2*c*c == 1
+    # Twisting identities retained as numerical checks only.
     structure = (1, sp.zeros(7, 1), 0)
     theta_v = twist(v, -1)
     degree = product(-canonical, divisor)
@@ -47,7 +60,8 @@ def main() -> None:
     assert chi(ideal,ideal).subs(n,1) == -1
     print('PASS: self Euler=1-2n, Ext1 numerical value=2n; anticanonical Hilbert polynomial')
     print('PASS: Serre duality, H-invariance, same-class negative quotient degree=-3; parity')
-    print('PASS: Cartier kernel degree=-3r, quotient degree=3r, theta chi difference=-degree')
+    print('PASS: arbitrary-base Hilbert polynomial; conditional root-evaluation defect=0')
+    print('PASS: twist quotient degree=3r, theta Euler difference=-degree')
     print('LIMIT: categorical existence, positivity (EP), and heart/rank comparison are not tested')
 
 

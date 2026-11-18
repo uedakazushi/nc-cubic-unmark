@@ -21,5 +21,7 @@ assert len(labels)==len(set(labels)),'duplicate label'
 assert len(bib)==len(set(bib)),'duplicate bibliography'
 assert not set(refs)-set(labels),set(refs)-set(labels)
 assert not set(cites)-set(bib),set(cites)-set(bib)
-assert (root/'computations/verify_marking_lattice.py').is_file()
+for script in ('verify_marking_lattice.py','verify_aou_relation_tangent.py',
+               'verify_line_bundle_numerics.py','verify_weyl_frames.py'):
+    assert (root/'computations'/script).is_file(),script
 print(f"PASS: {len(seen)} TeX sources, {len(labels)} labels, {len(refs)} refs, {len(bib)} bib entries, {len(cites)} citations")

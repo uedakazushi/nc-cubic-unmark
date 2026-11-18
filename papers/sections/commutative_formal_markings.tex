@@ -121,6 +121,31 @@ $\HH^1=\HH^3=0$、$\dim\HH^2=8$は命題\ref{prop:hh}による。
 通常のHochschild変形理論との比較を満たす範囲で無障害性と8次元の形式底を得る。
 \end{proof}
 
+\begin{corollary}[固定相対 heart 上の標準型線束標識の網羅性]\label{cor:formal-all-line-markings}
+特殊ファイバーを $\operatorname{coh}X$ と同定した許容相対変形 $\mathcal A_R$ と、
+$L\in\Pic(X)$ の一意な持上げ $L_R$ を固定する。
+定理\ref{thm:formal-weyl}の証明で用いる相対 perfect 底変更と helix の持上げ・生成の
+条件を満たす範囲で、次の標識を数える：九対象は flat な相対線束であり、
+特殊ファイバーの九対象は rank-one torsion-free で、AOU の三ブロック Euler 型を持ち、
+先頭は $L_R$ である。対象ごとの同型で同一視し、圏の自己同値では割らない。
+この集合は $X$ の通常の格子標識の集合と全単射であり、$W(E_6)$-torsor となる。
+この固定圏上の主張には $\Aut(X)=1$ を仮定しない。
+\end{corollary}
+\begin{proof}
+各通常標識の標準九線束を $L$ で共通 tensor し、前定理の証明によって
+一意に持ち上げると、この集合の元を得る。
+逆に任意の相対標識の特殊ファイバーを取る。
+各対象は rank-one torsion-free で、特殊ファイバーの Euler 行列の対角成分は $1$ である。
+定理\ref{thm:commutative-structure}の証明における
+$\chi(E,E)=1-2\operatorname{length}Z$ より、各対象は通常の線束である。
+補題\ref{lem:weyl-frame-reconstruction}によって一意な格子標識を復元でき、
+可換曲面での線束の一意性から九対象はその標準九線束の共通 $L$ 捩れと一致する。
+各対象の持上げの一意性により元の相対標識もこの標準持上げと一致する。
+固定圏の自己同値を商に取っていないため、$\Aut(X)$ の作用はこの個数を減らさない。
+\end{proof}
+この系は特殊ファイバーの rank 条件を保つ上記相対標識の網羅性であり、
+任意の OU 型 helix や任意の dg 変形を扱うものではない。
+
 \begin{proposition}[有限 Weyl 商の集合論的な十分条件]\label{prop:global-weyl-criterion}
 標識付き対象の集合 $M$ と弱標識付き対象の集合 $W$ の間の忘却 $p:M\to W$ を考える。
 有限群 $W(E_6)$ が $M$ に作用し、$p$ が全射であり、
