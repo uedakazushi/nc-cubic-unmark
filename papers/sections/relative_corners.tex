@@ -1,0 +1,147 @@
+% !TeX root = ../nc-cubic-unmark.tex
+\section{相対 corner 比較と基底変換}
+\label{sec:relative-corners}
+
+有限余次元 corner の議論を noetherian な基礎環上で記す。
+ここで得るのは Abel 圏の比較とその基底変換適合性であり、
+相対 Serre 関手や全内在的モジュライの代数性を自動的に与えるものではない。
+
+\begin{proposition}[基礎環上の有限余次元 corner]
+\label{prop:relative-cofinite-corner}
+$C$ を可換 noetherian 環、$B=\bigoplus_{n\ge0}B_n$ を
+$C$ が中心に作用する右 noetherian な次数付き $C$-代数とする。
+各 $B_n$ は有限 $C$-加群とし、$B$ は次数零と一で生成されるとする。
+$e\in B_0$ は冪等元で、ある $N$ について
+\[
+ (B/BeB)_n=0\qquad(n\ge N)
+\]
+と仮定する。$A=eBe$ と置く。
+$\qgr_C B$ は有限生成次数付き右 $B$-加群の圏を、
+十分大きい次数で零になる加群の Serre 部分圏で割った圏とする。
+このとき $A$ は右 noetherian であり、
+\[
+ \Phi_C=(-)e:\qgr_C B\xrightarrow{\sim}\qgr_C A,
+ \qquad
+ \Psi_C(\pi_A M)=\pi_B(M\otimes_A eB)
+\]
+は互いに逆な $C$-線形 exact 同値である。
+また $\Phi_C(\pi_B(eB))=\pi_AA$ で、次数シフトに両立する。
+\end{proposition}
+\begin{proof}
+次数一生成と $B_N\subset BeB$ から、$n\ge N$ について
+\[
+ B_ne=\sum_{a=0}^N B_ae(eB_{n-a}e),\qquad
+ eB_n=\sum_{a=0}^N(eB_{n-a}e)eB_a
+\]
+となる。各 $B_a$ は有限 $C$-加群であるため、$Be$ は有限生成右 $A$-加群、
+$eB$ は有限生成左 $A$-加群である。
+$J\subset A$ が右 ideal なら $JB\subset eB$ は有限生成右 $B$-加群であり、
+その有限個の生成元の表示に現れる $j_1,\ldots,j_r\in J$ を選べる。
+$J=JBe=\sum j_iA$ なので $A$ は右 noetherian である。
+
+従って $(-)e$ は有限生成加群を有限生成加群に送る。
+$M\otimes_AeB$ も、$M$ の有限個の生成元から右 $B$-加群として有限生成である。
+自然な評価射
+\[
+ Me\otimes_AeB\longrightarrow M
+\]
+は $(-)e$ の適用後に同型になる。
+その核と余核は有限生成で、$e$ により零となるから、$B/BeB$ 上の有限生成加群である。
+よってこれらは十分大きい次数で零になる。
+他方 $(L\otimes_AeB)e\cong L$ である。
+
+有限生成 graded 加群は下に有界なので、上に有界であることと
+全体が有限 $C$-加群であることは、この状況では同値である。
+$(-)e$ はこの部分圏を保つ。
+$eB$ の左 $A$-有限生成性により、$L$ が上に有界なら
+$L\otimes_AeB$ も上に有界である。
+$A$ 上の有限階数自由 resolution を用いると
+$\operatorname{Tor}^A_i(L,eB)$ は有限生成右 $B$-加群で、$i>0$ に対して
+\[
+ \operatorname{Tor}^A_i(L,eB)e
+   \cong\operatorname{Tor}^A_i(L,A)=0.
+\]
+従ってこれらも上に有界である。
+このことから $\pi_B(-\otimes_AeB)$ は exact となり、Serre 商へ降りる。
+上の単位・余単位は商で同型となるので、所定の同値を得る。
+\end{proof}
+
+\begin{proposition}[corner 比較の基底変換適合性]
+\label{prop:relative-corner-basechange}
+前命題の状況で、$C\to D$ を可換 noetherian 環への準同型とし、
+$B_D=B\otimes_CD$ が右 noetherian であると仮定する。
+$A_D=eB_De\cong A\otimes_CD$ と置けば、
+前命題は $D$ 上でも成立する。
+通常の graded tensor による基底変換は $\qgr$ に降り、自然同型
+\[
+ \Phi_D(M_D)\cong\Phi_C(M)_D,\qquad
+ \Psi_D(L_D)\cong\Psi_C(L)_D
+\]
+を持つ。これらは基底変換の合成に両立する。
+さらに $\Phi_C,\Psi_C$ は内在的な $C$-flat 対象を対応させる。
+ここで $C$-flat とは、有限表示 $C$-加群 $V$ に対する
+$V\mapsto V\otimes_C M$ が exact であることをいう。
+\end{proposition}
+\begin{proof}
+商の形成の右 exact 性から
+\[
+ B_D/B_DeB_D\cong(B/BeB)\otimes_CD
+\]
+であり、同じ $N$ 以後の成分が零である。
+各 $D$-成分は有限生成で、次数零・一生成も保たれる。
+従って前命題を適用できる。
+
+graded 射 $u:M\to M'$ の核と余核が上に有界であることは、
+$u_n$ がすべての十分大きい $n$ で同型であることと同値である。
+従って $u\otimes_CD$ の核と余核も上に有界である。
+このため通常の tensor は Serre 商を圏として局所化する際の同型を保ち、
+基底変換関手が $\qgr$ 上に定義される。
+非平坦な $C\to D$ について、この関手自体が exact だとは主張していない。
+
+冪等元による直和分解と tensor の結合則から、加群の段階で
+\[
+ (M\otimes_CD)e\cong(Me)\otimes_CD,
+ \qquad
+ (L\otimes_AeB)\otimes_CD
+ \cong(L\otimes_CD)\otimes_{A_D}eB_D
+\]
+を得る。これらを商へ移せば所定の自然同型となり、合成との両立も従う。
+最後に、$C$-線形 exact 同値は有限表示 $C$-加群との tensor に可換である。
+実際、その tensor は $V$ の有限表示を用いた有限直和と余核で定義される。
+従って上記の flat 性は同値の両側で同じ条件である。
+\end{proof}
+
+\begin{corollary}[相対 tails の比較に必要な残りの入力]
+\label{cor:relative-corner-family}
+noetherian スキーム $S$ 上の次数付き代数族が、各 affine 開集合上で
+命題\ref{prop:relative-cofinite-corner}の条件を満たし、
+考えるすべての noetherian 基底変換後にも右 noetherian であるとする。
+本系でいう\emph{普遍 flat な tails の族}とは、考えるすべての基底変換後に
+前命題の意味で内在的に flat となる対象をいう。
+このとき $(-)e$ による局所的な同値は、普遍 flat な tails の族の圏について基底変換に両立し、
+両側を stackification した後にも同値を与える。
+\end{corollary}
+\begin{proof}
+前命題の自然同型は affine 制限と反復基底変換に両立するので、
+族の圏の間の擬自然同値を与える。
+各基底変換後の内在的 flat 性は、その底上で前命題を適用することにより対応する。
+従って普遍 flat な対象の部分圏も対応し、この部分圏の基底変換安定性は定義から従う。
+stackification は擬自然同値を同値に送るため結論を得る。
+\end{proof}
+
+固定した底で内在的に flat であるという条件だけから、通常の tensor による
+任意の非平坦基底変換後にも flat であることを、本系では推論していない。
+その同一視には、用いる相対 tails のモデルにおける追加の底変更定理が必要である。
+
+\begin{remark}[実際の AOU 族へ適用する際の範囲]
+\label{rem:relative-corner-scope}
+命題\ref{prop:aou-corner-open}で得られる高次数商の零性は、
+coherent な有限次数条件なので任意の基底変換後にも成立する。
+しかし各幾何学的 fiber の noetherian 性から、
+任意の noetherian 基底変換後の noetherian 性を推論してはいけない。
+実際の族に上の系を適用するには、この相対 noetherian 性を別に確認する必要がある。
+また、比較した普遍 flat tails の族が所望の相対 $\mathcal O$-marked cubic になるには、
+相対 perfect 部分圏、perfect な RHom、相対 Serre 関手、
+構造対象の条件と基底変換との関係をさらに確認する。
+上の同値はそれらの確認で利用できる Abel 圏側の比較を与える。
+\end{remark}

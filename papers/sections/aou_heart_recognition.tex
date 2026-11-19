@@ -526,6 +526,61 @@ $1+3n(n+1)/2$ ($n\ge0$)、負次数は零である。
 これで残っていた内在的階数公理が得られ、弱公理の全条件が揃う。
 \end{proof}
 
+\begin{proposition}[九つの corner と標準対象の線束性]
+\label{prop:aou-all-corner-lines}
+系\ref{cor:actual-aou-weak-heart}の開集合を非空な開集合
+$U_{\rm all}\subset T_Q$ へ縮めることにより、すべての頂点 $v$ について同時に
+\[
+ \dim B_b/B_be_vB_b<\infty\qquad(b\in U_{\rm all})
+\]
+とできる。この範囲では $E_{v,b}=\pi(e_vB_b)$ の九対象すべてが
+指定反標準 heart の許容線束である。
+この主張には零次数 root の非存在条件\eqref{eq:no-zero-root}を仮定しない。
+\end{proposition}
+\begin{proof}
+可換基準点では各 $E_v$ は線束であり、$(E_v,H)$ は豊富である。
+命題\ref{prop:aou-corner-open}の生成全射を $\OO_X$ からではなく $E_v$ から取れば、
+同じ証明は $e_v$ に関する corner 条件が $b_0$ の開近傍で成立することを示す。
+九つの開近傍の交差を $U_{\rm ell}$ と交わらせる。
+$T_Q$ は既約なので、この交差 $U_{\rm all}$ は非空である。
+
+$b\in U_{\rm all}$ を固定する。補題\ref{lem:cofinite-corner-tails}により
+\[
+ \qgr B_b\simeq\qgr R_v,\qquad
+ R_v=e_vB_be_v,
+ \qquad \pi(e_vB_b)\longleftrightarrow\pi R_v
+\]
+を得る。正則中心元 $z\in(B_b)_1$ は $g_v=e_vze_v\in(R_v)_1$ を与え、
+\[
+ R_v/g_vR_v=e_vCe_v.
+\]
+$C/Ce_vC$ は有限次元だから
+$\qgr(e_vCe_v)\simeq\operatorname{coh}Y$ であり、$\pi(e_vCe_v)$ は
+楕円 helix の線束 $S_v$ に対応する。
+線束間の非零射の積は零でないので $e_vCe_v$ は整域である。
+補題\ref{lem:graded-domain-normal-extension}から $R_v$ も整域となる。
+
+標準導来比較の下で $E_v$ は例外的であり、
+\[
+ \Ext^{>0}(E_v,H^mE_v)=0\ (m\ge0),\qquad
+ \Hom(E_v,H^{-m}E_v)=0\ (m>0)
+\]
+である。第一式は helix の acyclicity により、第二式は第一式と Serre 双対性による。
+また $e_vCe_v$ の正次数成分は次元 $3n$ なので、
+$R_v$ の Hilbert 関数は $1+3n(n+1)/2$ である。
+corner 表示は任意の負 tail の $H^{-n}E_v$ による有限生成全射を与える。
+系\ref{cor:actual-aou-corner-heart}の Ext 消滅の証明を $E_v$ に適用すると、
+任意の対象に対する eventual 高次 Ext 消滅と、豊富性の Hom 全射条件を得る。
+従って $(E_v,H)$ は AZ 豊富である。
+
+命題\ref{prop:aou-full-rr-transport}の数値階数は $r(E_v)=1$ である。
+ここまでの条件により、系\ref{cor:elliptic-divisor-rank}を
+構造対象 $E_v$ と表示 $\qgr R_v$ に適用できる。
+Gabriel--Krull filtration は exact 同値で保たれるので、
+得られる rank-one torsion-free 性は元の指定 heart における同じ内在的条件である。
+従って $E_v$ は例外的かつ許容な線束である。
+\end{proof}
+
 \begin{proposition}[中心的曲線因子がある場合の零次元層]
 \label{prop:elliptic-divisor-length-recognition}
 弱反標準 heart $\mathcal A$ に全対象の数値表示

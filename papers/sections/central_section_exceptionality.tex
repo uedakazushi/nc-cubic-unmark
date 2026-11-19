@@ -1,0 +1,177 @@
+% !TeX root = ../nc-cubic-unmark.tex
+\section{中心的反標準切断と構造対象の例外性}
+\label{sec:central-section-exceptionality}
+
+最小の $\mathcal O$-marking の公理だけから構造対象の例外性が従うかは、一般には未解決である。
+本節では、追加の\emph{中心的な正則切断}がある場合に消滅を直接証明する。
+この条件は、既に構成した中心楕円因子を持つ AOU heart で成立する。
+数値的 Riemann--Roch は、得られた漸近消滅から例外性を導く段階で初めて用いる。
+
+\begin{definition}[中心的反標準切断]
+\label{def:central-anticanonical-section}
+$H$ が exact 自己同値である Abel 圏 $\mathcal A$ において、
+正整数 $a$ と自然変換
+\[
+ z:\operatorname{id}_{\mathcal A}\longrightarrow H^a,
+ \qquad z_{HM}=H(z_M)
+\]
+の組を\emph{中心的反標準切断}と呼ぶ。
+自己同値の合成に伴う自然同型はこの等式に含める。
+対象 $M$ 上で正則であるとは $z_M$ が単射であることをいう。
+反復は
+\[
+ z_M^{(b)}=H^{(b-1)a}(z_M)\circ\cdots\circ H^a(z_M)\circ z_M:
+ M\longrightarrow H^{ba}M
+\]
+と定める。
+\end{definition}
+
+\begin{lemma}[豊富性と中心的正則切断による自己 Ext 消滅]
+\label{lem:central-section-self-vanishing}
+$(\mathcal A,\OO)$ は定義\ref{def:o-marked-cubic}の最小の
+$\mathcal O$-marked cubic とする。
+中心的反標準切断 $z:\operatorname{id}\to H^a$ が $\OO$ 上で正則ならば、
+\begin{equation}\label{eq:central-section-self-vanishing}
+ \Ext^i(\OO,H^n\OO)=0\qquad(i>0,\ n\gg0)
+\end{equation}
+が成り立つ。
+第一 Ext のこの消滅には数値格子、Riemann--Roch、例外性を用いない。
+\end{lemma}
+\begin{proof}
+$C=\operatorname{coker}(z_{\OO})$ と置く。
+固定した全射 $H^a\OO\twoheadrightarrow C$ に豊富性の Hom 全射条件を適用すると、
+\[
+ \Hom(\OO,H^{n+a}\OO)\longrightarrow\Hom(\OO,H^nC)
+\]
+は $n\ge N$ で全射となる。
+ここで $N\ge0$ は一つの整数である。
+短完全列 $0\to H^n\OO\to H^{n+a}\OO\to H^nC\to0$ の長完全列により、
+\begin{equation}\label{eq:central-section-eventual-injection}
+ u_n=(H^nz_{\OO})_*:
+ V_n:=\Ext^1(\OO,H^n\OO)\longrightarrow V_{n+a}
+\end{equation}
+はすべての $n\ge N$ に対して単射である。
+
+一方、$\eta\in V_n$ を任意に取り、これを表す拡大
+\[
+ 0\longrightarrow H^n\OO\longrightarrow M\longrightarrow\OO\longrightarrow0
+\]
+を固定する。
+再び豊富性の Hom 全射条件を $M\twoheadrightarrow\OO$ に適用する。
+十分大きな $b$ に対して
+\[
+ \Hom(\OO,H^{ba}M)\longrightarrow\Hom(\OO,H^{ba}\OO)
+\]
+は全射なので、$z_{\OO}^{(b)}$ は $H^{ba}M$ への射に持ち上がる。
+従って対応する接続写像について
+\[
+ (H^{ba}\eta)\circ z_{\OO}^{(b)}=0
+ \quad\text{in }\Ext^1(\OO,H^{n+ba}\OO)
+\]
+となる。
+exact 関手間の自然変換は、複体への成分ごとの作用により
+$D^b(\mathcal A)$ 上の自然変換を定める。
+この自然性を $\eta:\OO\to H^n\OO[1]$ に適用し、$z$ と $H$ の両立性を使うと、
+\[
+ (H^{ba}\eta)\circ z_{\OO}^{(b)}
+ =z_{H^n\OO}^{(b)}[1]\circ\eta
+ =u_{n+(b-1)a}\circ\cdots\circ u_n(\eta)
+\]
+を得る。
+従って $z$ の作用は各 $V_n$ の各元上で局所冪零である。
+$n\ge N$ なら右辺は単射の合成なので $\eta=0$ である。
+これで $V_n=0$ ($n\ge N$) が従う。
+第二 Ext の非負 twist 消滅と第三以上の Ext 消滅は
+補題\ref{lem:o-minimal-consequences}による。
+\end{proof}
+
+\begin{corollary}[数値的欠損の消滅]
+\label{cor:central-section-exceptionality}
+定理\ref{thm:ac-serre-positivity}の weak/Riemann--Roch の仮定の下で、
+同じ heart 内の最小構造対象 $\OO$ に対し、
+$\OO$ 上で正則な中心的反標準切断が存在するとする。
+このとき $\delta(\OO)=0$ であり、$\OO$ は例外対象かつ許容線束である。
+\end{corollary}
+\begin{proof}
+補題\ref{lem:central-section-self-vanishing}と
+命題\ref{prop:o-marking-defect-comparison}を組み合わせる。
+すべての $n\ge0$ に対して
+$\dim\Ext^1(\OO,H^n\OO)=2\delta(\OO)$ であり、
+左辺は $n\gg0$ で零なので $\delta(\OO)=0$ である。
+\end{proof}
+
+\begin{proposition}[正則中心元を持つ反標準表示への適用]
+\label{prop:central-ring-all-structures-exceptional}
+定理\ref{thm:ac-serre-positivity}の仮定を満たす基準構造対象 $\OO_0$ を固定する。
+さらに $\mathcal A\simeq\qgr R$、$\OO_0\simeq\pi R$、$H\simeq(1)$ であり、
+$R$ は局所有限な正次数付き右 noetherian 環で、
+正次数 $a$ の正則中心元 $g$ を持つとする。
+このとき $g$ の定める中心的反標準切断は
+すべての rank-one torsion-free 対象上で単射である。
+従って、この heart 内では
+\begin{equation}\label{eq:central-ring-structure-equality}
+ \operatorname{Str}_3(\mathcal A)
+ =\operatorname{Line}_{\rm adm}(\mathcal A).
+\end{equation}
+この等式は、任意の構造対象が例外的であることを先に仮定したものではない。
+\end{proposition}
+\begin{proof}
+$g$ の乗法は、次数シフトと両立する自然変換
+$z:\operatorname{id}\to H^a$ を与える。
+まず $z_M=0$ なる対象 $M\in\mathcal A$ の数値階数が零であることを示す。
+$M\simeq\pi N$ となる有限生成 graded 右 $R$-加群 $N$ を取る。
+$\pi(Ng)=0$ だから $Ng$ は有限次元であり、
+十分高い次数の tail $N_{\ge n_0}$ は $g$ で消される。
+右 noetherian 性によりこの tail は有限生成で、
+$N/N_{\ge n_0}$ は有限次元である。
+従って $M$ は有限個の $\pi(R/gR)(b)$ の直和の商となる。
+
+$g$ の正則性による短完全列を $\pi$ で写すと
+\[
+ 0\longrightarrow H^{-a}\OO_0\longrightarrow\OO_0
+ \longrightarrow\pi(R/gR)\longrightarrow0
+\]
+を得る。
+$H$ は数値階数を保つので $r(\pi(R/gR))=0$ である。
+階数の加法性と全対象上の非負性から $r(M)=0$ となる。
+定理\ref{thm:ac-serre-positivity}により、これは $M\in\mathcal A_1$ を意味する。
+
+rank-one torsion-free 対象 $E$ に対して $K=\ker(z_E)$ を取る。
+包含 $i:K\hookrightarrow E$ に対する自然性は
+$H^a(i)z_K=z_Ei=0$ を与える。
+$H^a(i)$ は単射なので $z_K=0$、従って $K\in\mathcal A_1$ である。
+$E$ の torsion-free 性から $K=0$ を得る。
+最小構造対象に系\ref{cor:central-section-exceptionality}を適用すれば
+式\eqref{eq:central-ring-structure-equality}の左辺は右辺に含まれる。
+逆の包含は許容線束の定義による。
+\end{proof}
+
+\begin{corollary}[実際の AOU locus における全構造対象]
+\label{cor:aou-all-structures-exceptional}
+系\ref{cor:actual-aou-weak-heart}で構成した中心楕円因子を持つ AOU locus の
+各 heart に対して、式\eqref{eq:central-ring-structure-equality}が成立する。
+特に、定理\ref{thm:actual-aou-very-general}の very general な範囲では、
+構造対象を忘れる第二の忘却の同型類集合上の fiber は、
+最小 $\mathcal O$-marking の全体について
+\[
+ \operatorname{Aut}_{\rm ex}(\mathcal A)\backslash
+ \operatorname{Str}_3(\mathcal A)
+ \simeq\Lambda/\mathbb ZK\simeq P(E_6)
+\]
+である。
+\end{corollary}
+\begin{proof}
+補題\ref{lem:elliptic-helix-central-element}と
+系\ref{cor:actual-aou-corner-heart}は、
+反標準 corner $R=eBe$ に正次数の正則中心元 $g=eze$ を与える。
+系\ref{cor:actual-aou-weak-heart}により、前命題の残りの仮定も満たされる。
+最後の記述には定理\ref{thm:actual-aou-very-general}の
+$\operatorname{Line}_{\rm adm}(\mathcal A)\simeq\Lambda$ と
+$\Gamma_{\mathcal A}=\mathbb ZK$ を用いる。
+\end{proof}
+
+中心的反標準切断の存在は、最小定義の公理には含めていない。
+従って本節は、中心的な正則切断を持たない任意の最小
+$\mathcal O$-marked cubic について例外性を結論するものではない。
+また最初の補題だけでは、漸近的な Ext 消滅を $n=0$ まで戻してはいない。
+その段階では、明記した Riemann--Roch による欠損の一定性を用いている。

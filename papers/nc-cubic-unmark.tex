@@ -21,7 +21,7 @@
 \newcommand{\Cw}{\mathfrak C^{\rm w}}\newcommand{\Cu}{\mathfrak C^{\rm u}}
 \title{非可換三次曲面の構造対象と quiver 標識\\\large $\mathcal O$-marking、$Q$-marking と忘却射の fiber}
 \author{植田一石}
-\date{2026年11月19日 / unmark-v13}
+\date{2026年11月19日 / unmark-v14}
 \begin{document}\maketitle
 \begin{abstract}
 非可換 del Pezzo の内在的定義に現れる構造対象を一つ選ぶ
@@ -44,12 +44,21 @@ Calabi--Yau completion から有限 foundation の十八矢・九関係と Euler
 exact 自己同値の数値作用の忠実性も示し、
 構造対象を固定する自己同値群自体が自明となる。従って同型類集合の fiber も同じ点数となる。
 
-既存の線束の存在・一意性、AS/反標準 heart 比較、自己同値の数値像、
-許容 Artin 変形の証明を保持する。
-構造対象自体を忘れる第二の写像については、例外的構造対象の部分で
-$\Lambda/\mathbb ZK\simeq Q(E_6)^\vee$ という非常に一般の fiber を得る。
-最小の内在的公理だけから構造対象の例外性が従うか、
-相対モジュライの代数性、忘却射の相対有限 \'etale 性と全境界への延長は未解決である。
+中心的な正則反標準切断と豊富性から自己 Ext の漸近消滅を証明し、
+既知の数値表示を持つ中心楕円因子 locus では、すべての最小構造対象が例外的であることを示す。
+従って構造対象自体を忘れる第二の写像の非常に一般の fiber
+$\Lambda/\mathbb ZK\simeq Q(E_6)^\vee$ は、この locus の全構造対象に適用できる。
+
+相対 perfect 圏と Abel 圏を区別した許容変形モデルでは、
+標識の scalar-rigidified 忘却は Artin 形式的に \'etale である。
+固定 smooth proper dg 族上の full strong completion は
+$\mathbb G_m^{\ell-1}$-gerbe を介して \'etale 代数空間を与える。
+また標準 relation torus の非空な Weyl 不変開集合 $U$ 上に
+有限 \'etale な $W(E_6)$-torsor $U\to[U/W(E_6)]$ を構成し、
+その複素点の群oidを、この族に現れる $\mathcal O$-marked cubic の full essential image と同定する。
+相対 corner 比較は noetherian 性の基底変換条件を明記して証明する。
+この商モデルと全内在的相対モジュライとの同一視、全 $Q$-marking の族での網羅性、
+中心切断のない最小公理での例外性、および境界への延長は未解決である。
 \end{abstract}
 {\small\tableofcontents}
 \clearpage
@@ -113,8 +122,12 @@ $(\mathbb C^\times)^8$ の自己同型が残る。
 さらに標準型で root がなければ、exact 自己同値の数値作用は忠実であり、
 rigidified $Q$-marked 対象の絶対慣性は自明となる
 （命題\ref{prop:q-numerical-auto-faithful}、系\ref{cor:standard-q-absolute-inertia}）。
-族については相対 enhanced 圏と heart のモデルを指定した上で
-モジュライを stackification により定義するが、代数性と有限 \'etale 性は別の課題とする。
+族については相対 enhanced 圏と Abel 圏のモデルを指定した上で
+モジュライを stackification により定義する。
+第\ref{sec:relative-marked-deformations}節では、許容 Artin 変形における
+rigidified 忘却の形式 \'etale 性と、固定 dg 族上の full strong completion の
+\'etale 代数空間を構成する。
+全内在的相対モジュライの代数性と大域的有限性は、これらとは別の課題である。
 
 \paragraph{構造対象自体の選択との関係.}
 固定 heart 内の例外的構造対象は、後述の許容線束である。
@@ -126,8 +139,24 @@ rigidified $Q$-marked 対象の絶対慣性は自明となる
 $(\Lambda/\mathbb ZK)/\overline\Gamma_{\mathcal A}$ である。
 非常に一般の標準 AOU 点では $\Gamma_{\mathcal A}=\mathbb ZK$ なので、
 それぞれ $W(E_6)$-torsor と $\Lambda/\mathbb ZK$ となる。
-第二の結論を、例外性をまだ確認していない全構造対象に拡大してはいない。
+中心楕円因子を持つ実際の AOU locus では、
+第\ref{sec:central-section-exceptionality}節で任意の最小構造対象の例外性を証明する。
+従ってこの範囲では、第二の結論は全構造対象に適用できる。
+中心的な正則切断を持たない一般の最小公理については、例外性の問題を残す。
 対象のテンソル積や、Picard 格子による固定非可換圏上の自己同値作用も仮定しない。
+
+\paragraph{中心切断による構造対象の例外性.}
+$z:\operatorname{id}\to H^a$ が $H$ と可換な自然変換で、$z_{\OO}$ が単射とする。
+$H^a\OO\twoheadrightarrow\operatorname{coker}(z_{\OO})$ に AZ の Hom 全射条件を適用すると、
+$z$ による $\Ext^1(\OO,H^n\OO)\to\Ext^1(\OO,H^{n+a}\OO)$ は十分大きい $n$ で単射となる。
+他方、各拡大を表す固定全射に同じ豊富性を適用すると、
+中心性により $z$ の作用は各 Ext 類上で局所冪零となる。
+従って tail の第一 Ext は零である。
+既知の弱 heart の Riemann--Roch はその次元を一定値 $2\delta(\OO)$ と与えるため、
+$\delta(\OO)=0$、すなわち例外性が従う。
+正則中心元を持つ反標準表示では、その切断の核は階数零であるため、
+候補となる rank-one torsion-free 構造対象のすべてにこの議論を適用できる
+（補題\ref{lem:central-section-self-vanishing}、命題\ref{prop:central-ring-all-structures-exceptional}）。
 
 \paragraph{線束の内在的判定と零次数障害.}
 rank-one torsion-free 対象の自己第二 Ext は消え、例外性は自己 Euler 形式 $1$ と同値である
@@ -175,6 +204,35 @@ $\qgr B\simeq\qgr(eBe)$ を得る。
 通常の有界導来圏との比較、AZ 豊富性、曲線因子による内在的階数認識まで確認して、
 反標準 heart の弱公理を実際に証明する
 （系\ref{cor:actual-aou-weak-heart}）。
+
+さらに九つの頂点に対する有限余次元 corner 条件を同時に満たす非空開集合を取れる。
+各 corner の楕円曲線商と整域性を用いることで、標準九対象すべてが許容線束となる
+（命題\ref{prop:aou-all-corner-lines}）。
+これはこの族の標準列についての主張であり、開集合の全点に零次数 root の非存在を仮定しない。
+また、構造対象を保つ導来同値は反標準 Hom による heart 検出から $t$-exact となる
+（系\ref{cor:o-pointed-derived-exact}）。
+
+\paragraph{有限 Weyl 商の代数的モデル.}
+三対象交換を正規化された普遍有限 relation 代数上の複体として実行すると、
+標準 relation torus の関数体上に Weyl 群の双有理作用を得る。
+Coxeter 関係は非常に一般の線束標識における一意性から有理写像の等式として従う。
+有限群のすべての元の定義域を共通に縮めて、非空な不変開集合 $U$ を得る。
+商スタックへの射 $U\to[U/W(E_6)]$ は次数 $51840$ の有限 \'etale torsor であり、
+この事実には $U$ 上の作用が自由であることを要しない。
+九対象の線束性と数値的一意性を用いると、この商の複素点は
+$U$ に現れる $\mathcal O$-marked 圏の full essential image と同じ群oidとなる。
+ただし点の同値から一般の底上の内在的モジュライの同値は推論せず、
+標準列以外の全 incoming $Q$-marking の族での網羅性と相対降下を課題として分ける。
+
+\paragraph{相対 perfect 圏と標識の持上げ.}
+非正則 Artin 底上では、有限 thread の fullness は相対 perfect 圏の厚生成であり、
+通常の $D^b$ 全体の生成ではない。
+構造対象・平坦性・豊富性を扱う Abel 圏と、その中の相対 perfect 部分圏を別々に指定する。
+この許容モデルでは、例外対象の自己第一・第二 Ext の消滅から各成分の持上げが存在して一意となる。
+perfect Nakayama と有限回の評価 cone により strongness、fullness、
+Artin 底上の very strongness が保たれる。
+一般の代数族については full strong completion までを \'etale 代数空間として構成し、
+very strongness の無限個の消滅条件を一つの開条件とみなすことはしない。
 
 
 \paragraph{代数族と形式近傍の到達点.}
@@ -243,6 +301,13 @@ Keller\cite[\S4.4]{KellerDG}および To\"en\cite[Theorem 7.2(2), Corollary 7.6]
 
 可換自己同値分類は Bondal--Orlov、対象持上げと形式比較は Lowen と
 De Deken--Lowen、一次変形における Picard 作用は Toda の枠組みを用いる。
+固定 dg 族上の対象スタック、接複体、単純対象のスカラー gerbe には
+To\"en--Vaqui\'e\cite[Corollaries 3.15, 3.17, 3.21, 3.22]{ToenVaquie}を用い、
+full strong completion の開条件と結び付ける。
+Lieblich\cite[Theorem 3.1.1, Corollary 4.3.3]{LieblichComplexes}は
+proper flat な可換射の複体について対応する障害理論と gerbe を与える。
+有限群の商スタックと torsor の一般論は\cite[Tag 04UV]{Stacks}の既知の枠組みであり、
+本稿では普遍 relation 代数上の標識変更と、指定 heart における同値の認識を組み合わせる。
 これらの既知結果そのものを新結果とはしない。
 本稿の追加導出には証明を記載し、仮定と依存関係を明示するが、
 一般的な先行研究との重複・新規性の網羅的確認は未完了である。
@@ -254,33 +319,40 @@ De Deken--Lowen、一次変形における Picard 作用は Toda の枠組みを
 \input{papers/sections/quiver_markings.tex}
 \input{papers/sections/helix_heart_recognition.tex}
 \input{papers/sections/marked_moduli.tex}
+\input{papers/sections/relative_marked_deformations.tex}
 \input{papers/sections/aou_to_unmarked.tex}
 \input{papers/sections/line_bundle_classification.tex}
+\input{papers/sections/central_section_exceptionality.tex}
 \input{papers/sections/weyl_line_markings.tex}
 \input{papers/sections/aou_heart_recognition.tex}
+\input{papers/sections/relative_corners.tex}
 \input{papers/sections/generic_line_choices.tex}
+\input{papers/sections/weyl_moduli_chart.tex}
 \input{papers/sections/commutative_formal_markings.tex}
 \input{papers/sections/picard_obstructions.tex}
 \input{papers/sections/picard_invariants.tex}
 
 \section{現在の課題}
-第一の課題は、第\ref{sec:marked-moduli}節の相対モジュライの定義を
-実際の標準 AOU relation 表示と結び付けることである。
-関係式族からの $\qgr$、構造対象、relative Serre 関手、heart と基底変換の適合性を確認し、
-頂点・矢の座標変更の商から内在的な標識付きモジュライへの比較射を構成する。
-証明用に選ぶ小さい開集合と、全 Weyl 標識を保持する飽和した定義域を区別する。
+第一の課題は、有限 Weyl 商 $[U/W]$ の複素点での比較を、
+実際の相対 $\mathcal O$-marked moduli との比較へ進めることである。
+相対 corner の同値と基底変換適合性は第\ref{sec:relative-corners}節で得たが、
+AOU 族の必要な基底変換後の noetherian 性、相対 Serre 関手、
+flat tails と相対 perfect 対象との比較を確認する必要がある。
+また Weyl--Morita 比較の相対 exact 性、比較同型の存在と coherence、
+任意の族の同値の局所的認識を示して、群oidの比較を族の比較にする。
 
-第二に、相対スカラー群による rigidification を行える条件を確認し、
-代数スタック性と忘却射の表現可能性を証明する。
-その後、三対象交換と標識の持上げを族で構成し、
-root のない適切な範囲での有限 \'etale 性、次数 $51840$、
-および特殊点での振舞いを調べる。
-複素点の fiber の濃度だけからこれらを推論しない。
+第二に、固定 dg 族上で得た full strong completion の \'etale 空間を用い、
+heart 適合性、very strongness、指定 rolled-up quiver 型の locus を構成する。
+Artin 底では very strongness を保つが、一般の底で無限個の消滅を開条件にするには
+系\ref{cor:q-completion-etale-locus}の一様な tail 条件などが必要である。
+相対三次元 Calabi--Yau completion と rolled-up End の比較を明示的に構成し、
+源が全 $Q$-marking を尽くす範囲と、構成した有限 Weyl chart の範囲を同定する。
+商モデルの有限 \'etale 性は証明済みだが、全内在的忘却射の有限性はこの比較なしに推論しない。
 
-第三に、最小の $\mathcal O$-marked cubic における構造対象の例外性と
+第三に、中心的正則切断を持たない最小 $\mathcal O$-marked cubic の例外性と
 標準 full very strong collection の存在を調べ、忘却像を決定する。
-既知の弱 heart 内での差は命題\ref{prop:o-marking-defect-comparison}の欠損で測れるが、
-欠損が正の構造対象の実例も、その一般的非存在も本稿では結論していない。
+中心楕円因子を持つ既知の AOU heart では最小構造対象の例外性は証明済みである。
+その外で欠損が正の構造対象の実例も、その一般的非存在もまだ結論していない。
 零次数 root 型単純対象、部分的な線束実現集合、全 GIT 境界と他の OU quiver 型は
 個別の障害を確認しながら扱う。
 中心楕円因子のない抽象的な弱 heart 全体での
@@ -324,20 +396,18 @@ $\wedge^3T_X=0$なので$\HH^3=0$。
 \path{computations/verify_weyl_frames.py}、
 静的参照検査は \path{scripts/verify_unmark_bundle.py} である。
 計算は数値恒等式を検算するもので、線束の存在やheartの同定の証明ではない。
-今回の追加証明では、最小の構造対象の公理とその帰結、
-数値的 Riemann--Roch を使わない helix の heart 認識、
-最小 rolled-up quiver からの Euler 形式の復元、
-モジュライ群oidの $2$-fiber と慣性、構造対象の欠損比較、
-および exact 自己同値の数値作用の忠実性を論理点検した。
-既存の root affine 反射、三対象交換、中心楕円因子・corner による heart 比較、
-代数族の線束存在・自己同値等化子と許容 Artin fiber の証明は、仮定を明示して保持する。
-今回、代数族の線束存在の主要な依存関係も点検したが、
-保持した既存証明すべてを新たに独立再査読したという意味ではない。
+中心切断による自己 Ext 消滅、九つの corner の同時認識、
+構造対象を保つ導来同値の exact 性、相対 corner と基底変換、
+許容 Artin モデルでの持上げと full strong completion の \'etale 性、
+有限 Weyl 有理作用と複素点の商比較について証明を記載し、論理点検を行う。
+既存の構造対象・quiver の認識、線束の一意性、root 反射、
+very-general な線束存在と自己同値像、許容 Artin fiber の有効な証明は保持する。
+今回の独立点検の具体的な範囲は検証記録に記し、
+保持したすべての証明を新たに独立再査読したとは扱わない。
 数値上の有限探索では27本の $(-1)$ 類の網羅性、72個の六組、
 $51840$ 個の順序付き標識、単純反射の Coxeter 関係を検算する。
 数値計算は圏内での exactness や存在を証明するものではなく、
 それらは本文の証明によって確認する。
-保持した既存証明すべての独立再査読を実施したという意味でもない。
 検証状況は \path{research/unmark_validation.json} に記す。
 \begin{thebibliography}{99}
 \bibitem{AZ} M. Artin, J. J. Zhang,
@@ -407,6 +477,17 @@ Invent. Math. 167 (2007), 615--667,
 \href{https://doi.org/10.1007/s00222-006-0025-y}{doi:10.1007/s00222-006-0025-y};
 \href{https://arxiv.org/abs/math/0408337}{arXiv:math/0408337v7}.
 参照: Theorem 7.2(2)、Corollary 7.6（quasi-functor の双加群表示）。
+\bibitem{ToenVaquie} B. To\"en, M. Vaqui\'e,
+\emph{Moduli of objects in dg-categories},
+Ann. Sci. \'Ec. Norm. Sup\'er. (4) 40 (2007), no. 3, 387--444,
+\href{https://doi.org/10.1016/j.ansens.2007.05.001}{doi:10.1016/j.ansens.2007.05.001};
+\href{https://arxiv.org/abs/math/0503269}{arXiv:math/0503269v5}.
+参照: Corollaries 3.15, 3.17, 3.21, 3.22（対象スタック、接複体、単純対象の gerbe）。
+\bibitem{LieblichComplexes} M. Lieblich,
+\emph{Moduli of complexes on a proper morphism},
+J. Algebraic Geom. 15 (2006), no. 1, 175--206,
+\href{https://arxiv.org/abs/math/0502198}{arXiv:math/0502198v2}.
+参照: Theorem 3.1.1（相対複体の障害理論）、Corollary 4.3.3（単純複体の gerbe）。
 \bibitem{GinzburgCY} V. Ginzburg,
 \emph{Calabi--Yau algebras},
 \href{https://arxiv.org/abs/math/0612139}{arXiv:math/0612139}.
@@ -416,7 +497,11 @@ Invent. Math. 167 (2007), 615--667,
 \href{https://stacks.math.columbia.edu/tag/057G}{Tag 057G},
 Lemma 37.38.5（指定点を通る smooth 射の \'etale slice）；
 \href{https://stacks.math.columbia.edu/tag/0436}{Tag 0436}（stackification の普遍性）；
-\href{https://stacks.math.columbia.edu/tag/04V2}{Tag 04V2}（rigidification とその仮定）。
+\href{https://stacks.math.columbia.edu/tag/04V2}{Tag 04V2}（rigidification とその仮定）；
+\href{https://stacks.math.columbia.edu/tag/0BDK}{Tag 0BDK}（perfect 複体の指定階数・次数への集中）；
+\href{https://stacks.math.columbia.edu/tag/0616}{Tag 0616}（局所有限表示かつ形式 \'etale な代数空間の射）；
+\href{https://stacks.math.columbia.edu/tag/04UV}{Tag 04UV}（torsor による quotient stack の記述）；
+\href{https://stacks.math.columbia.edu/tag/07S7}{Tag 07S7}（有限局所自由群の自由作用のスキーム商）。
 \bibitem{DGK} I. Dolgachev, B. van Geemen, S. Kond\=o,
 \emph{A complex ball uniformization of the moduli space of cubic surfaces
 via periods of K3 surfaces},

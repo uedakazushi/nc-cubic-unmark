@@ -1,10 +1,10 @@
 # 研究ノート：構造対象・quiver 標識・モジュライ fiber
 
-2026-11-19 / unmark-v13。最初に `00_research_plan.md` を読む。論文に証明のある事項はラベルを参照し、ここでは再開に有用な要点・障害・補助的観察を保持する。
+2026-11-19 / unmark-v14。最初に `00_research_plan.md` を読む。論文に証明のある事項はラベルを参照し、ここでは再開に有用な要点・障害・補助的観察を保持する。
 
 ## 構造対象と quiver 標識の辞書
 
-基準はA=A_ac=qgr R_O、H=S^{-1}[2]。比較する別の表面heartはAS heartのみ。O-markingは内在的定義の構造対象を指定する。rank1 torsion-free、AZ豊富性、反標準Hilbert級数を要求し、例外性・smooth proper性・数値格子は最小定義に足さない（`def:o-marked-cubic`）。既存のweak標識/許容線束は例外性等を備えた比較用部分である。最小公理から例外性が従うかは未解決。
+基準はA=A_ac=qgr R_O、H=S^{-1}[2]。比較する別の表面heartはAS heartのみ。O-markingは内在的定義の構造対象を指定する。rank1 torsion-free、AZ豊富性、反標準Hilbert級数を要求し、例外性・smooth proper性・数値格子は最小定義に足さない（`def:o-marked-cubic`）。既存のweak標識/許容線束は例外性等を備えた比較用部分である。中心的正則切断を持つ既知weak/RR heartでは最小構造対象の例外性を証明したが、中央切断のない一般の最小公理の問題は残る。
 
 Qには順序付きラベル、先頭頂点1、非負cut次数を固定する。有限foundation R=End(T)とrolled-up B=⊕_{n≥0}Hom(T,H^nT)を区別する。B0=Rで、元の矢はcut0、周期を越える逆矢はcut1。augmentation m=rad R⊕B_{>0}について、矢はm/m²を最小生成する。無限BのJacobson radicalを使わない。I⊂arrowideal²である最小斉次表示kQ/Iの存在を要求し、表示同型・矢の基底・関係の代表・potentialの座標は標識データにしない（`def:q-marking`）。
 
@@ -20,13 +20,13 @@ x=(A,O)を固定する。Mark_Q(A,O)は同じAの中でE1≅Oを満たすcollect
 
 `thm:q-o-fiber-groupoids`：基礎点との同定を保持する2-fiberは非交和 ⨿_{Mark_Q} B((C×)^{ell−1})。rigidifiedな2-fiberは離散Mark_Q。π0のfiberはG_x\Mark_Qで、G_x=Aut_ex(A,O)。基礎点との同定を保持したfiberをさらにG_xで割らない。raw Qの絶対慣性は相対torusとG_x内のmarking安定化群の中央拡大（`prop:q-marking-scalar-inertia`）。一般の分裂やglobal積gerbeは未証明。
 
-標準Q存在+(R0)ならMark_QはW(E6)-torsor。raw fiberは51840個のB(Gm^8)、rigidified fiberは51840点、π0のfiberはΓ_O\Wで51840/|Γ_O|点（`cor:standard-q-o-weyl-fibers`）。この点数からfamilyの有限étale性を推論しない。étale siteで相対enhanced圏・heart・平坦対象・Serre/basechangeを指定しstackificationを取る定義は `def:relative-marked-moduli`。全内在的対象を含むモデル、代数性、相対rigidificationの仮定は未確認。
+標準Q存在+(R0)ならMark_QはW(E6)-torsor。raw fiberは51840個のB(Gm^8)、rigidified fiberは51840点、π0のfiberはΓ_O\Wで51840/|Γ_O|点（`cor:standard-q-o-weyl-fibers`）。この点数からfamilyの有限étale性を推論しない。étale siteで相対Abel圏とperfect部分圏、平坦対象・Serre/basechangeを指定しstackificationを取る定義は `def:relative-marked-moduli`。全内在的対象を含むモデルと、構成した有限商との相対比較は未確認。
 
 ### 数値的に自明な exact 自己同値
 
-`prop:q-numerical-auto-faithful` は標準Q存在+(R0)でAut_ex(A)→Aut(Knum,χ)が単射であると示す。数値的に恒等のFは九線束を固定し、Rの各頂点を保つ自己同型を誘導する。全係数非零関係により十八矢のscalingはvertex scaling、従ってinnerに限られる。Fはexactなので標準dg quotientへliftし、tilting後のMorita bimodule XはF(T)≅Tから次数0に集中する。H0Xがinner-twisted regularなのでX≃Rとなる。一般のabstract triangulated自己同値への主張ではない。
+`prop:q-numerical-auto-faithful` は標準Q存在と、(R0)またはcanonical九対象のline性+全関係係数非零からAut_ex(A)→Aut(Knum,χ)が単射であると示す。数値的に恒等のFは九線束を固定し、Rの各頂点を保つ自己同型を誘導する。全係数非零関係により十八矢のscalingはvertex scaling、従ってinnerに限られる。Fはexactなので標準dg quotientへliftし、tilting後のMorita bimodule XはF(T)≅Tから次数0に集中する。H0Xがinner-twisted regularなのでX≃Rとなる。一般のabstract triangulated自己同値への主張ではない。
 
-この結果でG_x≅Γ_O⊂Wとなり、標識集合への作用が自由になる。rigidified Q対象の絶対慣性は自明、raw Q対象の絶対慣性はGm^8（`cor:standard-q-absolute-inertia`）。very generalにΓ_A=ZKという既存の結果と合わせるとAut_ex(A)=〈H〉≅Z、G_x=1（`cor:very-general-q-o-groupoids`）。先頭を忘れる第二の写像のΛ/ZKは、例外的構造対象の部分についての結果である。
+この結果でG_x≅Γ_O⊂Wとなり、標識集合への作用が自由になる。rigidified Q対象の絶対慣性は自明、raw Q対象の絶対慣性はGm^8（`cor:standard-q-absolute-inertia`）。very generalにΓ_A=ZKという既存の結果と合わせるとAut_ex(A)=〈H〉≅Z、G_x=1（`cor:very-general-q-o-groupoids`）。中央楕円因子locusでは下記の全構造対象例外性が成立するため、第二の写像のΛ/ZKは全最小構造対象の結果となる。
 
 ### 表示の商と標識の忘却を区別する
 
@@ -36,7 +36,21 @@ G_18=(Gm)^18による矢の基底変更は九射影のK0を固定し、幾何学
 
 ### 最小構造対象と欠損
 
-既存のweak/RR heart内の最小構造対象Oについてδ=D²/2−ch₂≥0、Ext¹(O,H^mO)=2δ (m≥0)（`prop:o-marking-defect-comparison`）。δ=0、例外性、正自己twist消滅、旧許容線束が同値。I_pは自己Homの反標準Hilbert級数がO_Xと同じでもExt¹self=2であり、負twistからの射が全てpのidealを通るためO_Xを生成できず、AZ豊富性に失敗する（`rem:o-ideal-sheaf-test`）。従ってI_pは最小O公理から例外性を導けないことの反例ではない。次はAZ生成とδ>0が本当に両立するかを調べる。
+既存のweak/RR heart内の最小構造対象Oについてδ=D²/2−ch₂≥0、Ext¹(O,H^mO)=2δ (m≥0)（`prop:o-marking-defect-comparison`）。δ=0、例外性、正自己twist消滅、旧許容線束が同値。I_pは自己Homの反標準Hilbert級数がO_Xと同じでもExt¹self=2であり、負twistからの射が全てpのidealを通るためO_Xを生成できず、AZ豊富性に失敗する（`rem:o-ideal-sheaf-test`）。従ってI_pは最小O公理全体の反例ではない。
+
+`lem:central-section-self-vanishing` はz:id→H^a、z_HM=Hz_M、z_O単射という追加データからtail self Ext¹=0を導く。固定全射H^aO→coker zへのAZ Hom全射はzのeventual単射性、各固定拡大へのAZ Hom全射はzの各元上の局所冪零性を与える。pullbackとpushoutの同一視にはzの自然性をDb上に延長し、H周期との両立を使う。この二条件を省いて、任意の切断の冪で同じ議論ができるとは扱わない。数値RRはtail消滅からδ=0へ戻す段階だけに必要である。
+
+正則中心元gを持つqgr Rでは、gで消される対象は高次数tailでR/gRの有限和の商となりrank0。そのため任意rank1tf対象のg-kernelはA1に属して零となる（`prop:central-ring-all-structures-exceptional`）。候補Oを先にlineと仮定しない。実際の中心楕円因子locusではStr₃=Line_adm（`cor:aou-all-structures-exceptional`）。中央切断の存在自体は最小公理から未導出であり、そのない場合のδ>0は未決着である。
+
+## 相対標識と completion の moduli
+
+非正則Artin RではA_RとD_R⊂Db(A_R)を別に指定する（`def:admissible-artin-dg-model`）。A_Rはflat Grothendieck Abel変形のnoetherian部分、D_Rはrelative smooth proper perfect圏。考慮するflat noetherian持上げがD_Rに入ることもモデル仮定。Perf(P^n_R)の標準例外束はPerfを生成するが、非R-perfect coherent対象まで含むDbは生成しない。flat coherent対象だけの部分圏も一般にAbelでない。この区別は既存Artin/Weyl/AZ証明にも適用する。
+
+`thm:artin-exceptional-lift` の対象持上げはLowenのflat dual（障害Ext²、差Ext¹）を使用する。相対RHomのperfect Nakayamaはstrongnessとvery strongnessを保存し、有限threadのfullnessは後ろからのevaluation coneで証明する。Artin底では無限個の組に一つずつNakayamaを適用してよいが、一般底で無限個の開条件の共通部分が開とは限らない。rawな持上げ群oidはB((1+I)^(ell−1))、rigidified忘却はArtin形式étale（`cor:q-o-artin-formal-etale`）。
+
+固定smooth proper dg族上ではTVのsimple object stackとscalar gerbeを用い、exceptional locus→full strong locusを開条件で切り出す（`thm:full-strong-completion-etale`）。同型類のétale sheafificationがétale algebraicspaceを与える。底の線束捩れは局所的に同型でも大域的には同型とは限らず、普遍対象やgerbeの中立性を主張しない。有限性・準コンパクト性・分離性も未結論。very strong/Q locusにはheart平坦性の開性、一様tail閾値、相対Q型条件を追加する（`cor:q-completion-etale-locus`）。
+
+相対最小quiverはHom階数だけで決まらない。R=C[ε]/ε²上、三矢a:1→2,b:2→3,c:1→3に関係ba=εcを課すと代数は自由rank6だがaugmentation a/a²のc成分はR/(ε)。標準AOU foundationの18矢9関係はR³→R²の全射と自由kernelで保存できる。rolled-up27矢にはrelative Serre--CY completion比較写像を構成する必要がある。次は相対対角解消をdualし、各cut次数のperfect比較と特殊fiberの同型からArtin Nakayamaを適用する。単に『Kellerをrelativeに適用する』だけでは比較写像の確認を代用しない。
 
 ## 線束分類と反標準再構成
 
@@ -108,6 +122,26 @@ AZ豊富性はcornerの有限生成から負O-twistによる全射を得て、ve
 
 `prop:elliptic-divisor-length-recognition` では単純対象Mへのgの作用H^{-1}M→Mを調べる。同型ならHilbert多項式が周期的なのでr=d=0。零なら十分高いtailがgで消され、曲線商cohYの単純対象、従って点層から来るので同じ結論を得る。有限組成列の加法性によってA0⊂{r=d=0}となり、既知の逆包含と合わせてA0={r=d=0}。この証明でHilbert定数が必ず一となるのはgで消されるsimpleであり、g可逆のsimpleの定数には同じ結論を課していない。中心因子のない抽象weak heartへの一般化は残る。`cor:root-simple-off-divisor` は、曲線の点層の非零self Ext¹をexact fully faithfulなj_*が保つことを用い、gで消されるsimpleはrigidなroot型にならないと示す。拡大が像で分裂すればfullnessで分裂射が戻るため、Ext¹の単射性は導来full faithfulnessを仮定せずに得られる。従ってroot simpleにはgが可逆に作用する。
 
+`prop:aou-all-corner-lines` は全九頂点にcorner-openを同時に課す。可換点b0で各E_vは線束なので九つとも成立し、その有限交差をU_ellと交差しても非空。e_vCe_vは楕円線束のHomからなる整域、e_vBe_vは正則中心元による整域持上げ。各E_vでHilbert/例外性/豊富性を確保した後にrank認識を適用する。この順序により(R0)を仮定せず、非空開U_allの全canonical対象が許容lineとなる。別のincomingな任意Q列のline性は同時には証明していない。
+
+### 相対 corner の到達点
+
+`prop:relative-cofinite-corner` はC-noetherian上の局所有限次数代数に同じ証明を適用し、torsionを高次数零の有限生成加群として扱う。Be右eBe有限生成とeB左eBe有限生成を両方確認し、Torのe消滅からqgrでexactになる。`prop:relative-corner-basechange` の通常tensorは、各次数で十分高くなれば同型である射を保つためSerre局所化へ降りる。非平坦底変更の関手自体がexactだとはしない。
+
+固定底のC-linear exact同値は有限表示C-moduleとのtensorに可換なので、内在的C-flat性を保つ。ただしこの事実だけから、任意の底変更後にもflatとなることを推論しない。族の系では『考慮する全底変更で内在的flat』を普遍flatとして用いる。Bの右noetherian性は各fiberでなく全必要basechange後を仮定する。AOU族への適用に残るのはrelative楕円Hom代数と正則中心元からこのnoetherian性を示すことであり、cornerの高次数零条件自体は既に任意底変更で保たれる。
+
+## 有理 Weyl 作用と代数的商 chart
+
+`thm:weyl-birational-action`：普遍有限代数R/T8上で三対象を有界射影複体として直接構成し、K=C(T8)上の定義を確保する。全係数非零関係Σλ_j f_j u_j=0にλを入れて三項複体のd²=0を厳密にする。finite RHomの指定階数、fullness、各R³→R²の全射とkernelの全係数非零を有限開条件として課す。Euler行列だけでquiverを認識しない。
+
+八つの正規化不変量がf_sを与え、very-generalなroot-free点の同一heartで交換を繰り返してCoxeter等式を得る。途中パラメータが初めのheartのproof-openへ入るとは仮定せず、tiltingで輸送した既存heartを使う。s²=idからdominance、Coxeterから右W作用 t·w=f_w(t), f_v∘f_w=f_wv。Aut(X)=1の可換点で作用の忠実性を確認する。ここはverystrong無限条件を一つの開へ置き換える議論ではない。
+
+有限群についてVを共通定義域とし、U=⋂_w(V∩f_w^{-1}(V))を取る。群法則と分離性により全f_wがUを保つ。さらにaffine開の有限個のtranslateを交差して安定affine開を得る（`lem:finite-birational-stable-open`）。これによりU→[U/W]は有限étale torsor、次数51840（`thm:weyl-finite-etale-chart`）。固定点があっても商stackへの射はétaleだが、coarse quotientへの射は別。有限個の非恒等元の固定点集合を除けば自由作用のscheme quotientになる。
+
+U⊂U_allに取り、有限個wのtilting比較を同時に広げる。Oを保つ導来同値はSerreと可換で、反標準Homのheart検出からt-exact（`cor:o-pointed-derived-exact`）。全canonical対象がlineなので、任意のexact O同値が運ぶ九対象のframeはWで記述され、line一意性とtorus完全不変量からv=u·w。そのfunctorも数値的忠実性で一意。従って[U/W](C)≃UのO-familyのfull essential image、Aut_ex(A_u,O_u)=Stab_W(u)（`prop:weyl-chart-point-comparison`）。この比較は全点(R0)を必要としない一方、全intrinsicQ-sourceの網羅性を結論しない。
+
+相対比較の具体的な次の案：perfect Morita bimodule P_wの合成とP_wvのrelative RHomを作り、先頭O上のHomへの評価を調べる。very-general fiberでpointed自然同型が存在し一意なので、汎用点上の評価が同型なら1を逆に引き、有限個(w,v)のcone supportと分母を除いて自然同型を広げられる可能性がある。先頭で正規化した中心が自明なら三元coherenceは一意性から従う。ただしrelative RHomのperfect性・basechange、評価の汎用点同型、相対heart/descentを確認する必要があり、この案は未証明として残す。複素fiberの同型存在だけから大域同型があるとは扱わない。
+
 ## very general な代数族への移行
 
 `thm:very-general-line-existence` の族仮定は明示的：滑らかな既約底全体の有限局所自由代数、固定vertex projectives、相対perfect RHom・反Serre作用と底変更、稠密開Uと可換基準点b0でのweak反標準heartと数値格子。b0∈Uは不要であり、全底点にheartを用意する必要もない（`rem:generic-heart-dense-domain`）。標準AOU relation torusでは普遍45次元・gldim2の有限代数と `cor:actual-aou-weak-heart` によって入力を確認できる。
@@ -170,6 +204,10 @@ Hoffmann–Reede, Torsion-free rank one sheaves over del Pezzo orders, J.Algebra
 
 有限AOU resolutionの追加一次資料：Keller, Deformed Calabi–Yau completions, arXiv:0908.3499, Theorems4.8/6.10（本稿は変形パラメータ零）。Ginzburg, Calabi–Yau algebras, arXiv:math/0612139, Proposition5.1.9/Corollary5.4.3。Kellerのerratum arXiv:1809.01126は一般の変形パラメータの負巡回持上げ条件を扱うため、ここでは未変形completionのTheorem4.8を入力とする。Toda arXiv:math/0502571, Proposition5.6/Lemma5.8/§6では核の自己Extを介したHochschild作用と一次障害の比較を確認した。
 
-本版で重点的に照合した一次資料：AOU §§4.2–4.5/§5の有限quiver・rolled-up quiverとrelation/potential商、OU2025 Definition1.1(3)/§5とRemark5.4のmarking・periodic展開、OU2020 (18)–(22)のcompletion。Keller arXiv:0908.3499 §6.9/Theorem6.10の未変形completionから最小関係への逆矢を使用。Keller, On differential graded categories, ICM2006 Vol.II pp151–190, arXiv:math/0601185v5 §4.4/Thm4.8のdg quotientと、Toën, The homotopy theory of dg-categories and derived Morita theory, Invent.Math.167(2007)615–667, DOI10.1007/s00222-006-0025-y, arXiv:math/0408337v7 Thm7.2(2)/Cor7.6のMorita表示を数値自己同値忠実性に使用。Stacks Tag0436はstackificationの普遍性、Tag04V2は既に代数的なstackの平坦慣性部分群のrigidificationの仮定確認に使用し、代数性を先取りしない。
+quiver認識・数値忠実性の一次資料：AOU §§4.2–4.5/§5の有限quiver・rolled-up quiverとrelation/potential商、OU2025 Definition1.1(3)/§5とRemark5.4のmarking・periodic展開、OU2020 (18)–(22)のcompletion。Keller arXiv:0908.3499 §6.9/Theorem6.10の未変形completionから最小関係への逆矢を使用。Keller, On differential graded categories, ICM2006 Vol.II pp151–190, arXiv:math/0601185v5 §4.4/Thm4.8のdg quotientと、Toën, The homotopy theory of dg-categories and derived Morita theory, Invent.Math.167(2007)615–667, DOI10.1007/s00222-006-0025-y, arXiv:math/0408337v7 Thm7.2(2)/Cor7.6のMorita表示を数値自己同値忠実性に使用。Stacks Tag0436はstackificationの普遍性、Tag04V2は既に代数的なstackの平坦慣性部分群のrigidificationの仮定確認に使用し、代数性を先取りしない。
+
+相対completionの一次資料：Toën–Vaquié, Moduli of objects in dg-categories, Ann.Sci.Éc.Norm.Supér.(4)40(2007),387–444, DOI10.1016/j.ansens.2007.05.001, arXiv:math/0503269v5、Cor3.15/3.17/3.21/3.22。本文はarXiv PDFと著者公開出版版 https://www.math.univ-toulouse.fr/~vaquie/marque/vaquie_AnnEns40.pdf を照合。Lieblich, Moduli of complexes on a proper morphism, J.AlgebraicGeom.15(2006),175–206, arXiv:math/0502198v2、Thm3.1.1/Cor4.3.3は可換proper flat族の対照入力であり、任意nc圏にそのまま適用しない。Lowen math/0407019のIntroductionがTheoremAのflat dualを明記する。Stacks https://stacks.math.columbia.edu/tag/0616 はalgebraicspaceのlfp+formalétale⇔étale、Tag0BDKはperfect複体の指定次数・階数locus、Tag04UVはtorsorによるquotientstack、Tag07S7は自由有限局所自由群作用のscheme商。いずれも一次本文で適用仮定を確認した。
+
+中央切断の証明はAZ Cor7.5に依存せず、最小定義のeventual Hom全射を二度使う。Polishchuk math/0212182v4 §2のample/projective sequence定義は高次Ext消滅を含めない。Yekutieli–Zhang, Serre duality for noncommutative projective schemes, Proc.AMS125(1997),697–707、著者稿 https://www.math.bgu.ac.il/~amyekut/publications/nc-serre/paper.pdf のThms2.2(b),2.3(1b),2.4もχを別条件として使う。Serre functor存在からχ全体が従うと読み替えない。新規の中心切断導出と有理W作用の一般的新規性は未確認。AOU §2.3の古典的Weyl商と§5のrelation torus商は一次本文で確認したが、T8全体の本稿の有理作用を同論文の定理として引用していない。
 
 当該版の計算・組版などの実行状況と限界は `research/unmark_validation.json` を参照。本文の証明、独立点検、数値検算、配布物の生成・保存は別の状態として扱う。

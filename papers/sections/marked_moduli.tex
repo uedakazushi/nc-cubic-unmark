@@ -311,13 +311,20 @@ $\OO_X$ を保つ条件は線束捩れを自明にするので $G_x\cong\Aut(X)$
 \label{def:relative-marked-moduli}
 複素数体上のスキームの \'etale site を用い、
 以下を備えた相対圏の $2$-fibered category $\mathscr C$ を一つ指定する。
-底 $S$ 上の対象は、$S$ 線型 enhancement、指定された heart とその平坦対象、
-相対 Serre 関手および $H_S$、perfect な相対 Hom と導来底変更を持つものとする。
+底 $S$ 上の対象は、指定された Abel 圏 $\mathcal A_S$ とその平坦対象、
+$D^b(\mathcal A_S)$ 内の $S$ 線型な相対 perfect dg 部分圏 $\mathcal D_S$、
+および両者の比較を持つものとする。
+相対 Serre 関手、perfect な相対 Hom と導来底変更は $\mathcal D_S$ 上で要求する。
+$H_S$ は $\mathcal A_S$ 上の exact 自己同値で、$\mathcal D_S$ 上の
+相対逆 Serre 関手の二シフトに適合するものとする。
 基底変換の整合性をデータに含め、構造対象と例外列の成分は
-全ての基底変換後に指定した相対対象であることを要求する。
+平坦かつ相対 perfect で、全ての基底変換後に指定した相対対象であることを要求する。
 各幾何学的 fiber は本稿の対応する $\mathcal O$-marking または $Q$-marking の公理を満たす。
 一般の底変更を heart 全体の exact 関手であるとは要求せず、
 enhancement 上の導来底変更と標識対象の平坦性を使う。
+非正則な底で $\mathcal D_S=D^b(\mathcal A_S)$ とは要求せず、
+有限 thread の相対 fullness は $\mathcal D_S$ の厚生成と解釈する。
+この区別は第\ref{sec:relative-marked-deformations}節で具体化する。
 
 この指定された相対モデルの上で、定義\ref{def:o-moduli-groupoid}と
 定義\ref{def:q-moduli-groupoids}を $S$ 線型に行い、
@@ -348,6 +355,10 @@ $\Spec\mathbb C$ の \'etale 被覆は分裂するので、相対モデルが与
 これらの相対条件を必要とする代数スタックの rigidification を区別する。
 既知の rigidification 定理\cite[Tag 04V2]{Stacks}は、代数スタックと適切な平坦慣性部分群を
 構成した\emph{後}に適用するものである。
+固定 smooth proper dg 族上で full strong completion だけを考える場合には、
+定理\ref{thm:full-strong-completion-etale}がこの構成を与える。
+very strongness、指定 heart、相対最小 $Q$ 表示まで加えるには
+系\ref{cor:q-completion-etale-locus}の開条件を別に確認する。
 
 標準 AOU 関係式・potential の商は族を構成する具体的な候補となるが、
 それを式\eqref{eq:relative-q-o-morphism}の始域と同定するには、

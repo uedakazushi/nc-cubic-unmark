@@ -1,0 +1,384 @@
+\section{相対 perfect 圏における標識の変形と \'etale 性}
+\label{sec:relative-marked-deformations}
+
+本節では、固定した族の中の例外対象の変形と、非可換三次曲面の族そのものの
+モジュライを区別する。前者には Lowen と To\"en--Vaqui\'e の対象変形理論を
+適用できる。これにより、適切な相対モデルにおける標識の忘却は
+Artin 形式的に \'etale となる。また固定 smooth proper dg 族上の
+full strong completion は、スカラーを除けば実際に \'etale な代数空間をなす。
+very strongness と指定 quiver 型まで含む開部分の存在は、別に確認すべき条件である。
+これらは対象変形理論の応用であり、対象の剛性自体について新規性を主張しない。
+
+\subsection{Abel 圏と相対 perfect 部分圏}
+
+\begin{definition}[許容 Artin モデル]
+\label{def:admissible-artin-dg-model}
+剰余体 $\kk=\mathbb C$ を持つ局所 Artin 代数 $R$ について、次のデータを用いる。
+\begin{enumerate}
+\item $\widetilde{\mathcal A}_R$ は Lowen の意味で平坦な Grothendieck Abel 変形で、
+その noetherian 対象の部分圏を $\mathcal A_R$ とする。
+特殊 fiber は固定した $\widetilde{\mathcal A}_{\kk}=\operatorname{Ind}(\mathcal A_{\kk})$ であり、
+小拡大に沿う制限も平坦な Abel 変形である。
+\item $D^b(\mathcal A_R)$ 内に、$R$ 線型かつ idempotent complete な
+相対 perfect dg 部分圏 $\mathcal D_R$ を指定する。
+これは $R$ 上 smooth proper で、$\mathcal D_0\simeq D^b(\mathcal A_{\kk})$ と同定される。
+選んだ底変更に沿って dg 圏の導来底変更が与えられ、
+任意の $P,Q\in\mathcal D_R$ について相対 $\RHom_R(P,Q)$ は perfect で、
+その形成は導来底変更と両立する。
+本節で考慮する平坦な noetherian 対象の持上げは、すべて $\mathcal D_R$ に属することを
+追加条件として要求する。任意の smooth proper 部分圏に対してこの包含を推論しない。
+例えば有限 Tor 次元を持つ noetherian 複体の dg 圏がこれらの条件を満たす場合が該当する。
+\item $H_R$ は $\mathcal A_R$ の $R$ 線型 exact 自己同値で、平坦対象を保ち、
+$\mathcal D_R$ 上では相対 Serre 関手の逆の二シフトである。
+$H_R$ とその全冪は指定した底変更と両立する。
+\item $\OO_R\in\mathcal A_R\cap\mathcal D_R$ は平坦な構造対象である。
+構造対象として要求する豊富性その他の相対公理は、このモデルの条件として別に指定する。
+以下の持上げ定理は、それらの公理を任意の dg 変形から導く主張ではない。
+\end{enumerate}
+異なる底の間の同値は、これらのデータと整合する exact Abel 同値とその dg 誘導を用いる。
+\end{definition}
+
+ここで有限 thread が \emph{相対的に full} であるとは、
+$\mathcal D_R$ を厚生成することをいう。
+非正則な $R$ 上で $\mathcal D_R=D^b(\mathcal A_R)$ を要求しない。
+例えば $R=\kk[\varepsilon]/(\varepsilon^2)$ 上の $\mathbb P^n_R$ では、
+標準例外束は $\operatorname{Perf}(\mathbb P^n_R)$ を生成するが、
+有限 Tor 次元を持たない coherent 対象まで厚生成することはできない。
+また平坦な coherent 対象だけの部分圏は一般に Abel 圏でない。
+従って本節の $\mathcal A_R$ を $\mathcal D_R$ の標準 heart と呼ばず、
+両者とその比較を別々のデータとして保持する。
+無限 helix による Abel 圏の $\mathbb Z$-生成性や AZ 豊富性も、
+有限 thread の相対 fullness とは異なる条件である。
+
+\begin{lemma}[Artin 底上の perfect Nakayama]
+\label{lem:artin-perfect-nakayama}
+$R$ を局所 Artin 代数とし、$C\in\operatorname{Perf}(R)$ とする。
+$C\otimes_R^{\mathbf L}\kk$ の cohomology が次数零に集中し、
+その次元が $d$ なら $C\simeq R^{\oplus d}[0]$ である。
+特に特殊 fiber が零なら $C=0$ である。
+定義\ref{def:admissible-artin-dg-model}の $P\in\mathcal D_R$ について、
+$P\otimes_R^{\mathbf L}\kk=0$ なら $P=0$ である。
+\end{lemma}
+\begin{proof}
+$C$ を有限自由加群の有界複体で表す。
+微分行列に単元があれば、対応する contractible な二項直和因子を消去できる。
+この操作を繰り返すと微分の全成分が極大イデアルに入る極小複体となる。
+その剰余体上の微分は零なので、仮定から次数零以外の項はなく、
+次数零の階数は $d$ である。
+後半には $C=\RHom_R(P,P)$ を適用する。
+底変更によりその特殊 fiber は零であり、従って $\operatorname{id}_P=0$ となる。
+\end{proof}
+
+\subsection{例外列の持上げと有限 thread の生成性}
+
+\begin{theorem}[固定許容変形上の例外列の持上げ]
+\label{thm:artin-exceptional-lift}
+定義\ref{def:admissible-artin-dg-model}の許容モデルを取り、
+$\mathbb E_0=(E_{1,0},\ldots,E_{\ell,0})$ を
+$\mathcal A_{\kk}$ に属する full strong exceptional collection とする。
+$E_{1,0}=\OO_0$ とし、第一成分の持上げには既に指定された $\OO_R$ を用いる。
+このとき以下が成り立つ。
+\begin{enumerate}
+\item 各 $E_{i,0}$ は $R$-flat な $E_{i,R}\in\mathcal A_R\cap\mathcal D_R$ に持ち上がり、
+その同型類は一意である。特殊化の同型を指定しても、持上げの同型類は一つである。
+\item $\mathbb E_R$ は相対 full strong exceptional collection であり、
+\[
+ R\xrightarrow{\sim}\RHom_R(E_{i,R},E_{i,R}),\qquad
+ \RHom_R(E_{j,R},E_{i,R})=0\quad(j>i).
+\]
+すべての成分間 Hom は有限自由 $R$-加群で、任意の高次または負の Ext は零である。
+特に $A_R:=\End_R(\bigoplus_iE_{i,R})$ は有限自由 $R$-代数で、
+$\mathcal D_R\simeq\operatorname{Perf}(A_R)$ である。
+\item $E_{i+\ell,0}=H_0E_{i,0}$ で定める helix が very strong なら、
+$E_{i+\ell,R}=H_RE_{i,R}$ で定める相対 helix も very strong である。
+\item 小拡大 $R'\twoheadrightarrow R$ の核を $I$ とする。
+固定した $\mathbb E_R$ とその特殊化同定を持つ持上げ群oidで、第一成分を
+$\OO_{R'}$ に固定し、第一成分の射を恒等射とすれば、その群oidは
+\begin{equation}\label{eq:artin-raw-lift-gerbe}
+ B\bigl((1+I)^{\ell-1}\bigr)
+\end{equation}
+に同値である。各成分のスカラーを除いた持上げ群oidは終対象に同値である。
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+$R'\twoheadrightarrow R$ が $\mathfrak m_{R'}I=0$ を満たす小拡大の場合から始める。
+平坦対象の持上げについて Lowen\cite[Theorem A の平坦対象への双対形]{Lowen}を用いると、
+障害と持上げ同型類の差はそれぞれ
+\[
+ \Ext^2_{\mathcal A_{\kk}}(E_{i,0},E_{i,0})\otimes_\kk I,
+ \qquad
+ \Ext^1_{\mathcal A_{\kk}}(E_{i,0},E_{i,0})\otimes_\kk I
+\]
+に属する。両者は exceptionality により零である。
+Ind-completion 内で得る平坦持上げは noetherian でもある。
+実際、その有限 $\mathfrak m_{R'}$-adic filtration の各商は
+$E_{i,0}$ の有限直和である。
+第一成分には指定された平坦持上げ $\OO_{R'}$ を使えばよい。
+小拡大への分解に沿って帰納すると、すべての局所 Artin 底について第一の主張を得る。
+これは対象持上げの既知の障害理論の適用であり、指定 heart の持上げを
+導来圏の形式的な剛性だけから推論しているのではない。
+
+相対 Hom 複体に補題\ref{lem:artin-perfect-nakayama}を適用すると、
+strongness と半直交性、および Hom の有限自由性を得る。
+自己 Hom への単位写像 $R\to\RHom_R(E_{i,R},E_{i,R})$ の cone も
+特殊 fiber が零の perfect 複体だから零である。
+
+fullness を確認する。任意の $M\in\mathcal D_R$ に対し、
+$i=\ell,\ell-1,\ldots,1$ の順に評価射
+\[
+ E_{i,R}\otimes_R^{\mathbf L}\RHom_R(E_{i,R},M)\longrightarrow M
+\]
+の cone を取る。properness により係数複体は $\operatorname{Perf}(R)$ に属し、
+各評価項は $E_{i,R}$ の厚生成部分圏に属す。
+半直交性から、この操作で既に消した $E_{j,R}$ からの Hom は再び現れない。
+最終 cone $N$ は全 $E_{i,R}$ の右直交に入る。
+底変更後も右直交に入り、$\mathbb E_0$ の fullness から $N_0=0$ となる。
+補題\ref{lem:artin-perfect-nakayama}により $N=0$ である。
+評価 triangle の塔に戻ると $M\in\operatorname{thick}(E_{1,R},\ldots,E_{\ell,R})$ を得る。
+tilting Morita 同値はこの生成性と strongness による。
+この議論が生成するのは $\mathcal D_R$ であり、$R$ 上有限 Tor 次元を持たない対象は含まない。
+また $A_R$ の相対 smoothness と、その通常の大域次元が有限であることは同じではない。
+
+第三の主張では、各 $i<j$ に対して
+$\RHom_R(E_{i,R},E_{j,R})$ の特殊 fiber が次数零に集中する。
+$H_R$ と相対 Hom の底変更を用い、同じ補題を一組ずつ適用すればよい。
+無限個の組に同時に適用しているが、底は一つの閉点を持つ Artin スキームであり、
+開近傍を無限回縮める操作はしていない。
+
+最後に $\Aut(E_{i,R})=R^\times$ であり、
+$(R')^\times\to R^\times$ は全射、その核は $1+I$ である。
+持上げは存在し、その同型類は一つだから、第一成分を固定した相対持上げ群oidの
+自己同型群は $(1+I)^{\ell-1}$ である。
+これで式\eqref{eq:artin-raw-lift-gerbe}を得る。
+\end{proof}
+
+\subsection{有限 foundation と rolled-up quiver の保存}
+
+\begin{lemma}[標準有限 foundation の相対表示]
+\label{lem:relative-aou-foundation}
+前定理の特殊 fiber が標準 AOU 三ブロック collection であるとする。
+このとき $A_R$ は十八矢を持つ有向 cut quiver の道代数を、
+各第一・第三ブロック頂点対について一つずつの二次関係
+\[
+ \rho_{ki,R}=\sum_{j=1}^3\lambda_{kji,R}b_{kj}a_{ji}
+\]
+で割った代数に同型である。
+関係式空間は各頂点対で階数一の直和因子であり、
+特殊 fiber の全係数が非零なら全 $\lambda_{kji,R}$ は単元である。
+この表示には矢と関係式の基底選択を用いるが、その選択は標識に加えない。
+\end{lemma}
+\begin{proof}
+前定理から、隣接ブロック間の Hom は階数一、
+第一から第三ブロックへの Hom は階数二であり、残りの成分も特殊 fiber と同じ階数を持つ。
+各頂点対の合成写像 $R^3\to R^2$ は特殊 fiber で全射だから全射である。
+その核は階数一の直和因子であり、$R$ が局所環なので自由である。
+選んだ核の生成元を $\rho_{ki,R}$ とすれば、特殊 fiber で非零の係数は単元となる。
+有向 quiver に長さ三以上の道はなく、これらの関係式で割った代数は階数 $45$ の自由加群である。
+$A_R$ への自然な全射は同じ階数の自由加群間の同型となる。
+\end{proof}
+
+\begin{remark}[最小 quiver の保存に必要な入力]
+\label{rem:relative-quiver-not-automatic}
+一般の有限 quiver では、Hom の階数が一定であることだけから最小矢数の保存は従わない。
+例えば $R=\kk[\varepsilon]/(\varepsilon^2)$ とし、
+$a:1\to2$、$b:2\to3$、$c:1\to3$ に対して
+$RQ/(ba-\varepsilon c)$ を考える。
+これは頂点と三矢を基底とする自由 $R$-加群だが、augmentation ideal を $\mathfrak a_R$ とすると、
+$\mathfrak a_R/\mathfrak a_R^2$ の $c$ 成分は $R/(\varepsilon)$ である。
+特殊 fiber の最小三矢表示を、そのまま相対的な最小表示とみなすことはできない。
+
+標準 AOU 型の rolled-up 表示まで得るための十分条件は、
+相対 Serre--tilting 比較と相対三次元 Calabi--Yau completion の比較
+\begin{equation}\label{eq:relative-cy-comparison-condition}
+ \bigoplus_{n\ge0}\RHom_R(T_R,H_R^nT_R)
+ \simeq\Pi_{3,R}(A_R)
+ \simeq\Gamma_R\!\left(Q_{\rm AOU},\sum_{i,k}c_{ik}\rho_{ki,R}\right)
+\end{equation}
+が、completion 次数と augmentation を保って成り立つことである。
+ここで $\Gamma_R$ は右辺の三次 potential の Ginzburg dg 代数を表す。
+体上の比較は命題\ref{prop:aou-quiver-euler-recognition}で用いた既知の構成である。
+本節では、Artin 底上で式\eqref{eq:relative-cy-comparison-condition}を満たすことを
+追加の比較条件として明記する。
+これが成り立てば前定理の very strongness によって左辺は次数零に集中し、
+零次 cohomology を取ることで
+\[
+ B_{\mathbb E_R}\simeq
+ RQ_{\rm AOU}/\left(\partial\sum_{i,k}c_{ik}\rho_{ki,R}\right)
+\]
+を得る。potential は語長三であり、全ての関係は語長二なので、
+二十七矢は augmentation ideal の二乗を法として自由な基底を与える。
+従って指定 cut と頂点を保つ相対最小 quiver 型も保存される。
+この比較条件を取り除く具体的な課題は、
+定理\ref{thm:universal-directed-family}の長さ二の相対対角双加群解消を双対化し、
+Keller の tensor-algebra 構成の比較写像を局所 Artin 底上で構成することである。
+各固定 completion 次数の perfect 複体について、その比較写像の特殊 fiber が
+quasi-isomorphism であれば、perfect Nakayama により相対比較が従う。
+\end{remark}
+
+\begin{corollary}[標識忘却の Artin 形式 \'etale 性]
+\label{cor:q-o-artin-formal-etale}
+定義\ref{def:admissible-artin-dg-model}の許容変形問題に制限し、
+特殊 fiber に heart 適合な $Q$-marking があるとする。
+相対 $Q$ 条件には、定義\ref{def:relative-marked-moduli}のように幾何学的 fiber 上の条件を用いるか、
+相対最小表示を要求する場合にはその保存条件を加える。
+標準 AOU 型では式\eqref{eq:relative-cy-comparison-condition}が後者の十分条件である。
+この範囲で任意の Artin 小拡大 $R'\twoheadrightarrow R$ に対し、
+\begin{equation}\label{eq:q-o-artin-lifting-equivalence}
+ \mathcal P^{Q,\mathrm{rig}}(R')\longrightarrow
+ \mathcal P^{Q,\mathrm{rig}}(R)
+ \mathop{\times}_{\mathcal P^{\OO}(R)}\mathcal P^{\OO}(R')
+\end{equation}
+は群oidの同値である。ここでは fiber 積を $2$-fiber 積とし、
+両側で同じ許容モデルと同値の規約を用いる。
+raw な標識については、固定した持上げ問題の群oidは
+式\eqref{eq:artin-raw-lift-gerbe}であり、スカラーを除く前の忘却射は形式非分岐ではない。
+\end{corollary}
+\begin{proof}
+右辺の対象は、$R$ 上の標識と、その $\OO$-marked 圏の $R'$ 上の許容持上げである。
+第一成分を $\OO_{R'}$ に固定して前定理を適用すると、他の成分が一意に持ち上がる。
+fullness、strongness、very strongness は同定理により保存される。
+幾何学的 fiber だけの $Q$ 条件は冪零厚化によって変わらず、
+相対表示を要求する場合は明示した比較条件を用いる。
+これで本質的全射性を得る。
+
+与えられた $\OO$-marked 同値 $F$ に沿って標識を輸送すると、
+$F(E_{i,R'})$ と行き先の $E'_{i,R'}$ は同じ $R$ 上の対象の平坦持上げとなる。
+持上げ一意性から成分ごとの同型が存在する。
+rigidified 群oidではその同型を選ばず存在だけを要求するので、
+元の $\OO$-marked 射の上の射は一つである。
+これが完全忠実性を与える。
+raw な場合に残る自己同型は前定理の最後の主張である。
+\end{proof}
+
+この系の「Artin 形式 \'etale」は式\eqref{eq:q-o-artin-lifting-equivalence}という意味であり、
+一般のスキーム上のスタックが代数的かつ局所有限表示であることを含まない。
+特に、これだけから有限 \'etale 射の存在を結論しない。
+
+\subsection{固定 dg 族上の実際の \'etale completion 空間}
+
+\begin{theorem}[full strong completion の \'etale 空間]
+\label{thm:full-strong-completion-etale}
+$S$ を複素数体上のスキームとする。
+$\mathcal D_S$ は底変更に両立する smooth proper な相対 perfect dg 圏の族で、
+\'etale 局所的に smooth proper な dg 代数の perfect 圏として与えられるとする。
+その Morita 模型の生成対象は任意の底変更後も生成対象となるものとする。
+$\OO_S$ は相対例外対象、すなわち
+$\mathcal O_S\simeq\RHom_S(\OO_S,\OO_S)$ とする。
+
+$\OO_S$ を第一成分とする順序付き長さ $\ell$ の
+full strong exceptional completion のスタックを
+$\mathscr C^{\rm fs}_{\OO/S}$ とする。
+第一成分の同型は固定し、残りの成分には通常の対象同型を取る。
+このスタックは $S$ 上局所有限表示の代数スタックであり、
+\begin{equation}\label{eq:strong-completion-gerbe-etale}
+ \mathscr C^{\rm fs}_{\OO/S}\longrightarrow
+ C^{\rm fs}_{\OO/S}\longrightarrow S
+\end{equation}
+という因子化を持つ。
+第一の射は $\mathbb G_m^{\ell-1}$-gerbe、第二の射は \'etale な代数空間の射である。
+$C^{\rm fs}_{\OO/S}$ は成分ごとの同型類の前層の \'etale sheafification を表す。
+この定理は $C^{\rm fs}_{\OO/S}\to S$ の有限性、準コンパクト性または分離性を主張しない。
+\end{theorem}
+\begin{proof}
+主張は底の \'etale 局所で示せるので $S=\Spec A$ とし、
+指定した smooth proper dg 代数の対象スタックを用いる。
+To\"en--Vaqui\'e\cite[Corollaries 3.15, 3.21, 3.22]{ToenVaquie}により、
+単純対象のスタックは局所有限表示の Artin スタックで、
+その同型類の \'etale 層は局所有限表示の代数空間であり、
+両者の間の射は \'etale 局所自明な $\mathbb G_m$-gerbe である。
+相対例外性は単位射
+$\mathcal O\to\RHom(E,E)$ の perfect な cone の消滅条件なので開条件である。
+従って相対例外対象にも同じ主張が成り立つ。
+
+この例外対象の代数空間は $S$ 上形式 \'etale である。
+実際、square-zero 拡大のイデアルを $J$ とすると、
+対象の持上げの障害、差、無限小自己同型はそれぞれ
+$\Ext^2(E,E\otimes J)$、$\Ext^1(E,E\otimes J)$、$\Ext^0(E,E\otimes J)$ による。
+dg 対象に対するこの障害理論は
+To\"en--Vaqui\'e\cite[Corollary 3.17 とその直前]{ToenVaquie}の
+接複体 $\RHom(E,E)[1]$ による。
+例外性から前三者はそれぞれ $0,0,J$ となる。
+最後の $J$ はスカラー慣性の接空間であり、同型類の層では除かれる。
+従って持上げは局所的に存在して一意であり、その一意性により降下する。
+局所有限表示と形式 \'etale 性から \'etale 性を得る
+\cite[Tag 0616]{Stacks}。
+
+第一成分を固定して、残り $\ell-1$ 個の例外対象空間の fiber 積を取る。
+有限個の相対 Hom の消滅と Tor 振幅 $[0,0]$ は開条件であり、
+半直交性と strongness はこの開部分で成り立つ。
+これらの条件は各対象を底の線束で捩っても変わらないので、
+対象スタックから rigidified 空間へ降下する。
+
+fullness もこの場合は有限個の操作で開条件として検出できる。
+底変更後も生成対象となる $G$ を一つ固定し、前定理と同じ順序で
+有限回の評価 cone を取り、最終 cone を $N_G$ とする。
+ある幾何学的点で列が full なら $(N_G)_s=0$ である。
+$\RHom(N_G,N_G)$ は perfect なので、ある開近傍で零となり、
+そこで $N_G=0$ である。
+評価 triangle の塔から $G$ が列の厚生成部分圏に属し、従って列は full となる。
+逆に列が full なら右直交にある $N_G$ は零である。
+この有限の判定も線束捩れに不変であり、full strong locus を開部分として与える。
+\'etale 射の開部分は \'etale である。
+各成分の単位スカラーは任意の底変更で全自己同型を与え、
+第一成分のスカラーは固定同型により消えるので、残る gerbe の band は
+$\mathbb G_m^{\ell-1}$ である。
+\end{proof}
+
+\begin{remark}[線束捩れと gerbe]
+\label{rem:relative-scalar-gerbe}
+一般の底 $T$ では、$E_i$ と $E_i\otimes_{\mathcal O_T}\mathcal L_i$ は
+大域的に同型でなくても、線束 $\mathcal L_i$ を自明化する被覆上では同型である。
+従って rigidified 空間の $T$-点を、大域的対象の同型類だけで置き換えることはできない。
+また式\eqref{eq:strong-completion-gerbe-etale}の gerbe の中立性は主張しない。
+普遍対象は \'etale 局所には存在するが、大域的存在には gerbe の自明化が必要である。
+局所 Artin 底に固定した特殊対象を持ち上げる場合は
+定理\ref{thm:artin-exceptional-lift}が実際の持上げを与え、
+その中のスカラーの核が式\eqref{eq:artin-raw-lift-gerbe}に現れる。
+可換な proper flat 族に対する同じ障害理論と単純複体の gerbe は
+Lieblich\cite[Theorem 3.1.1, Corollary 4.3.3]{LieblichComplexes}にも明示されている。
+この可換スキーム上の定理だけを、任意の非可換 dg 圏へ適用しているのではない。
+\end{remark}
+
+\begin{corollary}[$Q$-completion の \'etale locus の十分条件]
+\label{cor:q-completion-etale-locus}
+前定理の固定族に、指定された Abel 圏の族、平坦対象との比較、
+底変更と両立する exact $H_S$ を加える。
+$C^{\rm fs}_{\OO/S}$ のある開部分で、次の条件を満たすとする。
+\begin{enumerate}
+\item 成分が指定 heart に属する平坦対象であることが、底変更に両立する開条件として与えられる。
+\item ある整数 $N$ があり、その開部分の全幾何学的 fiber において、
+helix の $1\le i\le\ell$、$j-i>N$ に対する
+$\Hom^p(E_i,E_j)=0$、$p\ne0$ が一様に成立する。
+\item 指定された相対最小 $Q$ 表示の存在が、この部分上で開条件として与えられる。
+例えば、有限局所自由な矢・関係式加群による相対表示と
+式\eqref{eq:relative-cy-comparison-condition}が構成され、
+必要な非退化条件が有限個の行列の階数または単元条件で表される場合である。
+\end{enumerate}
+このとき、これらの条件と very strongness を満たす rigidified $Q$-completion は
+$C^{\rm fs}_{\OO/S}$ の開代数空間となり、$S$ 上 \'etale である。
+raw completion からの射は $\mathbb G_m^{\ell-1}$-gerbe である。
+\end{corollary}
+\begin{proof}
+$H_S$ と底変更の両立により、very strongness の検査では
+最初の添字を $1,\ldots,\ell$ に正規化できる。
+第二条件が $j-i>N$ の全消滅を保証するので、残るのは有限個の相対 perfect Hom の
+Tor 振幅 $[0,0]$ という開条件だけである。
+他の二条件と合わせた開部分に前定理を制限すればよい。
+\end{proof}
+
+この系の第二条件を仮定せず、無限個の消滅開集合の共通部分を
+自動的に開と扱うことはできない。
+また、相対的な最小 quiver 表示と、すべての幾何学的 fiber が同じ quiver 型であることは
+注意\ref{rem:relative-quiver-not-automatic}の理由で区別する。
+定義\ref{def:relative-marked-moduli}のモジュライ上でこの系を用いるには、
+各試験族への $2$-引戻しが実際にここで構成した completion スタックになること、
+および exact Abel 同値の降下を確認する必要がある。
+
+最後に、\'etale 射が有限であることは点の個数だけからは従わない。
+例えば上の $Q$-completion の射について、別に properness が証明できれば、
+\'etale 射は局所準有限なので有限 \'etale となる。
+その全幾何学的 fiber が系\ref{cor:standard-q-o-weyl-fibers}の標準 root-free な場合に属し、
+非空なら、次数は $|W(E_6)|=51840$ である。
+さらにこれを $W(E_6)$-torsor と呼ぶには、相対標識変更による群作用と
+その単純推移性を別に構成しなければならない。
+本節は、これらの大域的有限性と Weyl 作用を未証明のまま仮定に含めて結論することはしない。

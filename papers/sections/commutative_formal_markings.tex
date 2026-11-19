@@ -58,6 +58,11 @@ $\widehat{\Cw}$ は許容弱標識付き変形の同型類集合を取る関手�
 相対perfect対象のRHom底変更、exactな$H_R$およびその底変更を仮定する。
 これらを満たす変形を本節の\emph{許容相対変形}と呼ぶ。
 全ての抽象dg変形にこれらのheart条件が自動的に備わるとはしない。
+有限threadの相対fullnessは、指定された相対perfect部分圏
+$\mathcal D_R\subset D^b(\mathcal A_R)$の厚生成を意味する。
+非正則Artin底で全$D^b(\mathcal A_R)$の厚生成を主張せず、
+無限helixのAbel生成性とは区別する
+（定義\ref{def:admissible-artin-dg-model}）。
 
 \begin{theorem}[構造対象の形式的な選択]\label{thm:formal-structure}
 滑らかな三次曲面$X$の許容相対変形$\mathcal A_R$と$L\in\Pic(X)$に対し、
@@ -79,7 +84,13 @@ $m\ge0$の次数0集中と所定rank、$m<0$の$H^0$消滅が持ち上がる。
 
 豊富性の確認も必要である。任意のnoetherian対象$M$は
 $\mathfrak m_R$による有限filtrationを持ち、その商は特殊ファイバーの対象である。
-flatな$H_R^{-n}L_R$に対する導来底変更と古典的Serre消滅から、
+特殊fiberの対象の包含を$i_*$とすると、flatな$P_R=H_R^{-n}L_R$に対する導来随伴は
+\[
+ \RHom_{\mathcal A_R}(P_R,i_*N)
+ \simeq\RHom_{\mathcal A_{\kk}}(P_R\otimes_R^{\mathbf L}\kk,N)
+\]
+を与える。これは$N$が$R$-perfectであることを要求しない。
+この随伴と古典的Serre消滅から、
 十分大きな$n$でこの各商への高次Extが零になる。
 有限filtrationの長完全列により$M$についても同じ消滅が成立する。
 $M/\mathfrak m_RM$への古典的生成全射を持ち上げると、
@@ -107,9 +118,13 @@ miniversal底は$\operatorname{Spf}\kk[[q_1,\ldots,q_8]]$である。
 標準九対象はline bundleの完全強例外列で、先頭は$\OO_X$である
 \cite[(4.1), (9.44)]{AOU}。各対象は定理\ref{thm:formal-structure}と同じ障害消滅で
 一意に持ち上がる。相対Homのperfect底変更から強例外性とHomのflat性を得る。
+相対perfect部分圏のfullnessは、定理\ref{thm:artin-exceptional-lift}の
+有限回の評価coneとperfect Nakayamaの議論によって保たれる。
 標準helixは$\mathbb Z$-生成geometric helixである。
 De Deken--Lowen\cite[Theorems 4.5, 5.13, 5.15]{DDL}をInd-completionで適用すると、
 helixの生成性と持上げ、Abel圏・helix代数・有限threadの変形の比較を得る。
+ここで無限helixの生成性はAbel圏の$\mathbb Z$-生成性であり、
+有限threadが非perfect対象まで厚生成するという意味ではない。
 ここでは同定した$H_R$がheartを保つことを許容相対条件に含めているので、
 単なる導来同値からheartの同一性を推論してはいない。
 反標準部分列の豊富性と切断数は前定理の証明で保持される。
@@ -125,9 +140,10 @@ $\HH^1=\HH^3=0$、$\dim\HH^2=8$は命題\ref{prop:hh}による。
 特殊ファイバーを $\operatorname{coh}X$ と同定した許容相対変形 $\mathcal A_R$ と、
 $L\in\Pic(X)$ の一意な持上げ $L_R$ を固定する。
 定理\ref{thm:formal-weyl}の証明で用いる相対 perfect 底変更と helix の持上げ・生成の
-条件を満たす範囲で、次の標識を数える：九対象は flat な相対線束であり、
+条件を満たす範囲で、次の標識を数える：九対象は flat かつ相対 perfect な線束であり、
 特殊ファイバーの九対象は rank-one torsion-free で、AOU の三ブロック Euler 型を持ち、
 先頭は $L_R$ である。対象ごとの同型で同一視し、圏の自己同値では割らない。
+その相対fullnessは$\mathcal D_R$について理解する。
 この集合は $X$ の通常の格子標識の集合と全単射であり、$W(E_6)$-torsor となる。
 この固定圏上の主張には $\Aut(X)=1$ を仮定しない。
 \end{corollary}

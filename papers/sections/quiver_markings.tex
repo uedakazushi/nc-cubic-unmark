@@ -335,13 +335,18 @@ heart 所属だけは、より一般的に命題\ref{prop:o-helix-heart-recognit
 全ての内在的 $\mathcal O$-marked cubic に同じ認識定理が成り立つことや、
 全ての quiver 型の fiber が $W(E_6)$ で尽くされることは主張しない。
 
-\subsection{root がない場合の数値的自己同値作用の忠実性}
+\subsection{線束標識からの数値的自己同値作用の忠実性}
 \begin{proposition}[標準 $Q$ 型における数値的自己同値の核]
 \label{prop:q-numerical-auto-faithful}
 $\mathcal O$-marked cubic $(\mathcal A,\OO)$ が
 $E_1\cong\OO$ を満たす $Q_{\rm AOU}$-marking を一つ持ち、
-系\ref{cor:q-marking-numerical-inputs}で得た数値表示について
-零次数 root の非存在条件\eqref{eq:no-zero-root}を満たすとする。
+次のいずれかを満たすとする。
+\begin{enumerate}
+\item 系\ref{cor:q-marking-numerical-inputs}で得た数値表示について
+零次数 root の非存在条件\eqref{eq:no-zero-root}が成立する。
+\item 選んだ九対象がすべて線束であり、その有限 End 代数は
+式\eqref{eq:aou-q-relations}の全関係係数が非零の表示を持つ。
+\end{enumerate}
 同じ heart $\mathcal A$ の $\mathbb C$ 線型 exact 自己同値を自然同型で割った群について、
 数値作用
 \[
@@ -359,8 +364,10 @@ $E_1\cong\OO$ を満たす $Q_{\rm AOU}$-marking を一つ持ち、
 固定した $\OO$ 上の順序付き $Q_{\rm AOU}$-marking の集合に自由に作用する。
 \end{proposition}
 \begin{proof}
-系\ref{cor:q-marking-numerical-inputs}と
-定理\ref{thm:aou-helix-line-recognition}により、選んだ九対象 $E_i$ は線束対象である。
+第一の仮定の場合、系\ref{cor:q-marking-numerical-inputs}と
+定理\ref{thm:aou-helix-line-recognition}により、選んだ九対象 $E_i$ は線束対象であり、
+補題\ref{lem:rootfree-aou-presentation}により全関係係数は非零である。
+第二の場合はこの二条件を直接仮定している。以下ではこの二条件だけを使う。
 $K_0^{\rm num}$ に自明に作用する exact 自己同値 $F$ を取る。
 exact 同値は Gabriel--Krull filtration、rank-one torsion-free 性と例外性を保つので、
 $F(E_i)$ も線束対象である。
@@ -368,7 +375,7 @@ $F(E_i)$ も線束対象である。
 これらの同型を選ぶと、$T=\bigoplus_iE_i$ に対する
 $R=\End(T)$ の各原始冪等元を保つ代数自己同型 $\varphi$ が得られる。
 
-補題\ref{lem:rootfree-aou-presentation}により、$R$ は
+$R$ は
 式\eqref{eq:aou-q-relations}の全ての係数 $\lambda_{kji}$ が非零の表示を持つ。
 隣接ブロック間の Hom 空間は一次元だから、ある非零スカラーで
 \[

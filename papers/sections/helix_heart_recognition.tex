@@ -74,6 +74,31 @@ $\mathcal H^k(C)=0$ ($k\ne0$) と同値であり、結論を得る。
 ここでは Hilbert 多項式による対象の検出を用いていない。
 \end{proof}
 
+\begin{corollary}[構造対象を保つ導来同値の exact 性]
+\label{cor:o-pointed-derived-exact}
+二つの $\mathcal O$-marked cubic $(\mathcal A,\OO)$、
+$(\mathcal A',\OO')$ が式\eqref{eq:o-positive-self-vanishing}を満たすとする。
+例えば、それぞれに構造対象を先頭とする very strong helix があればよい。
+$\mathbb C$-線形 triangle 同値
+\[
+ F:D^b(\mathcal A)\xrightarrow{\sim}D^b(\mathcal A'),
+ \qquad F(\OO)\cong\OO'
+\]
+は指定 heart に関して $t$-exact であり、
+$\mathcal A\simeq\mathcal A'$ という exact 同値を制限として与える。
+\end{corollary}
+\begin{proof}
+Serre 関手の一意性から $F\mathsf S\cong\mathsf S'F$、従って
+$FH\cong H'F$ である。任意の $C\in D^b(\mathcal A)$ に対し
+\[
+ \Hom(\OO,H^nC[k])
+ \cong\Hom(\OO',(H')^nF(C)[k]).
+\]
+補題\ref{lem:o-ample-serre-vanishing}の heart 検出を両側に適用すれば
+$C\in\mathcal A$ と $F(C)\in\mathcal A'$ が同値となる。
+bounded な標準 $t$-structure はその heart で決まるので結論を得る。
+\end{proof}
+
 \begin{proposition}[構造対象を先頭に持つ very strong helix]
 \label{prop:o-helix-heart-recognition}
 $(\mathcal A,\OO)$ を $\mathcal O$-marked cubic とする。

@@ -1,0 +1,350 @@
+% !TeX root = ../nc-cubic-unmark.tex
+\section{Weyl 標識変更の有理作用と有限 \'etale chart}
+\label{sec:weyl-moduli-chart}
+
+本節では、全係数非零の有限関係式の torus
+$T=T_Q\simeq(\mathbb G_m)^8$ 上に $W=W(E_6)$ の忠実な有理作用を構成する。
+その非空な安定開部分から、次数 $51840$ の有限 \'etale 射を持つ商 stack を得る。
+この代数的な商の構成と、内在的な圏のモジュライとの比較は別の主張である。
+後者については、全九対象の線束認識と構造対象を保つ導来比較の exact 性を用い、
+複素点の\emph{群oid}まで同定する。一般の基底上の比較は本節の結論に含めない。
+
+\subsection{関数体上で定義される三対象交換}
+
+補題\ref{lem:aou-fullsupport-torus}の正規化切断により、$T$ 上に階数 $45$ の
+普遍有限代数 $\mathscr R$ を取る。
+第\ref{sec:aou-universal}節の積の規約と逆の場合には反対代数を用い、ここでは
+\[
+ \Hom_{\mathscr R}(e_i\mathscr R,e_j\mathscr R)
+ =e_j\mathscr R e_i
+\]
+が頂点 $i$ から $j$ への道を表す規約に固定する。
+九つの右射影対象を
+\[
+ \mathbb P=(L,A,B;X_1,X_2,X_3;Y_1,Y_2,Y_3)
+\]
+と記し、$L=e_1\mathscr R$ を先頭とする。
+この節の $B$ は九対象の一つであり、代数の記号ではない。
+$K=\mathbb C(T)$ と置く。
+
+単純反射 $s_1,s_2,s_4,s_5,s_6$ は、
+系\ref{cor:weyl-one-move}で指定した同一ブロック内の対象の交換で与える。
+残る $s_3$ の構成を明示する。
+矢 $u_j:B\to X_j$ と $f_j:X_j\to Y_1$ に対する普遍関係を
+\[
+ \sum_{j=1}^3\lambda_j f_ju_j=0
+\]
+と書く。正規化切断上では $\lambda_j$ は全て可逆な正則関数である。
+$u=(\lambda_1u_1,\lambda_2u_2,\lambda_3u_3)^{\mathsf t}$、
+$f=(f_1,f_2,f_3)$ と置けば、$fu=0$ は $\mathscr R$ 加群の射として厳密に成り立つ。
+次の有界射影複体を定める：
+\begin{equation}\label{eq:universal-cross-complexes}
+ \begin{aligned}
+ B'&=\operatorname{Cone}(X_1\oplus X_2\xrightarrow{(f_1,f_2)}Y_1)[-1],\\
+ Y'_1&=\operatorname{Cone}
+       (B\xrightarrow{(\lambda_1u_1,\lambda_2u_2)^{\mathsf t}}X_1\oplus X_2),\\
+ X'_3&=[B\xrightarrow{u}X_1\oplus X_2\oplus X_3\xrightarrow{f}Y_1].
+ \end{aligned}
+\end{equation}
+最後の複体は次数 $-1,0,1$ に置く。
+新しい九対象は
+\[
+ \mathbb P^{s_3}=(L,A,B';X_1,X_2,X'_3;Y'_1,Y_2,Y_3)
+\]
+である。全て $T$ 上の複体として既に定義され、従って $K$ 上にも定義される。
+幾何学的汎用点で存在する対象を一意性だけで $K$ へ降下する議論は用いていない。
+
+\begin{lemma}[有限 End 代数の型を保つ開条件]
+\label{lem:weyl-cross-finite-open}
+各単純反射 $s$ について、全ての滑らかな可換三次曲面の標識点を含む開部分
+$D_s\subset T$ 上で、$\mathbb P^s$ は full strong exceptional collection であり、
+その有限 End 代数は十八矢・九つの全係数非零の二次関係を持つ。
+この代数の正規化不変量により正則射
+\[
+ f_s:D_s\longrightarrow T
+\]
+が定まる。関数体上では、$f_s$ の値に対応する有限代数から
+$\mathscr R_K$ への tilting Morita 比較が得られ、その先頭対象の像は $L_K$ である。
+\end{lemma}
+\begin{proof}
+ブロック内の交換の場合も含め、$\mathbb P^s$ の成分間の相対 RHom は
+底 $T$ 上の perfect 複体である。
+これは式\eqref{eq:universal-cross-complexes}が有界射影複体であり、
+射影対象間の Hom が有限局所自由であることから直接従う。
+各成分の RHom が次数零に集中し、その階数が標準行列 $C_Q$ の指定値となる条件は、
+有限個の開条件である\cite[Tag 0BDK]{Stacks}。
+可換標識点では定理\ref{thm:rootfree-cross-reflection}の交換そのものなので、
+これらの条件は全て満たされる。
+
+fullness も有限個の条件で確保できる。
+固定射影生成対象 $G=\bigoplus_i e_i\mathscr R$ に対し、九対象を後ろから順に用いて
+相対評価の cone を取る。得られる perfect 複体は可換標識点で零である。
+その零 locus は開であり、そこで $G$ は新九対象により thick 生成される。
+この議論は定理\ref{thm:very-general-line-existence}の有限 thread に対する
+fullness の議論と同じであり、無限個の helix 条件を用いない。
+
+さらに各第一・第三ブロックの組 $(i,k)$ について、積写像
+\[
+ \bigoplus_{j=1}^3
+ \Hom(P^s_{U_i},P^s_{V_j})\otimes
+ \Hom(P^s_{V_j},P^s_{W_k})
+ \longrightarrow \Hom(P^s_{U_i},P^s_{W_k})
+\]
+の全射性を課す。これは階数三から階数二の束への写像の開条件である。
+核は直線束であり、その三つの成分への射が全て非零、従って局所的に単元である条件も開である。
+可換標識点では補題\ref{lem:rootfree-aou-presentation}により成立する。
+
+これらの条件を課した共通開部分を $D_s$ とする。
+新 End 代数の radical は対角より上の成分であり、その二乗は
+第一ブロックから第三ブロックへの成分を尽くす。
+従って radical を二乗で割った空間は隣接ブロック間の十八本の矢だけからなる。
+長さ二の九つの道空間にはそれぞれ一本の関係があり、長さ三の道はない。
+このように、Euler 階数だけでなく積写像の全射性も確認することで、
+最小有限 quiver と全係数非零の関係式を認識できる。
+
+隣接 Hom の基底を局所的に選んで関係係数を取る。
+式\eqref{eq:aou-torus-invariants}の八つの不変量は基底変更で変わらないから、
+局所射は $D_s\to T$ に貼り合わされる。
+$K$ 上では各一次元 Hom と関係直線の基底を $K$ 上で選べる。
+補題\ref{lem:aou-fullsupport-torus}の正規化も単元の積と逆数だけで行うので、
+得られる有限代数同型と tilting 比較は $K$ 上に定義される。
+先頭対象 $L$ は交換していない。
+\end{proof}
+
+\subsection{Coxeter 関係と安定開部分}
+
+\begin{theorem}[関係式 torus 上の忠実な Weyl 有理作用]
+\label{thm:weyl-birational-action}
+上の六つの有理写像は Coxeter 関係を満たし、
+$T$ 上の忠実な右 $W(E_6)$ 有理作用を定める。
+右作用の規約を
+\begin{equation}\label{eq:weyl-rational-right-action}
+ t\cdot w=f_w(t),\qquad f_v\circ f_w=f_{wv}
+\end{equation}
+とする。各 $w$ の関数体上の tilting 比較は先頭 $L$ を保ち、
+ある非空開部分へ広げられる。
+\end{theorem}
+\begin{proof}
+定理\ref{thm:actual-aou-very-general}により、Zariski 稠密な複素点集合で
+指定された反標準 heart、全数値線束、零次数 root の非存在、
+標準九対象の線束性が得られる。
+そのような点で式\eqref{eq:universal-cross-complexes}を実行すると、
+定理\ref{thm:rootfree-cross-reflection}の線束列を得る。
+後続の交換は新 End 代数の projective をこの同じ heart の線束へ輸送して実行できる。
+従って途中のパラメータが最初に選んだ反標準 heart の証明用開部分に入ると
+仮定する必要はない。輸送した heart で次の交換と有限 End 条件を確認すればよい。
+
+特に各 $s$ の二回の交換は定義され、元の数値 frame に戻る。
+定理\ref{thm:numerical-line-uniqueness}により九対象は元と同型なので、
+八つの正規化不変量も元と同じである。
+従って $f_s\circ f_s=\mathrm{id}$ が稠密集合で成立し、有理写像の恒等式となる。
+この恒等式は $f_s$ が dominant で、その逆が $f_s$ であることも示す。
+同じ議論を有限長の Coxeter 関係の両辺に適用すれば、
+数値 frame の一致から実際の九対象の一致、従ってパラメータの一致を得る。
+これで式\eqref{eq:weyl-rational-right-action}が定まる。
+ここでは very strongness の無限個の消滅条件を一つの Zariski 開条件へ置き換えていない。
+その条件を満たす稠密集合を、有理恒等式の証明に用いている。
+
+作用の忠実性を確認するため、$\Aut(X)=1$ なる滑らかな可換三次曲面の標識点 $t_0$ を取る。
+任意の単純反射の列は、その途中も含めて可換標識点上で定義される。
+もし $f_w(t_0)=t_0$ なら、ラベル付き有限 End 代数の同型と tilting 比較から
+先頭 $\OO_X$ を保ち、数値 frame に $w$ として作用する導来自己同値を得る。
+Bondal--Orlov\cite[Theorem 3.1]{BO}により、それは
+自己同型の引戻し、線束との tensor、shift の合成である。
+$\Aut(X)=1$ と $\OO_X$ の保存から全て恒等であり、$w=1$ となる。
+従って非自明な $w$ の有理作用は恒等ではない。
+
+各 $w$ を有限個の単純反射の積で表し、その tilting 比較を合成する。
+これは $K$ 上の有限データで記述される perfect 複体と代数作用である。
+実際、左右の有限 AOU 代数は大域次元二の split な三角代数であり、
+その tensor 積の頂点単純加群は長さ高々四の射影解消を持つ。
+従って比較を表す、有限次元 cohomology を持つ有界双加群も perfect である。
+係数の分母を払って開部分へ広げ、有限 RHom の階数、代数同型、fullness の
+開条件を課せば、各 fiber で同じ tilting 比較を得る。
+先頭についての指定した同型も同時に広げられる。
+\end{proof}
+
+\begin{lemma}[有限な有理作用を正則にする安定開部分]
+\label{lem:finite-birational-stable-open}
+整で分離的な有限型多様体 $X$ に有限群 $G$ が有理に作用しているとする。
+任意の非空開部分 $X_0\subset X$ に対し、ある非空開部分 $U\subset X_0$ が存在し、
+全ての作用が $U$ の自己同型として定義される。
+$U$ は affine に取ることもできる。
+\end{lemma}
+\begin{proof}
+全ての $f_g$ の定義域と $X_0$ の共通部分の中に非空開部分 $V$ を取る。
+各 $f_g$ は birational なので dominant であり、
+\begin{equation}\label{eq:finite-stable-open-construction}
+ U=\bigcap_{g\in G}\bigl(V\cap f_g^{-1}(V)\bigr)
+\end{equation}
+は非空開部分である。
+$x\in U$ なら $f_g(x)\in V$ であり、全ての $h$ について
+$f_h(f_g(x))$ と $f_{gh}(x)$ は定義される。
+これらは $U$ 上の正則射で、汎用点で一致する。
+$X$ が分離的、$U$ が整なので $U$ 上で一致し、その値は $V$ に属す。
+従って $f_g(x)\in U$ である。
+同じ議論で群法則と逆写像が $U$ 全体で成り立つ。
+
+さらに非空 affine 開部分 $A\subset U$ を取り、
+$\bigcap_{g\in G} f_g(A)$ に置き換える。
+整性と有限性から非空であり、群法則から安定である。
+分離的スキーム内の二つの affine 開部分の交叉は affine なので、この有限交叉も affine である。
+\end{proof}
+
+\subsection{代数的な有限 \'etale chart}
+
+\begin{theorem}[有限 Weyl 商の chart]
+\label{thm:weyl-finite-etale-chart}
+$T$ の任意の非空開部分の中に、定理\ref{thm:weyl-birational-action}の右 $W$ 作用が
+正則となる非空な安定 affine 開部分 $U$ が存在する。
+その商 stack
+\[
+ \mathfrak Y_U=[U/W]
+\]
+は滑らかな八次元 Deligne--Mumford stack であり、標準射
+\begin{equation}\label{eq:finite-weyl-stack-chart}
+ U\longrightarrow\mathfrak Y_U
+\end{equation}
+は次数 $|W|=51840$ の表現可能な有限 \'etale 全射である。
+さらに $U$ の非空安定開部分上で作用は自由であり、その範囲では商はスキームである。
+\end{theorem}
+\begin{proof}
+存在は補題\ref{lem:finite-birational-stable-open}による。
+有限定数群 $W_{\mathbb C}$ は \'etale であり、quotient stack の torsor による記述
+\cite[Tag 04UV]{Stacks}を用いる。
+任意の $S\to[U/W]$ は $W$-torsor $P\to S$ と同変射 $P\to U$ で表され、
+式\eqref{eq:finite-weyl-stack-chart}の $S$ 上への引戻しは $P\to S$ である。
+これは次数 $51840$ の有限 \'etale 射なので、標準射についても同じことが従う。
+特にこの結論に $U$ 上の作用の自由性は不要である。
+$U$ は八次元の滑らかな torus の開部分だから、商 stack も滑らかな八次元である。
+
+作用は忠実なので、各 $1\ne w\in W$ の固定点 locus は $U$ の真閉部分集合である。
+その有限個の和を除いた
+\[
+ U^{\rm free}=U\setminus\bigcup_{1\ne w\in W}\operatorname{Fix}(w)
+\]
+は非空な安定開部分で、作用は自由である。
+この範囲では quotient sheaf はスキームであり、
+$U^{\rm free}\to U^{\rm free}/W$ は有限 \'etale torsor となる
+\cite[Tag 07S7]{Stacks}。
+\end{proof}
+
+式\eqref{eq:finite-weyl-stack-chart}は固定点がある場合にも有限 \'etale であるが、
+coarse quotient への射 $U\to U/W$ について同じ主張はしない。
+また、ここまでの商 stack は有限代数と Weyl 有理作用から構成したものであり、
+内在的な $\mathcal O$-marked moduli の全体を定義によりこの商と置き換えたものではない。
+
+\subsection{複素点における内在的モジュライとの比較}
+
+以下では、命題\ref{prop:aou-all-corner-lines}の非空開部分 $U_{\rm all}$ の中に
+$U$ を取り、さらに全 $w\in W$ の選んだ tilting 比較が広がる開条件を課す。
+補題\ref{lem:finite-birational-stable-open}により、これらを満たす非空安定開部分が得られる。
+各 $u\in U(\mathbb C)$ の標準対象を $\mathbb E_u$、先頭を $\OO_u$、
+指定反標準 heart を $\mathcal A_u$ と書く。
+全九対象は線束であり、有限 End 代数の関係係数は全て非零である。
+構成した比較を
+\[
+ \Phi_{w,u}:D^b(\mathcal A_{u\cdot w})\xrightarrow{\sim}D^b(\mathcal A_u)
+\]
+と取れば、先頭を保ち、数値 frame を右から $w$ で変更する。
+系\ref{cor:o-pointed-derived-exact}により、この比較は指定 heart 上の exact 同値へ制限される。
+
+\begin{proposition}[複素点の full essential image]
+\label{prop:weyl-chart-point-comparison}
+上の $U$ に対し、$\mathfrak M^{\OO}(\mathbb C)$ の中で
+$(\mathcal A_u,\OO_u)$、$u\in U(\mathbb C)$ が生成する full essential image を
+$\mathcal I_U$ とする。ここで対象はこれらと同値な $\mathcal O$-marked cubic、
+射は全ての構造対象を保つ exact 同値の自然同型類である。
+このとき複素点の群oidの同値
+\begin{equation}\label{eq:weyl-chart-point-groupoid}
+ [U/W](\mathbb C)\simeq\mathcal I_U
+\end{equation}
+がある。特に
+\[
+ \operatorname{Aut}_{\rm ex}(\mathcal A_u,[\OO_u])
+ \cong\operatorname{Stab}_W(u)
+\]
+である。$U^{\rm free}$ 上ではこの自己同値群は自明である。
+\end{proposition}
+\begin{proof}
+まず各 fiber では、全九対象の線束性と有限関係式の全係数非零性により
+命題\ref{prop:q-numerical-auto-faithful}が適用できる。
+従って数値的に自明な exact 自己同値は恒等関手と自然同型である。
+ここでは $R0$ の Zariski 開性を仮定していない。
+
+右作用の矢 $w:u\to u\cdot w$ に $\Phi_{w,u}^{-1}$ の自然同型類を対応させる。
+二つの連続する矢の合成と、積 $wv$ に対応する比較は、数値 $K$ 群への作用が等しい。
+差を取れば一つの fiber の数値的に自明な exact 自己同値となるので、
+今述べた忠実性により二つの比較は自然同型である。
+従ってこれは自然同型類を射とする群oid間の関手を与える。
+$\mathbb C$ 上の有限 \'etale torsor は分裂するから、
+右作用群oidと $[U/W](\mathbb C)$ は同値である。
+
+fullness を確認する。
+$F:(\mathcal A_u,\OO_u)\xrightarrow{\sim}(\mathcal A_v,\OO_v)$ を任意の exact 同値とする。
+$F^{-1}(\mathbb E_v)$ は $\mathcal A_u$ の線束列であり、先頭は $\OO_u$ である。
+命題\ref{prop:affine-auto-action}の Euler 格子の議論を二つの fiber の比較に適用すると、
+先頭を保つ数値作用はある $w\in W(E_6)$ によって記述される。
+具体的には Serre 作用との可換性と先頭の階数一から数値階数が保たれ、
+rank 零の商格子に誘導される交叉形式と $K$ を保つ作用が $W(E_6)$ に属す。
+
+安定性により $u\cdot w\in U$ である。
+$\Phi_{w,u}(\mathbb E_{u\cdot w})$ も線束列であり、
+$w$ を上の数値作用に合わせて選べば $F^{-1}(\mathbb E_v)$ と成分ごとに数値類が一致する。
+定理\ref{thm:numerical-line-uniqueness}により両列は成分ごとに同型である。
+従って $\mathscr R_v$ と $\mathscr R_{u\cdot w}$ はラベル付き頂点を保つ同型を持ち、
+補題\ref{lem:aou-fullsupport-torus}の完全不変量から $v=u\cdot w$ を得る。
+二つの exact 同値 $F$ と $\Phi_{w,u}^{-1}$ は同じ数値作用を持つので、
+再び数値的忠実性によって自然同型である。
+
+異なる $w$ は標準 frame に異なる作用を与えるから、対応する射の自然同型類も異なる。
+これで fully faithful である。essential surjectivity は $\mathcal I_U$ の定義による。
+構造対象の同型を射のデータに含める規約でも、補題\ref{lem:dimension-centre}と
+$\End(\OO_u)=\mathbb C$ により、その同型のスカラーの違いは自然同型で吸収される。
+従って定義\ref{def:o-moduli-groupoid}の群oidと整合する。
+\end{proof}
+
+\begin{remark}[安定性、飽和、および源の範囲]
+\label{rem:weyl-chart-saturation}
+上の証明では、単に $U$ に入る Weyl 変更だけを数えたのではない。
+有限群について式\eqref{eq:finite-stable-open-construction}を用いたので、
+任意の $u\in U$ の全 $W$ 軌道は $U$ 内にある。
+さらに、同じ正規化 torus の別の点 $v$ が指定された $\mathcal O$-marked heart と
+線束からなる canonical thread を持ち、$(\mathcal A_v,\OO_v)$ が
+$(\mathcal A_u,\OO_u)$ と exact 同値なら、前証明により
+$v=u\cdot w\in U$ である。
+従って、この線束 chart の範囲では $U$ の外から同じ対象へ再び入る余分な同値はない。
+
+他方、任意の内在的 $Q$-marking が線束列となることまで、この主張だけでは示していない。
+$R0$ を満たす fiber では定理\ref{thm:aou-helix-line-recognition}と
+定理\ref{thm:rootfree-cross-reflection}が全標準 $Q$-marking を尽くすことを保証する。
+$R0$ が不明な fiber での追加の非線束標識、全 GIT 境界、他の quiver 型については
+本節の chart と区別する必要がある。
+また raw な $Q$-marked 群oidの成分スカラー慣性 $(\mathbb G_m)^8$ は、
+式\eqref{eq:weyl-chart-point-groupoid}によって除去されるものではない。
+\end{remark}
+
+\subsection{族における比較に残る事項}
+
+式\eqref{eq:weyl-chart-point-groupoid}は複素点の群oidの同値であり、
+それだけから指定した相対モジュライ stack への射
+\[
+ [U/W]\longrightarrow\mathfrak M^{\OO}_{\mathscr C}
+\]
+やその同値を結論しない。
+この射には、$U$ 上の反標準 heart とその底変更、相対的な構造対象、
+各 $w$ の比較の相対 exact 性に加え、比較の合成に関する降下データが必要である。
+例えば自然同型
+\[
+ \Phi_w\circ f_w^*\Phi_v\xRightarrow{\sim}\Phi_{wv}
+\]
+を族上で構成し、単位と三つの元に対する coherence を確認しなければならない。
+各複素 fiber でこの自然同型が存在することから、族上の存在は自動的には従わない。
+先頭で正規化した自然中心が自明であれば、\emph{存在が示された}比較同型の
+一意性と coherence を処理できるが、その存在証明の代わりにはならない。
+
+同様に、族の任意の同値を局所的に Weyl 比較へ認識することと、
+反標準 heart の descent を確認して初めて、複素点の full essential image を
+代数 stack の full substack として同定できる。
+本節で構成した $[U/W]$ と有限 \'etale chart はこれらの未完了事項とは独立に存在し、
+相対的な比較の具体的な候補を与える。
